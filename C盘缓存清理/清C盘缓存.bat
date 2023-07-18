@@ -9,7 +9,7 @@ rd /s /q C:\Windows\Temp\*.*
 REM 创建新的临时文件夹
 if exist D:\Temp (
     echo "C盘外已存在同名缓存文件夹，跳过缓存位置调整"
-) else(
+) else (
     echo "正在创建新的缓存文件夹"
     md D:\Temp
 
