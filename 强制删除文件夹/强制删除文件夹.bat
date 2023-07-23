@@ -1,4 +1,6 @@
 @echo off
+chcp 65001
+REM 使用UTF-8编码
 set /p folder="请输入要删除的文件夹路径(不要包含引号)："
 :start
 takeown /f "%folder%" /r /d y
