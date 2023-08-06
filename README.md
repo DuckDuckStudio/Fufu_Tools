@@ -19,10 +19,13 @@
 我们不会回复任何无意义、具有侮辱性等的问题或意见。<br>
 我们不能保证此项目中的小工具在所有Windows系统上适用，请自行视情况而定，我们**不对您使用小工具所造成的任何问题负责**。<br>
 
-## 结尾废话
+## 项目公告 (2023/8/6)<br>
+我们将本项目**克隆至国内Gitee**了！详细请[点击此处](https://gitee.com/duckstudio/windows-widgets/)<br>
+
+## 结尾废话<br>
 如果您觉得本项目对您有帮助的话，请您给我们的这个项目**添加一个Star**，万分感谢。<br>
 当然，如果您对我们的其他项目感兴趣的话也可以[Fllow_us](https://github.com/DuckDuckStudio/) 或者是关注我们的[哔哩哔哩账号](https://space.bilibili.com/2054654702)。<br>
-非特殊情况下（例如作者本人发布），您**只能从[本项目的GitHub仓库](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/)获得本项目中的任何文件**。<br>
+非特殊情况下（例如作者本人发布），您**只能从[本项目的GitHub仓库](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/)或者[本项目的Gitee仓库](https://gitee.com/duckstudio/windows-widgets/)获得本项目中的任何文件**。<br>
 
 > 本说明文件使用[Markdown语法](https://markdown.com.cn/basic-syntax/)编辑。
 
