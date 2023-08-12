@@ -1,0 +1,16 @@
+@echo off
+REM 关闭回显
+chcp 65001
+REM 使用UTF-8编码
+REM 初始化完毕
+
+echo 感谢你使用本程序
+set /p file_route="请输入你要查找的目录(不用引号): "
+set /p file_format="请输入你要查找的文件类型(例如mp4): "
+
+type nul >%cd%\查找结果.txt
+for /r "%file_route%" %%a in (*.%file_format%) do (
+    >>%cd%\查找结果.txt echo %%~dpa%%~nxa
+)
+
+echo 程序运行结束，请查看程序所在目录下生成的文件！
