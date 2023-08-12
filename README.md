@@ -3,6 +3,10 @@
 当然，如果您会Batchfile的话，自己也可以做出一些新花样哦！<br>
 **如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明**。<br>
 
+## 如何获取程序<br>
+**[点击这里](https://gitee.com/duckstudio/windows-widgets/repository/archive/master.zip)下载Gitee上的最新版小工具集**<br>
+(注意：**你需要有一个Gitee账户！**)<br>
+
 ## 对于项目文件转载说明<br>
 本项目中的文件**允许**您通过符合中华人民共和国法律的方式进行转载，但除特殊说明外，转载时**需要**标注原作者（[鸭鸭「カモ」](https://duckduckstudio.github.io/yazicbs.github.io/)）。<br>
 转载项目中的文件时，**不得**私自添加收费目录，加入病毒程序等；**不得**在未经我明示同意的情况下私自对项目文件进行任何声明。<br>
