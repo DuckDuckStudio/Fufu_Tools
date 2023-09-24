@@ -3,6 +3,10 @@
 当然，如果您会Batchfile的话，自己也可以做出一些新花样哦！<br>
 **如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明**。<br>
 
+## 对于python编写的小工具<br>
+对于使用python编写的小工具前，你必须先安装`python`（这里编写使用的是`python 3.11`）并正确配置！<br>
+另，对于代码中使用到的库文件请自行安装！（可以使用`pip`安装）<br>
+
 ## 如何获取程序<br>
 **[点击这里](https://gitee.com/duckstudio/windows-widgets/repository/archive/master.zip)下载Gitee上的最新版小工具集**<br>
 (注意：**你需要有一个Gitee账户！**)<br>
