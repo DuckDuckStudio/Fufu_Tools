@@ -4,21 +4,21 @@ REM using --GBK-- for this file.
 REM Don't using other for this file !!!
 
 REM ----------------ERROR--NOTES-----------------------
-REM ÔÚÔÊĞíµ÷ÊÔµÄÇé¿öÏÂÔİÎ´³öÏÖÎÊÌâ
+REM åœ¨å…è®¸è°ƒè¯•çš„æƒ…å†µä¸‹æš‚æœªå‡ºç°é—®é¢˜
 REM ----------------------------------------------------
 
 REM Welcome
-echo »¶Ó­Ê¹ÓÃAPK°²×°³ÌĞò(for WSA)
+echo æ¬¢è¿ä½¿ç”¨APKå®‰è£…ç¨‹åº(for WSA)
 
 REM --Get apk's route--
-set /p apk_route="ÇëÊäÈë»òÕ³ÌùÄúµÄAPKÎÄ¼şËùÔÚµÄÍêÕûÂ·¾¶(ÀıÈçD:\xxx.apk): "
-echo ÊÕµ½£¡ÇëÈ·±£WSAÆô¶¯²¢ÕıÈ·ÅäÖÃADB(°²×¿µ÷ÊÔÇÅ)
+set /p apk_route="è¯·è¾“å…¥æˆ–ç²˜è´´æ‚¨çš„APKæ–‡ä»¶æ‰€åœ¨çš„å®Œæ•´è·¯å¾„(ä¾‹å¦‚D:\xxx.apk): "
+echo æ”¶åˆ°ï¼è¯·ç¡®ä¿WSAå¯åŠ¨å¹¶æ­£ç¡®é…ç½®ADB(å®‰å“è°ƒè¯•æ¡¥)
 
 REM ---using ADB to install APK---
 
 adb kill-server
 adb start-server
-REM Open ADB server (ÖØÆôÈ·ÈÏ)
+REM Open ADB server (é‡å¯ç¡®è®¤)
 
 REM connect WSA
 adb connect 127.0.0.1:58526
@@ -26,9 +26,11 @@ REM --No checks--
 
 REM ---Install APK---
 adb install %apk_route%
-REM ½öÏŞÖ»ÓĞÒ»¸öÁ¬½ÓÊ±£¬else ±ØĞë use `adb shell xxx`
+REM ä»…é™åªæœ‰ä¸€ä¸ªè¿æ¥æ—¶ï¼Œelse å¿…é¡» use `adb shell xxx`
 
 REM --wait--
 
 REM End
-echo °²×°Íê³É£¡
+echo å®‰è£…å®Œæˆï¼
+
+pause
