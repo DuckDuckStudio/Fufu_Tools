@@ -1,6 +1,6 @@
 # Windows小工具<br>
 
-**阅读本说明的[中文](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/blob/main/README.md) | [英文](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/blob/main/README-EN(UK).md) 版本。**
+**阅读本说明的[中文](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/README.md) | [英文](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/README-EN(UK).md) 版本。**
 
 本仓库存放着我的写的一些关于Windows的小工具，可以自行按照说明使用。<br>
 当然，如果您会Batchfile的话，自己也可以做出一些新花样哦！<br>
@@ -11,7 +11,7 @@
 另，对于代码中使用到的库文件请自行安装！（可以使用`pip`安装）<br>
 
 ## 如何获取程序<br>
-**[点击这里](https://gitee.com/duckstudio/windows-widgets/repository/archive/master.zip)下载Gitee上的最新版小工具集**<br>
+**[点击这里](https://gitee.com/duckstudio/fufu-tools/releases/)下载Gitee上的最新版小工具集**<br>
 (注意：**你需要有一个Gitee账户！**)<br>
 
 ## 对于项目文件转载说明<br>
@@ -19,8 +19,8 @@
 转载项目中的文件时，**不得**私自添加收费目录，加入病毒程序等；**不得**在未经我明示同意的情况下私自对项目文件进行任何声明。<br>
 
 ## 问题反馈<br>
-如果您有发现本项目的任何问题，**请[提交Issues](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/issues)**。<br>
-对本项目有任何建议、疑问等，**请[发布discussions](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/discussions)**。<br>
+如果您有发现本项目的任何问题，**请[提交Issues](https://github.com/DuckDuckStudio/Fufu_Tools/issues)**。<br>
+对本项目有任何建议、疑问等，**请[发布discussions](https://github.com/DuckDuckStudio/Fufu_Tools/discussions)**。<br>
 这边也请您在反馈时**说清楚您的问题或建议**哦。<br>
 有任何问题也可以向本邮箱反馈：<br>
 <Yzcbs123@163.com>。<br>
@@ -36,7 +36,7 @@
 ## 结尾废话<br>
 如果您觉得本项目对您有帮助的话，请您给我们的这个项目**添加一个Star**，万分感谢。<br>
 当然，如果您对我们的其他项目感兴趣的话也可以[Fllow_us](https://github.com/DuckDuckStudio/) 或者是关注我们的[哔哩哔哩账号](https://space.bilibili.com/2054654702)。<br>
-非特殊情况下（例如作者本人发布），您**只能从[本项目的GitHub仓库](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/)或者[本项目的Gitee仓库](https://gitee.com/duckstudio/windows-widgets/)获得本项目中的任何文件**。<br>
+非特殊情况下（例如作者本人发布），您**只能从[本项目的GitHub仓库](https://github.com/DuckDuckStudio/Fufu_Tools/)或者[本项目的Gitee仓库](https://gitee.com/duckstudio/fufu-tools/)获得本项目中的任何文件**。<br>
 
 > 本说明文件使用[Markdown语法](https://markdown.com.cn/basic-syntax/)编辑。
 
