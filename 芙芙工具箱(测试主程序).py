@@ -65,12 +65,12 @@ def show_categories():
 
 # 创建主窗口
 root = tk.Tk()
-root.title("工具箱")
+root.title("芙芙工具箱")
 
 # 创建顶部蓝色框
-header = tk.Frame(root, bg='#b3dcff', pady=10)
+header = tk.Frame(root, bg='#91cbea', pady=10)
 header.pack(fill='x')
-header_label = tk.Label(header, text="芙芙工具箱", fg='white', bg='#b3dcff', font=("Arial", 24))
+header_label = tk.Label(header, text="芙芙工具箱", fg='#ffffff', bg='#91cbea', font=("Arial", 24))
 header_label.pack(side='left', padx=20)
 
 # 创建内容容器
@@ -86,9 +86,6 @@ categories = {
         "按文件名查找": ".\查找文件\查找文件（相同文件名）.bat",
         "按文件格式查找": ".\查找文件\查找文件（相同文件名）.bat",
     },
-    "创建文件": ".\创建文件\创建文件.exe",
-    "缓存清理": ".\缓存清理\缓存清理.bat",
-    "进制转换": ".\进制转换\进制转换.exe",
     "连接检测": {
         "检测网络连接状况": ".\连接检测\网络连接检测.py",
         "检测GitHub连接状况": ".\连接检测\\github_notification.py",
@@ -107,7 +104,10 @@ categories = {
         "校准系统时间": ".\校准系统时间\手动校准系统时间.bat",
         "查看电脑配置": ".\查看电脑配置\查看电脑配置.bat",
         "查看网络密码": ".\查看网络密码\查看网络密码.bat",
-        "检查小工具版本": ".\\Show_wersion.bat",
+        "检查小工具版本": ".\\Show_version.bat",
+        "创建文件": ".\创建文件\创建文件.exe",
+        "缓存清理": ".\缓存清理\缓存清理.bat",
+        "进制转换": ".\进制转换\进制转换.exe",
     },
     # 更多类别和程序...
 }
