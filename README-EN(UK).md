@@ -1,9 +1,8 @@
-# Windows Widget
+# Fufu Tools
 
-**Read it on [Chinese](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/blob/main/README.md) or [English](https://github.com/DuckDuckStudioWindows_Optimization_Widget/blob/main/README-EN(UK).md).**
+**Read it on [Chinese](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/README.md) or [English](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/README-EN(UK).md).**
 
-This repository contains some of my small tools written for Windows, which you can use according to the instructions.<br>
-Of course, if you know `Batchfile`, you can also make some new tools by yourself!<br>
+This repository contains some of my small tools written, which you can use according to the instructions.<br>
 **If you have any questions about how to use them, please first read the usage instructions (in Chinese is say "使用说明") in the widget directory.**<br>
 
 ## For Small Tools Written in Python
@@ -13,7 +12,7 @@ Also, please install the library files used in the code by yourself! (you can us
 
 ## How to Get the Program
 
-**[Click here](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/releases) to download the latest version of the small toolset on Github**<br>
+**[Click here](https://github.com/DuckDuckStudio/Fufu_Tools/releases) to download the latest version of the small toolset on Github**<br>
 
 ## About transport for Project Files
 
@@ -22,8 +21,8 @@ When reprinting the files in the project, **you must not** add charging director
 
 ## Feedback
 
-If you find any problems with this project, **please [submit Issues](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/issues)**.<br>
-For any suggestions, questions, etc. about this project, **please [post discussions](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/discussions)**.<br>
+If you find any problems with this project, **please [submit Issues](https://github.com/DuckDuckStudio/Fufu_Tools/issues)**.<br>
+For any suggestions, questions, etc. about this project, **please [post discussions](https://github.com/DuckDuckStudio/Fufu_Tools/discussions)**.<br>
 Please also be clear about your questions or suggestions when giving feedback.<br>
 If you have any questions, you can also send them to this email address:<br>
 <Yzcbs123@163.com>.<br>
@@ -38,7 +37,7 @@ We cannot guarantee that the small tools in this project will work on all Window
 
 If you think this project is helpful to you, please give us a **Star**, thank you very much.<br>
 Of course, if you are interested in our other projects, you can also [Fllow_us](https://github.com/DuckDuckStudio/) or follow our [Bilibili account](https://space.bilibili.com/2054654702).<br>
-Except in special cases (such as the author's own release), you **can only obtain any file in this project from [this project's GitHub repository](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/) or [this project's Gitee repository](https://gitee.com/duckstudio/windows-widgets/)**.<br>
+Except in special cases (such as the author's own release), you **can only obtain any file in this project from [this project's GitHub repository](https://github.com/DuckDuckStudio/Fufu_Tools/) or [this project's Gitee repository](https://gitee.com/duckstudio/fufu-tools/)**.<br>
 > This README file is edited using [Markdown syntax](https://markdown.com.cn/basic-syntax/).
 
 Personal website: [DuckStudio](https://duckduckstudio.github.io/yazicbs.github.io/)<br>
