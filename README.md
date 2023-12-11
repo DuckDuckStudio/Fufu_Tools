@@ -10,8 +10,8 @@
 另，对于代码中使用到的库文件请自行安装！（可以使用`pip`安装）<br>
 
 ## 如何获取程序<br>
-**[点击这里](https://gitee.com/duckstudio/fufu-tools/releases/)下载Gitee上的最新版小工具集**<br>
-(注意：**你需要有一个Gitee账户！**)<br>
+**[点击这里](https://gitee.com/duckstudio/fufu-tools/releases/)下载Gitee上的最新版芙芙工具箱**<br>
+**[点击这里](https://github.com/DuckDuckStudio/Fufu_Tools/releases)下载GitHub上的最新版芙芙工具箱**<br>
 
 ## 对于项目文件转载说明<br>
 本项目中的文件**允许**您通过符合中华人民共和国法律的方式进行转载，但除特殊说明外，转载时**需要**标注原作者（[鸭鸭「カモ」](https://duckduckstudio.github.io/yazicbs.github.io/)）。<br>
@@ -29,8 +29,9 @@
 我们不会回复任何无意义、具有侮辱性等的问题或意见。<br>
 我们不能保证此项目中的小工具在所有Windows系统上适用，请自行视情况而定，我们**不对您使用小工具所造成的任何问题负责**。<br>
 
-## 项目公告 (2023/8/6)<br>
+## 项目公告 (2023/12/11)<br>
 我们将本项目**克隆至国内Gitee**了！详细请[点击此处](https://gitee.com/duckstudio/windows-widgets/)<br>
+如果你是国内的用户，请**尽量前往Gitee下载！** *（因为Gitee更新得比GitHub快）*
 
 ## 结尾废话<br>
 如果您觉得本项目对您有帮助的话，请您给我们的这个项目**添加一个Star**，万分感谢。<br>
