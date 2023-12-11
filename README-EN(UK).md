@@ -12,7 +12,8 @@ Also, please install the library files used in the code by yourself! (you can us
 
 ## How to Get the Program
 
-**[Click here](https://github.com/DuckDuckStudio/Fufu_Tools/releases) to download the latest version of the small toolset on Github**<br>
+**[Click here](https://github.com/DuckDuckStudio/Fufu_Tools/releases) to download the latest version of Fufu Tools on Github**<br>
+**[Click here](https://gitee.com/duckstudio/fufu-tools/releases/) to download the latest version of Fufu Tools on Gitee.**<br>
 
 ## About transport for Project Files
 
