@@ -14,8 +14,7 @@
 **[点击这里](https://github.com/DuckDuckStudio/Fufu_Tools/releases)下载GitHub上的最新版芙芙工具箱**<br>
 
 ## 对于项目文件转载说明<br>
-本项目中的文件**允许**您通过符合中华人民共和国法律的方式进行转载，但除特殊说明外，转载时**需要**标注原作者（[鸭鸭「カモ」](https://duckduckstudio.github.io/yazicbs.github.io/)）。<br>
-转载项目中的文件时，**不得**私自添加收费目录，加入病毒程序等；**不得**在未经我明示同意的情况下私自对项目文件进行任何声明。<br>
+对于文件的转载，详见 **[开源许可文件(草案)](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE)** 。<br>
 
 ## 问题反馈<br>
 如果您有发现本项目的任何问题，**请[提交Issues](https://github.com/DuckDuckStudio/Fufu_Tools/issues)**。<br>
