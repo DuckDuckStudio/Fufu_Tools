@@ -17,8 +17,7 @@ Also, please install the library files used in the code by yourself! (you can us
 
 ## About transport for Project Files
 
-The files in this project are **allowed** to be reprinted in a way that is in compliance with the laws of the People's Republic of China, but unless otherwise specified, when reprinting, **it is necessary** to indicate the original author ([DuckStudio](https://duckduckstudio.github.io/yazicbs.github.io/))_--in chinese is say "鸭鸭工作室"_.<br>
-When reprinting the files in the project, **you must not** add charging directories, add virus programs, etc. privately; **you must not** make any declarations about the project files without my express consent.<br>
+For the reproduction of files, please refer to the **[open source license file (draft)](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE)** for details.
 
 ## Feedback
 
