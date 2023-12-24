@@ -1,9 +1,10 @@
-# 芙芙工具箱<br>
+# 芙芙工具箱 wiki 分支<br>
 
 **阅读本说明的[中文](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/README.md) | [英文](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/README-EN(UK).md) 版本。**
 
 本仓库存放着我的写的一些小工具，可以自行按照说明使用。<br>
 **如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明**。<br>
+**本分支仅供存放wiki文件，请勿合并**<br>
 
 ## 对于python编写的小工具<br>
 对于使用python编写的小工具前，你必须先安装`python`（这里编写使用的是`python 3.11`）并正确配置！<br>
