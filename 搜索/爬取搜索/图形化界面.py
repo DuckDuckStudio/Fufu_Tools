@@ -2,9 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 import tkinter as tk
 import webbrowser
+from urllib.parse import quote
 
 def fetch_search_results(query):
-    url = f"https://www.baidu.com/s?wd={query}&ie=utf-8"
+    query = quote(query)  # 对查询关键词进行URL编码
+    url = f"https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd={query}&rsv_pq=a43b358b00e3fbf6&rsv_t=3680Nponm%2FFO0m0joY50ameSwJgTz9hY2Vw9fH2SWdvoJmTTXf2egGp%2Bviw&rqlang=cn&rsv_dl=tb&rsv_enter=0&rsv_btype=t"
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }

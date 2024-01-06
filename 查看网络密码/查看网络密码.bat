@@ -12,7 +12,5 @@ echo "你还想查询其他wifi吗?（y/n）"
 set /p input="请输入并选择:"
 if %input%==y goto main
 REM Y
-if %input%==n goto exit
+if %input%==n pause
 REM N
- 
-pause

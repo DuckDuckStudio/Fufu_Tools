@@ -4,7 +4,7 @@ REM 删除临时文件夹
 chcp 65001
 REM 使用UTF-8编码
 
-echo "正在删除缓存文件"
+echo 正在删除缓存文件
 
 rd /s /q %temp%/*.*
 rd /s /q C:\Documents and Settings\%USERNAME%\Local Settings\temp\*.*

@@ -7,3 +7,5 @@ adb version
 echo 当前已经连接ADB的设备有：
 adb devices
 :: Show ADB connect(ed) devices
+
+pause
