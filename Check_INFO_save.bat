@@ -24,6 +24,9 @@ for /f "delims=[" %%i in (Version) do (
     echo %%i >> "INFO.txt"
 )
 
+echo --- Installed library files ---
+pip list >> "INFO.txt"
+
 echo --- Directory where Fufu Tools is located --- >> "INFO.txt"
 echo %cd% >> "INFO.txt"
 
@@ -53,5 +56,7 @@ net.exe session 1>NUL 2>NUL && (
 ) || (
     echo Non administrator. >> "INFO.txt"
 )
+
+echo 信息已保存至芙芙工具箱目录下的INFO.txt
 
 pause

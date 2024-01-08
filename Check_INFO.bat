@@ -19,6 +19,9 @@ for /f "delims=[" %%i in (Version) do (
     echo %%i
 )
 
+echo --- Installed library files ---
+pip list
+
 echo --- Directory where Fufu Tools is located ---
 echo %cd%
 

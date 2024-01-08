@@ -106,7 +106,7 @@ categories = {
         "手动校准系统时间": ".\校准系统时间\手动校准系统时间.bat",
         "在线自动校准系统时间": ".\校准系统时间\在线自动校准.exe",
     },
-    "其他": {
+    "其他小工具": {
         "强制删除文件夹": ".\强制删除文件夹\强制删除文件夹.bat",
         "随机密码生成": ".\随机密码生成\随机密码生成.exe",
         "文件分类": ".\文件分类\文件分类.py",
@@ -127,7 +127,7 @@ categories = {
     },
     "关于芙芙工具箱": {
         "检查小工具版本": ".\\Show_version.bat",
-        "访问小工具wiki": "https://github.com/DuckDuckStudio/Fufu_Tools.wiki.git",
+        "访问小工具wiki": "https://gitee.com/duckstudio/fufu-tools/wikis/",
         "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
         "查看开源许可文件": ".\\LICENSE",
         "信息确认": ".\\Check_INFO.bat",
