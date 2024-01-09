@@ -35,6 +35,7 @@
 ## 结尾废话<br>
 如果您觉得本项目对您有帮助的话，请您给我们的这个项目**添加一个Star**，万分感谢。<br>
 当然，如果您对我们的其他项目感兴趣的话也可以[Fllow_us](https://github.com/DuckDuckStudio/) 或者是关注我们的[哔哩哔哩账号](https://space.bilibili.com/2054654702)。<br>
+想自己构建？请下载lite版（不过就是安装个库而已）<br>
 非特殊情况下（例如作者本人发布），您**只能从[本项目的GitHub仓库](https://github.com/DuckDuckStudio/Fufu_Tools/)或者[本项目的Gitee仓库](https://gitee.com/duckstudio/fufu-tools/)获得本项目中的任何文件**。<br>
 
 > 本说明文件使用[Markdown语法](https://markdown.com.cn/basic-syntax/)编辑。
