@@ -3,7 +3,7 @@
 **Read it on [Chinese](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/README.md) or [English](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/README-EN(UK).md).**
 
 This repository contains some of my small tools written, which you can use according to the instructions.<br>
-**If you have any questions about how to use them, please first read the usage instructions (in Chinese is say "使用说明") in the widget directory.**<br>
+**If you have any questions about how to use them, please first read the usage instructions (in Chinese is say "使用说明") in the widget directory or read Fufu Tools wiki.They maybe can solve your problem.**<br>
 
 ## For Small Tools Written in Python
 
