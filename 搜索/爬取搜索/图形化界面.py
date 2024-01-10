@@ -65,19 +65,6 @@ search_button.pack()
 result_text = tk.Text(window)
 result_text.pack()
 
-# 定义链接点击事件
-def open_link(event):
-    widget = event.widget
-    idx = widget.get("current linestart", "current lineend").split(".")[0]
-    if idx.isdigit():
-        idx = int(idx)
-        if 1 <= idx <= len(search_results):
-            link = search_results[idx-1]["link"]
-            webbrowser.open(link)
-
-# 绑定链接点击事件
-result_text.tag_bind("hyperlink", "<Button-1>", open_link)
-
 # 定义文本中的链接样式
 result_text.tag_configure("hyperlink", foreground="blue", underline=True)
 

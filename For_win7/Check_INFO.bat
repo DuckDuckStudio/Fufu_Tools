@@ -29,13 +29,11 @@ echo %cd%
 
 echo --- Network connection status ---
 set url=www.baidu.com
-ping -6 %url% >nul
+ping %url% >nul
 if %errorlevel% equ 0 (
     echo Connection normal
-    echo [INFO] Using IPv6 to check connect.
 ) else (
     echo Connect failed
-    echo [INFO] Using IPv6 to check connect. If your device does not support IPv6, please check it yourself.
 )
 
 echo --- Github connection status ---

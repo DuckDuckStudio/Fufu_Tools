@@ -3,7 +3,7 @@
 **阅读本说明的[中文](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/README.md) | [英文](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/README-EN(UK).md) 版本。**
 
 本仓库存放着我的写的一些小工具，可以自行按照说明使用。<br>
-**如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明或者文档**。<br>
+**如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明或者wiki**。<br>
 
 ## 对于lite版的芙芙工具箱<br>
 对于lite版的芙芙工具箱，在使用前，你必须先安装`python`（编写使用的是`python 3.12`）并正确配置！<br>
@@ -28,7 +28,7 @@
 我们不会回复任何无意义、具有侮辱性等的问题或意见。<br>
 我们不能保证此项目中的小工具在所有Windows系统上适用，请自行视情况而定，我们**不对您使用小工具所造成的任何问题负责**。<br>
 
-## 项目公告 (2024/1/11)<br>
+## 项目公告 (2023/12/26)<br>
 我们将本项目**克隆至国内Gitee**了！详细请[点击此处](https://gitee.com/duckstudio/windows-widgets/)<br>
 **芙芙工具箱 *(打包版)* 不支持win7及以下的系统** *因为这些系统缺少依赖。* <br>
 *Note:芙芙工具箱目前暂未在win8系统及win server上测试过，如果你使用的是这些系统，我们不能保证其稳定性。*
