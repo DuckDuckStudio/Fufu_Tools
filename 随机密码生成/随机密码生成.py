@@ -16,3 +16,5 @@ while True:
         break
     except ValueError:
         print("输入无效，请输入一个有效的数字作为密码位数！")
+
+input ("按任意键继续...")
