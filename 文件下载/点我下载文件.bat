@@ -1,7 +1,6 @@
 @echo off
-
-REM CODING:GBK --ps1 using--
-REM bat file / Powershell code (ha?)
+chcp 65001
+cls
 
 echo --本代码使用Powershell--
 echo 注意：在下载无法直接下载的文件(例如xx网盘)时可能会无法下载！

@@ -1,5 +1,6 @@
 @echo off
 chcp 65001
+cls
 REM 使用UTF-8编码
 echo "当前电脑连接过的wifi:"
 netsh wlan show profiles

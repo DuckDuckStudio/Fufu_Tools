@@ -1,7 +1,6 @@
 @echo off
-
-REM using --GBK-- for this file.
-REM Don't using other for this file !!!
+chcp 65001
+cls
 
 REM ----------------ERROR--NOTES-----------------------
 REM 在允许调试的情况下暂未出现问题

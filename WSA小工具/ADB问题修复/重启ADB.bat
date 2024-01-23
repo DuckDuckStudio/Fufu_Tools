@@ -1,9 +1,6 @@
 @echo off
-
-REM ---coding in GBK---
-REM using --GBK-- for this file.
-REM Don't using other for this file !!!
-REM -------------------
+chcp 65001
+cls
 
 adb kill-server
 :: close the ADB
@@ -14,7 +11,7 @@ timeout /t 2
 adb start-server
 :: Open the ADB agin
 
-echo ÖØÆôÍê³É£¡
+echo é‡å¯å®Œæˆ
 :: Show tip
 
 REM ---END---

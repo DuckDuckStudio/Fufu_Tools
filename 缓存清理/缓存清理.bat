@@ -1,5 +1,6 @@
 @echo off
 chcp 65001
+cls
 
 echo 正在删除缓存文件...
 

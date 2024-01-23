@@ -1,10 +1,12 @@
 @echo off
+chcp 65001
+cls
 
-echo ╣╠г╟й╧сц╣дADB╟Ф╠╬н╙ё╨
+echo Е╫⌠Е┴█Д╫©Г■╗Г └ADBГ┴┬Ф°╛Д╦╨О╪ 
 adb version
 :: Show ADB version
 
-echo ╣╠г╟ря╬╜а╛╫сADB╣диХ╠╦спё╨
+echo Е╫⌠Е┴█Е╥╡Г╩▐Х©·Ф▌╔ADBГ └Х╝╬Е╓┤Ф°┴О╪ 
 adb devices
 :: Show ADB connect(ed) devices
 

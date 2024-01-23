@@ -2,7 +2,7 @@
 
 **Read it on [中文](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/README.md) or [English](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/README-EN(UK).md).**
 
-*Note：This README file was too old, please read Chinese README file to get new information.*
+> *Note：This README file was too old, please read Chinese README file to get new information.*
 
 This repository contains some of my small tools written, which you can use according to the instructions.<br>
 **If you have any questions about how to use them, please first read the usage instructions (in Chinese is say "使用说明") in the widget directory or read Fufu Tools wiki.They maybe can solve your problem.**<br>

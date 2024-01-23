@@ -1,57 +1,59 @@
 @echo off
+chcp 65001
+cls
 
-echo µ±Ç°Ê¹ÓÃµÄADB°æ±¾Îª£º
+echo å½“å‰ä½¿ç”¨çš„ADBç‰ˆæœ¬ä¸ºï¼š
 adb version
 :: Show ADB version
 
-echo ---WSA Ó¦ÓÃĞ¶ÔØ³ÌĞò---
+echo ---WSA åº”ç”¨å¸è½½ç¨‹åº---
 
 :ct
 adb connect 127.0.0.1:58526
 :: Connect to WSA (try)
 
 :pk
-echo Éè±¸ÒÑ°²×°µÄÈ«²¿°ü£º
+echo è®¾å¤‡å·²å®‰è£…çš„å…¨éƒ¨åŒ…ï¼š
 adb shell pm list packages
-:: Into adb shell (ADB½»»¥Ä£Ê½) & packname list (ÁĞ³ö°üÃû) & exit
+:: Into adb shell (ADBäº¤äº’æ¨¡å¼) & packname list (åˆ—å‡ºåŒ…å) & exit
 
 echo ----------
 
-echo Éè±¸ÒÑ°²×°µÄÈ«²¿*µÚÈı·½*°ü£º
+echo è®¾å¤‡å·²å®‰è£…çš„å…¨éƒ¨*ç¬¬ä¸‰æ–¹*åŒ…ï¼š
 adb shell pm list packages -3
-:: ÁĞ³ö³ıÏµÍ³°üÍâµÚÈı·½°ü
+:: åˆ—å‡ºé™¤ç³»ç»ŸåŒ…å¤–ç¬¬ä¸‰æ–¹åŒ…
 
 echo ----------
 
-set /p pack_name="ÇëÊäÈëÄãÒªĞ¶ÔØµÄ³ÌĞòµÄ°üÃû:"
-:: Get pack name (»ñÈ¡ĞèÒªĞ¶ÔØµÄ°üÃû)
+set /p pack_name="è¯·è¾“å…¥ä½ è¦å¸è½½çš„ç¨‹åºçš„åŒ…å:"
+:: Get pack name (è·å–éœ€è¦å¸è½½çš„åŒ…å)
 
 :: Right(?) code in here!
 if /I %pack_name:~1%=="exit" (
-    echo ÁË½â£¬³ÌĞòÈ¡ÏûÖ´ĞĞ£¡
+    echo äº†è§£ï¼Œç¨‹åºå–æ¶ˆæ‰§è¡Œï¼
     goto :EOF
 ) else if /I %pack_name:~1%=="repk" (
-    echo ÁË½â£¬³ÌĞòÖØĞÂ¼ì²é°²×°µÄ°ü
+    echo äº†è§£ï¼Œç¨‹åºé‡æ–°æ£€æŸ¥å®‰è£…çš„åŒ…
     goto :pk
 ) else if /I %pack_name:~1%=="rect" (
-    echo ÁË½â£¬³ÌĞòÖØĞÂÁ¬½Ó²¢¼ì²é°²×°µÄ°ü
+    echo äº†è§£ï¼Œç¨‹åºé‡æ–°è¿æ¥å¹¶æ£€æŸ¥å®‰è£…çš„åŒ…
     goto :ct
 ) else (
-    echo ÕıÔÚĞ¶ÔØ...
+    echo æ­£åœ¨å¸è½½...
 
     adb shell pm uninstall %pack_name:~1%
     :: Uninstall this pack(app)
 
-    echo Ğ¶ÔØÍê³É£¡
+    echo å¸è½½å®Œæˆï¼
 
-    echo ---ÏÖÔÚÒÑ°²×°µÄ°üÓĞ£º---
+    echo ---ç°åœ¨å·²å®‰è£…çš„åŒ…æœ‰ï¼š---
     adb shell pm list packages
 
     echo ----------
 
-    echo ---ÏÖÒÑ°²×°µÄµÚÈı·½°üÓĞ£º---
+    echo ---ç°å·²å®‰è£…çš„ç¬¬ä¸‰æ–¹åŒ…æœ‰ï¼š---
     adb shell pm list packages -3
-    :: Into adb shell (ADB½»»¥Ä£Ê½) & packname list (ÁĞ³ö°üÃû) & exit
+    :: Into adb shell (ADBäº¤äº’æ¨¡å¼) & packname list (åˆ—å‡ºåŒ…å) & exit
 )
 
 pause

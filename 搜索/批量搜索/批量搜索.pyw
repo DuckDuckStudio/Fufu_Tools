@@ -11,7 +11,7 @@ def batch_search():
             webbrowser.open(search_url)
 
 def import_content():
-    file_path = filedialog.askopenfilename(filetypes=[("Text files", "*.txt")])
+    file_path = filedialog.askopenfilename(filetypes=[("Text files", "*.txt"),("All files","*.*")])
     if file_path:
         with open(file_path, 'r', encoding='utf-8') as file:
             content = file.read()
@@ -23,7 +23,7 @@ window.title("批量搜索")
 window.geometry("300x250")
 
 # 添加提示文本
-prompt_text = "请在这里输入您需要查找的内容，每行一个..."
+prompt_text = "请在这里输入您需要查找的内容，每行一个。\n或者点击左下角的按钮导入内容..."
 input_text_var = tk.StringVar()
 input_text_var.set(prompt_text)
 

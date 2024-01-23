@@ -1,18 +1,20 @@
 @echo off
-REM ¹Ø±Õ»ØÏÔ
+chcp 65001
+cls
+REM å…³é—­å›žæ˜¾
 
-echo ¸ÐÐ»ÄãÊ¹ÓÃ±¾³ÌÐò
-echo (±¾³ÌÐò½ö²éÕÒÏàÍ¬Ãû³ÆµÄÎÄ¼þ£¬²»ÏÞ¸ñÊ½)
-set /p file_route="ÇëÊäÈëÄãÒª²éÕÒµÄÄ¿Â¼(²»ÓÃÒýºÅ): "
-set /p file_name="ÇëÊäÈëÄãÒª²éÕÒÎÄ¼þµÄÃû³Æ: "
+echo æ„Ÿè°¢ä½ ä½¿ç”¨æœ¬ç¨‹åº
+echo (æœ¬ç¨‹åºä»…æŸ¥æ‰¾ç›¸åŒåç§°çš„æ–‡ä»¶ï¼Œä¸é™æ ¼å¼)
+set /p file_route="è¯·è¾“å…¥ä½ è¦æŸ¥æ‰¾çš„ç›®å½•(ä¸ç”¨å¼•å·): "
+set /p file_name="è¯·è¾“å…¥ä½ è¦æŸ¥æ‰¾æ–‡ä»¶çš„åç§°: "
 
-cd /d "%~dp0" ::±ÜÃâÒâÍâµÄÊä³öÎ»ÖÃ
+cd /d "%~dp0" REM é¿å…æ„å¤–çš„è¾“å‡ºä½ç½®
 
-type nul >%cd%\²éÕÒ½á¹û.txt
+type nul >%cd%\æŸ¥æ‰¾ç»“æžœ.txt
 for /r "%file_route%" %%a in (%file_name%.*) do (
-    >>%cd%\²éÕÒ½á¹û.txt echo %%~dpa%%~nxa
+    >>%cd%\æŸ¥æ‰¾ç»“æžœ.txt echo %%~dpa%%~nxa
 )
 
-echo ³ÌÐòÔËÐÐ½áÊø£¬Çë²é¿´³ÌÐòËùÔÚÄ¿Â¼ÏÂÉú³ÉµÄÎÄ¼þ£¡
+echo ç¨‹åºè¿è¡Œç»“æŸï¼Œè¯·æŸ¥çœ‹ç¨‹åºæ‰€åœ¨ç›®å½•ä¸‹ç”Ÿæˆçš„æ–‡ä»¶ï¼
 
 pause
