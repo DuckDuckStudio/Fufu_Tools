@@ -5,11 +5,10 @@ import os
 # 打开程序的函数
 def open_program(program_path):
     try:
-        abs_path = os.path.abspath(os.path.join(os.path.dirname(__file__), program_path))
-        os.startfile(abs_path)
+        os.startfile(program_path)
     except AttributeError:
         # os.startfile() 在 Unix 系统上不可用
-        os.system(f'start {abs_path}')
+        os.system(f'start {program_path}')
     except Exception as e:
         messagebox.showerror("错误", f"无法打开: {e}")
 
@@ -83,43 +82,43 @@ back_button = tk.Button(root, text="返回", command=show_categories)
 # 类别数据，包含类别名称和程序列表
 categories = {
     "查找文件": {
-        "按文件名查找": ".\\Tools\查找文件\相同文件名.py",
-        "按文件格式查找": ".\\Tools\查找文件\相同文件格式.py",
+        "按文件名查找": ".\\Tools\查找文件\相同文件名.exe",
+        "按文件格式查找": ".\\Tools\查找文件\相同文件格式.exe",
     },
     "连接检测": {
-        "检测网络连接状况": ".\\Tools\连接检测\网络连接检测.py",
-        "检测GitHub连接状况": ".\\Tools\连接检测\\GitHub连接检测.py",
+        "检测网络连接状况": ".\\Tools\连接检测\网络连接检测.exe",
+        "检测GitHub连接状况": ".\\Tools\连接检测\\GitHub连接检测.exe",
     },
     "摩斯密码": {
         "摩斯密码编码": ".\\Tools\摩斯密码\编码.exe",
         "摩斯密码解码": ".\\Tools\摩斯密码\解码.exe",
     },
     "URL编解码": {
-        "URL编码": ".\\Tools\\URL编解码\编码.py",
-        "URL解码": ".\\Tools\\URL编解码\解码.py",
+        "URL编码": ".\\Tools\\URL编解码\编码.exe",
+        "URL解码": ".\\Tools\\URL编解码\解码.exe",
     },
     "搜索": {
-        "批量搜索": ".\\Tools\搜索\批量搜索\批量搜索.pyw",
-        "爬取网站搜索结果": ".\\Tools\搜索\爬取搜索\图形化界面.pyw",
+        "批量搜索": ".\\Tools\搜索\批量搜索\批量搜索.exe",
+        "爬取网站搜索结果": ".\\Tools\搜索\爬取搜索\图形化界面.exe",
     },
     "系统时间校准": {
         "手动校准系统时间": ".\\Tools\校准系统时间\手动校准系统时间.bat",
-        "在线自动校准系统时间": ".\\Tools\校准系统时间\在线自动校准.py",
+        "在线自动校准系统时间": ".\\Tools\校准系统时间\在线自动校准.exe",
     },
     "其他小工具": {
         "强制删除文件夹": ".\\Tools\强制删除文件夹\强制删除文件夹.bat",
-        "随机密码生成": ".\\Tools\随机密码生成\随机密码生成.py",
-        "文件分类": ".\\Tools\文件分类\文件分类.py",
-        "文件下载": ".\\Tools\文件下载\文件下载.py",
-        "系统时间显示": ".\\Tools\系统时间显示\\time.pyw",
-        "查看电脑配置": ".\\Tools\查看电脑配置\查看电脑配置.py",
-        "查看网络密码": ".\\Tools\查看网络密码\查看网络密码.py",
+        "随机密码生成": ".\\Tools\随机密码生成\随机密码生成.exe",
+        "文件分类": ".\\Tools\文件分类\文件分类.exe",
+        "文件下载": ".\\Tools\文件下载\文件下载.exe",
+        "系统时间显示": ".\\Tools\系统时间显示\\time.exe",
+        "查看电脑配置": ".\\Tools\查看电脑配置\查看电脑配置.exe",
+        "查看网络密码": ".\\Tools\查看网络密码\查看网络密码.exe",
         "创建文件": ".\\Tools\创建文件\创建文件.exe",
-        "缓存清理": ".\\Tools\缓存清理\缓存清理.py",
+        "缓存清理": ".\\Tools\缓存清理\缓存清理.exe",
         "进制转换": ".\\Tools\进制转换\进制转换.exe",
         "字母大小写互换": ".\\Tools\字母大小写互换\字母大小写互换.exe",
-        "英翻中": ".\\Tools\翻译\翻译.pyw",
-        "隐藏文件到图片": ".\\Tools\隐藏文件\将文件隐藏在图片中.py",
+        "英翻中": ".\\Tools\翻译\翻译.exe",
+        "隐藏文件到图片": ".\\Tools\隐藏文件\将文件隐藏在图片中.exe",
     },
     "说明文件": {
         "“进制转换”使用说明": ".\\Tools\进制转换\使用说明.txt",
@@ -130,7 +129,7 @@ categories = {
         "访问芙芙工具箱wiki": "https://gitee.com/duckstudio/fufu-tools/wikis/",
         "访问芙芙工具箱官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
         "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
-        "查看开源许可文件": ".\\LICENSE",
+        "查看开源许可文件": ".\\LICENSE.txt",
         "信息确认": ".\\Check_INFO.bat",
         "信息确认(导出)": ".\\Check_INFO_save.bat",
     },
@@ -144,7 +143,7 @@ show_categories()
 root.wm_attributes('-alpha', 0.9)
 
 # 运行前...
-#open_program(".\\休息一下\\休息一下.pyw")
+#open_program(".\\休息一下\\休息一下.exe")
 
 # 运行主循环
 root.mainloop()

@@ -29,6 +29,10 @@ echo 正在安装库 ntplib
 pip install ntplib
 echo 安装库 ntplib 结束
 echo -------------------
+echo 正在安装库 tqdm
+pip install tqdm
+echo 安装库 tqdm 结束
+echo -------------------
 echo 所有所需库文件安装完成！
 echo 如有问题你可以将完整输出及你遇到的问题一起提交Issues！
 echo 错误关键词ERROR，如有看到请确认库文件安装情况。
