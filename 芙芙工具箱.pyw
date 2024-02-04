@@ -80,15 +80,12 @@ content_frame.pack(fill='both', expand=True)
 # 创建返回按钮，初始时不显示
 back_button = tk.Button(root, text="返回", command=show_categories)
 
-# 类别数据，包含类别名称和程序列表
+# 类别数据，包含类别名称和程序列表 temp
 categories = {
-    "查找文件": {
-        "按文件名查找": ".\\Tools\查找文件\相同文件名.py",
-        "按文件格式查找": ".\\Tools\查找文件\相同文件格式.py",
-    },
-    "连接检测": {
+    "关于网络": {
         "检测网络连接状况": ".\\Tools\连接检测\网络连接检测.py",
         "检测GitHub连接状况": ".\\Tools\连接检测\\GitHub连接检测.py",
+        "查看网络密码": ".\\Tools\查看网络密码\查看网络密码.py",
     },
     "摩斯密码": {
         "摩斯密码编码": ".\\Tools\摩斯密码\编码.exe",
@@ -102,24 +99,33 @@ categories = {
         "批量搜索": ".\\Tools\搜索\批量搜索\批量搜索.pyw",
         "爬取网站搜索结果": ".\\Tools\搜索\爬取搜索\图形化界面.pyw",
     },
-    "系统时间校准": {
-        "手动校准系统时间": ".\\Tools\校准系统时间\手动校准系统时间.bat",
+    "关于时间": {
+        "系统时间显示": ".\\Tools\系统时间显示\\time.pyw",
         "在线自动校准系统时间": ".\\Tools\校准系统时间\在线自动校准.py",
+        "手动校准系统时间": ".\\Tools\校准系统时间\手动校准系统时间.bat",
     },
-    "其他小工具": {
+    "关于文件": {
+        "按文件名查找文件": ".\\Tools\查找文件\相同文件名.py",
+        "按文件格式查找文件": ".\\Tools\查找文件\相同文件格式.py",
         "强制删除文件夹": ".\\Tools\强制删除文件夹\强制删除文件夹.bat",
-        "随机密码生成": ".\\Tools\随机密码生成\随机密码生成.py",
+        "创建文件": ".\\Tools\创建文件\创建文件.exe",
         "文件分类": ".\\Tools\文件分类\文件分类.py",
         "文件下载": ".\\Tools\文件下载\文件下载.py",
-        "系统时间显示": ".\\Tools\系统时间显示\\time.pyw",
-        "查看电脑配置": ".\\Tools\查看电脑配置\查看电脑配置.py",
-        "查看网络密码": ".\\Tools\查看网络密码\查看网络密码.py",
-        "创建文件": ".\\Tools\创建文件\创建文件.exe",
+        "隐藏文件到图片": ".\\Tools\隐藏文件\将文件隐藏在图片中.py",
+    },
+    "其他小工具": {
         "缓存清理": ".\\Tools\缓存清理\缓存清理.py",
+        "随机密码生成": ".\\Tools\随机密码生成\随机密码生成.py",
+        "查看电脑配置": ".\\Tools\查看电脑配置\查看电脑配置.py",
         "进制转换": ".\\Tools\进制转换\进制转换.exe",
         "字母大小写互换": ".\\Tools\字母大小写互换\字母大小写互换.exe",
         "英翻中": ".\\Tools\翻译\翻译.pyw",
-        "隐藏文件到图片": ".\\Tools\隐藏文件\将文件隐藏在图片中.py",
+    },
+    "[实验性工具]": {
+        "休息一下[实验性]": ".\\Tools\\[实验性工具]\\休息一下\自启动设置.py",
+        "定时闹钟[实验性]": ".\\Tools\\[实验性工具]\\定时闹钟\闹钟.py",
+        "python去除注释": ".\\Tools\\[实验性工具]\\python去除注释\\去除注释.py",
+        "[实验性小工具说明]": ".\\Text\\[实验性小工具说明].txt",
     },
     "说明文件": {
         "“进制转换”使用说明": ".\\Tools\进制转换\使用说明.txt",
@@ -130,7 +136,8 @@ categories = {
         "访问芙芙工具箱wiki": "https://gitee.com/duckstudio/fufu-tools/wikis/",
         "访问芙芙工具箱官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
         "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
-        "查看开源许可文件": ".\\LICENSE",
+        "查看首发时开源许可文件": ".\\LICENSE",
+        "查看最新开源许可文件": "https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE",
         "信息确认": ".\\Check_INFO.bat",
         "信息确认(导出)": ".\\Check_INFO_save.bat",
     },
@@ -142,9 +149,6 @@ show_categories()
 
 # 设置窗口透明度
 root.wm_attributes('-alpha', 0.9)
-
-# 运行前...
-#open_program(".\\休息一下\\休息一下.pyw")
 
 # 运行主循环
 root.mainloop()

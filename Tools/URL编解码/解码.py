@@ -9,3 +9,4 @@ decoded_url = urllib.parse.unquote(url)
 # 输出解码后的 URL
 print("解码后的URL: " + decoded_url)
 
+input ("按Enter键继续...")

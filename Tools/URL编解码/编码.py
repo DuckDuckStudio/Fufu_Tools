@@ -19,4 +19,5 @@ def encode_url_params(url):
 original_url = input ("请输入链接：")
 encoded_url = encode_url_params(original_url)
 print ("URL编码后的链接为: " + encoded_url)
-input ("按任意键继续...")
+
+input ("按Enter键继续...")

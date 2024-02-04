@@ -32,10 +32,18 @@ set url=www.baidu.com
 ping -6 %url% >nul
 if %errorlevel% equ 0 (
     echo Connection normal
-    echo [INFO] Using IPv6 to check connect.
+    echo [INFO] Using IPv6.
 ) else (
     echo Connect failed
-    echo [INFO] Using IPv6 to check connect. If your device does not support IPv6, please check it yourself.
+    echo [INFO] Using IPv6.
+)
+ping -4 %url% >nul
+if %errorlevel% equ 0 (
+    echo Connection normal
+    echo [INFO] Using IPv4.
+) else (
+    echo Connect failed
+    echo [INFO] Using IPv4.
 )
 
 echo --- Github connection status ---
