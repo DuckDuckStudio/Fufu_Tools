@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Water Effect with Web Audio API</title>
+</head>
+<body>
+    <input type="file" id="audioFile" accept="audio/*">
+    <button id="playButton">Play with Water Effect</button>
+
+    <script>
+        document.getElementById('playButton').addEventListener('click', function() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const fileInput = document.getElementById('audioFile');
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    audioContext.decodeAudioData(e.target.result, function(buffer) {
+                        const source = audioContext.createBufferSource();
+                        source.buffer = buffer;
+
+                        // 创建低通滤波器
+                        const filter = audioContext.createBiquadFilter();
+                        filter.type = 'lowpass';
+                        filter.frequency.setValueAtTime(1000, audioContext.currentTime); // 设置截止频率
+
+                        // 连接节点
+                        source.connect(filter);
+                        filter.connect(audioContext.destination);
+
+                        // 播放处理后的音频
+                        source.start(0);
+                    });
+                };
+                reader.readAsArrayBuffer(file);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -112,6 +112,11 @@ categories = {
         "文件下载": ".\\Tools\文件下载\文件下载.exe",
         "隐藏文件到图片": ".\\Tools\隐藏文件\将文件隐藏在图片中.exe",
     },
+    "去除代码注释": {
+        "Python注释": ".\\Tools\去除代码注释\\remove_python_comments.exe",
+        "html注释": ".\\Tools\去除代码注释\\remove_html_comments.exe",
+        "C风格注释": ".\\Tools\去除代码注释\\remove_c_style_comments.exe",
+    },
     "其他小工具": {
         "缓存清理": ".\\Tools\缓存清理\缓存清理.exe",
         "随机密码生成": ".\\Tools\随机密码生成\随机密码生成.exe",
@@ -121,10 +126,11 @@ categories = {
         "英翻中": ".\\Tools\翻译\翻译.exe",
     },
     "[实验性工具]": {
-        "休息一下[实验性]": ".\\Tools\\[实验性工具]\\休息一下\自启动设置.exe",
-        "定时闹钟[实验性]": ".\\Tools\\[实验性工具]\\定时闹钟\闹钟.exe",
-        "python去除注释": ".\\Tools\\[实验性工具]\\python去除注释\\去除注释.exe",
         "[实验性小工具说明]": ".\\Text\\[实验性小工具说明].txt",
+        "休息一下": ".\\Tools\\[实验性工具]\\休息一下\自启动设置.exe",
+        "定时闹钟": ".\\Tools\\[实验性工具]\\定时闹钟\闹钟.exe",
+        "随机内容展示": ".\\Tools\\[实验性工具]\\随机展示\\main.exe",
+        "去除html注释&删除空行": ".\\Tools\去除代码注释\\[实验性]remove_html_comments_noenter.exe",
     },
     "说明文件": {
         "“进制转换”使用说明": ".\\Tools\进制转换\使用说明.txt",
