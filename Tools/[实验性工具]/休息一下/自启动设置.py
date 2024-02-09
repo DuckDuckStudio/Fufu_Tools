@@ -100,5 +100,4 @@ else:
             what = 0
             print("请按说明回答！")
 # 退出
-print("按任意键继续...")
-msvcrt.getch() # 等待用户按下任意键
+input("按Enter键继续...")

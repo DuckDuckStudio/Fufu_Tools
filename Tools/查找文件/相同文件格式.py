@@ -27,4 +27,4 @@ with open(result_file_path, 'w', encoding='utf-8') as result_file:
 
 print("程序运行结束，请查看程序所在目录下生成的文件！")
 os.system("start " + result_file_path)
-input("按任意键退出...")
+input("按Enter键继续...")

@@ -17,4 +17,4 @@ try:
 except Exception as e:
     print("下载出现错误:", e)
 
-input("按 Enter 退出")
+input("按Enter键继续...")

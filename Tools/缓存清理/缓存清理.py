@@ -51,4 +51,4 @@ if os.path.isdir(windows_old_path):
         # Windows好像没有让程序直接打开临时文件分类的URI
         # 如果直接尝试删除windows.old将会遇到“拒绝访问”等权限错误...
             
-print("按Enter退出...")
+input("按Enter键继续...")

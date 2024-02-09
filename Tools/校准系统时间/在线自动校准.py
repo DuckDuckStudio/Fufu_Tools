@@ -23,4 +23,4 @@ def sync_time():
 if __name__ == '__main__':
     sync_time()
 
-input("按下任意键继续...")
+input("按Enter键继续...")

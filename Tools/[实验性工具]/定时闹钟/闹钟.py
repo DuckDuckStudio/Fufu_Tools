@@ -49,3 +49,5 @@ if len(mp3_files) == 1:
         time.sleep(1)  # 每1秒更新一次进度条
 else:
     print("未找到铃声文件或铃声文件不唯一。")
+
+input("按Enter键继续...")

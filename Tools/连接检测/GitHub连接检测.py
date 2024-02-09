@@ -64,4 +64,4 @@ print("总共尝试了{}次连接".format(count))
 now = datetime.now().strftime("%H:%M:%S") # 获取当前时间并格式化输出
 print("连接成功时间：", now)
 
-input("按任意键退出程序...")
+input("按Enter键继续...")

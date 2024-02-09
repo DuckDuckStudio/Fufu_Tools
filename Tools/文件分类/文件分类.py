@@ -69,3 +69,4 @@ for root, dirs, files in os.walk(trash_bin_path, topdown=False):
             os.rmdir(dir_path)
 
 print('---分类完成！---')
+input("按Enter键继续...")

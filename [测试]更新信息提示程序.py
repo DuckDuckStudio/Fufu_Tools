@@ -83,3 +83,5 @@ def check_for_updates():
         print("当前版本比最新版本更高，你认真的？")
 
 check_for_updates()
+
+input("按Enter键继续...")

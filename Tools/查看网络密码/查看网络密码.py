@@ -9,9 +9,11 @@ def main():
     if input_str == 'y':
         main()
     elif input_str == 'n':
-        input("按任意键退出...")
+        print("取消操作...")
     else:
         print("输入有误，程序已退出。")
 
 if __name__ == '__main__':
     main()
+
+input("按Enter键继续...")

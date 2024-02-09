@@ -14,4 +14,4 @@ adb start-server
 echo 重启完成
 :: Show tip
 
-REM ---END---
+pause

@@ -79,7 +79,7 @@ content_frame.pack(fill='both', expand=True)
 # 创建返回按钮，初始时不显示
 back_button = tk.Button(root, text="返回", command=show_categories)
 
-# 类别数据，包含类别名称和程序列表 temp
+# 类别数据，包含类别名称和程序列表
 categories = {
     "关于网络": {
         "检测网络连接状况": ".\\Tools\连接检测\网络连接检测.exe",
@@ -97,6 +97,7 @@ categories = {
     "搜索": {
         "批量搜索": ".\\Tools\搜索\批量搜索\批量搜索.exe",
         "爬取网站搜索结果": ".\\Tools\搜索\爬取搜索\图形化界面.exe",
+        "打开百度": "https://www.baidu.com/",
     },
     "关于时间": {
         "系统时间显示": ".\\Tools\系统时间显示\\time.exe",
@@ -116,6 +117,7 @@ categories = {
         "Python注释": ".\\Tools\去除代码注释\\remove_python_comments.exe",
         "html注释": ".\\Tools\去除代码注释\\remove_html_comments.exe",
         "C风格注释": ".\\Tools\去除代码注释\\remove_c_style_comments.exe",
+        "批处理(bat)注释": ".\\Tools\去除代码注释\\remove_batch_comments.exe",
     },
     "其他小工具": {
         "缓存清理": ".\\Tools\缓存清理\缓存清理.exe",
@@ -130,6 +132,8 @@ categories = {
         "休息一下": ".\\Tools\\[实验性工具]\\休息一下\自启动设置.exe",
         "定时闹钟": ".\\Tools\\[实验性工具]\\定时闹钟\闹钟.exe",
         "随机内容展示": ".\\Tools\\[实验性工具]\\随机展示\\main.exe",
+        "水下音效": ".\\Tools\\[实验性工具]\\水下音效\\main.html",
+        "水下音效Warn": ".\\Tools\\[实验性工具]\\水下音效\\Warn.txt",
         "去除html注释&删除空行": ".\\Tools\去除代码注释\\[实验性]remove_html_comments_noenter.exe",
     },
     "说明文件": {

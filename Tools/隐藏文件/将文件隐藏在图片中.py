@@ -27,4 +27,4 @@ with open(output_path, "wb") as output:
 
 print ("成功将文件藏在图片中！")
 
-input ("按任意键继续")
+input("按Enter键继续...")
