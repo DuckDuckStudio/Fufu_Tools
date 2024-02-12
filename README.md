@@ -22,7 +22,7 @@
 <Yzcbs123@163.com>。<br>
 
 ## 责任说明<br>
-详见[LICENSE文件](https://github.com/DuckDuckstudio/Fufu_Tools/blob/main/LICENSE)
+详见[LICENSE文件](https://github.com/DuckDuckstudio/Fufu_Tools/blob/main/LICENSE)第三条。
 我们不承担您使用本项目中的小工具所造成的任何责任。<br>
 我们不会回复任何无意义、具有侮辱性等的问题或意见。<br>
 我们不能保证此项目中的小工具在所有Windows系统上适用，请前往芙芙工具箱网页查看系统要求，我们**不对您使用小工具所造成的任何问题负责**。<br>
