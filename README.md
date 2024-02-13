@@ -2,12 +2,23 @@
 
 *Note:由于本项目访问量较少，已放弃更新英文README文件。*
 
+**网站：https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/**
+
 本仓库存放着我的写的一些小工具，可以自行按照说明使用。<br>
 **如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明或者文档**。<br>
 
 ## 对于lite版的芙芙工具箱<br>
 对于lite版的芙芙工具箱，在使用前，你必须先安装`python`（编写使用的是`python 3.12`）并正确配置！<br>
 另，对于代码中使用到的库文件请自行安装！（可以使用`pip`安装，或者运行环境配置文件夹下的`库文件.bat`安装）<br>
+
+## 系统要求
+**[点我查看芙芙工具箱的详细系统要求以及建议系统](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/minimum/)**<br>
+<br>
+建议系统：<br>
+系统：Windows 11 x64<br>
+(lite) Python：Python 3.12<br>
+终端：Windows终端<br>
+(可选)其他程序：适用于Android的Windows子系统 (使用 ADB 工具对子系统进行修改时，子系统必须处于打开状态)<br>
 
 ## 如何获取程序<br>
 **[点击这里](https://gitee.com/duckstudio/fufu-tools/releases/)下载Gitee上的最新版芙芙工具箱**<br>
@@ -31,7 +42,6 @@
 
 ## 项目公告 (2024/1/21)<br>
 **芙芙工具箱 *(打包版)* 不支持win7及以下的系统** *因为这些系统缺少依赖。* <br>
-芙芙工具箱有新网页了！【[点我直达](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/)】
 *Note:芙芙工具箱目前暂未在win8系统及win server上测试过，如果你使用的是这些系统，我们不能保证其稳定性。*
 
 ## 结尾废话<br>
