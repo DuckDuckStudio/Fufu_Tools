@@ -1,0 +1,9 @@
+This Tool code is COPY from DuckDuckStudio official website.
+本工具的代码从DuckStudio的官网复制。
+
+website ver : v1.4.6a
+
+You also can ues it online.
+url: https://duckduckstudio.github.io/yazicbs.github.io/Tools/Color.html
+你也可以在线使用她。
+链接：https://duckduckstudio.github.io/yazicbs.github.io/Tools/Color.html

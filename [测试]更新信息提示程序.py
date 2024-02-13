@@ -2,7 +2,7 @@ import re
 import requests
 
 def get_current_version():
-    with open(".\\Version", "r", encoding="gbk") as file:
+    with open(".\\Version", "r", encoding="utf-8") as file:
         content = file.read()
         # 直接搜索版本号，不区分是否带v
         match = re.search(r"Version:\s*v?(\d+\.\d+\.\d+)", content)

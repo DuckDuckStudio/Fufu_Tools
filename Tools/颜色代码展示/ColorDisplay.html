@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Color Display] 颜色代码显示</title>
+    <link rel="icon" type="image/png" href="https://duckduckstudio.github.io/yazicbs.github.io/icos/Tools.png">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s;
+        }
+
+        #colorCode {
+            font-size: 5em; /* 增大字体大小 */
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            user-select: none; /* 防止用户选择文本 */
+        }
+
+        #colorInput {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            font-size: 1em;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <span id="colorCode">#FFFFFF</span>
+
+    <input type="text" id="colorInput" placeholder="Enter color code" />
+
+    <script>
+  document.getElementById('colorInput').addEventListener('input', function(e) {
+    var color = e.target.value;
+    var colorCode = document.getElementById('colorCode');
+
+    // 尝试将输入值作为背景颜色设置
+    try {
+      document.body.style.backgroundColor = color;
+      colorCode.textContent = color;
+    } catch (error) {
+      console.log("Invalid color format: ", error);
+    }
+  });
+    </script>
+
+</body>
+</html>
