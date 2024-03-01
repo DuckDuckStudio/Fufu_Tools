@@ -4,7 +4,9 @@
 
 **网站：https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/**
 
-本仓库存放着我的写的一些小工具，可以自行按照说明使用。<br>
+[![展示图](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/photos/展示图.png "Fufu Tools")](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/)
+
+本仓库存放着我的写的一些小工具，可以下载使用。<br>
 **如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明或者文档**。<br>
 
 ## 对于lite版的芙芙工具箱<br>

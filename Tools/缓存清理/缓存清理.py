@@ -34,8 +34,8 @@ with tqdm(total=total_files, ncols=80) as pbar:
             pass
         finally:
             pbar.update(1)
-input("缓存文件删除完成！")
-#  对于TEMP↑  对于Windows.old
+print("缓存文件删除完成！")
+#  对于TEMP↑  对于Windows.old ↓
 
 windows_old_path = 'C:\\windows.old'
 

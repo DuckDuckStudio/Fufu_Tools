@@ -5,11 +5,10 @@ import os
 # 打开程序的函数
 def open_program(program_path):
     try:
-        abs_path = os.path.abspath(os.path.join(os.path.dirname(__file__), program_path))
-        os.startfile(abs_path)
+        os.startfile(program_path)
     except AttributeError:
         # os.startfile() 在 Unix 系统上不可用
-        os.system(f'start {abs_path}')
+        os.system(f'start {program_path}')
     except Exception as e:
         messagebox.showerror("错误", f"无法打开: {e}")
 
@@ -145,7 +144,7 @@ categories = {
     },
     "关于芙芙工具箱": {
         "检查芙芙工具箱版本": ".\\Show_version.bat",
-        "访问芙芙工具箱wiki": "https://gitee.com/duckstudio/fufu-tools/wikis/",
+        "访问芙芙工具箱文档": "https://github.com/DuckDuckStudio/Fufu_Tools/wiki/",
         "访问芙芙工具箱官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
         "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
         "查看首发时开源许可文件": ".\\LICENSE",

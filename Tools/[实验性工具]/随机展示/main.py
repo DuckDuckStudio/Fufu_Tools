@@ -17,7 +17,7 @@ def start_random():
     """开始随机过程，并在文本区域展示结果"""
     messages = load_messages("./messages.txt")
     if not messages:
-        result_var.set("错误: 消息文件为空或未找到。")
+        result_var.set("错误: 内容文件为空或未找到。")
         return
     
     # 在开始新一轮随机之前，重置标签样式，移除红色边框
@@ -40,7 +40,7 @@ def start_random():
     result_label.config(bg='SystemButtonFace', relief='solid', bd=2, highlightbackground='red', highlightcolor='red', highlightthickness=2)
 
 def open_or_import():
-    """提供编辑或导入消息文件的选项"""
+    """提供编辑或导入内容文件的选项"""
     def edit_messages():
         import os
         script_dir = os.path.dirname(os.path.abspath(__file__))  # 获取脚本所在目录的绝对路径
@@ -54,13 +54,13 @@ def open_or_import():
 
 
     def import_messages():
-        filename = filedialog.askopenfilename(title="导入消息文件", filetypes=(("文本文件", "*.txt"), ("所有文件", "*.*")))
+        filename = filedialog.askopenfilename(title="导入内容文件", filetypes=(("文本文件", "*.txt"), ("所有文件", "*.*")))
         if filename:
             try:
                 with open(filename, 'r', encoding='utf-8') as file:
                     with open("./messages.txt", 'w', encoding='utf-8') as outfile:
                         outfile.write(file.read())
-                messagebox.showinfo("成功", "消息文件已更新。")
+                messagebox.showinfo("成功", "内容文件已更新。")
             except Exception as e:
                 messagebox.showerror("错误", f"无法导入文件：{e}")
 

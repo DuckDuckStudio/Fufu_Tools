@@ -144,7 +144,7 @@ categories = {
     },
     "关于芙芙工具箱": {
         "检查芙芙工具箱版本": ".\\Show_version.bat",
-        "访问芙芙工具箱wiki": "https://gitee.com/duckstudio/fufu-tools/wikis/",
+        "访问芙芙工具箱文档": "https://github.com/DuckDuckStudio/Fufu_Tools/wiki/",
         "访问芙芙工具箱官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
         "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
         "查看首发时开源许可文件": ".\\LICENSE",
