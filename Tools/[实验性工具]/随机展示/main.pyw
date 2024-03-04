@@ -5,19 +5,22 @@ import time
 import os
 
 def load_messages(filename):
-    """从指定的文件中加载消息"""
+    """从指定的文件中加载消息，忽略空行"""
     try:
         with open(filename, 'r', encoding='utf-8') as file:
-            return file.read().splitlines()
+            messages = file.read().splitlines()
+            messages = [message.strip() for message in messages if message.strip()]
+            return messages
     except FileNotFoundError:
-        print(f"Error: 文件'{filename}'未找到。")
+        messagebox.showerror(f"Error: 文件'{filename}'未找到。")
         return []
 
 def start_random():
     """开始随机过程，并在文本区域展示结果"""
-    messages = load_messages("./messages.txt")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    messages = load_messages(os.path.join(script_dir, "messages.txt"))
     if not messages:
-        result_var.set("错误: 内容文件为空或未找到。")
+        messagebox.showerror("错误: 内容文件为空或未找到。")
         return
     
     # 在开始新一轮随机之前，重置标签样式，移除红色边框
@@ -40,11 +43,9 @@ def start_random():
     result_label.config(bg='SystemButtonFace', relief='solid', bd=2, highlightbackground='red', highlightcolor='red', highlightthickness=2)
 
 def open_or_import():
-    """提供编辑或导入内容文件的选项"""
     def edit_messages():
-        import os
-        script_dir = os.path.dirname(os.path.abspath(__file__))  # 获取脚本所在目录的绝对路径
-        messages_path = os.path.join(script_dir, "messages.txt")  # 构建messages.txt的绝对路径
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        messages_path = os.path.join(script_dir, "messages.txt")
         try:
             os.startfile(messages_path)  # 尝试打开文件
         except FileNotFoundError:
@@ -52,13 +53,13 @@ def open_or_import():
         except Exception as e:
             messagebox.showerror("错误", f"无法打开文件：{e}")
 
-
     def import_messages():
+        script_dir = os.path.dirname(os.path.abspath(__file__))
         filename = filedialog.askopenfilename(title="导入内容文件", filetypes=(("文本文件", "*.txt"), ("所有文件", "*.*")))
         if filename:
             try:
                 with open(filename, 'r', encoding='utf-8') as file:
-                    with open("./messages.txt", 'w', encoding='utf-8') as outfile:
+                    with open(os.path.join(script_dir, "messages.txt"), 'w', encoding='utf-8') as outfile:
                         outfile.write(file.read())
                 messagebox.showinfo("成功", "内容文件已更新。")
             except Exception as e:
