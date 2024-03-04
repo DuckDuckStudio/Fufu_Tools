@@ -1,7 +1,5 @@
 import os
 import shutil
-import msvcrt
-# msvcrt only for windows
 
 # --必要条件--
 # 目标文件夹路径

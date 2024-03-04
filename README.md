@@ -6,15 +6,12 @@
 
 [![展示图](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/photos/展示图.png "Fufu Tools")](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/)
 
-本仓库存放着我的写的一些小工具，可以下载使用。<br>
+本仓库存放着我写的一些小工具，可以下载使用。<br>
 **如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明或者文档**。<br>
-
-## 对于lite版的芙芙工具箱<br>
-对于lite版的芙芙工具箱，在使用前，你必须先安装`python`（编写使用的是`python 3.12`）并正确配置！<br>
-另，对于代码中使用到的库文件请自行安装！（可以使用`pip`安装，或者运行环境配置文件夹下的`库文件.bat`安装）<br>
 
 ## 系统要求
 **[点我查看芙芙工具箱的详细系统要求以及建议系统](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/minimum/)**<br>
+**Note: `lite`版必须安装python，详细请查看上方链接↑**<br>
 <br>
 建议系统：<br>
 系统：Windows 11 x64<br>

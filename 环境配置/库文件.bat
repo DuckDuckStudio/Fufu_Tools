@@ -40,6 +40,14 @@ echo 正在安装库 piexif
 pip install piexif
 echo 安装库 piexif 结束
 echo -------------------
+echo 正在安装库 pyautogui
+pip install pyautogui
+echo 安装库 pyautogui 结束
+echo -------------------
+echo 正在安装库 keyboard
+pip install keyboard
+echo 安装库 keyboard 结束
+echo -------------------
 echo 所有所需库文件安装完成！
 echo 错误关键词ERROR，如有看到请确认库文件安装情况。
 echo 如果看不懂可以使用翻译软件！
