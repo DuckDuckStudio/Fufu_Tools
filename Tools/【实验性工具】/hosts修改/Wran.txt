@@ -1,0 +1,14 @@
+此操作需要管理员权限,hosts文件目录仅限于Windows系统。
+本程序可以用终端调用，详情请cd到程序目录后运行以下命令：
+python edit_hosts_file.py --help
+
+你应该会得到以下信息：
+usage: edit_hosts_file.py [-h] [--add ip hostname] [--remove hostname] [--list]
+
+编辑 hosts 文件
+
+options:
+  -h, --help         show this help message and exit
+  --add ip hostname  添加新的域名映射
+  --remove hostname  删除已有的映射
+  --list             列出已配置的域名映射

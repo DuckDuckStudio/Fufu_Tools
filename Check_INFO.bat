@@ -3,12 +3,6 @@
 echo --- Console used encoding ---
 chcp
 
-echo --- Python version ---
-python --version
-
-echo --- pip version ---
-pip --version
-
 echo --- System version ---
 ver
 
@@ -61,5 +55,12 @@ net.exe session 1>NUL 2>NUL && (
 ) || (
     echo Non administrator.
 )
+
+echo --- System environment ---
+python --version
+pip --version
+echo [INFO]The lower environment is not used by Fufu Tools.
+node -v
+npm -v
 
 pause

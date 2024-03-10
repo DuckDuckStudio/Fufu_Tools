@@ -59,8 +59,15 @@ def open_or_import():
         if filename:
             try:
                 with open(filename, 'r', encoding='utf-8') as file:
+                    content = file.read()
+                    # 检查文件内容是否为空
+                    if not content.strip():  # 如果文件内容为空或只有空白字符
+                        messagebox.showwarning("警告", "导入的文件为空，请选择包含内容的文件。")
+                        return  # 终止函数执行
+                
+                    # 如果文件不为空，则写入内容
                     with open(os.path.join(script_dir, "messages.txt"), 'w', encoding='utf-8') as outfile:
-                        outfile.write(file.read())
+                        outfile.write(content)
                 messagebox.showinfo("成功", "内容文件已更新。")
             except Exception as e:
                 messagebox.showerror("错误", f"无法导入文件：{e}")

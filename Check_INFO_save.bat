@@ -8,12 +8,6 @@ echo Checking...
 echo --- Console used encoding --- >> "INFO.txt"
 chcp >> "INFO.txt"
 
-echo --- Python version --- >> "INFO.txt"
-python --version >> "INFO.txt"
-
-echo --- pip version --- >> "INFO.txt"
-pip --version >> "INFO.txt"
-
 echo --- System version --- >> "INFO.txt"
 ver >> "INFO.txt"
 
@@ -66,6 +60,13 @@ net.exe session 1>NUL 2>NUL && (
 ) || (
     echo Non administrator. >> "INFO.txt"
 )
+
+echo --- System environment --- >> "INFO.txt"
+python --version >> "INFO.txt"
+pip --version >> "INFO.txt"
+echo [INFO]The lower environment is not used by Fufu Tools. >> "INFO.txt"
+node -v >> "INFO.txt"
+npm -v >> "INFO.txt"
 
 echo The information has been saved to INFO.txt in the directory of the Fufu Tools.
 
