@@ -32,8 +32,9 @@ if os.path.exists(shortcut_path):
         print("[Y]是 [N]否")
         temp = input("你的回答是：")
         if temp.lower() in ["y", "yes", "是"]:
-            print("删除启动项中...")
+            print("删除自启动项中...")
             os.remove(shortcut_path)
+            print("删除自启动项完毕！")
             break
         elif temp.lower() in ["n", "no", "否", "不"]:
             print("取消操作...")
@@ -73,6 +74,7 @@ else:
             print("创建自启动项中...")
             # 在启动文件夹中创建快捷方式
             shutil.copyfile(source_file, shortcut_path)
+            print("创建自启动项完毕！")
             break
         elif temp.lower() in ["n", "no", "否", "不"]:
             print("取消操作...")
