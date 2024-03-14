@@ -2,16 +2,16 @@ import os
 import time
 import subprocess
 
-# Warn:这个程序使用git cherry -v检测差异，即如果远程仓库有更新的提交时，本程序也会识别为有未push的提交并进行push操作！
+# Warn:这个程序暂未进行过任何测试，其稳定性不可保证！
 
 '''
 1. 获取工作目录
-2. 检测是否有未push的本地提交
+2. 检测是否与远程仓库有差异
 3. 如果是，执行3.1.1；否则执行3.2.1
-3.1.1 尝试push(所有没有push的)提交到远程仓库
+3.1.1 尝试pull到本地仓库
 3.1.2 如果成功，显示提醒；如果失败，执行3.1.3
 3.1.3 计数+1，等待10秒后重新执行3.1.1
-3.2.1 (没有未push的提交)给与提示
+3.2.1 (已是最新)给与提示
 '''
 
 def process_file_path(file_path):# 处理工作目录路径
@@ -22,7 +22,7 @@ def process_file_path(file_path):# 处理工作目录路径
     
     return file_path
 
-def has_unpushed_commits(working_dir):  
+def has_unpulled_commits(working_dir):  
     result = subprocess.run('git cherry -v', shell=True, capture_output=True, text=True, cwd=working_dir)
     
     while True:
@@ -34,10 +34,10 @@ def has_unpushed_commits(working_dir):
             print("[ERROR] 获取差异时出错")
 
 
-def push_commits(working_dir):  # push提交
-    result = subprocess.run('git push', shell=True, capture_output=True, text=True, cwd=working_dir)
+def pull_commits(working_dir):  # pull提交
+    result = subprocess.run('git pull', shell=True, capture_output=True, text=True, cwd=working_dir)
     if result.returncode == 0:
-        return "Push successful"
+        return "pull successful"
     else:
         return result.stderr
 
@@ -57,15 +57,15 @@ def main():
     counter = 0
 
     while True:
-        if has_unpushed_commits(working_dir):
+        if has_unpulled_commits(working_dir):
             counter += 1
-            push_output = push_commits(working_dir)
-            if "Push successful" in push_output:
-                print("[info]push成功")
+            pull_output = pull_commits(working_dir)
+            if "pull successful" in pull_output:
+                print("[info]pull成功")
                 break
             else:
-                print("[Warn]第",counter,"次提交推送失败")
-                print("原因:",push_output)
+                print("[Warn]第",counter,"次pull尝试失败")
+                print("原因:",pull_output)
                 temp = time_counter
                 for i in range(time_counter, 0, -1):
                     print("\r{}秒后重试...".format(i), end="")
@@ -73,8 +73,8 @@ def main():
                 print("\r")
                 time_counter = temp# 还原秒数设置
         else:
-            print("[Warn]没有未push的本地提交")
-    print("[info]一共执行了",counter,"次push")
+            print("[Warn]本地仓库已是最新")
+    print("[info]一共执行了",counter,"次pull")
 
 if __name__ == "__main__":
     main()
