@@ -99,5 +99,5 @@ else:
             do = 0
             what = 0
             print("请按说明回答！")
-# 退出
+
 input("按Enter键继续...")
