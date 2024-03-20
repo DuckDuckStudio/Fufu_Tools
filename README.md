@@ -1,6 +1,8 @@
 # 芙芙工具箱<br>
 
-*Note:由于本项目访问量较少，已放弃更新英文README文件。*
+*Note:由于本项目访问量较少，已放弃更新英文README文件。*<br>
+
+*Note:进行无修改的Fork请遵守LICENSE文件*<br>
 
 **网站：https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/**
 
