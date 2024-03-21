@@ -64,9 +64,6 @@ net.exe session 1>NUL 2>NUL && (
 echo --- System environment --- >> "INFO.txt"
 python --version >> "INFO.txt"
 pip --version >> "INFO.txt"
-echo [INFO]The lower environment is not used by Fufu Tools. >> "INFO.txt"
-node -v >> "INFO.txt"
-npm -v >> "INFO.txt"
 
 echo The information has been saved to INFO.txt in the directory of the Fufu Tools.
 

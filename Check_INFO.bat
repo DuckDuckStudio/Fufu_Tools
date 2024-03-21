@@ -59,8 +59,5 @@ net.exe session 1>NUL 2>NUL && (
 echo --- System environment ---
 python --version
 pip --version
-echo [INFO]The lower environment is not used by Fufu Tools.
-node -v
-npm -v
 
 pause
