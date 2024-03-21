@@ -14,6 +14,12 @@
 ## 系统要求
 **[点我查看芙芙工具箱的详细系统要求以及建议系统](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/minimum/)**<br>
 **Note: `lite`版必须安装python，详细请查看上方链接↑**<br>
+  
+*建议系统 for v1.2.7:*<br>
+*系统：Windows 11 x64*<br>
+*(lite版)Python：Python 3.12 及以上*<br>
+*终端：Windows终端*<br>
+*(WSA工具)其他程序：WSA以及ADB(安卓调试桥)*<br>
 
 ## 如何获取程序<br>
 **[点击这里](https://gitee.com/duckstudio/fufu-tools/releases/)下载Gitee上的最新版芙芙工具箱**<br>
