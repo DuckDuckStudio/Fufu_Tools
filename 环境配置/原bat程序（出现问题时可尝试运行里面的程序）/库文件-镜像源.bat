@@ -27,12 +27,6 @@ echo -------------------
 echo 正在安装库 beautifulsoup4
 pip install beautifulsoup4 -i https://pypi.tuna.tsinghua.edu.cn/simple
 echo 安装库 beautifulsoup4 结束
-REM skip to install "requests"
-echo -------------------
-echo 正在安装库 webbrowser
-pip install webbrowser -i https://pypi.tuna.tsinghua.edu.cn/simple
-echo 安装库 webbrowser 结束
-REM skip to install "webbrowser"
 echo -------------------
 echo 正在安装库 ntplib
 pip install ntplib -i https://pypi.tuna.tsinghua.edu.cn/simple
