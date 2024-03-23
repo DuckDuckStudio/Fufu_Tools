@@ -7,3 +7,6 @@
   * [布尔值](https://zhuanlan.zhihu.com/p/686179249)
 * 库
   * [os模块](https://zhuanlan.zhihu.com/p/686178899)
+
+# 有关其他信息速查（仅供作者使用）
+* [相对路径or绝对路径](https://zhuanlan.zhihu.com/p/688687147)
