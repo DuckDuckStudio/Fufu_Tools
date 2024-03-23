@@ -8,8 +8,8 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 config_file_path = os.path.join(script_dir, "config.ini")
 config = configparser.ConfigParser()
 config.read(config_file_path)
-ctr = config.getboolean('settings', 'customer_temp_folder')
-ac_ctr = ctr = config.getboolean('settings', 'always_clear_ctr')
+ctr = config.get('settings', 'customer_temp_folder')
+ac_ctr = config.getboolean('settings', 'always_clear_ctr')
 
 print("正在删除缓存文件...")
 
@@ -20,8 +20,14 @@ tmp_path = os.environ["TMP"]
 
 # 获取所有缓存文件路径
 file_paths = []
+
 # -- Check --
-if ctr:# 有任意值且不为False则为True
+if ctr == "False":
+    flag = False
+else:
+    flag = True
+
+if flag:# 有任意值且不为False则为True
     print("检测到自定义缓存文件夹，是否同步清理？")
     while not ac_ctr:
         print("[Y]是 [N]否 [A]总是")
