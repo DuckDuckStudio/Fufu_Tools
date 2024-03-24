@@ -1,16 +1,13 @@
 import re
 import requests
+from configparser import ConfigParser
 
 def get_current_version():
-    with open(".\\Version", "r", encoding="utf-8") as file:
-        content = file.read()
-        # 直接搜索版本号，不区分是否带v
-        match = re.search(r"Version:\s*v?(\d+\.\d+\.\d+)", content)
-        if match:
-            current_version = match.group(1)  # 不包含v
-        else:
-            current_version = None
-    return current_version
+    config = ConfigParser(comment_prefixes=[])
+    config.read("config.ini", encoding='utf-8')
+    major_version = config.get('information', 'major_version_number')
+    
+    return major_version
 
 def get_latest_version():
     try:
