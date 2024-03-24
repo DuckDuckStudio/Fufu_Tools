@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import os
+from configparser import ConfigParser
 
 # 打开程序的函数
 def open_program(program_path):
@@ -61,6 +62,15 @@ def show_categories():
     
     # 隐藏返回按钮
     back_button.pack_forget()
+
+# ------- 版本更新检查 ------
+config = ConfigParser(comment_prefixes=[])
+config.read("config.ini", encoding='utf-8')
+aruic = config.get('settings', 'always_run_update_info_check')
+# ARUIC表示always_run_update_info_check = 总是运行更新信息检查
+if aruic == "False":
+    os.startfile(".\\【测试】更新信息提示程序（后台）.pyw")
+# ------- 可       选 -------
 
 # 创建主窗口
 root = tk.Tk()
@@ -165,7 +175,7 @@ categories = {
         "访问芙芙工具箱文档": "https://github.com/DuckDuckStudio/Fufu_Tools/wiki/",
         "访问芙芙工具箱官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
         "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
-        "查看首发时开源许可文件": ".\\LICENSE",
+        "[测试]检查更新": ".\\【测试】更新信息提示程序（后台）.pyw",
         "查看最新开源许可文件": "https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE",
         "信息确认": ".\\Check_INFO.bat",
         "信息确认(导出)": ".\\Check_INFO_save.bat",
