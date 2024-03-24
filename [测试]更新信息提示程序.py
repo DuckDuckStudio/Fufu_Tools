@@ -2,12 +2,10 @@ import re
 import requests
 from configparser import ConfigParser
 
-def get_current_version():
-    config = ConfigParser(comment_prefixes=[])
-    config.read("config.ini", encoding='utf-8')
-    major_version = config.get('information', 'major_version_number')
-    
-    return major_version
+config = ConfigParser(comment_prefixes=[])
+config.read("config.ini", encoding='utf-8')
+major_version = config.get('information', 'major_version_number')
+sorn = config.get('information', 'status_or_revision_number')
 
 def get_latest_version():
     try:
@@ -54,7 +52,7 @@ def compare_versions(version1, version2):
         return 0
 
 def check_for_updates():
-    current_version = get_current_version()
+    current_version = major_version
     
     if not current_version:  # 如果无法获取版本号，则输出提示信息
         print("无法获取当前版本信息，请检查版本文件内容是否正确。")
@@ -68,7 +66,7 @@ def check_for_updates():
         print("无法获取最新版本信息。")
         return
     
-    print(f"最新版本: {latest_version}")
+    print(f"最新正式版: {latest_version}")
     
     comparison_result = compare_versions(current_version, latest_version)
     
@@ -79,6 +77,18 @@ def check_for_updates():
     else:
         print("当前版本比最新版本更高，你认真的？")
 
+def check_for_SORN():# SORN指status_or_revision_number，即状态或修订号
+    if not sorn:
+        print("[info]当前正在使用打包版")
+    elif sorn == "code":
+        print("[WARN]你似乎正在使用编写中的“code”版，该版本可能会出现一些意料之外的问题。")
+    elif sorn == "lite":
+        print("[info]当前正在使用“lite”版")
+    elif sorn == "exe":
+        print("[info]当前正在使用安装程序版")
+
 check_for_updates()
+
+check_for_SORN()
 
 input("按Enter键继续...")
