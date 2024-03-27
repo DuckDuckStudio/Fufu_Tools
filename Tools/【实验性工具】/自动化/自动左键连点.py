@@ -8,14 +8,22 @@ click_interval = float(input("请输入每次点击的间隔时间(秒)："))  #
 # 控制自动点击的开关
 auto_clicking = False
 
+# 控制提示消息
+first_time = True
+
 def toggle_auto_click():
     global auto_clicking
+    global first_time
     # 切换自动点击状态
     auto_clicking = not auto_clicking
-    if auto_clicking:
-        print("自动点击 已开始。")
+    if first_time:
+        print("自动点击 已开始。")# 首次按下F8必定是开始自动按键
+        first_time = False # 标记为非首次
     else:
-        print("自动点击 已停止。")
+        if auto_clicking:
+            print('\033[1A\033[K' + "自动点击 已开始。")
+        else:
+            print('\033[1A\033[K' + "自动点击 已停止。")
 
 def auto_click():
     while True:
