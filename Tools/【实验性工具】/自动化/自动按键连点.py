@@ -12,14 +12,22 @@ key = key.lower()
 # 控制自动按键的开关
 auto_pressing = False
 
+# 控制提示消息
+first_time = True
+
 def toggle_auto_press():
     global auto_pressing
+    global first_time
     # 切换自动按键状态
     auto_pressing = not auto_pressing
-    if auto_pressing:
-        print("自动按键 已开始。")
+    if first_time:
+        print("自动按键 已开始。")# 首次按下F8必定是开始自动按键
+        first_time = False # 标记为非首次
     else:
-        print("自动按键 已停止。")
+        if auto_pressing:
+            print('\033[1A\033[K' + "自动按键 已开始。")
+        else:
+            print('\033[1A\033[K' + "自动按键 已停止。")
 
 def auto_press():
     while True:
