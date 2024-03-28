@@ -80,7 +80,7 @@ config = ConfigParser(comment_prefixes=[])
 config.read("config.ini", encoding='utf-8')
 aruic = config.get('settings', 'always_run_update_info_check')
 # ARUIC表示always_run_update_info_check = 总是运行更新信息检查
-if aruic == "False":
+if aruic == "True":
     os.startfile(".\\【测试】更新信息提示程序（后台）.exe")
 # ------- 可       选 -------
 
