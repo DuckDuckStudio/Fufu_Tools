@@ -13,7 +13,10 @@ import requests
 mirror_urls = [
     "https://pypi.tuna.tsinghua.edu.cn/simple",
     "https://mirrors.aliyun.com/pypi/simple",
-    "https://pypi.douban.com/simple"
+    "https://pypi.mirrors.ustc.edu.cn/simple",
+    "https://pypi.douban.com/simple",
+    "http://pypi.hustunique.com/",
+    "http://pypi.sdutlinux.org/"
 ]
 
 # 测试镜像源连接速度
