@@ -71,6 +71,14 @@ aruic = config.get('settings', 'always_run_update_info_check')
 if aruic == "True":
     os.startfile(".\\【测试】更新信息提示程序（后台）.pyw")
 # ------- 可       选 -------
+# ------- 首次启动查看LICENSE文件 -------
+ftr = config.get('initialize', 'first_time_run')#判断是否为首次运行
+if ftr == "True":
+    config["initialize"]["first_time_run"] = "False"
+    with open("config.ini", 'w') as configfile:
+        config.write(configfile)
+    os.startfile("https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE")
+    messagebox.showinfo("提示", "检测到您为首次运行本工具，请先阅读许可文件，使用本工具即表示您同意许可文件中的内容。")
 
 # 创建主窗口
 root = tk.Tk()
