@@ -2,6 +2,8 @@
 
 *Note:由于本项目访问量较少，已放弃更新英文README文件。*<br>
 
+*Note:v1.2.8的英文翻译已在X上发起投票，快去搜索 **#芙芙工具箱** 进行投票吧！*
+
 *Note:进行无修改的Fork请遵守[LICENSE文件](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE)*<br>
 
 **网站：https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/**
