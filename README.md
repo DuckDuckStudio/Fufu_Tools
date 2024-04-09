@@ -18,11 +18,8 @@
 **[点我查看芙芙工具箱的详细系统要求以及建议系统](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/minimum/)**
 **Note: `lite`版必须安装python，详细请查看上方链接↑**
 
-*建议系统 for v1.2.7:*
-*系统：Windows 11 x64*
-*(lite版)Python：Python 3.12 及以上*
-*终端：Windows终端*
-*(WSA工具)其他程序：WSA以及ADB(安卓调试桥)*
+> [!NOTE]
+> 系统要求随时都可能会改变，请关注每个版本的系统要求！
 
 [【点我查看受支持的版本】](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/SECURITY.md)
 
@@ -33,7 +30,7 @@
 
 ## 贡献者
 
-感谢所有为该项目做出贡献的人！
+感谢所有为该项目做出贡献的人！  
 [![贡献者](https://img.shields.io/github/contributors/DuckDuckStudio/Fufu_Tools)](https://github.com/DuckDuckStudio/Fufu_Tools/graphs/contributors)
 
 ## 对于项目文件转载说明
@@ -43,10 +40,11 @@
 ## 问题反馈
 
 如果您有发现本项目的任何问题，**请[提交Issues](https://github.com/DuckDuckStudio/Fufu_Tools/issues)**。
-反馈前请先尝试**更新到最新版本**来看看问题是否已在最新版本解决。
-这边也请您在反馈时**说清楚您的问题或建议**哦。
-有任何问题也可以向本邮箱反馈：
-<Yzcbs123@163.com>。
+> [!NOTE]
+> 反馈前请先尝试**更新到最新版本**来看看问题是否已在最新版本解决。
+> 在反馈时请**说清楚您的问题或建议**。
+> 有任何问题也可以向本邮箱反馈：
+> <Yzcbs123@163.com>。
 
 ## 责任说明
 
