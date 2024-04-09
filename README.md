@@ -24,7 +24,7 @@
 *终端：Windows终端*
 *(WSA工具)其他程序：WSA以及ADB(安卓调试桥)*
 
-[【点我查看受支持的版本】](https://github.com/DuckDuckStudio/Fufu_Tools?tab=security-ov-file)
+[【点我查看受支持的版本】](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/SECURITY.md)
 
 ## 如何获取程序
 
@@ -43,7 +43,7 @@
 ## 问题反馈
 
 如果您有发现本项目的任何问题，**请[提交Issues](https://github.com/DuckDuckStudio/Fufu_Tools/issues)**。
-对本项目有任何建议、疑问等，**请[发布discussions](https://github.com/DuckDuckStudio/Fufu_Tools/discussions)**。
+反馈前请先尝试**更新到最新版本**来看看问题是否已在最新版本解决。
 这边也请您在反馈时**说清楚您的问题或建议**哦。
 有任何问题也可以向本邮箱反馈：
 <Yzcbs123@163.com>。
@@ -55,14 +55,14 @@
 我们不会回复任何无意义、具有侮辱性等的问题或意见。
 我们不能保证此项目中的小工具在所有Windows系统上适用，请前往芙芙工具箱网页查看系统要求，我们**不对您使用小工具所造成的任何问题负责**。
 
-## 项目公告 (2024/1/21)
+## 项目公告 
 
 **芙芙工具箱 *(打包版)* 不支持win7及以下的系统** *因为这些系统缺少依赖。*
 *Note:芙芙工具箱目前暂未在win8系统及win server上测试过，如果你使用的是这些系统，我们不能保证其稳定性。*
 
 ## 结尾废话
 
-如果您觉得本项目对您有帮助的话，请您给我们的这个项目**添加一个Star**，万分感谢。当然，如果您对我们的其他项目感兴趣的话也可以[Fllow_us](https://github.com/DuckDuckStudio/) 或者是关注我们的[哔哩哔哩账号](https://space.bilibili.com/2054654702)。非特殊情况下（例如作者本人发布），您**只能从[本项目的GitHub仓库](https://github.com/DuckDuckStudio/Fufu_Tools/)或者[本项目的Gitee仓库](https://gitee.com/duckstudio/fufu-tools/)获得本项目中的任何文件**。
+如果您觉得本项目对您有帮助的话，请您给我们的这个项目**添加一个Star**，万分感谢。当然，如果您对我们的其他项目感兴趣的话也可以[Fllow_us](https://github.com/DuckDuckStudio/) 或者是关注我们的[哔哩哔哩账号](https://space.bilibili.com/2054654702)。
 
 > 本说明文件使用[Markdown语法](https://markdown.com.cn/basic-syntax/)编辑。
 
