@@ -33,6 +33,16 @@
 感谢所有为该项目做出贡献的人！  
 [![贡献者](https://img.shields.io/github/contributors/DuckDuckStudio/Fufu_Tools)](https://github.com/DuckDuckStudio/Fufu_Tools/graphs/contributors)
 
+### 关于项目网站
+
+本项目的网站位于另一个仓库:  
+![项目网站仓库](https://github-stats.ubrong.com/api/pin/?username=DuckDuckStudio&repo=yazicbs.github.io)
+
+> [!WARN]
+> 这个仓库不仅包含本项目的网页，还包含一些其他的网页。  
+> 本项目的网页位于`.\Tools\Fufu_Tools\*`  
+> 如果有关于网页的问题反馈，可前往这个仓库提交Issues  
+
 ## 对于项目文件转载说明
 
 对于文件的转载，详见 **[LICENSE文件](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE)**   
