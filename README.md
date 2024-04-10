@@ -40,7 +40,7 @@
 ### 关于项目网站
 
 本项目的网站位于另一个仓库:  
-![项目网站仓库](https://github-stats.ubrong.com/api/pin/?username=DuckDuckStudio&repo=yazicbs.github.io)
+[![项目网站仓库](https://github-stats.ubrong.com/api/pin/?username=DuckDuckStudio&repo=yazicbs.github.io)](https://github.com/DuckDuckStudio/yazicbs.github.io)  
 
 > [!NOTE]
 > 这个仓库不仅包含本项目的网页，还包含一些其他的网页。  
