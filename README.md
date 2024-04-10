@@ -15,7 +15,7 @@
 
 ## 系统要求
 
-**[点我查看芙芙工具箱的详细系统要求以及建议系统](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/minimum/)**
+**[点我查看芙芙工具箱的详细系统要求以及建议系统](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/minimum/)**  
 **Note: `lite`版必须安装python，详细请查看上方链接↑**
 
 > [!NOTE]
@@ -39,7 +39,8 @@
 
 ### 关于项目网站
 
-本项目的网站位于另一个仓库:![项目网站仓库](https://github-stats.ubrong.com/api/pin/?username=DuckDuckStudio&repo=yazicbs.github.io)
+本项目的网站位于另一个仓库:
+![项目网站仓库](https://github-stats.ubrong.com/api/pin/?username=DuckDuckStudio&repo=yazicbs.github.io)
 
 > [!NOTE]
 > 这个仓库不仅包含本项目的网页，还包含一些其他的网页。
