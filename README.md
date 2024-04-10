@@ -15,7 +15,8 @@
 
 ## 系统要求
 
-**[点我查看芙芙工具箱的详细系统要求以及建议系统](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/minimum/)****Note: `lite`版必须安装python，详细请查看上方链接↑**
+**[点我查看芙芙工具箱的详细系统要求以及建议系统](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/minimum/)** 
+**Note: `lite`版必须安装python，详细请查看上方链接↑**
 
 > [!NOTE]
 > 系统要求随时都可能会改变，请关注每个版本的系统要求！
