@@ -15,7 +15,7 @@
 
 ## 系统要求
 
-**[点我查看芙芙工具箱的详细系统要求以及建议系统](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/minimum/)** 
+**[点我查看芙芙工具箱的详细系统要求以及建议系统](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/minimum/)**
 **Note: `lite`版必须安装python，详细请查看上方链接↑**
 
 > [!NOTE]
@@ -28,6 +28,10 @@
 **[点击这里](https://gitee.com/duckstudio/fufu-tools/releases/)下载Gitee上的最新版芙芙工具箱**
 **[点击这里](https://github.com/DuckDuckStudio/Fufu_Tools/releases)下载GitHub上的最新版芙芙工具箱**
 
+### 不知道如何查看文章？
+
+[[点我即可在线前往查看！]](https://github.com/DuckDuckStudio/Fufu_Tools/tree/main/Text/%E7%BB%99%E7%94%B5%E8%84%91%E5%B0%8F%E7%99%BD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E8%80%83)
+
 ## 贡献者
 
 感谢所有为该项目做出贡献的人！
@@ -35,8 +39,7 @@
 
 ### 关于项目网站
 
-本项目的网站位于另一个仓库:  
-![项目网站仓库](https://github-stats.ubrong.com/api/pin/?username=DuckDuckStudio&repo=yazicbs.github.io)
+本项目的网站位于另一个仓库:![项目网站仓库](https://github-stats.ubrong.com/api/pin/?username=DuckDuckStudio&repo=yazicbs.github.io)
 
 > [!NOTE]
 > 这个仓库不仅包含本项目的网页，还包含一些其他的网页。
