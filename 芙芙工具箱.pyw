@@ -5,6 +5,9 @@ from configparser import ConfigParser
 
 # 打开程序的函数
 def open_program(program_path):
+    if program_path == "https://github.com/DuckDuckStudio/Fufu_Tools/issues":
+        messagebox.showinfo("提示", "在反馈问题前请先查阅文档中是否已列出解决办法！")
+    # ---
     try:
         os.startfile(program_path)
     except AttributeError:
@@ -187,6 +190,7 @@ categories = {
         "查看最新开源许可文件": "https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE",
         "信息确认": ".\\Check_INFO.bat",
         "信息确认(导出)": ".\\Check_INFO_save.bat",
+        "问题反馈": "https://github.com/DuckDuckStudio/Fufu_Tools/issues",
     },
     # 更多类别和程序...
 }
