@@ -2,7 +2,7 @@
 
 *Note:由于本项目访问量较少，已放弃更新英文README文件。*<br>
 
-*Note:v1.2.8的英文翻译已在[X](https://twitter.com/JinchengFang/status/1773328720507375780)/[哔哩哔哩](https://www.bilibili.com/opus/918773262183301161)/[仓库讨论页](https://github.com/DuckDuckStudio/Fufu_Tools/discussions/25)上发起投票，快去进行投票吧！**（X上的投票已结束,最终票数为各平台正常票数之合）***<br>
+*Note:v1.2.8的英文翻译投票结果：平票* **(投票人数过少且平票（GitHub与X上各1票），故英文翻译不做修改)**<br>
 
 *Note:进行无修改的Fork请遵守[LICENSE文件](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE)*<br>
 
