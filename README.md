@@ -11,7 +11,7 @@
 [![展示图](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/photos/展示图.png "Fufu Tools")](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/)<br>
 
 本仓库存放着我写的一些小工具，可以下载使用。<br>
-**如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明或者文档**。<br>
+**如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明或者[文档](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/)**。<br>
 
 ## 系统要求
 
@@ -27,9 +27,10 @@
 **[点击这里](https://gitee.com/duckstudio/fufu-tools/releases/)下载Gitee上的最新版芙芙工具箱**<br>
 **[点击这里](https://github.com/DuckDuckStudio/Fufu_Tools/releases)下载GitHub上的最新版芙芙工具箱**<br>
 
-### 不知道如何查看文章？
+### 如何查看文章/文档
 
-[[点我即可在线前往查看！]](https://github.com/DuckDuckStudio/Fufu_Tools/tree/main/Text/%E7%BB%99%E7%94%B5%E8%84%91%E5%B0%8F%E7%99%BD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E8%80%83)<br>
+[[点我即可在线前往查看文章！]](https://github.com/DuckDuckStudio/Fufu_Tools/tree/main/Text/%E7%BB%99%E7%94%B5%E8%84%91%E5%B0%8F%E7%99%BD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E8%80%83)<br>
+[[点我即可在线前往查看文档]](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/)<br>
 
 ## 贡献者
 
