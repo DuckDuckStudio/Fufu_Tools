@@ -1,3 +1,5 @@
 .vs/
 build/
 *.spec
+.vscode/
+Fufu_Tools_C_plus_plus/
