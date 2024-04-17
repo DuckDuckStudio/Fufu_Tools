@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>检查网站索引情况</title>
+</head>
+<body>
+    <h1>检查网站索引情况</h1>
+    <p>由于技术原因，本程序不能保证结果正确。</p>
+    <form id="indexCheckForm">
+        <label for="urlInput">请输入要检查的网站 URL：</label>
+        <input type="text" id="urlInput" name="url" required>
+        <button type="submit">检查索引</button>
+    </form>
+    <div id="resultContainer"></div>
+
+    <script>
+        document.getElementById("indexCheckForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var url = document.getElementById("urlInput").value;
+            checkIndex(url);
+        });
+
+        function checkIndex(url) {
+            var searchEngines = ['baidu', 'bing', 'google', 'yahoo'];
+            var resultContainer = document.getElementById("resultContainer");
+            resultContainer.innerHTML = "";
+
+            searchEngines.forEach(function(searchEngine) {
+                var searchUrl;
+                var query = 'site:' + url;
+
+                if (searchEngine.toLowerCase() === 'baidu') {
+                    searchUrl = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd=' + encodeURIComponent(query) + '&rsv_pq=a43b358b00e3fbf6&rsv_t=3680Nponm%2FFO0m0joY50ameSwJgTz9hY2Vw9fH2SWdvoJmTTXf2egGp%2Bviw&rqlang=cn&rsv_dl=tb&rsv_enter=0&rsv_btype=t';
+                } else if (searchEngine.toLowerCase() === 'bing') {
+                    searchUrl = 'https://www.bing.com/search?q=' + encodeURIComponent(query);
+                } else if (searchEngine.toLowerCase() === 'google') {
+                    searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+                } else if (searchEngine.toLowerCase() === 'yahoo') {
+                    searchUrl = 'https://search.yahoo.com/search?p=' + encodeURIComponent(query);
+                }
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", searchUrl);
+                xhr.setRequestHeader("Content-Type", "text/html");
+                xhr.onload = function() {
+                    var parser = new DOMParser();
+                    var htmlDoc = parser.parseFromString(xhr.responseText, 'text/html');
+                    var resultStats;
+
+                    if (searchEngine.toLowerCase() === 'baidu') {
+                        resultStats = htmlDoc.querySelector('.nums');
+                    } else if (searchEngine.toLowerCase() === 'bing') {
+                        resultStats = htmlDoc.querySelector('span.sb_count') || htmlDoc.querySelector('span.b_algo');
+                    } else if (searchEngine.toLowerCase() === 'google') {
+                        resultStats = htmlDoc.getElementById('result-stats');
+                    } else if (searchEngine.toLowerCase() === 'yahoo') {
+                        resultStats = htmlDoc.querySelector('.compPagination');
+                    }
+
+                    var resultMessage = '未知';
+                    if (resultStats) {
+                        resultMessage = '已索引：' + resultStats.textContent;
+                    } else {
+                        resultMessage = '未索引';
+                    }
+
+                    var resultDiv = document.createElement("div");
+                    resultDiv.textContent = '您的网站 ' + url + ' 在 ' + searchEngine + ' 中' + resultMessage;
+                    resultContainer.appendChild(resultDiv);
+                };
+                xhr.onerror = function() {
+                    var resultDiv = document.createElement("div");
+                    resultDiv.textContent = '无法连接到 ' + searchEngine + '，请检查您的网络连接。';
+                    resultContainer.appendChild(resultDiv);
+                };
+                xhr.send();
+            });
+        }
+    </script>
+</body>
+</html>
