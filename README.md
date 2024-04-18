@@ -2,8 +2,6 @@
 
 *Note:由于本项目访问量较少，已放弃更新英文README文件。*<br>
 
-*Note:v1.2.8的英文翻译投票结果：平票* **(投票人数过少且平票（GitHub与X上各1票），故英文翻译不做修改)**<br>
-
 *Note:进行无修改的Fork请遵守[LICENSE文件](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE)*<br>
 
 **网站：https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/**<br>
@@ -70,8 +68,9 @@
 
 ## 项目公告
 
-**芙芙工具箱 *(打包版)* 不支持win7及以下的系统** *因为这些系统缺少依赖。*<br>
 *Note:芙芙工具箱目前暂未在win8系统及win server上测试过，如果你使用的是这些系统，我们不能保证其稳定性。*<br>
+
+*芙芙工具箱将停止更新WSA小工具，因为依据[适用于 Android™️ 的 Windows 子系统 | Microsoft Learn](https://learn.microsoft.com/zh-cn/windows/android/wsa/)WSA将于2025 年 3 月 5 日起停止支持。届时WSA小工具或许会改名为ADB小工具并继续更新，或许会直接从后续版本中砍掉。*
 
 ## 结尾废话
 
