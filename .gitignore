@@ -3,3 +3,4 @@ build/
 *.spec
 .vscode/
 配置文件/
+.venv/
