@@ -16,6 +16,12 @@
 | v1.0.2 | X |
 | v1.0.1 | X |
 
+## 特别说明
+
+芙芙工具箱将停止更新WSA小工具，因为依据[适用于 Android™️ 的 Windows 子系统 | Microsoft Learn](https://learn.microsoft.com/zh-cn/windows/android/wsa/)WSA将于2025 年 3 月 5 日起停止支持。届时WSA小工具或许会改名为ADB小工具并继续更新，或许会直接从后续版本中砍掉。该目录下的工具将于2024 年 5 月 1 日起停止支持。<br>
+
+芙芙工具箱(打包版)已于2023 年 12 月起停止支持Windows8以下的系统。
+
 ## 问题反馈
 
 请[提交Issues](https://github.com/DuckDuckStudio/Fufu_Tools/issues/new)。
