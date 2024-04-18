@@ -6,3 +6,4 @@ tqdm
 piexif
 pyautogui
 keyboard
+plyer
