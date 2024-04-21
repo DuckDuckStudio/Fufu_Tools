@@ -16,5 +16,6 @@
 * git
 * 搜索引擎收录检测
 * hosts修改
+* 视频音频提取
 
-Last update:2024/4/17
+Last update:2024/4/21
