@@ -7,3 +7,4 @@ piexif
 pyautogui
 keyboard
 plyer
+moviepy
