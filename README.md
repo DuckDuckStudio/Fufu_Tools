@@ -8,6 +8,8 @@
 
 [![展示图](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/photos/展示图.png "Fufu Tools")](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/)<br>
 
+ [![GitHub Release](https://img.shields.io/github/release/DuckDuckStudio/Fufu_Tools?style=flat)](https://github.com/DuckDuckStudio/Fufu_Tools/releases/latest) [![Github All Releases](https://img.shields.io/github/downloads/DuckDuckStudio/Fufu_Tools/total.svg?style=flat)]()<br>
+
 本仓库存放着我写的一些小工具，可以下载使用。<br>
 **如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明或者[文档](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/)**。<br>
 
