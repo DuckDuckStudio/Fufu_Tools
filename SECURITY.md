@@ -30,5 +30,5 @@
 
 请[提交Issues](https://github.com/DuckDuckStudio/Fufu_Tools/issues/new)。
 
-> ![NOTE]
-> 在提交问题反馈前请先尝试使用最新的发行版，确认该问题在最新发行版中依旧可以重现后再提交问题反馈！
+> ![NOTE]<br>
+> 在提交问题反馈前请先尝试使用最新的发行版，确认该问题在最新发行版中依旧可以重现后再提交问题反馈！<br>
