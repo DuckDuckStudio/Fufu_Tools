@@ -54,6 +54,7 @@
 ## 问题反馈
 
 如果您有发现本项目的任何问题，**请[提交Issues](https://github.com/DuckDuckStudio/Fufu_Tools/issues)**<br>
+请前往本项目的 GitHub 仓库或点击上面的链接提交 Issues，切勿将 Issues 提交到 Gitee 上！<br>
 
 > [!NOTE]
 > 反馈前请先尝试**更新到最新版本**来看看问题是否已在最新版本解决。
