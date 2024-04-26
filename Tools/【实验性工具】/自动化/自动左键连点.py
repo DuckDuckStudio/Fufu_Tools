@@ -2,8 +2,12 @@ import pyautogui
 import keyboard
 import time
 
-# 从用户那里获取连续点击间隔时间，并转换为浮点数
-click_interval = float(input("请输入每次点击的间隔时间(秒)："))  # 转换为浮点数
+while True:
+    try:
+        click_interval = float(input("请输入每次点击的间隔时间(秒)："))
+        break
+    except ValueError:
+        print("输入的数据不合法，请重新输入。")
 
 # 控制自动点击的开关
 auto_clicking = False
@@ -17,7 +21,7 @@ def toggle_auto_click():
     # 切换自动点击状态
     auto_clicking = not auto_clicking
     if first_time:
-        print("自动点击 已开始。")# 首次按下F8必定是开始自动按键
+        print("自动点击 已开始。")# 首次按下F8必定是开始自动点击
         first_time = False # 标记为非首次
     else:
         if auto_clicking:

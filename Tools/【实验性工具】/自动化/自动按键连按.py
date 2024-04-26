@@ -31,8 +31,12 @@ valid_keys = [
 
 print("本程序用于自动连按键盘上的按键，左键连点出门左转。")
 
-# 从用户那里获取连续按键间隔时间，并转换为浮点数
-click_interval = float(input("请输入每次按键的间隔时间(秒)："))  # 转换为浮点数
+while True:
+    try:
+        click_interval = float(input("请输入每次按键的间隔时间(秒)："))
+        break
+    except ValueError:
+        print("输入的数据不合法，请重新输入。")
 
 # 获取需要连按的按键
 while True:
