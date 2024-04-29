@@ -186,7 +186,7 @@ categories = {
         "安装必须库文件(自动选择)": ".\\环境配置\\库文件-自动选择.py",
     },
     "关于芙芙工具箱": {
-        "检查芙芙工具箱版本": ".\\Show_version.bat",
+        "检查芙芙工具箱版本": ".\\Show_version.py",
         "访问芙芙工具箱文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
         "访问芙芙工具箱官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
         "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",

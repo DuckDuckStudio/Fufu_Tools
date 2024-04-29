@@ -185,7 +185,7 @@ categories = {
         "“摩斯密码编解码”使用说明": ".\\Tools\摩斯密码\说明.md",
     },
     "关于芙芙工具箱": {
-        "检查芙芙工具箱版本": ".\\Show_version.bat",
+        "检查芙芙工具箱版本": ".\\Show_version.exe",
         "访问芙芙工具箱文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
         "访问芙芙工具箱官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
         "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
