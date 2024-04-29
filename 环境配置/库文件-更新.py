@@ -4,7 +4,7 @@ import os
 os.system(f"python -m pip install --upgrade pip")
 
 # 更新所需库文件
-libraries = ["translate", "requests", "beautifulsoup4", "ntplib", "tqdm", "piexif", "pyautogui", "keyboard"]
+libraries = ["translate", "requests", "beautifulsoup4", "ntplib", "tqdm", "piexif", "pyautogui", "keyboard", "pygame"]
 Experimental_libraries = ["Experimental"]
 
 for lib in libraries:

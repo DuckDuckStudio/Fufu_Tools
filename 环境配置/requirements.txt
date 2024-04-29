@@ -8,3 +8,4 @@ pyautogui
 keyboard
 plyer
 moviepy
+pygame
