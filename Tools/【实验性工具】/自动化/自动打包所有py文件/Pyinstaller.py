@@ -26,10 +26,11 @@ print(f"一共找到了{aconut}个py/pyw文件。")
 
 # 函数：记录日志并添加分隔线
 def log_message(message, log_file, success=True):
+    # 日志中不应存在颜色
     if success:
-        message = Fore.GREEN + f"{message}"  # 设置为绿色字体
+        message = f"{message}"
     else:
-        message = Fore.RED + f"{message}"  # 设置为红色字体
+        message = f"{message}"
         fail = fail + 1
         notification.notify(
             title='Pyinstaller快速打包程序提醒您',
@@ -38,7 +39,11 @@ def log_message(message, log_file, success=True):
         )
     log_file.write(message + "\n")
     log_file.write("-" * 50 + "\n")  # 添加分隔线
-    print(message)
+    # 改变控制台输出颜色
+    if success:
+        print(Fore.GREEN + message)
+    else:
+        print(Fore.RED + message)
 
 # 函数：打包 Python 文件
 def package_py(file_path, log_file):
