@@ -11,9 +11,9 @@ void readConfigFile(string& mvn, string& sorn) {
         string line;
         while (getline(configFile, line)) {
             if (line.find("major_version_number") != string::npos) {
-                mvn = line.substr(line.find("=") + 1);
+                mvn = line.substr(line.find("=") + 2);
             } else if (line.find("status_or_revision_number") != string::npos) {
-                sorn = line.substr(line.find("=") + 1);
+                sorn = line.substr(line.find("=") + 2);
             }
         }
         configFile.close();
