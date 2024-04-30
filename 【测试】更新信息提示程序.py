@@ -27,21 +27,27 @@ def get_latest_version():
         return None
 
 def parse_version(version_string):
-    """解析版本号字符串，返回一个元组 (major, minor, patch)"""
-    # 此处不再需要匹配v，因为输入前已经处理
-    match = re.match(r"(\d+)\.(\d+)\.(\d+)", version_string)
+    """解析版本号字符串，返回一个元组 (major, minor, patch, preview)"""
+    match = re.match(r"(\d+)\.(\d+)\.(\d+)(?:-(\d+))?", version_string)
     if match:
         major = int(match.group(1))
         minor = int(match.group(2))
         patch = int(match.group(3))
+        preview = int(match.group(4)) if match.group(4) else None
     else:
-        major, minor, patch = -1, -1, -1
-    return major, minor, patch
+        major, minor, patch, preview = -1, -1, -1, None
+    return major, minor, patch, preview
 
 def compare_versions(version1, version2):
     """比较两个版本号，返回 1 表示第一个版本号更新，返回 0 表示版本号相同，返回 -1 表示第二个版本号更新"""
-    major1, minor1, patch1 = parse_version(version1)  # 解析版本号字符串
-    major2, minor2, patch2 = parse_version(version2)
+    major1, minor1, patch1, preview1 = parse_version(version1)  # 解析版本号字符串
+    major2, minor2, patch2, preview2 = parse_version(version2)
+    
+    # 检查预览版本号是否存在，不存在则设置为0
+    if preview1 is None:
+        preview1 = 0
+    if preview2 is None:
+        preview2 = 0
     
     if major1 > major2:
         return 1
@@ -54,6 +60,10 @@ def compare_versions(version1, version2):
     elif patch1 > patch2:
         return 1
     elif patch1 < patch2:
+        return -1
+    elif preview1 > preview2:
+        return 1
+    elif preview1 < preview2:
         return -1
     else:
         return 0
