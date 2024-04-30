@@ -10,6 +10,11 @@ if file_route.startswith(("'", '"')) and file_route.endswith(("'", '"')):
 if not file_route.endswith('\\'):
     file_route += '\\'
 
+if not os.path.exists(file_route):
+    print("指定的目录路径不存在，请重新运行程序并输入有效的目录路径。")
+    input("按 ENTER 键继续...")
+    exit()
+
 file_extension = input("请输入你要查找文件的格式：")
 
 if file_extension.startswith('.'):
