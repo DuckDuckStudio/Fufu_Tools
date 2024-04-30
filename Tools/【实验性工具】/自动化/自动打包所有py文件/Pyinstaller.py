@@ -2,10 +2,12 @@ import os
 import subprocess
 from colorama import init, Fore
 from plyer import notification
+
 # 计数
 fail = 0
 conutf = 0
 aconut = 0
+
 # 文件夹路径
 print("以下所有路径请不要带引号！")
 folder_path = input("请输入文件夹路径：")
