@@ -18,13 +18,33 @@ if file_extension.startswith('.'):
 os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的输出位置
 
 result_file_path = os.path.join(os.getcwd(), '查找结果.txt')
-with open(result_file_path, 'w', encoding='utf-8') as result_file:
-    for root, dirs, files in os.walk(file_route):
+
+def find_files_by_extension(folder_path, file_extension):
+    files_found = []
+    total_files = sum(len(files) for _, _, files in os.walk(folder_path))
+    files_processed = 0
+
+    # 遍历文件夹中的所有文件
+    for root, _, files in os.walk(folder_path):
         for file in files:
             _, ext = os.path.splitext(file)
             if ext.lower() == f".{file_extension.lower()}":
-                result_file.write(os.path.join(root, file) + '\n')
+                files_found.append(os.path.join(root, file))
 
-print("程序运行结束，请查看程序所在目录下生成的文件！")
+            files_processed += 1
+            progress = files_processed / total_files * 100
+            print(f"\r处理进度: {progress:.2f}%", end='')
+
+    return files_found
+
+# 调用函数查找指定格式的文件
+found_files = find_files_by_extension(file_route, file_extension)
+
+# 将结果写入文件
+with open(result_file_path, 'w', encoding='utf-8') as result_file:
+    for file_path in found_files:
+        result_file.write(file_path + '\n')
+
+print("\n程序运行结束，请查看程序所在目录下生成的文件！")
 os.system("start " + result_file_path)
 input("按Enter键继续...")
