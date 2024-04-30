@@ -19,5 +19,6 @@
 * 视频音频提取
 * 自动替换指定文本
 * 查找含有指定内容的文件
+* 自动使用 Pyinstaller 打包文件夹中的所有py/pyw文件
 
-Last update:2024/4/29
+Last update:2024/4/30
