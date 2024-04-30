@@ -7,6 +7,8 @@ from plyer import notification
 fail = 0
 conutf = 0
 aconut = 0
+pyw_aconut = 0
+py_acount = 0
 
 # 文件夹路径
 print("以下所有路径请不要带引号！")
@@ -18,11 +20,17 @@ init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
 
 for root, dirs, files in os.walk(folder_path):
     for file in files:
-        if file.endswith('.py') or file.endswith('.pyw'):
+        if file.endswith('.py'):
             file_path = os.path.join(root, file)
-            print(Fore.BLUE + f'Found file: {file_path}')
-            aconut = aconut + 1
-print(f"一共找到了{aconut}个py/pyw文件。")
+            print(Fore.BLUE + f'Found py file: {file_path}')
+            py_acount = py_acount + 1
+        elif file.endswith('.pyw'):
+            file_path = os.path.join(root, file)
+            print(Fore.BLUE + f'Found pyw file: {file_path}')
+            pyw_aconut = pyw_aconut + 1
+        
+aconut = py_acount + pyw_aconut
+print(f"一共找到了{aconut}个py/pyw文件。\n其中有{py_acount}个py文件/{pyw_aconut}个pyw文件。")
 
 # 函数：记录日志并添加分隔线
 def log_message(message, log_file, success=True):
