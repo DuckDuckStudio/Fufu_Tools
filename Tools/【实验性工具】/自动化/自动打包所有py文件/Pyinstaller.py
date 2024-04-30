@@ -9,7 +9,7 @@ aconut = 0
 # 文件夹路径
 print("以下所有路径请不要带引号！")
 folder_path = input("请输入文件夹路径：")
-icon_path = input("请输入图标文件路径(建议使用完整路径)：")
+icon_path = input("请输入图标文件路径(建议使用完整路径，不要带\")：")
 log_path = input("请输入日志文件存放文件夹(结尾不要带\\)：")
 
 init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
