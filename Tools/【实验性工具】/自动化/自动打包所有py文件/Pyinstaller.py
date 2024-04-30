@@ -10,7 +10,7 @@ aconut = 0
 print("以下所有路径请不要带引号！")
 folder_path = input("请输入文件夹路径：")
 icon_path = input("请输入图标文件路径(建议使用完整路径)：")
-log_path = input("请输入日志文件存放文件夹(结尾不要带\)：")
+log_path = input("请输入日志文件存放文件夹(结尾不要带\\)：")
 
 init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
 
@@ -61,7 +61,7 @@ def package_pyw(file_path, log_file):
         log_message(error_message, log_file, success=False)
 
 # 打开日志文件，准备记录日志
-with open(f"{log_path}\packaging_log.log", "a") as log_file:
+with open(f"{log_path}\\packaging_log.log", "a") as log_file:
     log_message(f"开始打包，剩余待打包文件数量：{aconut}", log_file)
 
     # 遍历文件夹中的所有文件
