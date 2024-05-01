@@ -11,7 +11,6 @@ pyw_aconut = 0
 py_acount = 0
 
 # 文件夹路径
-print("以下所有路径请不要带引号！")
 folder_path = input("请输入文件夹路径：")
 icon_path = input("请输入图标文件路径：")
 log_path = input("请输入日志文件存放文件夹：")
