@@ -69,6 +69,7 @@ def package_py(file_path, log_file):
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
         log_message(error_message, log_file, success=False)
+        return file_path
 
 # 函数：打包 Pythonw 文件
 def package_pyw(file_path, log_file):
@@ -80,10 +81,13 @@ def package_pyw(file_path, log_file):
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
         log_message(error_message, log_file, success=False)
+        return file_path
 
 # 打开日志文件，准备记录日志
 with open(f"{log_path}packaging_log.log", "a") as log_file:
     log_message(f"开始打包，剩余待打包文件数量：{aconut}", log_file)
+
+    failed_files = []  # 存储打包失败的文件名
 
     # 遍历文件夹中的所有文件
     for root, dirs, files in os.walk(folder_path):
@@ -91,22 +95,30 @@ with open(f"{log_path}packaging_log.log", "a") as log_file:
             file_path = os.path.join(root, file)
             # 根据文件后缀选择打包方式
             if file.endswith(".py"):
-                package_py(file_path, log_file)
+                failed_file = package_py(file_path, log_file)
+                if failed_file:
+                    failed_files.append(failed_file)
                 aconut -= 1
                 log_message(f"剩余待打包文件数量：{aconut}", log_file)
             elif file.endswith(".pyw"):
-                package_pyw(file_path, log_file)
+                failed_file = package_pyw(file_path, log_file)
+                if failed_file:
+                    failed_files.append(failed_file)
                 aconut -= 1
                 log_message(f"剩余待打包文件数量：{aconut}", log_file)
 
 # 提示用户打包完成
-if fail != 0:# or use `if fail:`
+if fail != 0:
     input(f"打包完成，一共炸了{fail}次。请按 Enter 键继续清除原文件...")
     notification.notify(
         title='Pyinstaller快速打包程序提醒您',
         message=f'打包完成，一共炸了{fail}次。',
         timeout=10
     )
+    # 输出打包失败的文件
+    print("以下文件打包失败：")
+    for failed_file in failed_files:
+        print(failed_file)
 else:
     input(f"打包完成，没炸！请按 Enter 键继续清除原文件...")
     notification.notify(
@@ -130,3 +142,5 @@ notification.notify(
     message=f'文件删除完成！总共删除了{conutf}个原文件',
     timeout=10
 )
+
+input ("按 ENTER 键继续...")
