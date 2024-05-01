@@ -78,11 +78,13 @@
 
 ## 结尾废话
 
-如果您觉得本项目对您有帮助的话，请您给我们的这个项目**添加一个Star**，万分感谢。当然，如果您对我们的其他项目感兴趣的话也可以[Fllow_us](https://github.com/DuckDuckStudio/) 或者是关注我们的[哔哩哔哩账号](https://space.bilibili.com/2054654702)。<br>
+如果您觉得本项目对您有帮助的话，请您给我的这个项目**添加一个Star**，万分感谢。当然，如果您对我的其他项目感兴趣的话也可以[Fllow_us](https://github.com/DuckDuckStudio/) 或者是关注我的[哔哩哔哩账号](https://space.bilibili.com/2054654702)。<br>
 
 ~~我可能真的只是个废物，有些BUG是真的不会修...~~<br>
 
-![My-Bilibili-Account](https://duckduckstudio.github.io/yazicbs.github.io/project_photos/Bilibili-Account.png)
+<a href="https://space.bilibili.com/2054654702">
+    <img src="https://duckduckstudio.github.io/yazicbs.github.io/project_photos/Bilibili-Account.png" alt=My-Bilibili-Account width="30%" height="30%">
+</a><br />
 
 > 本说明文件使用[Markdown语法](https://markdown.com.cn/basic-syntax/)编辑。<br>
 
