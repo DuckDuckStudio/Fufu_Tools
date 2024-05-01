@@ -1,17 +1,17 @@
 # 芙芙工具箱
 
-*Note:由于本项目访问量较少，已放弃更新英文README文件。*<br>
-
 *Note:进行无修改的Fork请遵守[LICENSE文件](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE)*<br>
 
 **网站：https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/**<br>
 
 [![展示图](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/photos/展示图.png "Fufu Tools")](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/)<br>
 
- [![GitHub Release](https://img.shields.io/github/release/DuckDuckStudio/Fufu_Tools?style=flat)](https://github.com/DuckDuckStudio/Fufu_Tools/releases/latest) [![Github All Releases](https://img.shields.io/github/downloads/DuckDuckStudio/Fufu_Tools/total.svg?style=flat)]()<br>
+[![GitHub Release](https://img.shields.io/github/release/DuckDuckStudio/Fufu_Tools?style=flat)](https://github.com/DuckDuckStudio/Fufu_Tools/releases/latest) [![Github All Releases](https://img.shields.io/github/downloads/DuckDuckStudio/Fufu_Tools/total.svg?style=flat)]()<br>
 
 本仓库存放着我写的一些小工具，可以下载使用。<br>
 **如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明或者[文档](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/)**。<br>
+
+[查看作者的b站动态以获取更多信息](https://space.bilibili.com/2054654702/dynamic)<br>
 
 ## 系统要求
 
@@ -81,6 +81,8 @@
 如果您觉得本项目对您有帮助的话，请您给我们的这个项目**添加一个Star**，万分感谢。当然，如果您对我们的其他项目感兴趣的话也可以[Fllow_us](https://github.com/DuckDuckStudio/) 或者是关注我们的[哔哩哔哩账号](https://space.bilibili.com/2054654702)。<br>
 
 ~~我可能真的只是个废物，有些BUG是真的不会修...~~<br>
+
+![My-Bilibili-Account](https://duckduckstudio.github.io/yazicbs.github.io/project_photos/Bilibili-Account.png)
 
 > 本说明文件使用[Markdown语法](https://markdown.com.cn/basic-syntax/)编辑。<br>
 
