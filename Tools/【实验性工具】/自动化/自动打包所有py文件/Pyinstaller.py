@@ -119,12 +119,12 @@ if fail != 0:
     for failed_file in failed_files:
         print(failed_file)
 else:
-    input(f"打包完成，没炸！请按 Enter 键继续清除原文件...")
     notification.notify(
         title='Pyinstaller快速打包程序提醒您',
         message=f'打包完成，没炸！',
         timeout=10
     )
+    input(f"打包完成，没炸！请按 Enter 键继续清除原文件...")
 
 # 删除指定格式的文件
 for root, dirs, files in os.walk(folder_path):
@@ -135,11 +135,11 @@ for root, dirs, files in os.walk(folder_path):
             conutf = conutf + 1
             os.remove(file_path)
 
-print(f"文件删除完成！总共删除了{conutf}个原文件")
 notification.notify(
     title='Pyinstaller快速打包程序提醒您',
     message=f'文件删除完成！总共删除了{conutf}个原文件',
     timeout=10
 )
+print(f"文件删除完成！总共删除了{conutf}个原文件")
 
 input ("按 ENTER 键继续...")
