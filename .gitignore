@@ -7,3 +7,5 @@
 各版本代码来源.md
 快速打包.py
 快速打包-pyinstaller.py
+*.spec
+build/

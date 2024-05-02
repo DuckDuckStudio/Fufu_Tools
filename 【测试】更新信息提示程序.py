@@ -1,16 +1,10 @@
-import os
 import re
 import requests
 from configparser import ConfigParser
 
-# 获取当前脚本所在目录的绝对路径
-script_dir = os.path.dirname(os.path.abspath(__file__))
-# 构建配置文件的完整路径
-config_file_path = os.path.join(script_dir, "config.ini")
-
 # 读取配置文件
 config = ConfigParser(comment_prefixes=[])
-config.read(config_file_path, encoding='utf-8')
+config.read("config.ini", encoding='utf-8')
 major_version = config.get('information', 'major_version_number')
 sorn = config.get('information', 'status_or_revision_number')
 
