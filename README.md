@@ -25,7 +25,6 @@
 
 ## 如何获取程序
 
-**[点击这里](https://gitee.com/duckstudio/fufu-tools/releases/)下载Gitee上的最新版芙芙工具箱**<br>
 **[点击这里](https://github.com/DuckDuckStudio/Fufu_Tools/releases)下载GitHub上的最新版芙芙工具箱**<br>
 
 ### 如何查看文章/文档
