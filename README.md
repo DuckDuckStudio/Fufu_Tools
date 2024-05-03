@@ -85,6 +85,8 @@
     <img src="https://duckduckstudio.github.io/yazicbs.github.io/project_photos/Bilibili-Account.png" alt=My-Bilibili-Account width="30%" height="30%">
 </a><br />
 
+这个工具箱最初是为了**我个人的使用**才制作的，现在也只会添加我会用到且经常用到的东西。我不了解的方面或者不经常使用的方面的工具可能更新很慢 **(如果你们提出来建议或者问题的话会优先解决)** 。我不会特意的去网上搜索用户需要哪些工具 ~~(骗鬼，你前两天才搜的)~~，所以不会添加一些我自己用不到的工具 **(除非你们提出来需要添加)** 。这里面的工具大部分都是我在手动做这些事情的时候觉得麻烦随便写的(当然放在这里的工具都会经过核对，确认不会出错后才会放在这里。~~(除了一些我暂时没遇见的错误没被发现)~~)，真的是遇到啥问题写啥。<br>
+
 > 本说明文件使用[Markdown语法](https://markdown.com.cn/basic-syntax/)编辑。<br>
 
 个人网站：[DuckStudio](https://duckduckstudio.github.io/yazicbs.github.io/)<br>
