@@ -141,6 +141,11 @@ categories = {
         "文件下载": ".\\Tools\文件下载\文件下载.exe",
         "隐藏文件到图片": ".\\Tools\隐藏文件\将文件隐藏在图片中.exe",
     },
+    "自动化": {
+        "自动左键连点": ".\\Tools\自动化\自动左键连点.exe",
+        "自动按键连按": ".\\Tools\自动化\自动按键连按.exe",
+        "自动按键连按(说明文件)": ".\\Tools\自动化\自动按键连按有效按键输入.md",
+    },
     "去除代码注释": {
         "Python注释": ".\\Tools\去除代码注释\\remove_python_comments.exe",
         "html注释": ".\\Tools\去除代码注释\\remove_html_comments.exe",

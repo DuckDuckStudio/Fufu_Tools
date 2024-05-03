@@ -49,6 +49,7 @@ while True:
         print("请重新输入一个其他按键！")
     else:
         print("输入的按键无效！请重新输入！")
+        print("查看哪些按键有效：https://github.com/DuckDuckStudio/Fufu_Tools/Tools/自动化/自动按键连按有效按键输入.md")
 
 # 控制自动按键的开关
 auto_pressing = False
