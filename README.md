@@ -27,6 +27,14 @@
 
 **[点击这里](https://github.com/DuckDuckStudio/Fufu_Tools/releases)下载GitHub上的最新版芙芙工具箱**<br>
 
+### 非官方渠道警告
+*(竟然会有人把我的程序放到xx下载站去啊，感觉说明比我写的都好)*<br>
+芙芙工具箱目前**只有1个下载渠道可以获取最新版本**(也就是**GitHub**啦)，在别处下载的芙芙工具箱我**不能保证其安全性、是否最新等**。<br>
+如果在使用从别处下载的芙芙工具箱时遇到问题，请**先从正规渠道([GitHub](https://github.com/DuckDuckStudio/Fufu_Tools/releases))上下载最新发行版(或者最新预览版)后如果还有问题再反馈！！！**<br>
+
+以下为我查到的**非官方**渠道：<br>
+* [非凡软件站](https://www.crsky.com/soft/602565.html)
+
 ### 如何查看文章/文档
 
 [[点我即可在线前往查看文章！]](https://github.com/DuckDuckStudio/Fufu_Tools/tree/main/Text/%E7%BB%99%E7%94%B5%E8%84%91%E5%B0%8F%E7%99%BD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E8%80%83)<br>
