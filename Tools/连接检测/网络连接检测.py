@@ -1,6 +1,15 @@
 import requests
 import time
 import os
+from plyer import notification
+import configparser
+
+# READ config.ini file
+script_dir = os.path.dirname(os.path.realpath(__file__))
+config_file_path = os.path.join(script_dir, "config.ini")
+config = configparser.ConfigParser()
+config.read(config_file_path)
+wait = config.getint('settings', 'wait')
 
 def check_wlan():
     headers = {
@@ -12,9 +21,19 @@ def check_wlan():
             print("连接成功!")
         else:
             print("连接失败！状态代码:", response.status_code)
+            notification.notify(
+                title='芙芙工具箱 | 网络连接检测',
+                message='检测到异常情况，请注意！',
+                timeout=10
+            )
     except Exception as e:
         print("连接失败！")
         print("错误代码:", e)
+        notification.notify(
+            title='芙芙工具箱 | 网络连接检测',
+            message='检测到异常情况，请注意！',
+            timeout=10
+        )
 
 #---
 
@@ -26,7 +45,7 @@ while True:
 
     # Wait for next check
     print("-------------------")
-    for i in range(10, 0, -1):
+    for i in range(wait, 0, -1):
         print("\r还有{}秒进行下一次测试...".format(i), end="")
         time.sleep(1)
 

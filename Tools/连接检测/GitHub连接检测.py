@@ -3,6 +3,14 @@ from plyer import notification
 import time
 import os
 from datetime import datetime
+import configparser
+
+# READ config.ini file
+script_dir = os.path.dirname(os.path.realpath(__file__))
+config_file_path = os.path.join(script_dir, "config.ini")
+config = configparser.ConfigParser()
+config.read(config_file_path)
+wait = config.getint('settings', 'wait-github')
 
 def check_wlan():
     headers = {
@@ -51,7 +59,7 @@ while True:
         print("已连接上GitHub，程序自动结束。") 
         break
     else:
-        for i in range(15, 0, -1):
+        for i in range(wait, 0, -1):
             print("\r还有{}秒进行下一次测试...".format(i), end="")
             time.sleep(1)
 
