@@ -81,5 +81,14 @@ def auto_press():
 # 绑定F8键，用于切换自动按键状态
 keyboard.add_hotkey('F8', toggle_auto_press)
 
-print("程序已启动，按下F8键开始/停止自动连续按",key,"键。")
+if key == " ":
+    print ("程序已启动，按下 F8键 开始/停止自动连续按","空格","键。")
+elif key == "\n":
+    print ("程序已启动，按下 F8键 开始/停止自动连续按","enter","键。")
+elif key == "\t":
+    print ("程序已启动，按下 F8键 开始/停止自动连续按","tab","键。")
+# 对于 \r 的解释暂时较为模糊
+else:
+    print("程序已启动，按下 F8键 开始/停止自动连续按",key,"键。")
+
 auto_press()
