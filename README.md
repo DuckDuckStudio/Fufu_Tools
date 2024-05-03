@@ -34,6 +34,7 @@
 
 以下为我查到的**非官方**渠道：<br>
 * [非凡软件站](https://www.crsky.com/soft/602565.html)
+* [脚本之家](https://www.jb51.net/softs/934192.html)
 
 ### 如何查看文章/文档
 
