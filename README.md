@@ -44,7 +44,8 @@
 ## 特别感谢
 
 感谢所有为该项目做出贡献的人！<br>
-[![贡献者](https://img.shields.io/github/contributors/DuckDuckStudio/Fufu_Tools)](https://github.com/DuckDuckStudio/Fufu_Tools/graphs/contributors)<br>
+[![贡献者](https://contrib.rocks/image?repo=DuckDuckStudio/Fufu_Tools)](https://github.com/DuckDuckStudio/Fufu_Tools/graphs/contributors)
+<br>
 
 ### Stargazers
 [![Stargazers repo roster for @DuckDuckStudio/Fufu_Tools](https://reporoster.com/stars/DuckDuckStudio/Fufu_Tools)](https://github.com/DuckDuckStudio/Fufu_Tools/stargazers)
