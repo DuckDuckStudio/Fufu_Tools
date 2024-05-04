@@ -15,6 +15,8 @@ folder_path = input("请输入文件夹路径：")
 icon_path = input("请输入图标文件路径：")
 log_path = input("请输入日志文件存放文件夹：")
 
+os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的位置
+
 if icon_path.startswith(("'", '"')) and icon_path.endswith(("'", '"')):
     icon_path = icon_path[1:-1]
 
@@ -62,7 +64,10 @@ def log_message(message, log_file, success=True):
 def package_py(file_path, log_file):
     try:
         output_dir = os.path.dirname(file_path)  # 设置输出目录为 Python 文件所在目录
-        command = f"pyinstaller --onefile -i \"{icon_path}\" --distpath={output_dir} {file_path}"
+        if icon_path == "None":
+            command = f"pyinstaller --onefile --distpath={output_dir} {file_path}"
+        else:
+            command = f"pyinstaller --onefile -i \"{icon_path}\" --distpath={output_dir} {file_path}"
         subprocess.run(command, shell=True, check=True)
         log_message(f"打包完成：{file_path}", log_file)
     except subprocess.CalledProcessError as e:
@@ -74,7 +79,10 @@ def package_py(file_path, log_file):
 def package_pyw(file_path, log_file):
     try:
         output_dir = os.path.dirname(file_path)  # 设置输出目录为 Pythonw 文件所在目录
-        command = f"pyinstaller --noconsole --onefile -i \"{icon_path}\" --distpath={output_dir} {file_path}"
+        if icon_path == "None":
+            command = f"pyinstaller --noconsole --onefile --distpath={output_dir} {file_path}"
+        else:
+            command = f"pyinstaller --noconsole --onefile -i \"{icon_path}\" --distpath={output_dir} {file_path}"
         subprocess.run(command, shell=True, check=True)
         log_message(f"打包完成：{file_path}", log_file)
     except subprocess.CalledProcessError as e:
