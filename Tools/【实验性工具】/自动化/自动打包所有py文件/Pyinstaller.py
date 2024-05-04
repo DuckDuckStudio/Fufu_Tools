@@ -23,6 +23,9 @@ if icon_path.startswith(("'", '"')) and icon_path.endswith(("'", '"')):
 if not log_path.endswith('\\'):
     log_path += '\\'
 
+if not icon_path:
+    icon_path = "None"
+
 init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
 
 for root, dirs, files in os.walk(folder_path):
