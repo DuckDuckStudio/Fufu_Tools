@@ -17,14 +17,15 @@ log_path = input("请输入日志文件存放文件夹：")
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的位置
 
-if icon_path.startswith(("'", '"')) and icon_path.endswith(("'", '"')):
-    icon_path = icon_path[1:-1]
-
-if not log_path.endswith('\\'):
-    log_path += '\\'
-
 if not icon_path:
     icon_path = "None"
+elif icon_path.startswith(("'", '"')) and icon_path.endswith(("'", '"')):
+    icon_path = icon_path[1:-1]
+
+if not log_path:
+    log_path = "None"
+elif not log_path.endswith('\\'):
+    log_path += '\\'
 
 init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
 
@@ -64,7 +65,7 @@ def log_message(message, log_file, success=True):
         print(Fore.RED + message)
 
 # 函数：打包 Python 文件
-def package_py(file_path, log_file):
+def package_py(file_path, log_file="None"):
     try:
         output_dir = os.path.dirname(file_path)  # 设置输出目录为 Python 文件所在目录
         if icon_path == "None":
@@ -72,10 +73,12 @@ def package_py(file_path, log_file):
         else:
             command = f"pyinstaller --onefile -i \"{icon_path}\" --distpath={output_dir} {file_path}"
         subprocess.run(command, shell=True, check=True)
-        log_message(f"打包完成：{file_path}", log_file)
+        if log_file != "None":
+            log_message(f"打包完成：{file_path}", log_file)
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
-        log_message(error_message, log_file, success=False)
+        if log_file != "None":
+            log_message(error_message, log_file, success=False)
         return file_path
 
 # 函数：打包 Pythonw 文件
@@ -87,16 +90,16 @@ def package_pyw(file_path, log_file):
         else:
             command = f"pyinstaller --noconsole --onefile -i \"{icon_path}\" --distpath={output_dir} {file_path}"
         subprocess.run(command, shell=True, check=True)
-        log_message(f"打包完成：{file_path}", log_file)
+        if log_file != "None":
+            log_message(f"打包完成：{file_path}", log_file)
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
-        log_message(error_message, log_file, success=False)
+        if log_file != "None":
+            log_message(error_message, log_file, success=False)
         return file_path
 
 # 打开日志文件，准备记录日志
-with open(f"{log_path}packaging_log.log", "a") as log_file:
-    log_message(f"开始打包，剩余待打包文件数量：{aconut}", log_file)
-
+if log_path == "None":
     failed_files = []  # 存储打包失败的文件名
 
     # 遍历文件夹中的所有文件
@@ -105,17 +108,38 @@ with open(f"{log_path}packaging_log.log", "a") as log_file:
             file_path = os.path.join(root, file)
             # 根据文件后缀选择打包方式
             if file.endswith(".py"):
-                failed_file = package_py(file_path, log_file)
+                failed_file = package_py(file_path)
                 if failed_file:
                     failed_files.append(failed_file)
                 aconut -= 1
-                log_message(f"剩余待打包文件数量：{aconut}", log_file)
             elif file.endswith(".pyw"):
-                failed_file = package_pyw(file_path, log_file)
+                failed_file = package_pyw(file_path)
                 if failed_file:
                     failed_files.append(failed_file)
                 aconut -= 1
-                log_message(f"剩余待打包文件数量：{aconut}", log_file)
+else:
+    with open(f"{log_path}packaging_log.log", "a") as log_file:
+        log_message(f"开始打包，剩余待打包文件数量：{aconut}", log_file)
+
+        failed_files = []  # 存储打包失败的文件名
+
+        # 遍历文件夹中的所有文件
+        for root, dirs, files in os.walk(folder_path):
+            for file in files:
+                file_path = os.path.join(root, file)
+                # 根据文件后缀选择打包方式
+                if file.endswith(".py"):
+                    failed_file = package_py(file_path, log_file)
+                    if failed_file:
+                      failed_files.append(failed_file)
+                    aconut -= 1
+                    log_message(f"剩余待打包文件数量：{aconut}", log_file)
+                elif file.endswith(".pyw"):
+                    failed_file = package_pyw(file_path, log_file)
+                    if failed_file:
+                        failed_files.append(failed_file)
+                    aconut -= 1
+                    log_message(f"剩余待打包文件数量：{aconut}", log_file)
 
 # 提示用户打包完成
 if fail != 0:
