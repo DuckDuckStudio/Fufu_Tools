@@ -44,24 +44,24 @@ aconut = py_acount + pyw_aconut
 print(f"一共找到了{aconut}个py/pyw文件。\n其中有{py_acount}个py文件/{pyw_aconut}个pyw文件。")
 
 # 函数：记录日志并添加分隔线
-def log_message(message, log_file, success=True):
+def log_message(message, log_file):
     # 日志中不应存在颜色
+    message = f"{message}"
+    log_file.write(message + "\n")
+    log_file.write("-" * 50 + "\n")  # 添加分隔线
+
+
+def out_put(message, success=True):
+    # 改变控制台输出颜色
     if success:
-        message = f"{message}"
+        print(Fore.GREEN + message)
     else:
-        message = f"{message}"
         fail = fail + 1
         notification.notify(
             title='Pyinstaller快速打包程序提醒您',
             message=f'打包程序炸啦！到现在一共炸了{fail}次。',
             timeout=10
         )
-    log_file.write(message + "\n")
-    log_file.write("-" * 50 + "\n")  # 添加分隔线
-    # 改变控制台输出颜色
-    if success:
-        print(Fore.GREEN + message)
-    else:
         print(Fore.RED + message)
 
 # 函数：打包 Python 文件
@@ -75,14 +75,16 @@ def package_py(file_path, log_file="None"):
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
+        out_put(f"打包完成：{file_path}")
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
         if log_file != "None":
-            log_message(error_message, log_file, success=False)
+            log_message(error_message, log_file)
+        out_put(error_message, success=False)
         return file_path
 
 # 函数：打包 Pythonw 文件
-def package_pyw(file_path, log_file):
+def package_pyw(file_path, log_file="None"):
     try:
         output_dir = os.path.dirname(file_path)  # 设置输出目录为 Pythonw 文件所在目录
         if icon_path == "None":
@@ -92,10 +94,12 @@ def package_pyw(file_path, log_file):
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
+        out_put(f"打包完成：{file_path}")
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
         if log_file != "None":
-            log_message(error_message, log_file, success=False)
+            log_message(error_message, log_file)
+        out_put(error_message, success=False)
         return file_path
 
 # 打开日志文件，准备记录日志
