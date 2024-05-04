@@ -18,7 +18,7 @@ def generate_password():
     # 读取config.ini文件中的character_set值
     character_set = get_character_set_from_config()
     if not character_set:
-        messagebox.showerror("错误", "未找到character_set的值")
+        messagebox.showerror("错误", "未找到字符集")
         return
 
     # 生成密码
@@ -34,21 +34,50 @@ def copy_to_clipboard():
     messagebox.showinfo("提示", "密码已复制到剪贴板")
 
 def edit_ini_file():
-    # 提示用户输入character_set的值
-    character_set_value = simpledialog.askstring("输入", "请输入character_set的值:")
-    if character_set_value:
-        # 转义字符%，排除;"等
-        character_set_value = character_set_value.replace('%', '%%').replace(';', '').replace('"', '')
-        # 修改config.ini文件
-        with open('config.ini', 'r') as f:
-            lines = f.readlines()
-        with open('config.ini', 'w') as f:
-            for line in lines:
-                if line.startswith('character_set'):
-                    f.write(f'character_set={character_set_value}\n')
-                else:
-                    f.write(line)
-        messagebox.showinfo("提示", "INI文件已更新")
+    # 创建自定义对话框
+    dialog = tk.Toplevel(root)
+    dialog.title("输入")
+    dialog.geometry("300x150")
+
+    label = tk.Label(dialog, text="请在此输入字符集:")
+    label.pack(pady=10)
+
+    entry = tk.Entry(dialog)
+    entry.pack(pady=5)
+
+    # 定义确认按钮的动作
+    def confirm():
+        character_set_value = entry.get()
+        if character_set_value.strip() != "":
+            # 转义字符%，排除;"等
+            character_set_value = character_set_value.replace('%', '%%').replace(';', '').replace('"', '')
+            # 修改config.ini文件
+            with open('config.ini', 'r') as f:
+                lines = f.readlines()
+            with open('config.ini', 'w') as f:
+                for line in lines:
+                    if line.startswith('character_set'):
+                        f.write(f'character_set={character_set_value}\n')
+                    else:
+                        f.write(line)
+            messagebox.showinfo("提示", "INI文件已更新")
+            dialog.destroy()
+        else:
+            messagebox.showwarning("警告", "字符集不能为空")
+
+    # 创建确认按钮
+    confirm_button = tk.Button(dialog, text="确认", command=confirm)
+    confirm_button.pack(side="left", padx=10)
+
+    # 定义取消按钮的动作
+    def cancel():
+        messagebox.showinfo("提示", "已取消更新INI文件")
+        dialog.destroy()
+
+    # 创建取消按钮
+    cancel_button = tk.Button(dialog, text="取消", command=cancel)
+    cancel_button.pack(side="right", padx=10)
+
 
 def get_character_set_from_config():
     # 从config.ini文件中获取character_set的值
@@ -93,7 +122,7 @@ copy_button = tk.Button(root, text="复制密码", command=copy_to_clipboard)
 copy_button.pack()
 
 # 编辑INI文件按钮
-edit_ini_button = tk.Button(root, text="配置INI", command=edit_ini_file)
+edit_ini_button = tk.Button(root, text="修改字符集", command=edit_ini_file)
 edit_ini_button.pack(side=tk.BOTTOM, pady=(0, 20), padx=20, anchor='sw')
 
 root.mainloop()
