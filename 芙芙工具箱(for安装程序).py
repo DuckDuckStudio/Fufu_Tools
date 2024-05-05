@@ -4,8 +4,6 @@ import os
 import sys
 from configparser import ConfigParser
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的输出位置
-
 # 打开程序的函数
 def open_program(program_path):
     if program_path == ".\\unins000.exe":
