@@ -38,7 +38,8 @@
 
 ### 如何查看文章/文档
 
-[[点我即可在线前往查看文章！]](https://github.com/DuckDuckStudio/Fufu_Tools/tree/main/Text/%E7%BB%99%E7%94%B5%E8%84%91%E5%B0%8F%E7%99%BD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E8%80%83)<br>
+[[点我即可在线前往查看文章！]](https://duckduckstudio.github.io/yazicbs.github.io/Articles/小鸡习/)<br>
+<!-- 文章于 2024/5/8(或5/9) 迁移至个人网站 -->
 [[点我即可在线前往查看文档]](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/)<br>
 
 ## 特别感谢
