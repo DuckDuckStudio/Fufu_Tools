@@ -38,7 +38,7 @@
 
 ### 如何查看文章/文档
 
-[[点我即可在线前往查看文章！]](https://duckduckstudio.github.io/yazicbs.github.io/Articles/Articles/)  
+[[点我即可在线前往查看文章！]](https://duckduckstudio.github.io/Articles/#/)  
 <!-- 文章于 2024/5/8(或5/9) 迁移至个人网站 -->
 [[点我即可在线前往查看文档]](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/)  
 
