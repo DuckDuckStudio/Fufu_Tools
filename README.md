@@ -32,13 +32,9 @@
 芙芙工具箱目前**只有1个下载渠道可以获取最新版本**(也就是**GitHub**啦)，在别处下载的芙芙工具箱我**不能保证其安全性、是否最新等**。  
 如果在使用从别处下载的芙芙工具箱时遇到问题，请**先从正规渠道([GitHub](https://github.com/DuckDuckStudio/Fufu_Tools/releases))上下载最新发行版(或者最新预览版)后如果还有问题再反馈！！！**  
 
-以下为我查到的**非官方**渠道：  
-* [非凡软件站](https://www.crsky.com/soft/602565.html)
-* [脚本之家](https://www.jb51.net/softs/934192.html) - (已说明)
-
 ### 如何查看文章/文档
 
-[[点我即可在线前往查看文章！]](https://duckduckstudio.github.io/Articles/#/)  
+[[点我即可在线前往查看文章！]](https://duckduckstudio.github.io/Articles/)  
 <!-- 文章于 2024/5/8(或5/9) 迁移至个人网站 -->
 [[点我即可在线前往查看文档]](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/)  
 
