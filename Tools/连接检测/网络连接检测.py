@@ -10,13 +10,14 @@ config_file_path = os.path.join(script_dir, "config.ini")
 config = configparser.ConfigParser()
 config.read(config_file_path)
 wait = config.getint('settings', 'wait')
+url = config.getint('url', 'url')
 
 def check_wlan():
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
     try:
-        response = requests.get("https://www.bilibili.com/", headers=headers)
+        response = requests.get(url, headers=headers)
         if response.status_code == 200:
             print("连接成功!")
         else:
