@@ -10,7 +10,7 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 config_file_path = os.path.join(script_dir, "config.ini")
 config = configparser.ConfigParser()
 config.read(config_file_path)
-wait = config.getint('settings', 'wait-github')
+wait = config.getint('time', 'wait-github')
 
 def check_wlan():
     headers = {

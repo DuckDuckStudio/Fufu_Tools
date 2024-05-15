@@ -9,7 +9,7 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 config_file_path = os.path.join(script_dir, "config.ini")
 config = configparser.ConfigParser()
 config.read(config_file_path)
-wait = config.getint('settings', 'wait')
+wait = config.getint('time', 'wait')
 url = config.getint('url', 'url')
 
 def check_wlan():
