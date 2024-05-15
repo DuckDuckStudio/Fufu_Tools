@@ -46,12 +46,14 @@ if flag:# 有任意值且不为False则为True
             with open(config_file_path, 'w') as configfile:
                 config.write(configfile)
             print("设置完成！")
-            for root, dirs, files in os.walk(ctr):
-                for file in files:
-                    file_paths.append(os.path.join(root, file))
             break
         else:
             print("请按说明回答！")
+    if ac_ctr:
+        for root, dirs, files in os.walk(ctr):
+            for file in files:
+                file_paths.append(os.path.join(root, file))
+
 
 for root, dirs, files in os.walk(temp_path):
     for file in files:
