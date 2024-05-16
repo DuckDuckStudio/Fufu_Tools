@@ -39,9 +39,9 @@ def replace_text_in_files(folder_path, old_text, new_text):
     print(f"处理完成！共处理 {files_processed} 个文件，其中 {errors} 个文件出错，{matching_occurrences} 处匹配。")
 
 # 设置要替换的文本和文件夹路径
-folder_path = r"D:\Duckhome\CodeDebug\[测试用代码,勿删]\file"
-old_text = r"yazicbs.github.io"
-new_text = r"website"
+folder_path = input("请输入文件夹路径：")
+old_text = input("请输入旧文本：")
+new_text = input("请输入新文本：")
 
 # 调用函数进行文本替换
 replace_text_in_files(folder_path, old_text, new_text)
