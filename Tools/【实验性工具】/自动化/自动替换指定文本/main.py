@@ -40,6 +40,18 @@ def replace_text_in_files(folder_path, old_text, new_text):
 
 # 设置要替换的文本和文件夹路径
 folder_path = input("请输入文件夹路径：")
+
+if folder_path.startswith(("'", '"')) and folder_path.endswith(("'", '"')):
+    folder_path = folder_path[1:-1]
+
+if folder_path.endswith('\\'):
+    folder_path = folder_path[0:-2]# 去除末尾的\
+
+if not os.path.exists(folder_path):
+    print("指定的目录路径不存在，请重新运行程序并输入有效的目录路径。")
+    input("按 ENTER 键继续...")
+    exit()
+
 old_text = input("请输入旧文本：")
 new_text = input("请输入新文本：")
 
