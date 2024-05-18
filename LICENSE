@@ -1,6 +1,6 @@
 芙芙工具箱作者 鸭鸭「カモ」
 代码编辑基于python,c++,bat。
-开源许可文件 v1.9.0 编辑：鸭鸭「カモ」-20240422 1540
+开源许可文件 v1.9.0 编辑：鸭鸭「カモ」-20240518 2150
 
 感谢您对芙芙工具箱项目（以下简称“本项目”）的关注与支持。为保护您的权益和其他使用者的权益，请您在使用本项目时遵守以下条款。
 
@@ -14,7 +14,6 @@
 芙芙工具箱网站：https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/
 
 开源许可证文本可在以下链接找到：
-https://gitee.com/duckstudio/fufu-tools/blob/master/LICENSE
 https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE
 ===========================================================
 如果您是在您的项目中使用本项目的完整文件的，请参照条目2.3的标注内容。
@@ -40,7 +39,6 @@ https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE
 芙芙工具箱网站：https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/
 
 开源许可证文本可在以下链接找到：
-https://gitee.com/duckstudio/fufu-tools/blob/master/LICENSE
 https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE
 ===========================================================
 如果您是在您的项目中使用芙芙工具箱中任意文件的完整内容，你必须同时遵守本条款中的条目1和2。
@@ -96,4 +94,4 @@ https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE
 作者邮箱：Yzcbs123@163.com
 
 鸭鸭工作室 | 鸭鸭「カモ」
-2024 / 4 / 22
+2024 / 5 / 18
