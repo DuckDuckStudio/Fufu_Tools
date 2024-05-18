@@ -19,11 +19,13 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的位置
 
 if not icon_path:
     icon_path = "None"
+    print(f"{Fore.YELLOW}⚠{Fore.RESET} 将执行无图标打包！")
 elif icon_path.startswith(("'", '"')) and icon_path.endswith(("'", '"')):
     icon_path = icon_path[1:-1]
 
 if not log_path:
     log_path = "None"
+    print(f"{Fore.YELLOW}⚠{Fore.RESET} 将执行无日志打包！")
 elif not log_path.endswith('\\'):
     log_path += '\\'
 
