@@ -24,4 +24,4 @@ if exist "%folder%" (
     echo "删除完成"
 )
 pause
-REM 无法测试删除失败的情况，如有问题请[提交Issues](https://github.com/DuckDuckStudio/Windows_Optimization_Widget/issues)
+REM 无法测试删除失败的情况，如有问题请[提交Issues](https://github.com/DuckDuckStudio/Fufu_Tools/issues)

@@ -50,4 +50,3 @@ print("[INFO]目前配置信息：\n视频文件路径：", video_path_input, "\
 
 # 调用函数提取音频
 extract_audio(video_path_input, audio_path)
-
