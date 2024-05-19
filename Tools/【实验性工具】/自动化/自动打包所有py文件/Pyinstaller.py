@@ -3,6 +3,8 @@ import subprocess
 from colorama import init, Fore
 from plyer import notification
 
+print(f"{Fore.BLUE}[!]{Fore.RESET} 将使用 {Fore.BLUE}Pyinstaller{Fore.RESET} 打包。")
+
 # 计数
 fail = 0
 conutf = 0
@@ -35,11 +37,11 @@ for root, dirs, files in os.walk(folder_path):
     for file in files:
         if file.endswith('.py'):
             file_path = os.path.join(root, file)
-            print(Fore.BLUE + f'Found py file: {file_path}')
+            print(Fore.BLUE + f'找到 py 文件: {file_path}')
             py_acount = py_acount + 1
         elif file.endswith('.pyw'):
             file_path = os.path.join(root, file)
-            print(Fore.BLUE + f'Found pyw file: {file_path}')
+            print(Fore.BLUE + f'找到 pyw 文件: {file_path}')
             pyw_aconut = pyw_aconut + 1
         
 aconut = py_acount + pyw_aconut
