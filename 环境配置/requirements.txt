@@ -1,11 +1,14 @@
-translate
 requests
+translate
 beautifulsoup4
 ntplib
 tqdm
 piexif
 pyautogui
 keyboard
-plyer
-moviepy
+
+Experimental
 pygame
+pyinstaller
+nuitka
+moviepy
