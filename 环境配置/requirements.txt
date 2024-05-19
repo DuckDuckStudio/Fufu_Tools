@@ -12,3 +12,4 @@ pygame
 pyinstaller
 nuitka
 moviepy
+plyer
