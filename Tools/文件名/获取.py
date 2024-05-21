@@ -25,19 +25,23 @@ def list_files(directory, ignored_formats, specified_formats, ignored_folders):
                 dirs.remove(ignored_folder)
         for file in files:
             _, ext = os.path.splitext(file)
-            if specified_formats:
+            if specified_formats[0] != "No_Specified":
                 # 如果指定了文件格式，则只处理指定格式的文件
                 if ext.lower()[1:] in specified_formats:
                     file_path = os.path.join(root, file)
                     file_list.append(file_path)
                 else:
                     print(Fore.BLUE + f"[INFO] 文件 {get_relative_path(os.path.join(root, file), directory)} 不在指定的文件格式中，已忽略。")
-            elif ext.lower()[1:] not in ignored_formats:
-                # 如果没有指定文件格式，则使用默认规则忽略特定格式的文件
+            elif ignored_formats[0] != "No_Ignored":
+                if ext.lower()[1:] not in ignored_formats:
+                    # 如果没有指定文件格式，则使用默认规则忽略特定格式的文件
+                    file_path = os.path.join(root, file)
+                    file_list.append(file_path)
+                else:
+                    print(Fore.BLUE + f"[INFO] 文件 {get_relative_path(os.path.join(root, file), directory)} 被配置文件忽略。")
+            else:# 如果没有特殊、没有忽略
                 file_path = os.path.join(root, file)
                 file_list.append(file_path)
-            else:
-                print(Fore.BLUE + f"[INFO] 文件 {get_relative_path(os.path.join(root, file), directory)} 被配置文件忽略。")
     for ignored_folder in ignored_folders_list:
         print(Fore.BLUE + f"[INFO] 文件夹 {get_relative_path(ignored_folder, directory)} 被配置文件忽略。")
     return file_list
