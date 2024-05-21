@@ -1,4 +1,5 @@
 import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的输出位置
 
 print("感谢你使用本程序")
 print("(本程序仅查找相同格式的文件)")
@@ -19,8 +20,6 @@ file_extension = input("请输入你要查找文件的格式：")
 
 if file_extension.startswith('.'):
     file_extension = file_extension[1:]
-
-os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的输出位置
 
 result_file_path = os.path.join(os.getcwd(), '查找结果.txt')
 

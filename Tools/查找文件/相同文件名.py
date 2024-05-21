@@ -1,4 +1,5 @@
 import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的输出位置
 
 print("感谢你使用本程序")
 print("(本程序仅查找相同名称的文件，不限格式)")
@@ -16,8 +17,6 @@ if not os.path.exists(file_route):
     exit()
 
 file_name = input("请输入你要查找文件的名称: ")
-
-os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的输出位置
 
 result_file_path = os.path.join(os.getcwd(), '查找结果.txt')
 
