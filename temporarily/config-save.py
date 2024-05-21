@@ -94,4 +94,4 @@ if check_folder(destination_folder):
 else:
     print(f"{Fore.RED}\r✕{Fore.RESET} 出现错误，操作取消.")
 
-input("按Enter键继续")
+input("按Enter键继续...")
