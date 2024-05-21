@@ -97,6 +97,8 @@ def check_for_SORN():# SORN指status_or_revision_number，即状态或修订号
         print("[info]当前正在使用“lite”版")
     elif sorn == "exe":
         print("[info]当前正在使用安装程序版")
+    elif sorn == "Nuitka-pack":
+        print("[info]当前正在使用Nuitka打包的打包版")
 
 check_for_updates()
 
