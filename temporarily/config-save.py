@@ -14,13 +14,13 @@ def select_destination_folder():
 
     destination_folder = filedialog.askdirectory()
 
-    print(f"{Fore.GREEN}\r✔{Fore.RESET} 已选择保存到的文件夹: {Fore.BLUE}{destination_folder}", end=" ")
+    print(f"{Fore.GREEN}\r✓{Fore.RESET} 已选择保存到的文件夹: {Fore.BLUE}{destination_folder}", end=" ")
     return destination_folder
 
 def check_folder(destination_folder):
     # 检测是否选择了文件夹
     if destination_folder == "":
-        print(f"\r{Fore.RED}×{Fore.RESET} 未选择文件夹，请先选择一个输出位置。")
+        print(f"\r{Fore.RED}✕{Fore.RESET} 未选择文件夹，请先选择一个输出位置。")
         return False
     # 检查目标文件夹是否存在，如果不存在则创建
     if not os.path.exists(destination_folder):
@@ -28,10 +28,10 @@ def check_folder(destination_folder):
         os.makedirs(destination_folder)
     # 检查目标文件夹是否为空
     if len(os.listdir(destination_folder)) != 0:
-        print(f"\r{Fore.RED}× 错误的目标文件夹: {Fore.BLUE}{destination_folder}\n{Fore.YELLOW}  原因：目标文件夹不为空。")
+        print(f"\r{Fore.RED}✕ 错误的目标文件夹: {Fore.BLUE}{destination_folder}\n{Fore.YELLOW}  原因：目标文件夹不为空。")
         return False
     
-    print(f"{Fore.GREEN}\r✔{Fore.RESET} 已选择保存到的文件夹: {Fore.BLUE}{destination_folder}")# 刷新，避免被顶掉
+    print(f"{Fore.GREEN}\r✓{Fore.RESET} 已选择保存到的文件夹: {Fore.BLUE}{destination_folder}")# 刷新，避免被顶掉
     return True # 一切正常
 
 def copy_config_files(destination_folder):
@@ -64,25 +64,25 @@ def copy_config_files(destination_folder):
                     print(f"已复制配置文件 {Fore.BLUE} {source_path} {Fore.RESET} 到 {Fore.BLUE} {destination_path} {Fore.RESET}。")
 
         # 如果成功完成所有文件复制，则打印成功消息
-        print(f"{Fore.GREEN}✔{Fore.RESET} 已保存配置文件到 {Fore.BLUE} {destination_folder} {Fore.RESET} 中，下次更新可以直接替换配置文件！")
+        print(f"{Fore.GREEN}✓{Fore.RESET} 已保存配置文件到 {Fore.BLUE} {destination_folder} {Fore.RESET} 中，下次更新可以直接替换配置文件！")
 
     except KeyboardInterrupt:
         # 用户按下 Ctrl+C 取消操作
-        print(f"{Fore.RED}×{Fore.RESET} 用户取消操作.")
+        print(f"{Fore.RED}✕{Fore.RESET} 用户取消操作.")
         
         for file_path in copied_files:
             os.remove(file_path)  # 删除已复制的文件
         
-        print(f"{Fore.RED}×{Fore.RESET} 操作已取消。")
+        print(f"{Fore.RED}✕{Fore.RESET} 操作已取消。")
 
     except Exception as e:
         # 出现异常时取消操作并清空已复制的文件
-        print(f"\n{Fore.RED}×{Fore.RESET} 复制文件时发生错误: {str(e)}")
+        print(f"\n{Fore.RED}✕{Fore.RESET} 复制文件时发生错误: {str(e)}")
         
         for file_path in copied_files:
             os.remove(file_path)  # 删除已复制的文件
         
-        print(f"{Fore.RED}×{Fore.RESET} 出现错误，操作取消.")
+        print(f"{Fore.RED}✕{Fore.RESET} 出现错误，操作取消.")
 
 
 # 让用户选择目标文件夹
@@ -92,6 +92,6 @@ if check_folder(destination_folder):
     # 调用函数复制config.ini文件
     copy_config_files(destination_folder)
 else:
-    print(f"{Fore.RED}\r×{Fore.RESET} 出现错误，操作取消.")
+    print(f"{Fore.RED}\r✕{Fore.RESET} 出现错误，操作取消.")
 
 input("按Enter键继续")
