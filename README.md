@@ -1,7 +1,5 @@
 # 芙芙工具箱
 
-*Note:进行无修改的Fork请遵守[LICENSE文件](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE)*  
-
 **网站：https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/**  
 
 [![展示图](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/photos/展示图.png "Fufu Tools")](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/)  
@@ -57,10 +55,6 @@
 > 本项目的网页位于 `.\Tools\Fufu_Tools\*`  
 > 如果有关于网页的问题反馈，可前往这个仓库提交Issues  
 
-## 对于项目文件转载说明
-
-对于文件的转载，详见 **[LICENSE文件](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE)**  
-
 ## 问题反馈
 
 如果您有发现本项目的任何问题，**请[提交Issues](https://github.com/DuckDuckStudio/Fufu_Tools/issues)**  
@@ -74,7 +68,7 @@
 
 ## 责任说明
 
-详见[LICENSE文件](https://github.com/DuckDuckstudio/Fufu_Tools/blob/main/LICENSE)第三条  
+详见[LICENSE文件](https://github.com/DuckDuckstudio/Fufu_Tools/blob/main/LICENSE)用户协议第三条  
 我们不承担您使用本项目中的小工具所造成的任何责任。  
 我们不会回复任何无意义、具有侮辱性等的问题或意见。  
 我们不能保证此项目中的小工具在所有Windows系统上适用，请前往芙芙工具箱网页查看系统要求，我们**不对您使用小工具所造成的任何问题负责**。  
