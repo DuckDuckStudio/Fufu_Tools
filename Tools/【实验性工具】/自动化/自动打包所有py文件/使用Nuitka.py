@@ -20,9 +20,9 @@ compile = config.get('Compile', 'Compile_C')
 # 计数
 fail = 0 # 失败的文件个数
 countd = 0 # 已删除的文件个数
-aconut = 0 # 总文件个数
+acount = 0 # 总文件个数
 fcount = 0 # 已打包的文件个数
-pyw_aconut = 0
+pyw_acount = 0
 py_acount = 0
 
 # 文件夹路径
@@ -51,10 +51,10 @@ for root, dirs, files in os.walk(folder_path):
         elif file.endswith('.pyw'):
             file_path = os.path.join(root, file)
             print(Fore.BLUE + f'找到 pyw 文件: {file_path}')
-            pyw_aconut = pyw_aconut + 1
+            pyw_acount = pyw_acount + 1
         
-aconut = py_acount + pyw_aconut
-print(f"一共找到了{aconut}个py/pyw文件。\n其中有{py_acount}个py文件/{pyw_aconut}个pyw文件。")
+acount = py_acount + pyw_acount
+print(f"一共找到了{acount}个py/pyw文件。\n其中有{py_acount}个py文件/{pyw_acount}个pyw文件。")
 
 # 函数：记录日志并添加分隔线
 def log_message(message, log_file):
@@ -89,13 +89,13 @@ def package_py(file_path, log_file="None"):
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
         out_put(f"打包完成：{file_path}")
-        out_put(f"还剩{aconut-fcount}个文件待打包。")
+        out_put(f"还剩{acount-fcount}个文件待打包。")
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
         if log_file != "None":
             log_message(error_message, log_file)
         out_put(error_message, success=False)
-        out_put(f"还剩{aconut-fcount}个文件待打包。")
+        out_put(f"还剩{acount-fcount}个文件待打包。")
         return file_path
 
 # 函数：打包 Pythonw 文件
@@ -110,13 +110,13 @@ def package_pyw(file_path, log_file="None"):
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
         out_put(f"打包完成：{file_path}")
-        out_put(f"还剩{aconut-fcount}个文件待打包。")
+        out_put(f"还剩{acount-fcount}个文件待打包。")
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
         if log_file != "None":
             log_message(error_message, log_file)
         out_put(error_message, success=False)
-        out_put(f"还剩{aconut-fcount}个文件待打包。")
+        out_put(f"还剩{acount-fcount}个文件待打包。")
         return file_path
 
 # 打开日志文件，准备记录日志
@@ -132,15 +132,15 @@ if log_path == "None":
                 failed_file = package_py(file_path)
                 if failed_file:
                     failed_files.append(failed_file)
-                aconut -= 1
+                acount -= 1
             elif file.endswith(".pyw"):
                 failed_file = package_pyw(file_path)
                 if failed_file:
                     failed_files.append(failed_file)
-                aconut -= 1
+                acount -= 1
 else:
     with open(f"{log_path}packaging_log.log", "a") as log_file:
-        log_message(f"开始打包，需要打包的文件数量：{aconut}", log_file)
+        log_message(f"开始打包，需要打包的文件数量：{acount}", log_file)
 
         failed_files = []  # 存储打包失败的文件名
 
@@ -154,13 +154,13 @@ else:
                     if failed_file:
                       failed_files.append(failed_file)
                     fcount += 1
-                    log_message(f"剩余待打包文件数量：{aconut-fcount}", log_file)
+                    log_message(f"剩余待打包文件数量：{acount-fcount}", log_file)
                 elif file.endswith(".pyw"):
                     failed_file = package_pyw(file_path, log_file)
                     if failed_file:
                         failed_files.append(failed_file)
                     fcount += 1
-                    log_message(f"剩余待打包文件数量：{aconut-fcount}", log_file)
+                    log_message(f"剩余待打包文件数量：{acount-fcount}", log_file)
 
 # 提示用户打包完成
 if fail != 0:
@@ -189,7 +189,7 @@ for root, dirs, files in os.walk(folder_path):
             file_path = os.path.join(root, file)
             countd = countd + 1
             os.remove(file_path)
-            print(f'已删除源文件: {file_path} (还剩{aconut-countd}个源文件)')
+            print(f'已删除源文件: {file_path} (还剩{acount-countd}个源文件)')
 
 notification.notify(
     title='Pyinstaller快速打包程序提醒您',
