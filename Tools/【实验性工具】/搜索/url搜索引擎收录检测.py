@@ -20,7 +20,7 @@ def check_indexed_in_search_engines(url):
         else:
             print('[ERROR]不支持的搜索引擎(怎么会出现这个错误，不应该啊...)')
             print('[Warn]啊，被你看到了...如果你看到了这个错误，请在下面这个链接提交Issues：')
-            print('[up Issues]https://github.com/DuckDuckStudio/Fufu_Tools/issues')
+            print('https://github.com/DuckDuckStudio/Fufu_Tools/issues')
             return
 
         headers = {
