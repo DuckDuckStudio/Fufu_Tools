@@ -10,7 +10,7 @@ config_file_path = os.path.join(script_dir, "config.ini")
 config = configparser.ConfigParser()
 config.read(config_file_path)
 wait = config.getint('time', 'wait')
-url = config.getint('url', 'url')
+url = config.get('url', 'url')
 
 def check_wlan():
     headers = {

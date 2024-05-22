@@ -192,7 +192,7 @@ for root, dirs, files in os.walk(folder_path):
             print(f'已删除源文件: {file_path} (还剩{acount-countd}个源文件)')
 
 notification.notify(
-    title='Pyinstaller快速打包程序提醒您',
+    title='Nuitka快速打包程序提醒您',
     message=f'文件删除完成！总共删除了{countd}个原文件',
     timeout=10
 )
