@@ -24,7 +24,7 @@ def check_files(directory, file_extensions):
                                 result = chardet.detect(rawdata)
                                 encoding = result['encoding']
                                 if encoding != 'utf-8':
-                                    print(f"{Fore.YELLOW}⚠{Fore.RESET} 文件编码不是UTF-8: {Fore.BLUE}{entry.name}{Fore.RESET}，编码为 {Fore.BLUE}{encoding}{Fore.RESET}")
+                                    print(f"{Fore.YELLOW}⚠{Fore.RESET} 文件编码可能不是UTF-8: {Fore.BLUE}{entry.name}{Fore.RESET}，依据内容猜测编码为 {Fore.BLUE}{encoding}{Fore.RESET}")
                         except Exception as e:
                             print(f"{Fore.RED}✕{Fore.RESET} 发生错误: {Fore.BLUE}{entry.name}{Fore.RESET}，{e}")
                     else:
