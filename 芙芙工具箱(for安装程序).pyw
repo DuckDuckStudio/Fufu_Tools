@@ -33,7 +33,7 @@ def show_category(container, programs):
     # 清空容器内的内容
     for widget in container.winfo_children():
         widget.destroy()
-    
+
     # 设置每行最多显示的按钮数量
     max_buttons_per_row = 3
     row, col = 0, 0
@@ -43,7 +43,7 @@ def show_category(container, programs):
         button = tk.Button(container, text=program_name, command=lambda p=program_path: open_program(p), width=20)
         button.grid(row=row, column=col, padx=10, pady=5)
         col += 1
-        
+
         # 每行显示的按钮数量达到最大值时，换行继续显示
         if col == max_buttons_per_row:
             row += 1
@@ -62,7 +62,7 @@ def show_categories():
     # 清空内容容器
     for widget in content_frame.winfo_children():
         widget.destroy()
-    
+
     # 重新添加类别按钮
     row, col = 0, 0
     for category_name, programs in categories.items():
@@ -74,7 +74,7 @@ def show_categories():
         if col == max_buttons_per_row: # 在这里修改最大值
             row += 1
             col = 0
-    
+
     # 隐藏返回按钮
     back_button.pack_forget()
 

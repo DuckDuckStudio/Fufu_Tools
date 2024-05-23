@@ -36,13 +36,13 @@ def compare_versions(version1, version2):
     """比较两个版本号，返回 1 表示第一个版本号更新，返回 0 表示版本号相同，返回 -1 表示第二个版本号更新"""
     major1, minor1, patch1, preview1 = parse_version(version1)  # 解析版本号字符串
     major2, minor2, patch2, preview2 = parse_version(version2)
-    
+
     # 检查预览版本号是否存在，不存在则设置为0
     if preview1 is None:
         preview1 = 0
     if preview2 is None:
         preview2 = 0
-    
+
     if major1 > major2:
         return 1
     elif major1 < major2:
@@ -64,23 +64,23 @@ def compare_versions(version1, version2):
 
 def check_for_updates():
     current_version = major_version
-    
+
     if not current_version:  # 如果无法获取版本号，则输出提示信息
         print("无法获取当前版本信息，请检查版本文件内容是否正确。")
         return
-    
+
     print(f"当前版本: {current_version}")
-    
+
     latest_version = get_latest_version()
-    
+
     if latest_version is None:
         print("无法获取最新版本信息。")
         return
-    
+
     print(f"最新正式版: {latest_version}")
-    
+
     comparison_result = compare_versions(current_version, latest_version)
-    
+
     if comparison_result < 0:
         print("发现新版本，建议更新。")
     elif comparison_result == 0:
