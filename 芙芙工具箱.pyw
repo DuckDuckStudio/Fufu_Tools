@@ -167,6 +167,8 @@ categories = {
         "自动替换指定文本": ".\\Tools\\【实验性工具】\\自动化\\自动替换指定文本\\main.py",
         "Pyinstaller批量打包": ".\\Tools\\【实验性工具】\\自动化\\自动打包所有py文件\\使用Pyinstaller.py",
         "Nuitka批量打包": ".\\Tools\\【实验性工具】\\自动化\\自动打包所有py文件\\使用Nuitka.py",
+        "Git连续push尝试": ".\\Tools\\【实验性工具】\\git\\连续push尝试.py",
+        "Git连续pull尝试": ".\\Tools\\【实验性工具】\\git\\连续pull尝试.py",
         "批量水印添加": ".\\Tools\\【实验性工具】\\图片处理\\批量水印.py",
         "[Warn]批量水印添加": ".\\Tools\\【实验性工具】\\图片处理\\Warn.txt",
         "视频音频提取": ".\\Tools\\【实验性工具】\\视频音频提取\\main.py",
