@@ -6,6 +6,7 @@ tqdm
 piexif
 pyautogui
 keyboard
+configparser
 
 Experimental
 pygame

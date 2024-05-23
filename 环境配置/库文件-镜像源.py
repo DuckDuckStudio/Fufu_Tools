@@ -7,7 +7,7 @@ mirror_url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 os.system(f"python -m pip install --upgrade pip --index-url {mirror_url}")
 
 # 安装所需库文件
-libraries = ["translate", "requests", "beautifulsoup4", "ntplib", "tqdm", "piexif", "pyautogui", "keyboard"]
+libraries = ["translate", "requests", "beautifulsoup4", "ntplib", "tqdm", "piexif", "pyautogui", "keyboard", "configparser"]
 Experimental_libraries = ["Experimental", "pygame", "pyinstaller", "nuitka", "moviepy", "plyer"]
 Dev_libraries = ["chardet"]
 
