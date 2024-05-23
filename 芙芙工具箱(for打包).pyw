@@ -182,10 +182,9 @@ categories = {
         "[Warn]水下音效": ".\\Tools\\【实验性工具】\\水下音效\\Warn.txt",
         "去除html注释&删除空行": ".\\Tools\去除代码注释\\[实验性]remove_html_comments_noenter.exe",
     },
-    "说明文件": {
-        "“进制转换”使用说明": ".\\Tools\进制转换\使用说明.txt",
-        "“摩斯密码编解码”使用说明": ".\\Tools\摩斯密码\说明.md",
-        "自动按键连按有效输入": ".\\Tools\自动化\自动按键连按有效按键输入.md",
+    "开发工具": {
+        "总调用": ".\\Tools\\开发工具\\总调用.exe",
+        "文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/Dev/",
     },
     "关于芙芙工具箱": {
         "检查芙芙工具箱版本": ".\\Show_version.exe",

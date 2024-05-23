@@ -13,3 +13,5 @@ pyinstaller
 nuitka
 moviepy
 plyer
+
+chardet

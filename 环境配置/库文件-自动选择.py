@@ -48,6 +48,7 @@ os.system(f"python -m pip install --upgrade pip --index-url {best_mirror}")
 # 安装所需库文件
 libraries = ["translate", "beautifulsoup4", "ntplib", "tqdm", "piexif", "pyautogui", "keyboard"]
 Experimental_libraries = ["Experimental", "pygame", "pyinstaller", "nuitka", "moviepy", "plyer"]
+Dev_libraries = ["chardet"]
 
 for lib in libraries:
     print("-------------------")
@@ -60,6 +61,17 @@ print("是否安装仅[实验性小工具]会使用到的库？")
 t = input("[Y]是 [N]否")
 if t.lower == "yes" or t.lower == "y" or t.lower == "是":
     for lib in Experimental_libraries:
+        print("-------------------")
+        print(f"正在安装库 {lib}")
+        os.system(f"pip install {lib} -i {best_mirror}")
+        print(f"安装库 {lib} 结束")
+    # --
+    print("-------------------")
+
+print("是否安装仅 开发工具 会使用到的库？")
+t = input("[Y]是 [N]否")
+if t.lower == "yes" or t.lower == "y" or t.lower == "是":
+    for lib in Dev_libraries:
         print("-------------------")
         print(f"正在安装库 {lib}")
         os.system(f"pip install {lib} -i {best_mirror}")
