@@ -184,6 +184,7 @@ categories = {
     },
     "开发工具": {
         "总调用": ".\\Tools\\开发工具\\总调用.exe",
+        "配置文件": ".\\Tools\\开发工具\\config.ini",
         "文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/Dev/",
     },
     "关于芙芙工具箱": {

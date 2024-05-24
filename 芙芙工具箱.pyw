@@ -186,6 +186,7 @@ categories = {
     },
     "开发工具": {
         "总调用": ".\\Tools\\开发工具\\总调用.py",
+        "配置文件": ".\\Tools\\开发工具\\config.ini",
         "文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/Dev/",
     },
     "环境配置": {
