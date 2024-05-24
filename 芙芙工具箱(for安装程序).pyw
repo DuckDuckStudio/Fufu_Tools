@@ -186,11 +186,6 @@ categories = {
         "[Warn]水下音效": ".\\Tools\\【实验性工具】\\水下音效\\Warn.txt",
         "去除html注释&删除空行": ".\\Tools\去除代码注释\\[实验性]remove_html_comments_noenter.exe",
     },
-    "开发工具": {
-        "总调用": ".\\Tools\\开发工具\\总调用.exe",
-        "配置文件": ".\\Tools\\开发工具\\config.ini",
-        "文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/Dev/",
-    },
     "关于芙芙工具箱": {
         "检查芙芙工具箱版本": ".\\Show_version.exe",
         "另存配置文件": ".\\temporarily\\config-save.exe",
