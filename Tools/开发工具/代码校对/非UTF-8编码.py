@@ -2,6 +2,7 @@ import os
 import argparse
 import chardet
 from colorama import init, Fore
+init(autoreset=True)
 
 def check_files(directory, file_extensions):
     """
@@ -31,9 +32,6 @@ def check_files(directory, file_extensions):
                         print(f"{Fore.RED}✕{Fore.RESET} 没有读取文件的权限: {Fore.BLUE}{entry.name}{Fore.RESET}，跳过检查。")
 
 def main(directory, file_extensions):
-    # 初始化 Colorama，使颜色输出生效
-    init(autoreset=True)
-
     print(f"{Fore.BLUE}[!]{Fore.RESET} 开始进行{Fore.BLUE}编码检查{Fore.RESET}。")
 
     # 检查文件

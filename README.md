@@ -51,7 +51,7 @@
 ## 特别感谢
 
 感谢所有为该项目做出贡献的人！  
-[![贡献者](https://contrib.rocwks/image?repo=DuckDuckStudio/Fufu_Tools)](https://github.com/DuckDuckStudio/Fufu_Tools/graphs/contributors)
+[![贡献者](https://contrib.rocks/image?repo=DuckDuckStudio/Fufu_Tools)](https://github.com/DuckDuckStudio/Fufu_Tools/graphs/contributors)
   
 
 ### Stargazers
