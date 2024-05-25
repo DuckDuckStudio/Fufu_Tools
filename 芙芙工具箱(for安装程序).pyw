@@ -187,19 +187,19 @@ categories = {
         "去除html注释&删除空行": ".\\Tools\去除代码注释\\[实验性]remove_html_comments_noenter.exe",
     },
     "关于芙芙工具箱": {
-        "检查芙芙工具箱版本": ".\\Show_version.exe",
+        "检查版本": ".\\Show_version.exe",
         "另存配置文件": ".\\temporarily\\config-save.exe",
         "打开安装文件夹": os.getcwd(),
-        "访问芙芙工具箱文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
-        "访问芙芙工具箱官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
+        "访问文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
+        "访问官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
         "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
-        "[测试]检查更新": ".\\【测试】更新信息提示程序（后台）.exe",
+        "检查更新": ".\\【测试】更新信息提示程序（后台）.exe",
         "查看最新开源许可文件": "https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE",
         "信息确认": ".\\Check_INFO.bat",
         "信息确认(导出)": ".\\Check_INFO_save.bat",
         "问题反馈": "https://github.com/DuckDuckStudio/Fufu_Tools/issues",
         # ONLY FOR EXE SETUP
-        "卸载芙芙工具箱": ".\\unins000.exe",
+        "卸载": ".\\unins000.exe",
     },
     # 更多类别和程序...
 }

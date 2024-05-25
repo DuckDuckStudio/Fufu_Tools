@@ -1,12 +1,35 @@
-import tkinter as tk
-from tkinter import messagebox
 import os
+import tkinter as tk
+import pyshortcuts
+from tkinter import messagebox
 from configparser import ConfigParser
+
+# ------ 检测开始菜单图标情况 ----------
+shortcut_path = os.path.join(os.path.join(os.getenv('APPDATA'), "Microsoft\\Windows\\Start Menu\\Programs"), "芙芙工具箱.lnk")
+script_path = os.path.realpath(__file__)
+icon_path = os.path.join(os.path.dirname(script_path), "ico.ico")
+
+if os.path.exists(shortcut_path):
+    link = "从开始菜单中移除"
+else:
+    link = "添加到开始菜单"
+# ---------------------------------
 
 # 打开程序的函数
 def open_program(program_path):
     if program_path == "https://github.com/DuckDuckStudio/Fufu_Tools/issues":
         messagebox.showinfo("提示", "在反馈问题前请先查阅文档中是否已列出解决办法！")
+    elif program_path == "link":
+        global link # 表明link变量使用的是全局的link而不是函数的link
+        if link == "从开始菜单中移除":
+            os.remove(shortcut_path)
+            link = "添加到开始菜单"
+            messagebox.showinfo("提示", "已将芙芙工具箱从开始菜单中移除！")
+        elif link == "添加到开始菜单":
+            pyshortcuts.make_shortcut(script_path, name="芙芙工具箱", icon=icon_path)
+            link = "从开始菜单中移除"
+            messagebox.showinfo("提示", "已将芙芙工具箱添加进开始菜单中！")
+        return # 不执行接下来的打开代码
     # ---
     try:
         os.startfile(program_path)
@@ -183,13 +206,14 @@ categories = {
         "去除html注释&删除空行": ".\\Tools\去除代码注释\\[实验性]remove_html_comments_noenter.exe",
     },
     "关于芙芙工具箱": {
-        "检查芙芙工具箱版本": ".\\Show_version.exe",
+        "检查版本": ".\\Show_version.exe",
+        "修改开始菜单图标": "link",
         "另存配置文件": ".\\temporarily\\config-save.exe",
         "打开安装文件夹": os.getcwd(),
-        "访问芙芙工具箱文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
-        "访问芙芙工具箱官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
+        "访问文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
+        "访问官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
         "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
-        "[测试]检查更新": ".\\【测试】更新信息提示程序（后台）.exe",
+        "检查更新": ".\\【测试】更新信息提示程序（后台）.exe",
         "查看最新开源许可文件": "https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE",
         "信息确认": ".\\Check_INFO.bat",
         "信息确认(导出)": ".\\Check_INFO_save.bat",

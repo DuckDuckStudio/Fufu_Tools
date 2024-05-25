@@ -22,8 +22,20 @@
 [【点我查看受支持的版本】](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/SECURITY.md)  
 
 ## 如何获取程序
+*最新正式版([v1.3.0](https://github.com/DuckDuckStudio/Fufu_Tools/releases/v1.3.0)):*  
 
-**[点击这里](https://github.com/DuckDuckStudio/Fufu_Tools/releases)下载GitHub上的最新版芙芙工具箱**  
+| 版本类型 | 下载链接 |
+|-----|-----|
+| lite版 | [Fufu_Tools.v1.3.0-lite.zip](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.0/Fufu_Tools.v1.3.0-lite.zip) |
+| lite版(7z) | [Fufu_Tools.v1.3.0-lite.7z](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.0/Fufu_Tools.v1.3.0-lite.7z) |
+| 打包版(zip) | [Fufu_Tools.v1.3.0.zip](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.0/Fufu_Tools.v1.3.0.zip) |
+| 打包版(7z) | [Fufu_Tools.v1.3.0.7z](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.0/Fufu_Tools.v1.3.0.7z) |
+| 打包版(7z-极限压缩) | [Fufu_Tools.v1.3.0-Extreme_compression.7z](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.0/Fufu_Tools.v1.3.0-Extreme_compression.7z) |
+| 安装程序(exe) | [Fufu_Tools_Setup.v1.3.0.exe](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.0/Fufu_Tools_Setup.v.1.3.0.exe) |
+
+
+*最新预览版([v1.3.0](https://github.com/DuckDuckStudio/Fufu_Tools/releases/v1.3.0)):*  
+同最新正式版。  
 
 ### 非官方渠道警告
 *(竟然会有人把我的程序放到xx下载站去啊，感觉说明比我写的都好)*  
@@ -39,7 +51,7 @@
 ## 特别感谢
 
 感谢所有为该项目做出贡献的人！  
-[![贡献者](https://contrib.rocks/image?repo=DuckDuckStudio/Fufu_Tools)](https://github.com/DuckDuckStudio/Fufu_Tools/graphs/contributors)
+[![贡献者](https://contrib.rocwks/image?repo=DuckDuckStudio/Fufu_Tools)](https://github.com/DuckDuckStudio/Fufu_Tools/graphs/contributors)
   
 
 ### Stargazers

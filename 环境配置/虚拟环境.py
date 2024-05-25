@@ -37,6 +37,7 @@ init(autoreset=True)
 # --------- 后续所需的 ↑ | 其他 ↓ ----------
 # 定义多个镜像源
 mirror_urls = [
+    "https://pypi.org/simple",# 默认源
     "https://pypi.tuna.tsinghua.edu.cn/simple",
     "https://mirrors.aliyun.com/pypi/simple",
     "https://pypi.mirrors.ustc.edu.cn/simple",
@@ -63,7 +64,7 @@ def test_mirror_speed(urls):
 best_mirror = test_mirror_speed(mirror_urls)
 
 if best_mirror:
-    print(f"{Fore.GREEN}✓{Fore.RESET} 最佳镜像源: {Fore.BLUE}{best_mirror}{Fore.RESET}")
+    print(f"{Fore.GREEN}✓{Fore.RESET} 最佳源: {Fore.BLUE}{best_mirror}{Fore.RESET}")
 else:
     print(f"{Fore.RED}✕{Fore.RESET} 无法连接任何镜像源！")
     exit()
@@ -72,7 +73,7 @@ else:
 subprocess.run([os.path.join(venv_folder_path, 'Scripts', 'python.exe'), '-m', 'pip', 'install', '--upgrade', 'pip', '--index-url', best_mirror], check=True)
 
 # 安装所需库文件
-libraries = ["translate", "beautifulsoup4", "ntplib", "tqdm", "piexif", "pyautogui", "keyboard", "configparser"]
+libraries = ["translate", "beautifulsoup4", "ntplib", "tqdm", "piexif", "pyautogui", "keyboard", "configparser", "pyshortcuts"]
 Experimental_libraries = ["Experimental", "pygame", "pyinstaller", "nuitka", "moviepy", "plyer"]
 Dev_libraries = ["chardet"]
 
