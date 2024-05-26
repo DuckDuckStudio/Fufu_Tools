@@ -11,30 +11,66 @@ config = configparser.ConfigParser()
 config.read(config_file_path)
 wait = config.getint('time', 'wait')
 url = config.get('url', 'url')
+translation = config.getboolean('Translation', 'Error message')
 
 def check_wlan():
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
-    try:
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            print("连接成功!")
-        else:
-            print("连接失败！状态代码:", response.status_code)
+    response = requests.get(url, headers=headers)
+    
+    if translation:
+        try:
+            if response.status_code == 200:
+                print("连接成功!")
+            else:
+                print("连接失败！状态代码:", response.status_code)
+                notification.notify(
+                    title='芙芙工具箱 | 网络连接检测',
+                    message=f'检测到异常情况，请注意！({response.status_code})',
+                    timeout=10
+                )
+        except requests.exceptions.Timeout:
+            print("连接超时！")
+            notification.notify(
+                title='芙芙工具箱 | 网络连接检测',
+                message='检测到异常情况，请注意！(连接超时)',
+                timeout=10
+            )
+        except requests.exceptions.ConnectionError:
+            print("无法连接到远程服务器！")
+            notification.notify(
+                title='芙芙工具箱 | 网络连接检测',
+                message='检测到异常情况，请注意！(无法连接到远程服务器)',
+                timeout=10
+            )
+        except Exception as e:
+            print("连接失败！")
+            print("错误代码:", e)
             notification.notify(
                 title='芙芙工具箱 | 网络连接检测',
                 message='检测到异常情况，请注意！',
                 timeout=10
             )
-    except Exception as e:
-        print("连接失败！")
-        print("错误代码:", e)
-        notification.notify(
-            title='芙芙工具箱 | 网络连接检测',
-            message='检测到异常情况，请注意！',
-            timeout=10
-        )
+    else:
+        try:
+            if response.status_code == 200:
+                print("连接成功!")
+            else:
+                print("连接失败！状态代码:", response.status_code)
+                notification.notify(
+                    title='芙芙工具箱 | 网络连接检测',
+                    message=f'检测到异常情况，请注意！({response.status_code})',
+                    timeout=10
+                )
+        except Exception as e:
+            print("连接失败！")
+            print("错误代码:", e)
+            notification.notify(
+                title='芙芙工具箱 | 网络连接检测',
+                message='检测到异常情况，请注意！',
+                timeout=10
+            )
 
 #---
 
