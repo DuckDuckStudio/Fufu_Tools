@@ -1,13 +1,14 @@
 import os
 import argparse
 from colorama import init, Fore
-from tqdm import tqdm
 
 init(autoreset=True)
 
-def count_lines_in_file(file_path, ignore_empty_lines=False, ignore_comments=False, show_ignored_lines=False):
+def count_lines_in_file(file_path, ignore_empty_lines=False, ignore_comments=False, show_ignored_lines=False, show_test_info=False):
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
+            if show_test_info:
+                print(f"{Fore.YELLOW}[TEST]{Fore.RESET} {Fore.GREEN}正在{Fore.RESET}处理文件 {Fore.BLUE}{file_path}{Fore.RESET}")
             lines = file.readlines()
             if ignore_empty_lines:
                 original_line_count = len(lines)
@@ -27,15 +28,13 @@ def count_lines_in_file(file_path, ignore_empty_lines=False, ignore_comments=Fal
             return total_lines
     except FileNotFoundError:
         print(f"{Fore.RED}✕{Fore.RESET} 文件不存在: {Fore.BLUE}{file_path}{Fore.RESET}")
-        return 0
+        return 0, 0, 0
     except PermissionError:
         print(f"{Fore.RED}✕{Fore.RESET} 没有权限访问文件: {Fore.BLUE}{file_path}{Fore.RESET}")
-        return 0
+        return 0, 0, 0
     except Exception as e:
         print(f"{Fore.RED}✕{Fore.RESET} 出现未知错误: {Fore.RED}{e}{Fore.RESET}")
-        return 0
-
-# 其他部分保持不变
+        return 0, 0, 0
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='计算指定目录中的总代码行数')
@@ -46,6 +45,7 @@ if __name__ == '__main__':
     parser.add_argument('--ignore-empty-lines', action='store_true', help='在统计时忽略空行', required=False, dest="ignore_empty_lines")
     parser.add_argument('--ignore-comments', action='store_true', help='在统计时忽略注释行', required=False, dest="ignore_comments")
     parser.add_argument('--show-ignored-lines', action='store_true', help='显示总共忽略的空行和注释行数', required=False, dest="show_ignored_lines")
+    parser.add_argument('--show-test-info', action='store_true', help='显示测试信息（非必要不要使用）', required=False, dest="show_test_info")
 
     args = parser.parse_args()
 
@@ -53,24 +53,37 @@ if __name__ == '__main__':
     ignore_files = args.ignore_files.split(',') if args.ignore_files else []
     file_formats = args.file_formats.split(',') if args.file_formats else []
 
+
+
     total_lines = 0
     ignored_empty_lines = 0
     ignored_comment_lines = 0
 
+    if not os.path.exists(args.dir_path):
+        print(f"{Fore.RED}✕{Fore.RESET} 指定的目录不存在")
+        exit()
+
     for root, dirs, files in os.walk(args.dir_path):
         dirs[:] = [d for d in dirs if d not in ignore_folders]
         for file in files:
-            if file.endswith(tuple(file_formats)) and file not in ignore_files:
-                file_path = os.path.join(root, file)
-                lines = count_lines_in_file(file_path, args.ignore_empty_lines, args.ignore_comments, args.show_ignored_lines)
-                if args.show_ignored_lines:
-                    total_lines += lines[0]
-                    ignored_empty_lines += lines[1]
-                    ignored_comment_lines += lines[2]
-                else:
-                    total_lines += lines
+            if file not in ignore_files:
+                if not file_formats or file.endswith(tuple(file_formats)):
+                    file_path = os.path.join(root, file)
+                    lines = count_lines_in_file(file_path, args.ignore_empty_lines, args.ignore_comments, args.show_ignored_lines, args.show_test_info)
+                    if args.show_ignored_lines:
+                        total_lines += lines[0]
+                        ignored_empty_lines += lines[1]
+                        ignored_comment_lines += lines[2]
+                    else:
+                        total_lines += lines
 
-    print(f'{Fore.GREEN}✓{Fore.RESET} 总代码行数: {total_lines}')
+    print(f'{Fore.GREEN}✓{Fore.RESET} 总代码行数: {total_lines} 行')
     if args.show_ignored_lines:
-        print(f'{Fore.BLUE}[!]{Fore.RESET} 总共忽略的空行数: {ignored_empty_lines}')
-        print(f'{Fore.BLUE}[!]{Fore.RESET} 总共忽略的注释行数: {ignored_comment_lines}')
+        ignored_lines = 0
+        if args.ignore_empty_lines:
+            print(f'{Fore.BLUE}[!]{Fore.RESET} 总共忽略的空行数: {ignored_empty_lines} 行')
+            ignored_lines += ignored_empty_lines
+        if args.ignore_comments:
+            print(f'{Fore.BLUE}[!]{Fore.RESET} 总共忽略的注释行数: {ignored_comment_lines} 行')
+            ignored_lines += ignored_comment_lines
+        print(f'{Fore.BLUE}[!]{Fore.RESET} 总共忽略了: {ignored_lines} 行')
