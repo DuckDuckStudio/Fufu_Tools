@@ -47,7 +47,7 @@ else:
 os.system(f"python -m pip install --upgrade pip --index-url {best_mirror}")
 
 # 安装所需库文件
-libraries = ["translate", "beautifulsoup4", "ntplib", "tqdm", "piexif", "pyautogui", "keyboard", "configparser", "pyshortcuts"]
+libraries = ["translate", "beautifulsoup4", "ntplib", "tqdm", "piexif", "pyautogui", "keyboard", "configparser", "pyshortcuts", "colorama"]
 Experimental_libraries = ["Experimental", "pygame", "pyinstaller", "nuitka", "moviepy", "plyer"]
 Dev_libraries = ["chardet"]
 
