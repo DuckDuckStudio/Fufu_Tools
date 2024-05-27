@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     config = configparser.ConfigParser()
-    config.read('..\config.ini')
+    config.read('..\\config.ini')
     code_file_extensions = config.get('Statistics', 'CodeFileExtensions')
 
     ignore_folders = args.ignore_folders.split(',') if args.ignore_folders else []
