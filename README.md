@@ -22,19 +22,20 @@
 [【点我查看受支持的版本】](https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/SECURITY.md)  
 
 ## 如何获取程序
-*最新正式版([v1.3.0](https://github.com/DuckDuckStudio/Fufu_Tools/releases/v1.3.0)):*  
+*最新正式版([v1.3.1](https://github.com/DuckDuckStudio/Fufu_Tools/releases/v1.3.1)):*  
 
 | 版本类型 | 下载链接 |
 |-----|-----|
-| lite版 | [Fufu_Tools.v1.3.0-lite.zip](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.0/Fufu_Tools.v1.3.0-lite.zip) |
-| lite版(7z) | [Fufu_Tools.v1.3.0-lite.7z](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.0/Fufu_Tools.v1.3.0-lite.7z) |
-| 打包版(zip) | [Fufu_Tools.v1.3.0.zip](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.0/Fufu_Tools.v1.3.0.zip) |
-| 打包版(7z) | [Fufu_Tools.v1.3.0.7z](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.0/Fufu_Tools.v1.3.0.7z) |
-| 打包版(7z-极限压缩) | [Fufu_Tools.v1.3.0-Extreme_compression.7z](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.0/Fufu_Tools.v1.3.0-Extreme_compression.7z) |
-| 安装程序(exe) | [Fufu_Tools_Setup.v1.3.0.exe](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.0/Fufu_Tools_Setup.v.1.3.0.exe) |
+| lite版 | [Fufu_Tools.v1.3.1-lite.zip](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.1/Fufu_Tools.v1.3.1-lite.zip) |
+| lite版(7z) | [Fufu_Tools.v1.3.1-lite.7z](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.1/Fufu_Tools.v1.3.1-lite.7z) |
+| 打包版(zip) | [Fufu_Tools.v1.3.1.zip](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.1/Fufu_Tools.v1.3.1.zip) |
+| 打包版(7z) | [Fufu_Tools.v1.3.1.7z](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.1/Fufu_Tools.v1.3.1.7z) |
+| 打包版(7z-极限压缩) | [Fufu_Tools.v1.3.1-Extreme_compression.7z](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.1/Fufu_Tools.v1.3.1-Extreme_compression.7z) |
+| 安装程序(exe) | [Fufu_Tools_Setup.v1.3.1.exe](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.1/Fufu_Tools_Setup.v.1.3.0.exe) |
+| 独立开发工具(zip) | [Fufu_Tools.v1.3.1-Dev_Tools.zip](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.1/Fufu_Tools.v1.3.1-Dev_Tools.zip) |
+| 独立开发工具(7z) | [Fufu_Tools.v1.3.1-Dev_Tools.7z](https://github.com/DuckDuckStudio/Fufu_Tools/releases/download/v1.3.1/Fufu_Tools.v1.3.1-Dev_Tools.7z) |
 
-
-*最新预览版([v1.3.0](https://github.com/DuckDuckStudio/Fufu_Tools/releases/v1.3.0)):*  
+*最新预览版([v1.3.1](https://github.com/DuckDuckStudio/Fufu_Tools/releases/v1.3.1)):*  
 同最新正式版。  
 
 ### 非官方渠道警告
