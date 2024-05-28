@@ -51,4 +51,6 @@ for root, dirs, files in os.walk(parent_dir):
             print(f"✓ 已将虚拟环境信息写入 {file_path}")
 # -------------------------------------------------
 
-subprocess.run(python_exe_path, '库文件-虚拟环境', check=True)
+input("按Enter键继续安装所需库文件...")
+
+subprocess.run([python_exe_path, '库文件-虚拟环境.py'], check=True)

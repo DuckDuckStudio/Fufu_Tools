@@ -83,4 +83,5 @@ if t.lower == "yes" or t.lower == "y" or t.lower == "是":
 print("所有所需库文件安装完成！")
 print("错误关键词ERROR，如有看到请确认库文件安装情况。")
 print("如果看不懂可以使用翻译软件！")
-input("按任意键继续...")
+
+input("按Enter退出...")

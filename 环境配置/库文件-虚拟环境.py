@@ -84,3 +84,5 @@ if t == "yes" or t == "y" or t == "是":
 
 print(f"{Fore.BLUE}[!]{Fore.RESET} 安装所需库结束，请自行检查是否出错。")
 # -------------------------
+
+input("按Enter键退出...")
