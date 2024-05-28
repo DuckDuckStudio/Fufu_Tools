@@ -61,8 +61,8 @@ for lib in libraries:
 
 print("-------------------")
 print("是否安装仅[实验性小工具]会使用到的库？")
-t = input("[Y]是 [N]否")
-if t.lower == "yes" or t.lower == "y" or t.lower == "是":
+t = input("[Y]是 [N]否").lower()
+if t == "yes" or t == "y" or t == "是":
     for lib in Experimental_libraries:
         print("-------------------")
         print(f"{Fore.BLUE}[!]{Fore.RESET} 正在安装库 {Fore.BLUE}{lib}{Fore.RESET}")
@@ -72,8 +72,8 @@ if t.lower == "yes" or t.lower == "y" or t.lower == "是":
     print("-------------------")
 
 print("是否安装仅 开发工具 会使用到的库？")
-t = input("[Y]是 [N]否")
-if t.lower == "yes" or t.lower == "y" or t.lower == "是":
+t = input("[Y]是 [N]否").lower()
+if t == "yes" or t == "y" or t == "是":
     for lib in Dev_libraries:
         print("-------------------")
         print(f"{Fore.BLUE}[!]{Fore.RESET} 正在安装库 {Fore.BLUE}{lib}{Fore.RESET}")
