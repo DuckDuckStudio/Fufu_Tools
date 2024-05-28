@@ -1,5 +1,4 @@
 # 标准库
-# 不安装库
 import os
 import shutil
 import subprocess
@@ -13,9 +12,7 @@ import subprocess
 dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(dir)
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # 上级目录
-lib_txt = os.path.join(dir, 'requirements.txt')
 venv_folder_path = os.path.join(parent_dir, '.venv') # 虚拟环境目录
-python_exe_path = os.path.join(venv_folder_path, 'Scripts', 'python.exe')
 # -------------------------------
 
 # ---------- 处理掉已有的虚拟环境 ---------
@@ -52,9 +49,6 @@ for root, dirs, files in os.walk(parent_dir):
             with open(file_path, 'w') as f:
                 f.writelines(content)
             print(f"✓ 已将虚拟环境信息写入 {file_path}")
-            print(f"✓ 已将虚拟环境信息写入 {file_path}")
 # -------------------------------------------------
 
-print(f"请自行激活虚拟环境后使用 pip install -r {lib_txt} 安装库文件")
-print(f"请自行激活虚拟环境后使用 pip install -r {lib_txt} 安装库文件")
-print(f"请自行激活虚拟环境后使用 pip install -r {lib_txt} 安装库文件")
+subprocess.run(python_exe_path, '库文件-虚拟环境', check=True)
