@@ -1,9 +1,10 @@
 import os
+import sys
 import configparser
 
 print("读取config.ini文件中...")
 # READ config.ini file
-script_dir = os.path.dirname(os.path.realpath(__file__))
+script_dir = os.path.dirname(sys.argv[0])
 config_file_path = os.path.join(script_dir, "config.ini")
 config = configparser.ConfigParser()
 config.read(config_file_path)

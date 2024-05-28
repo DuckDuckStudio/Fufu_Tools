@@ -1,13 +1,13 @@
 import os
+import sys
 import tkinter as tk
 from tkinter import filedialog
 from colorama import init, Fore
 import configparser
 
 init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
-os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的输出位置
-output_file = os.path.join(os.getcwd(), '获取结果.txt')
-config_file = os.path.join(os.getcwd(), 'config.ini')
+output_file = os.path.join(os.path.dirname(sys.argv[0]), '获取结果.txt')
+config_file = os.path.join(os.path.dirname(sys.argv[0]), 'config.ini')
 
 def get_relative_path(file, base_folder):
     # 获取文件相对于基础文件夹的相对路径
