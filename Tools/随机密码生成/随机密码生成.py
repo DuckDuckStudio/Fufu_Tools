@@ -1,11 +1,10 @@
 import tkinter as tk
-from tkinter import messagebox, simpledialog
-import string
+from tkinter import messagebox
+import sys
 import random
 import os
 
-# 将工作目录更改为脚本所在的目录
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+os.chdir(os.path.dirname(sys.argv[0]))
 
 def generate_password():
     # 获取密码长度

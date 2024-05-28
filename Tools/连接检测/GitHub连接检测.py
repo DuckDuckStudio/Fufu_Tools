@@ -2,16 +2,17 @@ import requests
 from plyer import notification
 import time
 import os
+import sys
 from datetime import datetime
 import configparser
 
 # READ config.ini file
-script_dir = os.path.dirname(os.path.realpath(__file__))
+script_dir = os.path.dirname(sys.argv[0])
 config_file_path = os.path.join(script_dir, "config.ini")
 config = configparser.ConfigParser()
 config.read(config_file_path)
 wait = config.getint('time', 'wait-github')
-translation = config.getboolean('Translation', 'Error message')
+translation = config.getboolean('Translation', 'Error-message')
 
 def check_wlan():
     headers = {

@@ -1,8 +1,9 @@
 import os
+import sys
 import configparser
 
 # READ config.ini file
-script_dir = os.path.dirname(os.path.realpath(__file__))
+script_dir = os.path.dirname(sys.argv[0])
 config_file_path = os.path.join(script_dir, "config.ini")
 FRDC_file_path = os.path.join(script_dir, "fast_return_default_config.py")
 config = configparser.ConfigParser()
