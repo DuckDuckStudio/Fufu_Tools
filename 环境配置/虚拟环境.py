@@ -1,5 +1,4 @@
 # 标准库
-# 不安装库
 import os
 import shutil
 import subprocess
@@ -13,9 +12,7 @@ import subprocess
 dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(dir)
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # 上级目录
-lib_txt = os.path.join(dir, 'requirements.txt')
 venv_folder_path = os.path.join(parent_dir, '.venv') # 虚拟环境目录
-python_exe_path = os.path.join(venv_folder_path, 'Scripts', 'python.exe')
 # -------------------------------
 
 # ---------- 处理掉已有的虚拟环境 ---------
@@ -30,12 +27,15 @@ print(f"✓ 已创建新虚拟环境(venv)。")
 python_exe_path = os.path.join(venv_folder_path, 'Scripts', 'python.exe')
 # ---------------------------
 
-print(f"请自行激活虚拟环境后使用 pip install -r {lib_txt} 安装库文件")
+# --------- 安装库 ---------
+subprocess.run([os.path.join(venv_folder_path, 'Scripts', 'pip.exe'), 'install', 'colorama'], check=True)
+subprocess.run([os.path.join(venv_folder_path, 'Scripts', 'pip.exe'), 'install', 'requests'], check=True)
+# --------- 安装库 ---------
 
 # -------- 让每个py/pyw文件都使用虚拟环境 ----------
 for root, dirs, files in os.walk(parent_dir):
     if '环境配置' in root:
-        continue
+        continue  # 如果遇到名为"环境配置"的目录，直接跳过
 
     for filename in files:
         if filename.endswith('.py') or filename.endswith('.pyw'):
@@ -44,13 +44,13 @@ for root, dirs, files in os.walk(parent_dir):
             with open(file_path, 'r') as f:
                 content = f.readlines()
             # 在第一行插入shebang行
-            content.insert(0, '#!{}\n'.format(python_exe_path))
+            content.insert(0, f'#!{python_exe_path}\n')
             # 将修改后的内容写回文件
             with open(file_path, 'w') as f:
                 f.writelines(content)
             print(f"✓ 已将虚拟环境信息写入 {file_path}")
 # -------------------------------------------------
 
-print(f"请自行激活虚拟环境后使用 pip install -r {lib_txt} 安装库文件")
-print(f"请自行激活虚拟环境后使用 pip install -r {lib_txt} 安装库文件")
-print(f"请自行激活虚拟环境后使用 pip install -r {lib_txt} 安装库文件")
+input("按Enter键继续安装所需库文件...")
+
+subprocess.run([python_exe_path, '库文件-虚拟环境.py'], check=True)
