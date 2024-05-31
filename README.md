@@ -2,7 +2,7 @@
 
 **网站：https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/**  
 
-[![展示图](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/photos/展示图.png "Fufu Tools")](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/)  
+[![展示图](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/photos/展示图.png)](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/)  
 
 [![GitHub Release](https://img.shields.io/github/release/DuckDuckStudio/Fufu_Tools?style=flat)](https://github.com/DuckDuckStudio/Fufu_Tools/releases/latest) [![Github All Releases](https://img.shields.io/github/downloads/DuckDuckStudio/Fufu_Tools/total.svg?style=flat)]()  
 
