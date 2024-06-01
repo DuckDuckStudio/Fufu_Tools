@@ -44,7 +44,7 @@
   
 
 ### Stargazers
-[![Star History Chart](https://api.star-history.com/svg?repos=DuckDuckStudio/Fufu_Tools&type=Date)](https://star-history.com/#DuckDuckStudio/Fufu_Tools&Date)  
+[![Stargazers repo roster for @DuckDuckStudio/Fufu_Tools](https://reporoster.com/stars/DuckDuckStudio/Fufu_Tools)](https://github.com/DuckDuckStudio/Fufu_Tools/stargazers)  
 [![Star History Chart](https://api.star-history.com/svg?repos=DuckDuckStudio/Fufu_Tools&type=Date)](https://star-history.com/#DuckDuckStudio/Fufu_Tools&Date)
 
 ### 关于项目网站
