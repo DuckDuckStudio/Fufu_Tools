@@ -35,7 +35,6 @@
 ### 如何查看文章/文档
 
 [[点我即可在线前往查看文章！]](https://duckduckstudio.github.io/Articles/)  
-<!-- 文章于 2024/5/8(或5/9) 迁移至个人网站 -->
 [[点我即可在线前往查看文档]](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/)  
 
 ## 特别感谢
@@ -45,7 +44,8 @@
   
 
 ### Stargazers
-[![Stargazers repo roster for @DuckDuckStudio/Fufu_Tools](https://reporoster.com/stars/DuckDuckStudio/Fufu_Tools)](https://github.com/DuckDuckStudio/Fufu_Tools/stargazers)
+[![Star History Chart](https://api.star-history.com/svg?repos=DuckDuckStudio/Fufu_Tools&type=Date)](https://star-history.com/#DuckDuckStudio/Fufu_Tools&Date)  
+[![Star History Chart](https://api.star-history.com/svg?repos=DuckDuckStudio/Fufu_Tools&type=Date)](https://star-history.com/#DuckDuckStudio/Fufu_Tools&Date)
 
 ### 关于项目网站
 
@@ -80,6 +80,10 @@
 *Note:芙芙工具箱目前暂未在win8系统及win server上测试过，如果你使用的是这些系统，我们不能保证其稳定性。*  
 
 *芙芙工具箱将停止更新WSA小工具，因为依据[适用于 Android™️ 的 Windows 子系统 | Microsoft Learn](https://learn.microsoft.com/zh-cn/windows/android/wsa/)WSA将于2025 年 3 月 5 日起停止支持。届时WSA小工具或许会改名为ADB小工具并继续更新，或许会直接从后续版本中砍掉。该目录下的工具将于2024 年 5 月 1 日起停止支持。*
+
+### 开发状况
+[[查看开发规划]](https://github.com/users/DuckDuckStudio/projects/2)  
+![Alt](https://repobeats.axiom.co/api/embed/0c308c244bf31aee51617686f4d6613478e1cc23.svg "Repobeats analytics image")
 
 ## 结尾废话
 
