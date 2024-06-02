@@ -1,8 +1,3 @@
-# 计时程序开启时间显示提示
-# 默认随主程序开启 -> 自启动？
-# 隐藏控制台 (pyw)
-
-# 导入
 from plyer import notification
 import time
 import configparser
@@ -10,7 +5,7 @@ import os
 import sys
 
 # READ config.ini file
-script_dir = os.path.dirname(sys.argv[0])
+script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 config_file_path = os.path.join(script_dir, "config.ini")
 config = configparser.ConfigParser()
 config.read(config_file_path)
