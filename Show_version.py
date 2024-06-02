@@ -3,7 +3,7 @@ import sys
 import configparser
 
 # READ config.ini file
-script_dir = os.path.dirname(sys.argv[0])
+script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 config_file_path = os.path.join(script_dir, "config.ini")
 config = configparser.ConfigParser()
 config.read(config_file_path)

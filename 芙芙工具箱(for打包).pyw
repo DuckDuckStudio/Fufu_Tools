@@ -1,4 +1,5 @@
 import os
+import sys
 import tkinter as tk
 import pyshortcuts
 from tkinter import messagebox
@@ -6,8 +7,8 @@ from configparser import ConfigParser
 
 # ------ 检测开始菜单图标情况 ----------
 shortcut_path = os.path.join(os.path.join(os.getenv('APPDATA'), "Microsoft\\Windows\\Start Menu\\Programs"), "芙芙工具箱.lnk")
-script_path = os.path.realpath(__file__)
-icon_path = os.path.join(os.path.dirname(script_path), "ico.ico")
+script_path = os.path.dirname(os.path.abspath(sys.argv[0]))
+icon_path = os.path.join(script_path, "ico.ico")
 
 if os.path.exists(shortcut_path):
     link = "从开始菜单中移除"

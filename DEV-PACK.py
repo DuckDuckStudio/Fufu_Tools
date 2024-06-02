@@ -14,7 +14,7 @@ from plyer import notification
 # -------------------------------------------------------
 
 init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
-os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的位置
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))  # 避免意外的位置
 
 print(f"{Fore.BLUE}[!]{Fore.RESET} 将使用 {Fore.BLUE}Pyinstaller{Fore.RESET} 打包。")
 print(f"{Fore.YELLOW}⚠{Fore.RESET} 本工具仅作为开发人员打包发行版时使用，请勿单独使用！！！！")
