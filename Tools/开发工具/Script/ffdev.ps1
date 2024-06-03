@@ -4,21 +4,28 @@ param(
     [string[]]$inputArgs
 )
 
+$parentDir = Split-Path -Path $PSScriptRoot -Parent
+
 if ($program -eq "总调用") {
-    python D:\Duckhome\projects\MSVS\Source\Repos\Fufu-Tools\Tools\开发工具\总调用.py $command $inputArgs
+    $pythonScript = Join-Path $parentDir "总调用.py"
 } elseif ($program -eq "目录复制") {
-    python D:\Duckhome\projects\MSVS\Source\Repos\Fufu-Tools\Tools\开发工具\目录复制.pyw $command $inputArgs
+    $pythonScript = Join-Path $parentDir "目录复制.py"
 } elseif ($program -eq "参数查重") {
-    python D:\Duckhome\projects\MSVS\Source\Repos\Fufu-Tools\Tools\开发工具\代码校对\参数查重.py $command $inputArgs
+    $pythonScript = Join-Path $parentDir "代码校对\参数查重.py"
 } elseif ($program -eq "非UTF-8编码") {
-    python D:\Duckhome\projects\MSVS\Source\Repos\Fufu-Tools\Tools\开发工具\代码校对\非UTF-8编码.py $command $inputArgs
+    $pythonScript = Join-Path $parentDir "代码校对\非UTF-8编码.py"
 } elseif ($program -eq "尾随空格") {
-    python D:\Duckhome\projects\MSVS\Source\Repos\Fufu-Tools\Tools\开发工具\代码校对\尾随空格.py $command $inputArgs
+    $pythonScript = Join-Path $parentDir "代码校对\尾随空格.py"
 } elseif ($program -eq "需求生成") {
-    python D:\Duckhome\projects\MSVS\Source\Repos\Fufu-Tools\Tools\开发工具\生成工具\需求生成.py $command $inputArgs
+    $pythonScript = Join-Path $parentDir "生成工具\需求生成.py"
 } elseif ($program -eq "代码行数") {
-    python D:\Duckhome\projects\MSVS\Source\Repos\Fufu-Tools\Tools\开发工具\统计\代码总行数.py $command $inputArgs
+    $pythonScript = Join-Path $parentDir "统计\代码总行数.py"
 } else {
     Write-Warning "无效的程序调用"
     Write-Output "可用程序: [目录复制] [参数查重] [非UTF-8编码] [尾随空格] [需求生成] [代码行数]"
+    $flag = 1
+}
+
+if ($flag -ne 1) {
+    python $pythonScript $command $inputArgs
 }
