@@ -4,7 +4,7 @@ import argparse
 import chardet
 from colorama import init, Fore
 
-def check_files(directory, file_extensions):
+def check_files(directory, file_extensions=None):
     """
     检查指定目录下的文件是否存在尾随空格。
 
@@ -31,15 +31,18 @@ def check_files(directory, file_extensions):
                                         # 使用正则表达式检查行尾是否包含空格，但不以换行符结尾
                                         if re.search(r'[^\S\n]$', line):
                                             if line.isspace():
-                                                print(f"{Fore.YELLOW}⚠{Fore.RESET} 检测到{Fore.YELLOW}多余空行空格{Fore.RESET}: {Fore.BLUE}{entry.name}{Fore.RESET}, 第 {Fore.BLUE}{linenum}{Fore.RESET} 行。")
+                                                print(f"{Fore.YELLOW}⚠{Fore.RESET} 检测到{Fore.YELLOW}多余空行空格{Fore.RESET}: {Fore.BLUE}{filepath}{Fore.RESET}, 第 {Fore.BLUE}{linenum}{Fore.RESET} 行。")
                                             else:
-                                                print(f"{Fore.YELLOW}⚠{Fore.RESET} 检测到{Fore.YELLOW}尾随空格{Fore.RESET}: {Fore.BLUE}{entry.name}{Fore.RESET}, 第 {Fore.BLUE}{linenum}{Fore.RESET} 行。")
+                                                print(f"{Fore.YELLOW}⚠{Fore.RESET} 检测到{Fore.YELLOW}尾随空格{Fore.RESET}: {Fore.BLUE}{filepath}{Fore.RESET}, 第 {Fore.BLUE}{linenum}{Fore.RESET} 行。")
                         except Exception as e:
-                            print(f"{Fore.RED}✕{Fore.RESET} 发生错误: {Fore.BLUE}{entry.name}{Fore.RESET}，{e}")
+                            print(f"{Fore.RED}✕{Fore.RESET} 发生错误: {Fore.BLUE}{filepath}{Fore.RESET}，{e}")
                     else:
-                        print(f"{Fore.RED}✕{Fore.RESET} 没有读取文件的权限: {Fore.BLUE}{entry.name}{Fore.RESET}，跳过检查。")
+                        print(f"{Fore.RED}✕{Fore.RESET} 没有读取文件的权限: {Fore.BLUE}{filepath}{Fore.RESET}，跳过检查。")
+            elif entry.is_dir(follow_symlinks=False):
+                # 递归遍历子目录
+                check_files(entry.path)
 
-def main(directory, file_extensions):
+def main(directory, file_extensions=None):
     # 初始化 Colorama，使颜色输出生效
     init(autoreset=True)
 
@@ -56,8 +59,9 @@ if __name__ == "__main__":
     parser.add_argument("--dir", dest="directory", required=True, help="要检查的目录路径")
     args = parser.parse_args()
 
-    # 将逗号分隔的字符串转换为列表
-    file_extensions = args.file_extensions.split(',') if args.file_extensions else []
-
-    # 调用主函数
-    main(args.directory, file_extensions)
+    if args.file_extensions:
+        # 将逗号分隔的字符串转换为列表
+        file_extensions = args.file_extensions.split(',') if args.file_extensions else []
+        main(args.directory, file_extensions)
+    else:
+        main(args.directory)
