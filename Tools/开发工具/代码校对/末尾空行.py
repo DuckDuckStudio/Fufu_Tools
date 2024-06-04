@@ -5,7 +5,6 @@ from colorama import init, Fore
 
 init(autoreset=True)
 
-# --------- MAIN CODE ----------------
 def check_files(directory):
     with os.scandir(directory) as entries:
         for entry in entries:
