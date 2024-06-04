@@ -30,6 +30,9 @@ def check_files(directory, file_extensions):
                             print(f"{Fore.RED}✕{Fore.RESET} 发生错误: {Fore.BLUE}{entry.name}{Fore.RESET}，{e}")
                     else:
                         print(f"{Fore.RED}✕{Fore.RESET} 没有读取文件的权限: {Fore.BLUE}{entry.name}{Fore.RESET}，跳过检查。")
+            elif entry.is_dir(follow_symlinks=False):
+                # 递归遍历子目录
+                check_files(entry.path)
 
 def main(directory, file_extensions):
     print(f"{Fore.BLUE}[!]{Fore.RESET} 开始进行{Fore.BLUE}编码检查{Fore.RESET}。")
