@@ -110,7 +110,8 @@ if ftr == "True":
 # 创建主窗口
 root = tk.Tk()
 root.title("芙芙工具箱")
-icon_path = '.\\ico.ico'  # ICO格式的图标文件路径
+
+# 设置图标
 root.iconbitmap(icon_path)
 
 # 创建顶部蓝色框

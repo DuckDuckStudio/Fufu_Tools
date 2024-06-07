@@ -1,4 +1,5 @@
 import os
+import chardet
 from colorama import init, Fore
 
 init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
@@ -41,8 +42,11 @@ def find_files_with_text(folder_path, search_text):
                 if search_text in content:
                     files_found.append(file_path)
 
+            except UnicodeDecodeError:
+                print(f"\n{Fore.RED}[ERROR]无法处理文件：{file_path}\n因为: 文件无法通过{Fore.YELLOW}UTF-8{Fore.RED}编码读取")
+
             except Exception as e:
-                print(Fore.RED + f"\n[ERROR]无法处理文件：{file_path}\n因为： {e}")
+                print(Fore.RED + f"\n[ERROR]无法处理文件：{file_path}\n因为: {e}")
 
             files_processed += 1
             progress = files_processed / total_files * 100
