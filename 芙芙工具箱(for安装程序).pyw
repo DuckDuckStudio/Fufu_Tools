@@ -86,6 +86,14 @@ aruic = config.get('settings', 'always_run_update_info_check')
 if aruic == "True":
     os.startfile(".\\【测试】更新信息提示程序（后台）.exe")
 # ------- 可       选 -------
+# ------- 启动计数 ----------
+start_count = config.getint('count', 'start_count')
+start_count += 1
+start_count = str(start_count)
+config['count']['start_count'] = start_count
+with open("config.ini", 'w') as configfile:
+    config.write(configfile)
+# --------------------------
 
 # 创建主窗口
 root = tk.Tk()
