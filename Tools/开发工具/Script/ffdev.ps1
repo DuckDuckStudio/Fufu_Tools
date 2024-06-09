@@ -20,9 +20,11 @@ if ($program -eq "总调用") {
     $pythonScript = Join-Path $parentDir "生成工具\需求生成.py"
 } elseif ($program -eq "代码行数") {
     $pythonScript = Join-Path $parentDir "统计\代码总行数.py"
+} elseif ($program -eq "账号切换") {
+    $pythonScript = Join-Path $parentDir "git\账号切换.py"
 } else {
     Write-Warning "无效的程序调用"
-    Write-Output "可用程序: [目录复制] [参数查重] [非UTF-8编码] [尾随空格] [需求生成] [代码行数]"
+    Write-Output "可用程序: [目录复制] [参数查重] [非UTF-8编码] [尾随空格] [需求生成] [代码行数] [账号切换]"
     $flag = 1
 }
 

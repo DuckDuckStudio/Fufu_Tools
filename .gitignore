@@ -1,12 +1,23 @@
+# IDE
 .vs/
 .vscode/
 配置文件/
+
+# Python
 .venv/
+*.spec
+build/
+
+# Docs
 发行版编辑.html
 发行版编辑.md
 各版本代码来源.md
-*.spec
-build/
 版权留存/
+
+# Example
 Tools/开发工具/输出示例.py
-Tools/开发工具/git
+
+# Not finished things
+
+# Only for me
+Tools/开发工具/Script/本地/

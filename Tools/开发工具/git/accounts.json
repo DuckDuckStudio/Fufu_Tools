@@ -1,0 +1,12 @@
+{
+  "User1": {
+    "name": "111",
+    "email": "111@163.com",
+    "aliases": ["1", "11"]
+  },
+  "User2": {
+    "name": "222",
+    "email": "222@qq.com",
+    "aliases": ["2", "22"]
+  }
+}
