@@ -16,7 +16,8 @@
 * 搜索引擎收录检测
 * hosts修改
 * 视频音频提取
+* 音频base64编解码
 * 自动替换指定文本
 * 自动使用 Pyinstaller / Nuitka 打包文件夹中的所有py/pyw文件 (警告：使用Pyinstaller会生成一堆build文件夹与.spec文件，用完记得删掉！)
 
-Last update:2024/5/22
+Last update:2024/6/12

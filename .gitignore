@@ -17,8 +17,6 @@ build/
 # Example
 Tools/开发工具/输出示例.py
 
-# Not finished things
-
 # Only for me
 Tools/开发工具/Script/本地/
 
@@ -26,6 +24,6 @@ Tools/开发工具/Script/本地/
 Tools/【实验性工具】/音频处理/test/
 Tools/【实验性工具】/音频处理/__pycache__
 
-# 废案
-Tools/【实验性工具】/音频处理/input_text.txt
-Tools/【实验性工具】/音频处理/音频base64编码.py
+# TEST Output
+Tools/【实验性工具】/音频处理/output.txt
+Tools/【实验性工具】/音频处理/input.txt
