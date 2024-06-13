@@ -10,8 +10,6 @@ def run_as_admin():
     if ctypes.windll.shell32.IsUserAnAdmin() == 0:
         # 重新启动程序以获取管理员权限，以无控制台窗口方式
         ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 0x40010)
-        if ctypes.windll.shell32.IsUserAnAdmin() == 0:
-            messagebox.showerror("你这让我怎么搞?", "没权限怎么读取配置文件啊(倒")
         sys.exit(1)
 
 # 打开程序的函数
@@ -106,8 +104,11 @@ start_count = config.getint('count', 'start_count')
 start_count += 1
 start_count = str(start_count)
 config['count']['start_count'] = start_count
-with open(config_path, 'w') as configfile:
-    config.write(configfile)
+try:
+    with open(config_path, 'w') as configfile:
+        config.write(configfile)
+except PermissionError:
+    run_as_admin()
 # --------------------------
 
 # 创建主窗口
