@@ -2,13 +2,9 @@ import os
 import sys
 import json
 import subprocess
+import argparse
 
-# ---- HELP INFO ----
-# usage: 账号切换.py [--fast] USERNAME
-# ---- --------- ----
-
-def switch_git_config(alias, fast_switch=False):
-    script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+def switch_git_config(alias, fast_switch=False, switch_name=True, switch_email=True):
     accounts_file = os.path.join(script_dir, 'accounts.json')
     
     # 读取账号信息
@@ -37,30 +33,40 @@ def switch_git_config(alias, fast_switch=False):
     user_info = accounts[matched_users[0]]
     
     # 设置Git配置
-    subprocess.run(['git', 'config', 'user.name', user_info['name']])
-    subprocess.run(['git', 'config', 'user.email', user_info['email']])
-    print(f'已切换到Git用户：{user_info["name"]} ({user_info["email"]})')
+    if switch_name:
+        subprocess.run(['git', 'config', 'user.name', user_info['name']])
+        print(f'已切换Git用户名：{user_info["name"]}')
+    if switch_email:
+        subprocess.run(['git', 'config', 'user.email', user_info['email']])
+        print(f'已切换Git邮箱：{user_info["email"]}')
+
+def edit_json_file():
+    accounts_file = os.path.join(script_dir, 'accounts.json')
+    
+    try:
+        os.startfile(accounts_file)
+    except AttributeError:
+        subprocess.run(['open', accounts_file])  # macOS
+    except:
+        subprocess.run(['xdg-open', accounts_file])  # Linux
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("用法：python 账号切换.py [--fast] <用户名/别名>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description='账号切换')
+    parser.add_argument('--fast', action='store_true', help='快速切换模式')
+    parser.add_argument('--edit', action='store_true', help='编辑 accounts.json 文件')
+    parser.add_argument('--name', action='store_true', help='仅切换 Git 用户名')
+    parser.add_argument('--email', action='store_true', help='仅切换 Git 邮箱')
+    parser.add_argument('alias', metavar='ALIAS', type=str, nargs='?', help='用户名/别名')
     
-    fast_switch = False
-    alias = None
+    args = parser.parse_args()
+    script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
     
-    # 检查是否提供了--fast参数
-    if "--fast" in sys.argv:
-        fast_switch = True
-        username_index = sys.argv.index("--fast") + 1
+    if args.edit:
+        edit_json_file()
+    elif args.alias:
+        switch_name = not args.email  # 如果未提供 --email 参数，切换用户名
+        switch_email = not args.name  # 如果未提供 --name 参数，切换邮箱
+        switch_git_config(args.alias, args.fast, switch_name, switch_email)
     else:
-        username_index = 1
-    
-    # 获取别名
-    if username_index < len(sys.argv):
-        alias = sys.argv[username_index]
-    else:
-        print("错误：请提供一个别名")
+        print("错误：请提供一个别名或者使用 --edit 参数来编辑 accounts.json 文件")
         sys.exit(1)
-    
-    switch_git_config(alias, fast_switch)
