@@ -3,6 +3,16 @@ from tkinter import messagebox
 import os
 import sys
 from configparser import ConfigParser
+import ctypes
+import sys
+
+def run_as_admin():
+    if ctypes.windll.shell32.IsUserAnAdmin() == 0:
+        # 重新启动程序以获取管理员权限，以无控制台窗口方式
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 0x40010)
+        if ctypes.windll.shell32.IsUserAnAdmin() == 0:
+            messagebox.showerror("你这让我怎么搞?", "没权限怎么读取配置文件啊(倒")
+        sys.exit(1)
 
 # 打开程序的函数
 def open_program(program_path):
@@ -79,11 +89,14 @@ def show_categories():
     back_button.pack_forget()
 
 # ------- 版本更新检查 ------
-config = ConfigParser(comment_prefixes=[])
-script_path = os.path.dirname(os.path.abspath(sys.argv[0]))
-config_path = os.path.join(script_path, "config.ini")
-config.read(config_path, encoding='utf-8')
-aruic = config.get('settings', 'always_run_update_info_check')
+try:
+    config = ConfigParser(comment_prefixes=[])
+    script_path = os.path.dirname(os.path.abspath(sys.argv[0]))
+    config_path = os.path.join(script_path, "config.ini")
+    config.read(config_path, encoding='utf-8')
+    aruic = config.get('settings', 'always_run_update_info_check')
+except PermissionError:
+    run_as_admin()
 # ARUIC表示always_run_update_info_check = 总是运行更新信息检查
 if aruic == "True":
     os.startfile(".\\【测试】更新信息提示程序（后台）.exe")
