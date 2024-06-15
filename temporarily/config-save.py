@@ -4,7 +4,7 @@ import tkinter as tk
 from tkinter import filedialog
 from colorama import init, Fore
 
-init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
+init(autoreset=True)
 
 def select_destination_folder():
     print("请选择保存到的文件夹:", end=" ")
