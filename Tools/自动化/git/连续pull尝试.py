@@ -1,6 +1,7 @@
 import time
 import subprocess
 import tkinter as tk
+from plyer import notification
 from tkinter import filedialog
 from colorama import init, Fore
 
@@ -51,6 +52,11 @@ def main():
         pull_output = pull_commits(working_dir)
         if "pull successful" in pull_output:
             print(f"{Fore.GREEN}✓{Fore.RESET} 拉取成功！！")
+            notification.notify(
+                title='芙芙工具箱 | 连续拉取尝试',
+                message=f'拉取成功',
+                timeout=10
+            )
             break
         elif is_network_error(pull_output):
             print(f"{Fore.YELLOW}⚠{Fore.RESET} 第 {Fore.BLUE}{counter}{Fore.RESET} 次拉取尝试失败")
@@ -64,6 +70,11 @@ def main():
         else:
             print(f"{Fore.RED}✕{Fore.RESET} 第 {Fore.BLUE}{counter}{Fore.RESET} 次拉取尝试失败，出现了非已知网路问题\n{Fore.BLUE}[提示]{Fore.RESET} 如果你确定这是网络问题，请提交issue或者PR，感谢！")
             print(f"原因: {Fore.RED}{pull_output}{Fore.RESET}")
+            notification.notify(
+                title='芙芙工具箱 | 连续拉取尝试',
+                message=f'检测到非网络错误，请注意！',
+                timeout=10
+            )
             t = input("请确认是否继续尝试: ")
             if t.lower() not in ["y", "yes", "是", "继续", "确认"]:
                 print(f"{Fore.RED}✕{Fore.RESET} 由于检测到非网络错误，已终止程序")
