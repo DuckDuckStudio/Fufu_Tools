@@ -14,7 +14,7 @@ root.withdraw()
 def push_commits(working_dir): # push提交
     result = subprocess.run('git push', shell=True, capture_output=True, text=True, cwd=working_dir)
     if result.returncode == 0:
-        return "Push successful"
+        return "push successful"
     else:
         return result.stderr
 
@@ -43,7 +43,7 @@ def main():
         if time_counter <= 1:
             print(f"{Fore.RED}✕{Fore.RESET} 间隔过短！请指定一个大于1的值！")
         else:
-            print(f"{Fore.BLUE}✓{Fore.RESET} 已设置间隔时间: {time_counter}")
+            print(f"{Fore.GREEN}✓{Fore.RESET} 已设置间隔时间: {time_counter}")
             break
     
     counter = 0
