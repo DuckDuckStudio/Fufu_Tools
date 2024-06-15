@@ -35,7 +35,7 @@ def is_network_error(stderr): # 判断错误类型
 def main():
     print(f"{Fore.BLUE}?{Fore.RESET} 请选择仓库目录", end="")
     working_dir = filedialog.askdirectory()
-    print(f"\r{Fore.BLUE}✓{Fore.RESET} 选择的仓库目录: {working_dir}")
+    print(f"\r{Fore.GREEN}✓{Fore.RESET} 选择的仓库目录: {working_dir}")
     
     while True:
         time_counter = int(input("请输入每次尝试的间隔(秒)："))
@@ -66,7 +66,7 @@ def main():
             for i in range(time_counter, 0, -1):
                 print(f"\r{i}秒后重试...", end="")
                 time.sleep(1)
-            print("\r")
+            print("\r重试中...")
             time_counter = temp # 还原秒数设置
         else:
             print(f"{Fore.RED}✕{Fore.RESET} 第 {Fore.BLUE}{counter}{Fore.RESET} 次拉取尝试失败，出现了非已知网路问题\n{Fore.BLUE}[提示]{Fore.RESET} 如果你确定这是网络问题，请提交issue或者PR，感谢！")
