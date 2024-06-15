@@ -38,7 +38,7 @@ def main():
     print(f"\r{Fore.BLUE}✓{Fore.RESET} 选择的仓库目录: {working_dir}")
     
     while True:
-        time_counter = int(input("请输入每次尝试的间隔(秒)：", end=""))
+        time_counter = int(input("请输入每次尝试的间隔(秒)："))
         # 检测适用性
         if time_counter <= 1:
             print(f"{Fore.RED}✕{Fore.RESET} 间隔过短！请指定一个大于1的值！")
