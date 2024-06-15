@@ -33,8 +33,9 @@ def is_network_error(stderr): # 判断错误类型
     return False
 
 def main():
-    working_dir = filedialog.askdirectory("请选择仓库目录")
-    print(f"{Fore.BLUE}✓{Fore.RESET} 选择的仓库目录: {working_dir}")
+    print(f"{Fore.BLUE}?{Fore.RESET} 请选择仓库目录", end="")
+    working_dir = filedialog.askdirectory()
+    print(f"\r{Fore.BLUE}✓{Fore.RESET} 选择的仓库目录: {working_dir}")
     
     while True:
         time_counter = int(input("请输入每次尝试的间隔(秒)：", end=""))
