@@ -8,18 +8,7 @@ from colorama import init, Fore
 init(autoreset=True)
 root = tk.Tk()
 root.withdraw()
-flag = 1
 # ------------
-
-'''
-1. 获取工作目录
-2. 检测是否与远程仓库有差异
-3. 如果是，执行3.1.1；否则执行3.2.1
-3.1.1 尝试pull到本地仓库
-3.1.2 如果成功，显示提醒；如果失败，检测是否为网络错误，如果是则执行3.1.3
-3.1.3 计数+1，等待10秒后重新执行3.1.1
-3.2.1 (已是最新)给与提示
-'''
 
 def pull_commits(working_dir): # pull提交
     result = subprocess.run('git pull', shell=True, capture_output=True, text=True, cwd=working_dir)
