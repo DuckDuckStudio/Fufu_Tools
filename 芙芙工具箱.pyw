@@ -166,8 +166,9 @@ categories = {
     "自动化": {
         "自动左键连点": ".\\Tools\\自动化\\连按\\自动左键连点.py",
         "自动按键连按": ".\\Tools\\自动化\\连按\\自动按键连按.py",
-        "Git连续push尝试": ".\\Tools\\自动化\\git\\连续push尝试.py",
-        "Git连续pull尝试": ".\\Tools\\自动化\\git\\连续pull尝试.py",
+        "Git连续push尝试": ".\\Tools\\自动化\\连续尝试\\git\\连续push尝试.py",
+        "Git连续pull尝试": ".\\Tools\\自动化\\连续尝试\\git\\连续pull尝试.py",
+        "连续尝试执行命令": ".\\Tools\\自动化\\连续尝试\\all.py",
     },
     "查找": {
         "按文件名查找文件": ".\\Tools\查找文件\相同文件名.py",
