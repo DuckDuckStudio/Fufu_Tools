@@ -1,11 +1,29 @@
+# IDE
 .vs/
 .vscode/
 配置文件/
+
+# Python
 .venv/
+*.spec
+build/
+
+# Docs
 发行版编辑.html
 发行版编辑.md
 各版本代码来源.md
-*.spec
-build/
-发行版编辑(正式版).md
-版权警告留存/
+版权留存/
+
+# Example
+Tools/开发工具/输出示例.py
+
+# Only for me
+Tools/开发工具/Script/本地/
+
+# Test
+Tools/【实验性工具】/音频处理/test/
+Tools/【实验性工具】/音频处理/__pycache__
+
+# TEST Output
+Tools/【实验性工具】/音频处理/output.txt
+Tools/【实验性工具】/音频处理/input.txt
