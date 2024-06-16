@@ -113,7 +113,7 @@ def package_pyw(file_path, file_name, log_file="None"):
     try:
         output_dir = os.path.dirname(file_path)  # 设置输出目录为 Pythonw 文件所在目录
         # 使用notification的
-        if file_name in ["网络连接检测.py", "GitHub连接检测.py", "使用Pyinstaller.py", "使用Nuitka.py", "休息一下.pyw"]:
+        if file_name in ["休息一下.pyw", "使用Nuitka.py", "使用Pyinstaller.py", "连续尝试all.py", "连续pull尝试.py", "连续push尝试.py", "GitHub连接检测.py", "网络连接检测.py"]:
             print(f"{Fore.YELLOW}⚠{Fore.RESET} 使用notification！")
             if icon_path == "None":
                 command = f"pyinstaller --hidden-import plyer.platforms.win.notification --noconsole --onefile --distpath={output_dir} {file_path}"
