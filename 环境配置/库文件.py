@@ -1,6 +1,4 @@
 import os
-from colorama import init, Fore
-init(autoreset=True)
 
 print("-------------------")
 print(f"正在安装库 requests")
@@ -41,9 +39,9 @@ def test_mirror_speed(urls):
 best_mirror = test_mirror_speed(mirror_urls)
 
 if best_mirror:
-    print(f"{Fore.GREEN}✓{Fore.RESET} 最佳源：{best_mirror}")
+    print(f"最佳源：{best_mirror}")
 else:
-    print(f"{Fore.RED}✕{Fore.RESET} 无法连接任何镜像源！")
+    print("无法连接任何镜像源！")
 
 # 更新 pip
 os.system(f"python -m pip install --upgrade pip --index-url {best_mirror}")
@@ -60,7 +58,7 @@ for lib in libraries:
     print(f"安装库 {lib} 结束")
 
 print("-------------------")
-print(f"{Fore.BLUE}?{Fore.RESET} 是否安装仅[实验性小工具]会使用到的库？")
+print("是否安装仅[实验性小工具]会使用到的库？")
 t = input("[Y]是 [N]否")
 if t.lower == "yes" or t.lower == "y" or t.lower == "是":
     for lib in Experimental_libraries:
@@ -71,7 +69,7 @@ if t.lower == "yes" or t.lower == "y" or t.lower == "是":
     # --
     print("-------------------")
 
-print(f"{Fore.BLUE}?{Fore.RESET} 是否安装仅 开发工具 会使用到的库？")
+print("是否安装仅 开发工具 会使用到的库？")
 t = input("[Y]是 [N]否")
 if t.lower == "yes" or t.lower == "y" or t.lower == "是":
     for lib in Dev_libraries:
@@ -82,7 +80,7 @@ if t.lower == "yes" or t.lower == "y" or t.lower == "是":
     # --
     print("-------------------")
 
-print(f"{Fore.GREEN}✓{Fore.RESET} 所有所需库文件安装完成！")
+print("所有所需库文件安装完成！")
 print("错误关键词ERROR，如有看到请确认库文件安装情况。")
 print("如果看不懂可以使用翻译软件！")
 
