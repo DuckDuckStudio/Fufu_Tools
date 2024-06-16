@@ -1,6 +1,9 @@
 import pyautogui
 import keyboard
 import time
+from colorama import init, Fore
+
+init(autoreset=True)
 
 # 有效的按键
 # 依据文档：https://pyautogui.readthedocs.io/en/latest/keyboard.html#keyboard-keys
@@ -29,14 +32,14 @@ valid_keys = [
     'command', 'option', 'optionleft', 'optionright'
 ]
 
-print("本程序用于自动连按键盘上的按键，左键连点出门左转。")
+print(f"{Fore.BLUE}[!]{Fore.RESET} 本程序用于自动连按键盘上的按键，左键连点出门左转。")
 
 while True:
     try:
         click_interval = float(input("请输入每次按键的间隔时间(秒)："))
         break
     except ValueError:
-        print("输入的数据不合法，请重新输入。")
+        print(f"{Fore.RED}✕{Fore.RESET} 输入的数据不合法，请重新输入。")
 
 # 获取需要连按的按键
 while True:
@@ -45,11 +48,11 @@ while True:
     if key in valid_keys:
         break
     elif key == "f8":
-        print("[WARN]需要自动连按的按键与开启自动连按的按键相同，无法使用！")
+        print(f"{Fore.RED}✕{Fore.RESET} 需要自动连按的按键与开启自动连按的按键相同，无法使用！")
         print("请重新输入一个其他按键！")
     else:
-        print("输入的按键无效！请重新输入！")
-        print("查看哪些按键有效：https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/Tools/自动化/自动按键连按有效按键输入.md")
+        print(f"{Fore.RED}✕{Fore.RESET} 输入的按键无效！请重新输入！")
+        print(f"{Fore.BLUE}[!]{Fore.RESET} 查看哪些按键有效：https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/Tools/自动化/自动按键连按有效按键输入.md")
 
 # 控制自动按键的开关
 auto_pressing = False
@@ -63,13 +66,13 @@ def toggle_auto_press():
     # 切换自动按键状态
     auto_pressing = not auto_pressing
     if first_time:
-        print("自动按键 已开始。")# 首次按下F8必定是开始自动按键
+        print("自动按键 已开始", end="")# 首次按下F8必定是开始自动按键
         first_time = False # 标记为非首次
     else:
         if auto_pressing:
-            print('\033[1A\033[K' + "自动按键 已开始。")
+            print("\r自动按键 已开始。", end="")
         else:
-            print('\033[1A\033[K' + "自动按键 已停止。")
+            print("\r自动按键 已停止。", end="")
 
 def auto_press():
     while True:
@@ -83,13 +86,15 @@ def auto_press():
 keyboard.add_hotkey('F8', toggle_auto_press)
 
 if key == " ":
-    print ("程序已启动，按下 F8键 开始/停止自动连续按","空格","键。")
+    print (f"{Fore.GREEN}✓{Fore.RESET} 程序已启动，按下 F8键 开始/停止自动连续按","空格","键。")
 elif key == "\n":
-    print ("程序已启动，按下 F8键 开始/停止自动连续按","enter","键。")
+    print (f"{Fore.GREEN}✓{Fore.RESET} 程序已启动，按下 F8键 开始/停止自动连续按","enter","键。")
 elif key == "\t":
-    print ("程序已启动，按下 F8键 开始/停止自动连续按","tab","键。")
+    print (f"{Fore.GREEN}✓{Fore.RESET} 程序已启动，按下 F8键 开始/停止自动连续按","tab","键。")
 # 对于 \r 的解释暂时较为模糊
 else:
-    print("程序已启动，按下 F8键 开始/停止自动连续按",key,"键。")
+    print(f"{Fore.GREEN}✓{Fore.RESET} 程序已启动，按下 F8键 开始/停止自动连续按{key}键。")
+
+print(f"{Fore.BLUE}[!]{Fore.RESET} 按 {Fore.BLUE}Ctrl+C{Fore.RESET} 可结束程序...")
 
 auto_press()
