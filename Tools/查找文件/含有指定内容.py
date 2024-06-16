@@ -1,5 +1,4 @@
 import os
-import chardet
 from colorama import init, Fore
 
 init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
