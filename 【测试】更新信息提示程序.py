@@ -1,10 +1,14 @@
 import re
+import os
+import sys
 import requests
 from configparser import ConfigParser
 
 # 读取配置文件
+script_path = os.path.dirname(os.path.abspath(sys.argv[0]))
+config_path = os.path.join(script_path, "config.ini")
 config = ConfigParser(comment_prefixes=[])
-config.read("config.ini", encoding='utf-8')
+config.read(config_path, encoding='utf-8')
 major_version = config.get('information', 'major_version_number')
 sorn = config.get('information', 'status_or_revision_number')
 
