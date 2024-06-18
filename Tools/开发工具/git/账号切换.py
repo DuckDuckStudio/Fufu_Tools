@@ -59,10 +59,23 @@ def edit_json_file():
     except:
         subprocess.run(['xdg-open', accounts_file])  # Linux
 
+def show_git_config():
+    result = subprocess.run(['git', 'config', 'user.name'], capture_output=True, text=True)
+    if result.returncode == 0:
+        print(f'{Fore.GREEN}✓{Fore.RESET} 已设置Git用户名: {result.stdout.strip()}')
+    else:
+        print(f'{Fore.RED}✕{Fore.RESET} 查看用户名配置失败: {Fore.RED}{result.stderr.strip()}{Fore.RESET}')
+    result = subprocess.run(['git', 'config', 'user.email'], capture_output=True, text=True)
+    if result.returncode == 0:
+        print(f'{Fore.GREEN}✓{Fore.RESET} 已设置Git邮箱: {result.stdout.strip()}')
+    else:
+        print(f'{Fore.RED}✕{Fore.RESET} 查看邮箱配置失败: {Fore.RED}{result.stderr.strip()}{Fore.RESET}')
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='账号切换')
     parser.add_argument('--fast', action='store_true', help='快速切换模式')
     parser.add_argument('--edit', action='store_true', help='编辑 accounts.json 文件')
+    parser.add_argument('--show', action='store_true', help='显示现有配置')
     parser.add_argument('--name', action='store_true', help='仅切换 Git 用户名')
     parser.add_argument('--email', action='store_true', help='仅切换 Git 邮箱')
     parser.add_argument('alias', metavar='ALIAS', type=str, nargs='?', help='用户名/别名')
@@ -72,6 +85,8 @@ if __name__ == "__main__":
     
     if args.edit:
         edit_json_file()
+    elif args.show:
+        show_git_config()
     elif args.alias:
         switch_name = not args.email  # 如果未提供 --email 参数，切换用户名
         switch_email = not args.name  # 如果未提供 --name 参数，切换邮箱
