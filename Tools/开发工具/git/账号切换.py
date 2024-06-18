@@ -3,6 +3,9 @@ import sys
 import json
 import subprocess
 import argparse
+from colorama import init, Fore
+
+init(autoreset=True)
 
 def switch_git_config(alias, fast_switch=False, switch_name=True, switch_email=True):
     accounts_file = os.path.join(script_dir, 'accounts.json')
@@ -15,30 +18,36 @@ def switch_git_config(alias, fast_switch=False, switch_name=True, switch_email=T
     if fast_switch:
         matched_users = [user for user, info in accounts.items() if alias in info.get('aliases', [])]
         if not matched_users:
-            print(f'错误：在accounts.json中未找到与"{alias}"匹配的用户')
+            print(f'{Fore.RED}✕{Fore.RESET} 在accounts.json中未找到与"{alias}"匹配的用户')
             return
         if len(matched_users) > 1:
-            print(f'错误：在accounts.json中找到多个与"{alias}"匹配的用户：{", ".join(matched_users)}。请提供更具体的别名。')
+            print(f'{Fore.RED}✕{Fore.RESET} 在accounts.json中找到多个与"{alias}"匹配的用户：{", ".join(matched_users)}。请提供更具体的别名。')
             return
     else:
         name_users = [user for user, info in accounts.items() if alias == info.get('name')]
         if not name_users:
-            print(f'错误：在accounts.json中未找到与"{alias}"匹配的用户')
-            print(f'提示：如需使用别名请添加--fast参数。')
+            print(f'{Fore.RED}✕{Fore.RESET} 在accounts.json中未找到与"{alias}"匹配的用户')
+            print(f'{Fore.BLUE}[!]{Fore.RESET} 提示：如需使用别名请添加{Fore.BLUE}--fast{Fore.RESET}参数。')
             return
         if len(name_users) > 1:
-            print(f'错误：在accounts.json中找到多个与"{alias}"匹配的用户：{", ".join(matched_users)}。请提供更具体的别名。')
+            print(f'{Fore.RED}✕{Fore.RESET} 在accounts.json中找到多个与"{alias}"匹配的用户：{", ".join(matched_users)}。请提供更具体的别名。')
             return
     
     user_info = accounts[matched_users[0]]
     
     # 设置Git配置
     if switch_name:
-        subprocess.run(['git', 'config', 'user.name', user_info['name']])
-        print(f'已切换Git用户名：{user_info["name"]}')
+        result = subprocess.run(['git', 'config', 'user.name', user_info['name']])
+        if result.returncode == 0:
+            print(f'{Fore.GREEN}✓{Fore.RESET} 已切换Git用户名：{user_info["name"]}')
+        else:
+            print(f'{Fore.RED}✕{Fore.RESET} 切换失败: {Fore.RED}{result.stderr}{Fore.RESET}')
     if switch_email:
-        subprocess.run(['git', 'config', 'user.email', user_info['email']])
-        print(f'已切换Git邮箱：{user_info["email"]}')
+        result = subprocess.run(['git', 'config', 'user.email', user_info['email']])
+        if result.returncode == 0:
+            print(f'{Fore.GREEN}✓{Fore.RESET} 已切换Git邮箱：{user_info["name"]}')
+        else:
+            print(f'{Fore.RED}✕{Fore.RESET} 切换失败: {Fore.RED}{result.stderr}{Fore.RESET}')
 
 def edit_json_file():
     accounts_file = os.path.join(script_dir, 'accounts.json')
@@ -68,5 +77,5 @@ if __name__ == "__main__":
         switch_email = not args.name  # 如果未提供 --name 参数，切换邮箱
         switch_git_config(args.alias, args.fast, switch_name, switch_email)
     else:
-        print("错误：请提供一个别名或者使用 --edit 参数来编辑 accounts.json 文件")
+        print(f"{Fore.RED}✕{Fore.RESET} 请提供一个别名或者使用 --edit 参数来编辑 accounts.json 文件")
         sys.exit(1)
