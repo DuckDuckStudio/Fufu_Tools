@@ -45,7 +45,7 @@ def switch_git_config(alias, fast_switch=False, switch_name=True, switch_email=T
     if switch_email:
         result = subprocess.run(['git', 'config', 'user.email', user_info['email']])
         if result.returncode == 0:
-            print(f'{Fore.GREEN}✓{Fore.RESET} 已切换Git邮箱：{user_info["name"]}')
+            print(f'{Fore.GREEN}✓{Fore.RESET} 已切换Git邮箱：{user_info["email"]}')
         else:
             print(f'{Fore.RED}✕{Fore.RESET} 切换失败: {Fore.RED}{result.stderr}{Fore.RESET}')
 
