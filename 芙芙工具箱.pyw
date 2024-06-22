@@ -1,6 +1,6 @@
 import os
-import pyshortcuts
 import tkinter as tk
+import win32com.client
 from tkinter import messagebox
 from configparser import ConfigParser
 
@@ -17,6 +17,15 @@ else:
     link = "添加到开始菜单"
 # ---------------------------------
 
+# 创建快捷方式
+def create_shortcut(shortcut_path, target_path, icon_path=None):
+    shell = win32com.client.Dispatch("WScript.Shell")
+    shortcut = shell.CreateShortcut(shortcut_path)
+    shortcut.TargetPath = target_path
+    if icon_path:
+        shortcut.IconLocation = icon_path
+    shortcut.Save()
+
 # 打开程序的函数
 def open_program(program_path):
     if program_path == "https://github.com/DuckDuckStudio/Fufu_Tools/issues":
@@ -28,7 +37,7 @@ def open_program(program_path):
             link = "添加到开始菜单"
             messagebox.showinfo("提示", "已将芙芙工具箱从开始菜单中移除！")
         elif link == "添加到开始菜单":
-            pyshortcuts.make_shortcut(script_path, name="芙芙工具箱", icon=icon_path)
+            create_shortcut(shortcut_path, script_path, icon_path)
             link = "从开始菜单中移除"
             messagebox.showinfo("提示", "已将芙芙工具箱添加进开始菜单中！")
         return # 不执行接下来的打开代码
@@ -67,7 +76,6 @@ def show_category(container, programs):
 
 # 返回类别选择界面
 def show_categories():
-
     # 设置每行最多显示的按钮数量
     max_buttons_per_row = 3
     row, col = 0, 0

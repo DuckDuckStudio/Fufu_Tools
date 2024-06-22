@@ -1,7 +1,7 @@
 import os
 import sys
 import tkinter as tk
-import pyshortcuts
+import win32com.client
 from tkinter import messagebox
 from configparser import ConfigParser
 
@@ -27,7 +27,7 @@ def open_program(program_path):
             link = "添加到开始菜单"
             messagebox.showinfo("提示", "已将芙芙工具箱从开始菜单中移除！")
         elif link == "添加到开始菜单":
-            pyshortcuts.make_shortcut(script_path, name="芙芙工具箱", icon=icon_path)
+            create_shortcut(shortcut_path, script_path, icon_path)
             link = "从开始菜单中移除"
             messagebox.showinfo("提示", "已将芙芙工具箱添加进开始菜单中！")
         return # 不执行接下来的打开代码
@@ -39,6 +39,15 @@ def open_program(program_path):
         os.system(f'start {program_path}')
     except Exception as e:
         messagebox.showerror("错误", f"无法打开: {e}")
+
+# 创建快捷方式
+def create_shortcut(shortcut_path, target_path, icon_path=None):
+    shell = win32com.client.Dispatch("WScript.Shell")
+    shortcut = shell.CreateShortcut(shortcut_path)
+    shortcut.TargetPath = target_path
+    if icon_path:
+        shortcut.IconLocation = icon_path
+    shortcut.Save()
 
 # 创建类别内容的函数
 def show_category(container, programs):

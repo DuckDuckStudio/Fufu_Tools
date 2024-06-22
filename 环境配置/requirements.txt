@@ -8,7 +8,7 @@ piexif
 pyautogui
 keyboard
 configparser
-pyshortcuts
+pywin32
 
 Experimental
 pygame
