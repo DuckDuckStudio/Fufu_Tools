@@ -1,2 +1,5 @@
 如需将库文件安装在虚拟环境，请自行配置。
 可使用pip install -r requirements.txt (包含[实验性工具]与开发工具使用的库文件)
+
+强烈建议手动配置，无论你是否使用虚拟环境。
+文档：https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98Q&A/%E5%B0%8F%E5%B7%A5%E5%85%B7/#error-module

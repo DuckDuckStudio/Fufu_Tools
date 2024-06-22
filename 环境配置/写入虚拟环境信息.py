@@ -27,11 +27,6 @@ print(f"✓ 已创建新虚拟环境(venv)。")
 python_exe_path = os.path.join(venv_folder_path, 'Scripts', 'python.exe')
 # ---------------------------
 
-# --------- 安装库 ---------
-subprocess.run([os.path.join(venv_folder_path, 'Scripts', 'pip.exe'), 'install', 'colorama'], check=True)
-subprocess.run([os.path.join(venv_folder_path, 'Scripts', 'pip.exe'), 'install', 'requests'], check=True)
-# --------- 安装库 ---------
-
 # -------- 让每个py/pyw文件都使用虚拟环境 ----------
 for root, dirs, files in os.walk(parent_dir):
     if '环境配置' in root:
@@ -51,6 +46,6 @@ for root, dirs, files in os.walk(parent_dir):
             print(f"✓ 已将虚拟环境信息写入 {file_path}")
 # -------------------------------------------------
 
-input("按Enter键继续安装所需库文件...")
+print("请手动安装必须库文件，相关文档见下:\nhttps://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98Q&A/%E5%B0%8F%E5%B7%A5%E5%85%B7/#error-module")
 
-subprocess.run([python_exe_path, '库文件-虚拟环境.py'], check=True)
+input("按Enter键退出程序...")

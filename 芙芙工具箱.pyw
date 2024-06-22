@@ -1,5 +1,4 @@
 import os
-import sys
 import pyshortcuts
 import tkinter as tk
 from tkinter import messagebox
@@ -33,14 +32,6 @@ def open_program(program_path):
             link = "从开始菜单中移除"
             messagebox.showinfo("提示", "已将芙芙工具箱添加进开始菜单中！")
         return # 不执行接下来的打开代码
-    elif program_path == ".\\环境配置\\虚拟环境.py":
-        messagebox.showinfo("提示", "您已选择在虚拟环境中运行芙芙工具箱，本程序将自动退出以防止占用。")
-        try:
-            os.startfile(program_path)
-        except Exception as e:
-            messagebox.showerror("错误", f"无法启动环境配置程序: {e}")
-            return
-        sys.exit()
     # ---
     try:
         os.startfile(program_path)
@@ -228,15 +219,11 @@ categories = {
         "配置文件": ".\\Tools\\开发工具\\config.ini",
         "文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/Dev/",
     },
-    "环境配置": {
-        "安装库文件": ".\\环境配置\\库文件.py",
-        "使用虚拟环境配置": ".\\环境配置\\虚拟环境.py"
-    },
     "关于芙芙工具箱": {
         "检查版本": ".\\Show_version.py",
         "修改开始菜单图标": "link",
         "另存配置文件": ".\\temporarily\\config-save.py",
-        "打开安装文件夹": os.getcwd(),
+        "打开安装文件夹": os.path.dirname(os.path.abspath(__file__)),
         "访问文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
         "访问官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
         "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
