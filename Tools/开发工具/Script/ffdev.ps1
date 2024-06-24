@@ -22,9 +22,13 @@ if ($program -eq "总调用") {
     $pythonScript = Join-Path $parentDir "统计\代码总行数.py"
 } elseif ($program -eq "账号切换") {
     $pythonScript = Join-Path $parentDir "git\账号切换.py"
+} elseif ($program -eq "连续push") {
+    $pythonScript = Join-Path $parentDir "git\连续push尝试.py"
+} elseif ($program -eq "连续pull") {
+    $pythonScript = Join-Path $parentDir "git\连续pull尝试.py"
 } else {
     Write-Warning "无效的程序调用"
-    Write-Output "可用程序: [目录复制] [参数查重] [非UTF-8编码] [尾随空格] [需求生成] [代码行数] [账号切换]"
+    Write-Output "可用程序: [目录复制] [参数查重] [非UTF-8编码] [尾随空格] [需求生成] [代码行数] [账号切换] [连续push] [连续pull]"
     $flag = 1
 }
 

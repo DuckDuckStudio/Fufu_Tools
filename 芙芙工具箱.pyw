@@ -165,8 +165,6 @@ categories = {
     "自动化": {
         "自动左键连点": ".\\Tools\\自动化\\连按\\自动左键连点.py",
         "自动按键连按": ".\\Tools\\自动化\\连按\\自动按键连按.py",
-        "Git连续push尝试": ".\\Tools\\自动化\\连续尝试\\git\\连续push尝试.py",
-        "Git连续pull尝试": ".\\Tools\\自动化\\连续尝试\\git\\连续pull尝试.py",
         "连续尝试执行命令": ".\\Tools\\自动化\\连续尝试\\连续尝试all.py",
     },
     "查找": {
@@ -225,6 +223,8 @@ categories = {
         "总调用": ".\\Tools\\开发工具\\总调用.py",
         "复制目录": ".\\Tools\\开发工具\\目录复制.pyw",
         "配置文件": ".\\Tools\\开发工具\\config.ini",
+        "Git连续push尝试": ".\\Tools\\开发工具\\git\\连续push尝试.py",
+        "Git连续pull尝试": ".\\Tools\\开发工具\\git\\连续pull尝试.py",
         "文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/Dev/",
     },
     "关于芙芙工具箱": {
