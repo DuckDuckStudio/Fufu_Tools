@@ -38,7 +38,7 @@ def main():
     root = tk.Tk()
     root.withdraw()  # 不显示主窗口
     
-    file_path = filedialog.askopenfilename(filetypes=[("Python files", "*.py *.pyw")])
+    file_path = filedialog.askopenfilename(filetypes=[("Python文件", "*.py *.pyw")])
     if not file_path:
         print("没有选择文件。")
         return
