@@ -55,7 +55,7 @@ def main():
     root = tk.Tk()
     root.withdraw()  # 不显示主窗口
     
-    file_path = filedialog.askopenfilename(filetypes=[("HTML files", "*.html *.htm")])
+    file_path = filedialog.askopenfilename(filetypes=[("HTML文件", "*.html *.htm")])
     if not file_path:
         print("没有选择文件。")
         return

@@ -38,12 +38,12 @@ def main():
 
     # 弹出文件选择对话框让
     file_path = filedialog.askopenfilename(filetypes=[
-        ("C/C++/Objective-C files", "*.c *.cpp *.h *.cxx *.cc *.hpp *.m"),
-        ("Java files", "*.java"),
-        ("C# files", "*.cs"),
-        ("JavaScript files", "*.js"),
-        ("Kotlin files", "*.kt"),
-        ("All files", "*.*")
+        ("C/C++/Objective-C文件", "*.c *.cpp *.h *.cxx *.cc *.hpp *.m"),
+        ("Java文件", "*.java"),
+        ("C#文件", "*.cs"),
+        ("JavaScript文件", "*.js"),
+        ("Kotlin文件", "*.kt"),
+        ("所有文件", "*.*")
     ])
     if not file_path:
         print("没有选择文件。")
