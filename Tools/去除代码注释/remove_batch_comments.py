@@ -52,8 +52,8 @@ def main():
     root.withdraw()  # 不显示主窗口
 
     file_path = filedialog.askopenfilename(filetypes=[
-        ("Batch files", "*.bat", "*.cmd"),
-        ("All files", "*.*")
+        ("批处理文件", "*.bat", "*.cmd"),
+        ("所有文件", "*.*")
     ])
     if not file_path:
         print("没有选择文件。")
