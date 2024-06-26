@@ -1,8 +1,8 @@
-from plyer import notification
-import time
-import configparser
 import os
 import sys
+import time
+import configparser
+from plyer import notification
 
 # READ config.ini file
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
@@ -11,16 +11,28 @@ config = configparser.ConfigParser()
 config.read(config_file_path)
 total_seconds = config.getint('set', 'time_s')
 
-# 转换至h
-time_min = 0
-time_hour = total_seconds / 60 / 60
-if time_hour < 1:
-    time_min = total_seconds / 60
-
-if time_min:
-    text = time_min, "分钟"
+# 转单位
+if total_seconds >= 3600:
+    if total_seconds % 3600 == 0:
+        time_h = total_seconds / 60 / 60
+        text = f"{time_h} 小时"
+    elif total_seconds % 1800 == 0:
+        time_h = (total_seconds - 1800) / 60 # 计算一共几个完整小时
+        text = f"{time_h}个半 小时"
+    else:
+        time_h = int(total_seconds / 3600) # Ask: int 是向下取整吧...? (学C++学的)
+        time_s = total_seconds % 3600
+        text = f"{time_h}小时 {time_s}秒"
+elif total_seconds == 1800:
+    text = "半小时"
+elif total_seconds >= 60:
+    if total_seconds % 60 == 0:
+        text = f"{total_seconds / 60} 分钟"
+    else:
+        time_s = total_seconds % 60
+        text = f"{total_seconds / 60} 分钟 {time_s} 秒"
 else:
-    text = time_hour, "小时"
+    text = f"{total_seconds} 秒"
 
 while total_seconds >= 0:
     time.sleep(1)
@@ -29,8 +41,6 @@ while total_seconds >= 0:
 # at end time
 notification.notify(
     title='休息一下吧！',
-    message=f'已经使用设备超过 {text[0]} {text[1]} 了，休息一下吧！\n',
+    message=f'已经使用设备超过 {text} 了，休息一下吧！\n',
     timeout=10
 )
-
-# No more down ...
