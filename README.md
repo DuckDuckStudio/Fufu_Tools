@@ -27,6 +27,19 @@
 > [!NOTE]
 > 建议下载最新版，即使是预览版。  
 
+### 使用 winget
+你也可以使用 _winget_ 来获取芙芙工具箱，请留意支持 _winget_ 获取的版本。  
+使用以下命令安装:  
+```bash
+winget install DuckStudio.FufuTools
+```
+输出类似这样:  
+![1718315176839](https://duckduckstudio.github.io/Chinese_git/image/README/1718315176839.png)  
+> *图片上的是我的另一个项目“中文Git”的获取过程，本项目的获取过程与图片类似，但不要装错了哦！*  
+
+支持 _winget_ 安装的版本有:  
+- v1.3.2 - [Releases](https://github.com/DuckDuckStudio/Fufu_Tools/releases/tag/v1.3.2) | [PR](https://github.com/microsoft/winget-pkgs/pull/157822)
+
 ### 非官方渠道警告
 *(竟然会有人把我的程序放到xx下载站去啊，感觉说明比我写的都好)*  
 芙芙工具箱目前**只有1个下载渠道可以获取最新版本**(也就是**GitHub**啦)，在别处下载的芙芙工具箱我**不能保证其安全性、是否最新等**。  
