@@ -1,10 +1,11 @@
 import os
+import sys
 import subprocess
 from colorama import init, Fore
 from plyer import notification
 
-init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
-os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的位置
+init(autoreset=True)
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
 print(f"{Fore.BLUE}[!]{Fore.RESET} 将使用 {Fore.BLUE}Pyinstaller{Fore.RESET} 打包。")
 

@@ -1,11 +1,12 @@
 import os
+import sys
 import subprocess
 from colorama import init, Fore
 from plyer import notification
 import configparser
 
-init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
-os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的位置
+init(autoreset=True)
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0]))) # 避免意外的位置
 
 # Using python -m nuitka to run Nuitka
 print(f"{Fore.BLUE}[!]{Fore.RESET} 将使用 {Fore.BLUE}Nuitka{Fore.RESET} 打包。")
