@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import math
 import configparser
 from plyer import notification
 
@@ -11,6 +12,9 @@ config = configparser.ConfigParser()
 config.read(config_file_path)
 total_seconds = config.getint('set', 'time_s')
 
+if total_seconds <= 0:
+    print(f"✕ 设置的时间必须为正整数")
+    sys.exit(1)
 # 转单位
 if total_seconds >= 3600:
     if total_seconds % 3600 == 0:
@@ -20,7 +24,7 @@ if total_seconds >= 3600:
         time_h = (total_seconds - 1800) / 60 # 计算一共几个完整小时
         text = f"{time_h}个半 小时"
     else:
-        time_h = int(total_seconds / 3600) # Ask: int 是向下取整吧...? (学C++学的)
+        time_h = math.floor(total_seconds / 3600) # int 是向0取整
         time_s = total_seconds % 3600
         text = f"{time_h}小时 {time_s}秒"
 elif total_seconds == 1800:
