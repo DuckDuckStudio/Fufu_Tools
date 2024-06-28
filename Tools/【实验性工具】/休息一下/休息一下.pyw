@@ -1,7 +1,6 @@
 import os
 import sys
 import time
-import math
 import configparser
 from plyer import notification
 
