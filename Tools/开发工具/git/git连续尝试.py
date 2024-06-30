@@ -11,7 +11,7 @@ root = tk.Tk()
 root.withdraw()
 # ------------
 
-def run_commits(working_dir, command): # pull提交
+def run_commits(working_dir, command):
     result = subprocess.run(command, shell=True, capture_output=True, text=True, cwd=working_dir)
     if result.returncode == 0:
         return "successful"
@@ -56,8 +56,8 @@ def main():
 
     while True:
         counter += 1
-        pull_output = run_commits(working_dir, command)
-        if "successful" in pull_output:
+        output = run_commits(working_dir, command)
+        if "successful" in output:
             print(f"{Fore.GREEN}✓{Fore.RESET} 运行成功！！")
             notification.notify(
                 title='芙芙工具箱 | git连续尝试',
@@ -65,9 +65,9 @@ def main():
                 timeout=10
             )
             break
-        elif is_network_error(pull_output):
+        elif is_network_error(output):
             print(f"{Fore.YELLOW}⚠{Fore.RESET} 第 {Fore.BLUE}{counter}{Fore.RESET} 次运行尝试失败")
-            print(f"原因: {Fore.RED}{pull_output}{Fore.RESET}")
+            print(f"原因: {Fore.RED}{output}{Fore.RESET}")
             temp = time_counter
             for i in range(time_counter, 0, -1):
                 print(f"\r{i}秒后重试...", end="")
@@ -76,7 +76,7 @@ def main():
             time_counter = temp # 还原秒数设置
         else:
             print(f"{Fore.RED}✕{Fore.RESET} 第 {Fore.BLUE}{counter}{Fore.RESET} 次运行尝试失败，出现了非已知网路问题\n{Fore.BLUE}[提示]{Fore.RESET} 如果你确定这是网络问题，请提交issue或者PR，感谢！")
-            print(f"原因: {Fore.RED}{pull_output}{Fore.RESET}")
+            print(f"原因: {Fore.RED}{output}{Fore.RESET}")
             notification.notify(
                 title='芙芙工具箱 | git连续尝试',
                 message=f'检测到非网络错误，请注意！',
@@ -86,7 +86,7 @@ def main():
             if t.lower() not in ["y", "yes", "是", "继续", "确认"]:
                 print(f"{Fore.RED}✕{Fore.RESET} 由于检测到非网络错误，已终止程序")
                 break
-    print(f"{Fore.BLUE}[info]{Fore.RESET} 一共执行了 {Fore.BLUE}{counter}{Fore.RESET} 次pull")
+    print(f"{Fore.BLUE}[info]{Fore.RESET} 一共执行了 {Fore.BLUE}{counter}{Fore.RESET} 次命令")
 
 if __name__ == "__main__":
     main()
