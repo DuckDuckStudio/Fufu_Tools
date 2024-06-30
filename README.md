@@ -38,7 +38,7 @@ winget install DuckStudio.FufuTools
 > *图片上的是我的另一个项目“中文Git”的获取过程，本项目的获取过程与图片类似，但不要装错了哦！*  
 
 支持 _winget_ 安装的版本有:  
-- v1.3.2 - [Releases](https://github.com/DuckDuckStudio/Fufu_Tools/releases/tag/v1.3.2) | [microsoft/winget#157822](https://github.com/microsoft/winget-pkgs/pull/157822) & [microsoft/winget#160522](https://github.com/microsoft/winget-pkgs/pull/160522) & [microsoft/winget#160657](https://github.com/microsoft/winget-pkgs/pull/160657)
+- v1.3.2 - [Releases](https://github.com/DuckDuckStudio/Fufu_Tools/releases/tag/v1.3.2) | [#157822](https://github.com/microsoft/winget-pkgs/pull/157822) & [#160522](https://github.com/microsoft/winget-pkgs/pull/160522) & [#160657](https://github.com/microsoft/winget-pkgs/pull/160657)
 
 ### 非官方渠道警告
 *(竟然会有人把我的程序放到xx下载站去啊，感觉说明比我写的都好)*  
