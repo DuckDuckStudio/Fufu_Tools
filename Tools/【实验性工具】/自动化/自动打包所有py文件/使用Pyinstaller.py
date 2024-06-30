@@ -57,6 +57,7 @@ def log_message(message, log_file):
 
 
 def out_put(message, success=True):
+    global fail
     # 改变控制台输出颜色
     if success:
         print(Fore.GREEN + message)
