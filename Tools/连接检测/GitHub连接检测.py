@@ -18,10 +18,10 @@ def check_wlan():
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
-    response = requests.get("https://github.com/", headers=headers)
 
     if translation:
         try:
+            response = requests.get("https://github.com/", headers=headers)
             if response.status_code == 200:
                 print("连接成功!")
                 notification.notify(
@@ -44,6 +44,7 @@ def check_wlan():
             print("错误代码:", e)
             return False # 其他连接错误返回False
     else:
+        response = requests.get("https://github.com/", headers=headers)
         try:
             if response.status_code == 200:
                 print("连接成功!")
