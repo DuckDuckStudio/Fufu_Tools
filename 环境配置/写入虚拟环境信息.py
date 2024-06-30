@@ -29,7 +29,7 @@ python_exe_path = os.path.join(venv_folder_path, 'Scripts', 'python.exe')
 
 # -------- 让每个py/pyw文件都使用虚拟环境 ----------
 for root, dirs, files in os.walk(parent_dir):
-    if '环境配置' in root:
+    if ('环境配置' in root) or ('.venv' in root):
         continue  # 如果遇到名为"环境配置"的目录，直接跳过
 
     for filename in files:
