@@ -1,11 +1,12 @@
 import os
+import sys
 import configparser
 import subprocess
 from colorama import init, Fore
 
 # ------ 初始化 --------
 init(autoreset=True)
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 config = configparser.ConfigParser()
 config.read('config.ini')
 check_directory = input("请输入目录：")
