@@ -5,6 +5,8 @@ param(
 )
 
 $parentDir = Split-Path -Path $PSScriptRoot -Parent
+$version = "2024.07.02.1330"
+$flag = 0
 
 if ($program -eq "总调用") {
     $pythonScript = Join-Path $parentDir "总调用.py"
@@ -28,6 +30,9 @@ if ($program -eq "总调用") {
     $pythonScript = Join-Path $parentDir "git\连续pull尝试.py"
 } elseif ($program -eq "git连续尝试") {
     $pythonScript = Join-Path $parentDir "git\git连续尝试.py"
+} elseif ($program -in "ver", "版本", "version", "Version", "--version", "--ver", "-v") {
+    Write-Output "Version: $version"
+    $flag = 1
 } else {
     Write-Warning "无效的程序调用"
     Write-Output "可用程序: [目录复制] [参数查重] [非UTF-8编码] [尾随空格] [需求生成] [代码行数] [账号切换] [连续push] [连续pull] [git连续尝试]"
