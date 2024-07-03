@@ -189,6 +189,6 @@ notification.notify(
     message=f'文件删除完成！总共删除了{countd}个原文件',
     timeout=10
 )
-print(f"文件删除完成！总共删除了{countd}个原文件")
+print(f"{Fore.GREEN}文件删除完成！总共删除了{countd}个原文件")
 
 input ("按 ENTER 键继续...")
