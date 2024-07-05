@@ -94,12 +94,14 @@ def package_py(file_path, log_file="None"):
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
         out_put(f"打包完成：{file_path}")
+        fcount += 1
         out_put(f"还剩{acount-fcount}个文件待打包。")
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
         if log_file != "None":
             log_message(error_message, log_file)
         out_put(error_message, success=False)
+        fcount += 1
         out_put(f"还剩{acount-fcount}个文件待打包。")
         return file_path
 
@@ -115,12 +117,14 @@ def package_pyw(file_path, log_file="None"):
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
         out_put(f"打包完成：{file_path}")
+        fcount += 1
         out_put(f"还剩{acount-fcount}个文件待打包。")
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
         if log_file != "None":
             log_message(error_message, log_file)
         out_put(error_message, success=False)
+        fcount += 1
         out_put(f"还剩{acount-fcount}个文件待打包。")
         return file_path
 
@@ -137,12 +141,10 @@ if log_path == "None":
                 failed_file = package_py(file_path)
                 if failed_file:
                     failed_files.append(failed_file)
-                fcount += 1
             elif file.endswith(".pyw"):
                 failed_file = package_pyw(file_path)
                 if failed_file:
                     failed_files.append(failed_file)
-                fcount += 1
 else:
     with open(f"{log_path}packaging_log.log", "a") as log_file:
         log_message(f"开始打包，需要打包的文件数量：{acount}", log_file)
@@ -158,13 +160,11 @@ else:
                     failed_file = package_py(file_path, log_file)
                     if failed_file:
                       failed_files.append(failed_file)
-                    fcount += 1
                     log_message(f"剩余待打包文件数量：{acount-fcount}", log_file)
                 elif file.endswith(".pyw"):
                     failed_file = package_pyw(file_path, log_file)
                     if failed_file:
                         failed_files.append(failed_file)
-                    fcount += 1
                     log_message(f"剩余待打包文件数量：{acount-fcount}", log_file)
 
 # 提示用户打包完成
