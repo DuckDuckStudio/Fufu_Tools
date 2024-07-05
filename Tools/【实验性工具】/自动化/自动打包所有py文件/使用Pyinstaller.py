@@ -84,6 +84,7 @@ def out_put(message, success=True):
 
 # 函数：打包 Python 文件
 def package_py(file_path, log_file="None"):
+    global fcount
     try:
         output_dir = os.path.dirname(file_path)  # 设置输出目录为 Python 文件所在目录
         if icon_path == "None":
@@ -107,6 +108,7 @@ def package_py(file_path, log_file="None"):
 
 # 函数：打包 Pythonw 文件
 def package_pyw(file_path, log_file="None"):
+    global fcount
     try:
         output_dir = os.path.dirname(file_path)  # 设置输出目录为 Pythonw 文件所在目录
         if icon_path == "None":
