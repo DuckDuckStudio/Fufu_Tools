@@ -19,6 +19,18 @@ py_acount = 0
 
 # 文件夹路径
 folder_path = input("请输入文件夹路径：")
+
+if folder_path.startswith(("'", '"')) and folder_path.endswith(("'", '"')):
+    folder_path = folder_path[1:-1]
+
+if not folder_path.endswith('\\'):
+    folder_path += '\\'
+
+if not os.path.exists(folder_path):
+    print(f"{Fore.RED}✕{Fore.RESET} 指定的目录路径不存在，请重新运行程序并输入有效的目录路径。")
+    input("按 ENTER 键继续...")
+    exit(1)
+
 icon_path = input("请输入图标文件路径：")
 log_path = input("请输入日志文件存放文件夹：")
 
