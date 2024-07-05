@@ -58,7 +58,7 @@ for root, dirs, files in os.walk(folder_path):
             pyw_acount = pyw_acount + 1
         
 acount = py_acount + pyw_acount
-print(f"一共找到了{acount}个py/pyw文件。\n其中有{py_acount}个py文件/{pyw_acount}个pyw文件。")
+print(f"{Fore.GREEN}一共找到了{Fore.BLUE}{acount}{Fore.GREEN}个py/pyw文件。\n其中有{Fore.BLUE}{py_acount}{Fore.GREEN}个py文件/{Fore.BLUE}{pyw_acount}{Fore.GREEN}个pyw文件。")
 
 # 函数：记录日志并添加分隔线
 def log_message(message, log_file):
