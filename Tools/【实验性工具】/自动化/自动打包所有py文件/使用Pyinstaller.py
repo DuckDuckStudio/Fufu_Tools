@@ -19,6 +19,18 @@ py_acount = 0
 
 # 文件夹路径
 folder_path = input("请输入文件夹路径：")
+
+if folder_path.startswith(("'", '"')) and folder_path.endswith(("'", '"')):
+    folder_path = folder_path[1:-1]
+
+if not folder_path.endswith('\\'):
+    folder_path += '\\'
+
+if not os.path.exists(folder_path):
+    print(f"{Fore.RED}✕{Fore.RESET} 指定的目录路径不存在，请重新运行程序并输入有效的目录路径。")
+    input("按 ENTER 键继续...")
+    exit(1)
+
 icon_path = input("请输入图标文件路径：")
 log_path = input("请输入日志文件存放文件夹：")
 
@@ -46,7 +58,7 @@ for root, dirs, files in os.walk(folder_path):
             pyw_acount = pyw_acount + 1
         
 acount = py_acount + pyw_acount
-print(f"一共找到了{acount}个py/pyw文件。\n其中有{py_acount}个py文件/{pyw_acount}个pyw文件。")
+print(f"{Fore.GREEN}一共找到了{Fore.BLUE}{acount}{Fore.GREEN}个py/pyw文件。\n其中有{Fore.BLUE}{py_acount}{Fore.GREEN}个py文件/{Fore.BLUE}{pyw_acount}{Fore.GREEN}个pyw文件。")
 
 # 函数：记录日志并添加分隔线
 def log_message(message, log_file):
@@ -72,6 +84,7 @@ def out_put(message, success=True):
 
 # 函数：打包 Python 文件
 def package_py(file_path, log_file="None"):
+    global fcount
     try:
         output_dir = os.path.dirname(file_path)  # 设置输出目录为 Python 文件所在目录
         if icon_path == "None":
@@ -82,17 +95,20 @@ def package_py(file_path, log_file="None"):
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
         out_put(f"打包完成：{file_path}")
+        fcount += 1
         out_put(f"还剩{acount-fcount}个文件待打包。")
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
         if log_file != "None":
             log_message(error_message, log_file)
         out_put(error_message, success=False)
+        fcount += 1
         out_put(f"还剩{acount-fcount}个文件待打包。")
         return file_path
 
 # 函数：打包 Pythonw 文件
 def package_pyw(file_path, log_file="None"):
+    global fcount
     try:
         output_dir = os.path.dirname(file_path)  # 设置输出目录为 Pythonw 文件所在目录
         if icon_path == "None":
@@ -103,12 +119,14 @@ def package_pyw(file_path, log_file="None"):
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
         out_put(f"打包完成：{file_path}")
+        fcount += 1
         out_put(f"还剩{acount-fcount}个文件待打包。")
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
         if log_file != "None":
             log_message(error_message, log_file)
         out_put(error_message, success=False)
+        fcount += 1
         out_put(f"还剩{acount-fcount}个文件待打包。")
         return file_path
 
@@ -125,12 +143,10 @@ if log_path == "None":
                 failed_file = package_py(file_path)
                 if failed_file:
                     failed_files.append(failed_file)
-                fcount += 1
             elif file.endswith(".pyw"):
                 failed_file = package_pyw(file_path)
                 if failed_file:
                     failed_files.append(failed_file)
-                fcount += 1
 else:
     with open(f"{log_path}packaging_log.log", "a") as log_file:
         log_message(f"开始打包，需要打包的文件数量：{acount}", log_file)
@@ -146,13 +162,11 @@ else:
                     failed_file = package_py(file_path, log_file)
                     if failed_file:
                       failed_files.append(failed_file)
-                    fcount += 1
                     log_message(f"剩余待打包文件数量：{acount-fcount}", log_file)
                 elif file.endswith(".pyw"):
                     failed_file = package_pyw(file_path, log_file)
                     if failed_file:
                         failed_files.append(failed_file)
-                    fcount += 1
                     log_message(f"剩余待打包文件数量：{acount-fcount}", log_file)
 
 # 提示用户打包完成
