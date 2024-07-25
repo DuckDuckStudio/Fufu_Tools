@@ -1,7 +1,12 @@
 import datetime
 import tkinter as tk
 
-# Code by DuckStudio
+# ----- 以下问题的Issue一律按未计划关闭 -----
+# - 一直横向拉长导致日期显示不完整 > 无法实施
+# - 窗口过小导致文本无法正常显示 > 无法实施
+# - 窗口乱拉大小导致的某些文本错误 > 部分以无法实施/无法重现关闭
+# ----- 以下问题的Issue一律按已完成关闭 -----
+# - 添加控制是否显示日期
 
 def update_clock():
     now = datetime.datetime.now()
@@ -20,13 +25,28 @@ def update_clock():
 
     date_str = now.strftime('%Y / %m / %d') + ' ' + weekday_str
     time_str = now.strftime('%H:%M:%S')
-    # 获取日期&时间
 
+    # 更新文本内容
     clock_label.config(text=time_str)
     date_label.config(text=date_str)
-    # 显示
+
+    # 更新文本字体大小
+    update_text_size()
 
     clock_label.after(1000, update_clock)
+
+def update_text_size():
+    # 获取当前窗口的宽度和高度
+    width = root.winfo_width()
+    height = root.winfo_height()
+
+    # 根据窗口宽度计算新的字体大小
+    new_clock_font_size = max(10, int(width / 10))
+    new_date_font_size = max(8, int(width / 40))
+
+    # 设置新的字体大小
+    clock_label.config(font=("Arial", new_clock_font_size))
+    date_label.config(font=("Arial", new_date_font_size))
 
 def on_exit():
     root.destroy()
@@ -73,6 +93,12 @@ sticky_button.pack(side=tk.LEFT)  # 将"置顶"按钮放置在左侧
 
 exit_button = tk.Button(button_frame, text='退出', command=on_exit)
 exit_button.pack(side=tk.RIGHT)  # 将"退出"按钮放置在右侧
+
+# 初始化时更新文本大小
+update_text_size()
+
+# 监听窗口尺寸变化事件，动态调整文本大小
+root.bind("<Configure>", lambda e: update_text_size())
 
 update_clock()
 
