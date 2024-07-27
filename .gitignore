@@ -1,6 +1,4 @@
 # IDE
-.vs/
-.vscode/
 配置文件/
 
 # Python
@@ -28,3 +26,35 @@ test/
 # TEST Output
 Tools/【实验性工具】/音频处理/output.txt
 Tools/【实验性工具】/音频处理/input.txt
+
+# Csharp
+# .NET Core and Visual Studio Code specific
+.vscode/
+bin/
+obj/
+
+# Rider specific
+.idea/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio 2019 directories which contain build results, logs, or module files
+.vs/
