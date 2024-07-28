@@ -1,7 +1,7 @@
 import os
 from colorama import init, Fore
 
-init(autoreset=True) # 初始化 Colorama，使颜色输出生效
+init(autoreset=True)
 os.chdir(os.path.dirname(os.path.abspath(__file__))) # 避免意外的输出位置
 
 print("感谢你使用本程序")

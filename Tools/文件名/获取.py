@@ -5,7 +5,7 @@ from tkinter import filedialog
 from colorama import init, Fore
 import configparser
 
-init(autoreset=True) # 初始化 Colorama，使颜色输出生效
+init(autoreset=True)
 output_file = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), '获取结果.txt')
 config_file = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), 'config.ini')
 

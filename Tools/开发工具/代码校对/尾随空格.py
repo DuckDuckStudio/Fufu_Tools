@@ -43,7 +43,6 @@ def check_files(directory, file_extensions=None):
                 check_files(entry.path)
 
 def main(directory, file_extensions=None):
-    # 初始化 Colorama，使颜色输出生效
     init(autoreset=True)
 
     print(f"{Fore.BLUE}[!]{Fore.RESET} 开始检查{Fore.BLUE}尾随空格{Fore.RESET}。")
