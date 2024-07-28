@@ -74,25 +74,25 @@ screen_height = root.winfo_screenheight()
 x = (screen_width - win_width) // 2
 y = (screen_height - win_height) // 2
 
-root.geometry(f'{win_width}x{win_height}+{x}+{y}')  # 设置窗口在屏幕中央
+root.geometry(f'{win_width}x{win_height}+{x}+{y}') # 设置窗口在屏幕中央
 
 main_frame = tk.Frame(root)
-main_frame.place(relx=0.5, rely=0.5, anchor='center')  # 将main_frame放置在窗口中央
+main_frame.place(relx=0.5, rely=0.5, anchor='center') # 将main_frame放置在窗口中央
 
 clock_label = tk.Label(main_frame, font=('Arial', 40))
 clock_label.pack()
 
-date_label = tk.Label(main_frame, font=('Arial', 12), pady=10)  # 增加垂直间距
+date_label = tk.Label(main_frame, font=('Arial', 12), pady=10) # 增加垂直间距
 date_label.pack()
 
 button_frame = tk.Frame(root)
-button_frame.pack(side=tk.BOTTOM, fill=tk.X, padx=10, pady=10)  # 放置按钮的Frame
+button_frame.pack(side=tk.BOTTOM, fill=tk.X, padx=10, pady=10) # 放置按钮的Frame
 
 sticky_button = tk.Button(button_frame, text='置顶', command=toggle_sticky)
-sticky_button.pack(side=tk.LEFT)  # 将"置顶"按钮放置在左侧
+sticky_button.pack(side=tk.LEFT) # 将"置顶"按钮放置在左侧
 
 exit_button = tk.Button(button_frame, text='退出', command=on_exit)
-exit_button.pack(side=tk.RIGHT)  # 将"退出"按钮放置在右侧
+exit_button.pack(side=tk.RIGHT) # 将"退出"按钮放置在右侧
 
 # 初始化时更新文本大小
 update_text_size()

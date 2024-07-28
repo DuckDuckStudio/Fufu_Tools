@@ -47,7 +47,7 @@ def open_or_import():
         script_dir = os.path.dirname(os.path.abspath(__file__))
         messages_path = os.path.join(script_dir, "messages.txt")
         try:
-            os.startfile(messages_path)  # 尝试打开文件
+            os.startfile(messages_path) # 尝试打开文件
         except FileNotFoundError:
             messagebox.showerror("错误", f"文件'{messages_path}'未找到。")
         except Exception as e:
@@ -61,9 +61,9 @@ def open_or_import():
                 with open(filename, 'r', encoding='utf-8') as file:
                     content = file.read()
                     # 检查文件内容是否为空
-                    if not content.strip():  # 如果文件内容为空或只有空白字符
+                    if not content.strip(): # 如果文件内容为空或只有空白字符
                         messagebox.showwarning("警告", "导入的文件为空，请选择包含内容的文件。")
-                        return  # 终止函数执行
+                        return # 终止函数执行
                 
                     # 如果文件不为空，则写入内容
                     with open(os.path.join(script_dir, "messages.txt"), 'w', encoding='utf-8') as outfile:

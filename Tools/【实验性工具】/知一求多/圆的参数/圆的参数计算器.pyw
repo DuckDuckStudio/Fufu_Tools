@@ -55,7 +55,7 @@ label_s = Label(root, text="面积S：")
 entry_s = Entry(root)
 label_pi = Label(root, text="π的取值：")
 entry_pi = Entry(root)
-entry_pi.insert(0, "3.14")  # 默认值为3.14
+entry_pi.insert(0, "3.14") # 默认值为3.14
 
 # 创建结果标签
 result_r = StringVar()

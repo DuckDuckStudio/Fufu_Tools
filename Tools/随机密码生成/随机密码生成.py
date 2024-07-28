@@ -90,7 +90,7 @@ def get_character_set_from_config():
 
 root = tk.Tk()
 root.title("随机密码生成器")
-icon_path = '..\\..\\ico.ico'  # ICO格式的图标文件路径
+icon_path = '..\\..\\ico.ico' # ICO格式的图标文件路径
 root.iconbitmap(icon_path)
 
 # 居中显示窗口

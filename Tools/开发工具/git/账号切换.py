@@ -55,9 +55,9 @@ def edit_json_file():
     try:
         os.startfile(accounts_file)
     except AttributeError:
-        subprocess.run(['open', accounts_file])  # macOS
+        subprocess.run(['open', accounts_file]) # macOS
     except:
-        subprocess.run(['xdg-open', accounts_file])  # Linux
+        subprocess.run(['xdg-open', accounts_file]) # Linux
 
 def show_git_config():
     result = subprocess.run(['git', 'config', 'user.name'], capture_output=True, text=True)
@@ -88,8 +88,8 @@ if __name__ == "__main__":
     elif args.show:
         show_git_config()
     elif args.alias:
-        switch_name = not args.email  # 如果未提供 --email 参数，切换用户名
-        switch_email = not args.name  # 如果未提供 --name 参数，切换邮箱
+        switch_name = not args.email # 如果未提供 --email 参数，切换用户名
+        switch_email = not args.name # 如果未提供 --name 参数，切换邮箱
         switch_git_config(args.alias, args.fast, switch_name, switch_email)
     else:
         print(f"{Fore.RED}✕{Fore.RESET} 请提供一个别名或者使用 --edit 参数来编辑 accounts.json 文件")

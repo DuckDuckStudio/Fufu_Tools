@@ -6,7 +6,7 @@ def to_decimal(num, base):
 
     if num_str[0] == '-':
         is_negative = True
-        num_str = num_str[1:]  # 去除负号
+        num_str = num_str[1:] # 去除负号
 
     num_len = len(num_str)
 

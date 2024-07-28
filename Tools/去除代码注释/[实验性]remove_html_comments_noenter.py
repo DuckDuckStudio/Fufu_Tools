@@ -36,7 +36,7 @@ def remove_comments_from_html(file_path):
         
     content = remove_html_comments(content)
     content = remove_script_style_comments(content)
-    content = remove_extra_newlines(content)  # 新增：移除多余的空行
+    content = remove_extra_newlines(content) # 新增：移除多余的空行
     
     return content
 
@@ -53,7 +53,7 @@ def save_new_file(original_file_path, new_content):
 
 def main():
     root = tk.Tk()
-    root.withdraw()  # 不显示主窗口
+    root.withdraw() # 不显示主窗口
     
     file_path = filedialog.askopenfilename(filetypes=[("HTML文件", "*.html *.htm")])
     if not file_path:

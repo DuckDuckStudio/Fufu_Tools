@@ -49,7 +49,7 @@ def save_new_file(original_file_path, new_content):
 
 def main():
     root = tk.Tk()
-    root.withdraw()  # 不显示主窗口
+    root.withdraw() # 不显示主窗口
 
     file_path = filedialog.askopenfilename(filetypes=[
         ("批处理文件", "*.bat", "*.cmd"),

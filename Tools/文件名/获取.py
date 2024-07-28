@@ -5,7 +5,7 @@ from tkinter import filedialog
 from colorama import init, Fore
 import configparser
 
-init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
+init(autoreset=True)
 output_file = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), '获取结果.txt')
 config_file = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), 'config.ini')
 
@@ -63,9 +63,9 @@ def main():
 
     # 创建GUI窗口，让用户选择文件夹
     root = tk.Tk()
-    root.withdraw()  # 隐藏主窗口
+    root.withdraw() # 隐藏主窗口
 
-    folder_path = filedialog.askdirectory(title="请选择文件夹")  # 弹出文件夹选择对话框
+    folder_path = filedialog.askdirectory(title="请选择文件夹") # 弹出文件夹选择对话框
 
     if not folder_path:
         print(Fore.RED + "未选择文件夹，请重新运行程序并选择文件夹。")

@@ -45,7 +45,7 @@ def save_new_file(original_file_path, new_content):
 
 def main():
     root = tk.Tk()
-    root.withdraw()  # 不显示主窗口
+    root.withdraw() # 不显示主窗口
     
     file_path = filedialog.askopenfilename(filetypes=[("HTML文件", "*.html *.htm")])
     if not file_path:
