@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-import subprocess # 导入subprocess模块
+import subprocess
 
 # 获取当前文件的路径
 current_file_path = Path(__file__)
