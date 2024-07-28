@@ -18,16 +18,16 @@ while True:
 while True:
     text_ttf = input("请输入自定义字体文件完整路径(默认Arial.ttf)：")
 
-   # 如果用户没有输入任何内容或者输入了"默认"，则将变量值设为 "Arial.ttf"
+    # 如果用户没有输入任何内容或者输入了"默认"，则将变量值设为 "Arial.ttf"
     if not text_ttf or text_ttf == "默认" or text_ttf == "Arial.ttf":
         text_ttf = "Arial.ttf"
         break
     else:
-       # 自动处理引号
+        # 自动处理引号
         text_ttf = text_ttf.strip('\"')
         if os.path.exists(text_ttf):
             break
-       # 检查文件路径是否存在
+        # 检查文件路径是否存在
         else:
             print("[Warn]自定义字体文件不存在")
 
@@ -57,14 +57,14 @@ def add_watermark(image_path, watermark_text, text_where, move_text):
     try:
         image = Image.open(image_path).convert("RGBA")
 
-       # 创建水印图片
+        # 创建水印图片
         watermark = Image.new("RGBA", image.size, (0, 0, 0, 0))
         font = ImageFont.truetype("D:\\Duckhome\\projects\\MSVS\\Source\\Repos\\windows-widgets\\Tools\\[实验性工具]\\图片处理\\O神启动.ttf", 40) # 使用默认字体和大小
         draw = ImageDraw.Draw(watermark)
 
-       # 计算水印文本的位置
+        # 计算水印文本的位置
         if image.width > image.height: # 图片宽大于高，16:9
-           # where
+            # where
             if text_where == "[DR]右下(默认)":
                 text_position = (image.width - text_width - move_text, image.height - 50)
             elif text_where == "[DL]左下":
@@ -73,15 +73,15 @@ def add_watermark(image_path, watermark_text, text_where, move_text):
                 text_position = (image.width - text_width - move_text, 50)
             elif text_where == "[UL]左上":
                 text_position = (text_width - move_text, 5)
-           #-----
+            #-----
             draw.text(text_position, watermark_text, font=font, fill=(255, 255, 255, 128))
-           # 添加水印
+            # 添加水印
             watermarked_image = Image.alpha_composite(image, watermark)
 
-           # 保存水印图片
+            # 保存水印图片
             save_path = os.path.splitext(image_path)[0] + "_watermarked.png"
             watermarked_image.save(save_path)
-           # only test on 4032*2268
+            # only test on 4032*2268
             if image.width != 4032 or image.height != 2268:
                 print("[Warn] 本工具仅在4032*2268的图片上测试过，其他图片效果可能不理想。\n本张图片大小：",image.width,"*",image.height)
             print(f"[INFO] 水印已成功添加到 {save_path}\n")

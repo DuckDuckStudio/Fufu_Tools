@@ -21,14 +21,14 @@ def check_files(directory, file_extensions=None):
                         try:
                             with open(filepath, 'rb') as file:
                                 rawdata = file.read()
-                               # 使用 chardet 库自动检测文件编码
+                                # 使用 chardet 库自动检测文件编码
                                 result = chardet.detect(rawdata)
                                 encoding = result['encoding']
                                 with open(filepath, 'r', encoding=encoding) as decoded_file:
                                     linenum = 0
                                     for line in decoded_file:
                                         linenum += 1
-                                       # 使用正则表达式检查行尾是否包含空格，但不以换行符结尾
+                                        # 使用正则表达式检查行尾是否包含空格，但不以换行符结尾
                                         if re.search(r'[^\S\n]$', line):
                                             if line.isspace():
                                                 print(f"{Fore.YELLOW}⚠{Fore.RESET} 检测到{Fore.YELLOW}多余空行空格{Fore.RESET}: {Fore.BLUE}{filepath}{Fore.RESET}, 第 {Fore.BLUE}{linenum}{Fore.RESET} 行。")
@@ -39,16 +39,16 @@ def check_files(directory, file_extensions=None):
                     else:
                         print(f"{Fore.RED}✕{Fore.RESET} 没有读取文件的权限: {Fore.BLUE}{filepath}{Fore.RESET}，跳过检查。")
             elif entry.is_dir(follow_symlinks=False):
-               # 递归遍历子目录
+                # 递归遍历子目录
                 check_files(entry.path)
 
 def main(directory, file_extensions=None):
-   # 初始化 Colorama，使颜色输出生效
+    # 初始化 Colorama，使颜色输出生效
     init(autoreset=True)
 
     print(f"{Fore.BLUE}[!]{Fore.RESET} 开始检查{Fore.BLUE}尾随空格{Fore.RESET}。")
 
-   # 检查文件
+    # 检查文件
     if directory:
         check_files(directory, file_extensions)
         print(f"{Fore.GREEN}✓{Fore.RESET} 尾随空格检查完成。")
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.file_extensions:
-       # 将逗号分隔的字符串转换为列表
+        # 将逗号分隔的字符串转换为列表
         file_extensions = args.file_extensions.split(',') if args.file_extensions else []
         main(args.directory, file_extensions)
     else:

@@ -49,7 +49,7 @@ def main():
 
     while True:
         time_counter = input("请输入每次尝试的间隔(秒)：")
-       # 检测适用性
+        # 检测适用性
         try:
             time_counter = int(time_counter)
             if time_counter <= 1:

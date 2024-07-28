@@ -14,7 +14,7 @@ def check_files(directory):
                     try:
                         with open(filepath, 'rb') as file:
                             rawdata = file.read()
-                           # 使用 chardet 库自动检测文件编码
+                            # 使用 chardet 库自动检测文件编码
                             result = chardet.detect(rawdata)
                             encoding = result['encoding']
                             with open(filepath, 'r', encoding=encoding) as decoded_file:
@@ -30,7 +30,7 @@ def check_files(directory):
                 else:
                     print(f"{Fore.RED}✕{Fore.RESET} 没有读取文件的权限: {Fore.BLUE}{entry.name}{Fore.RESET}，跳过检查。")
             elif entry.is_dir(follow_symlinks=False):
-               # 递归遍历子目录
+                # 递归遍历子目录
                 check_files(entry.path)
 
 def main(directory):
@@ -45,5 +45,5 @@ if __name__ == "__main__":
     parser.add_argument("--dir", dest="directory", required=True, help="要检查的目录路径")
     args = parser.parse_args()
 
-   # 调用主函数
+    # 调用主函数
     main(args.directory)

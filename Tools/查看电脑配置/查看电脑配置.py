@@ -17,7 +17,7 @@ os.system("systeminfo")
 # --检查--
 # 通过读取config.ini文件来获取是否总是显示
 if always_open:
-   # set flag
+    # set flag
     flag = False
     print("已设置总是显示详细信息，启动页面中...")
     os.system("msinfo32")
@@ -44,7 +44,7 @@ while flag:
         break
     elif temp.lower() in ["a", "always", "总是"]:
         print("设置中...")
-       # 修改ini文件配置
+        # 修改ini文件配置
         config["settings"]["always_open_more_info"] = "True"
         with open(config_file_path, 'w') as configfile:
             config.write(configfile)

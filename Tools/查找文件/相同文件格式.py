@@ -28,7 +28,7 @@ def find_files_by_extension(folder_path, file_extension):
     total_files = sum(len(files) for _, _, files in os.walk(folder_path))
     files_processed = 0
 
-   # 遍历文件夹中的所有文件
+    # 遍历文件夹中的所有文件
     for root, _, files in os.walk(folder_path):
         for file in files:
             _, ext = os.path.splitext(file)

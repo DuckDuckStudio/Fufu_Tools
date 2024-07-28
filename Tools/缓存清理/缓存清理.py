@@ -42,7 +42,7 @@ if flag:# 有任意值且不为False则为True
             break
         elif temp.lower() in ["a", "always", "总是"]:
             print("设置中...")
-           # 修改ini文件配置
+            # 修改ini文件配置
             config["settings"]["always_clear_ctr"] = "True"
             with open(config_file_path, 'w') as configfile:
                 config.write(configfile)
@@ -93,7 +93,7 @@ if os.path.isdir(windows_old_path):
     if temp.lower() in ["y", "yes", "是"]:
         print("正在尝试打开存储设置...请点击临时文件分类并手动删除...")
         subprocess.run("start ms-settings:storagesense", shell=True)
-       # Windows好像没有让程序直接打开临时文件分类的URI
-       # 如果直接尝试删除windows.old将会遇到“拒绝访问”等权限错误...
+        # Windows好像没有让程序直接打开临时文件分类的URI
+        # 如果直接尝试删除windows.old将会遇到“拒绝访问”等权限错误...
             
 input("按Enter键继续...")

@@ -10,11 +10,11 @@ init(autoreset=True)
 def switch_git_config(alias, fast_switch=False, switch_name=True, switch_email=True):
     accounts_file = os.path.join(script_dir, 'accounts.json')
     
-   # 读取账号信息
+    # 读取账号信息
     with open(accounts_file, 'r', encoding='utf-8') as file:
         accounts = json.load(file)
     
-   # 检查是否存在提供的别名
+    # 检查是否存在提供的别名
     if fast_switch:
         matched_users = [user for user, info in accounts.items() if alias in info.get('aliases', [])]
         if not matched_users:
@@ -35,7 +35,7 @@ def switch_git_config(alias, fast_switch=False, switch_name=True, switch_email=T
     
     user_info = accounts[matched_users[0]]
     
-   # 设置Git配置
+    # 设置Git配置
     if switch_name:
         result = subprocess.run(['git', 'config', 'user.name', user_info['name']])
         if result.returncode == 0:

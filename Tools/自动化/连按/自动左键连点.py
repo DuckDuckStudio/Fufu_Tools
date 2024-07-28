@@ -21,7 +21,7 @@ first_time = True
 def toggle_auto_click():
     global auto_clicking
     global first_time
-   # 切换自动点击状态
+    # 切换自动点击状态
     auto_clicking = not auto_clicking
     if first_time:
         print("自动点击 已开始", end="")# 首次按下F8必定是开始自动点击
@@ -37,7 +37,7 @@ def auto_click():
         if auto_clicking:
             pyautogui.click()
             time.sleep(click_interval)
-       # 这里稍微延迟一下，减少CPU使用率
+        # 这里稍微延迟一下，减少CPU使用率
         time.sleep(0.01)
 
 # 绑定F8键，用于切换自动点击状态

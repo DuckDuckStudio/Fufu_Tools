@@ -23,23 +23,23 @@ def start_random():
         messagebox.showerror("错误: 内容文件为空或未找到。")
         return
     
-   # 在开始新一轮随机之前，重置标签样式，移除红色边框
+    # 在开始新一轮随机之前，重置标签样式，移除红色边框
     result_label.config(bg='SystemButtonFace', relief='flat', highlightthickness=0)
     
-   # 模拟抽奖机效果
+    # 模拟抽奖机效果
     for _ in range(30):
         temp_message = random.choice(messages)
         result_var.set(temp_message)
         root.update()
         time.sleep(0.1)
 
-   # 最终结果
+    # 最终结果
     final_message = random.choice(messages)
     result_var.set(final_message)
     root.update()
     time.sleep(1)
 
-   # 将最终结果用红色方框框起来
+    # 将最终结果用红色方框框起来
     result_label.config(bg='SystemButtonFace', relief='solid', bd=2, highlightbackground='red', highlightcolor='red', highlightthickness=2)
 
 def open_or_import():
@@ -60,24 +60,24 @@ def open_or_import():
             try:
                 with open(filename, 'r', encoding='utf-8') as file:
                     content = file.read()
-                   # 检查文件内容是否为空
+                    # 检查文件内容是否为空
                     if not content.strip(): # 如果文件内容为空或只有空白字符
                         messagebox.showwarning("警告", "导入的文件为空，请选择包含内容的文件。")
                         return # 终止函数执行
                 
-                   # 如果文件不为空，则写入内容
+                    # 如果文件不为空，则写入内容
                     with open(os.path.join(script_dir, "messages.txt"), 'w', encoding='utf-8') as outfile:
                         outfile.write(content)
                 messagebox.showinfo("成功", "内容文件已更新。")
             except Exception as e:
                 messagebox.showerror("错误", f"无法导入文件：{e}")
 
-   # 创建弹出菜单
+    # 创建弹出菜单
     popup = tk.Menu(root, tearoff=0)
     popup.add_command(label="编辑消息", command=edit_messages)
     popup.add_command(label="导入消息", command=import_messages)
 
-   # 弹出菜单
+    # 弹出菜单
     try:
         popup.tk_popup(root.winfo_rootx(), root.winfo_rooty(), 0)
     finally:

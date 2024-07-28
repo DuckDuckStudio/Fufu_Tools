@@ -11,7 +11,7 @@ import tkinter as tk
 def update_clock():
     now = datetime.datetime.now()
 
-   # 将英文的星期转换为中文
+    # 将英文的星期转换为中文
     weekday_mapping = {
         'Monday': '星期一',
         'Tuesday': '星期二',
@@ -26,25 +26,25 @@ def update_clock():
     date_str = now.strftime('%Y / %m / %d') + ' ' + weekday_str
     time_str = now.strftime('%H:%M:%S')
 
-   # 更新文本内容
+    # 更新文本内容
     clock_label.config(text=time_str)
     date_label.config(text=date_str)
 
-   # 更新文本字体大小
+    # 更新文本字体大小
     update_text_size()
 
     clock_label.after(1000, update_clock)
 
 def update_text_size():
-   # 获取当前窗口的宽度和高度
+    # 获取当前窗口的宽度和高度
     width = root.winfo_width()
     height = root.winfo_height()
 
-   # 根据窗口宽度计算新的字体大小
+    # 根据窗口宽度计算新的字体大小
     new_clock_font_size = max(10, int(width / 10))
     new_date_font_size = max(8, int(width / 40))
 
-   # 设置新的字体大小
+    # 设置新的字体大小
     clock_label.config(font=("Arial", new_clock_font_size))
     date_label.config(font=("Arial", new_date_font_size))
 

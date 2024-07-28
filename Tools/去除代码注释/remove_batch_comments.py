@@ -20,26 +20,26 @@ else:
 
 
 def remove_comments(file_path):
-   # 正则表达式匹配注释
+    # 正则表达式匹配注释
     single_line_comment_pattern = re.compile(r'REM.*')
     single_line_2_comment_pattern = re.compile(r'::.*')
 
     with open(file_path, 'r', encoding=editing_code) as file:
         content = file.read()
 
-       # 移除注释
+        # 移除注释
         content = re.sub(single_line_2_comment_pattern, '', content)
         content = re.sub(single_line_comment_pattern, '', content)
 
     return content
 
 def save_new_file(original_file_path, new_content):
-   # 构造新文件名
+    # 构造新文件名
     base_name = os.path.basename(original_file_path)
     new_file_name = f"{os.path.splitext(base_name)[0]}-无注释{os.path.splitext(base_name)[1]}"
     new_file_path = os.path.join(os.path.dirname(original_file_path), new_file_name)
 
-   # 规范化文件路径以确保斜杠方向的一致性
+    # 规范化文件路径以确保斜杠方向的一致性
     new_file_path = os.path.normpath(new_file_path)
 
     with open(new_file_path, 'w', encoding=editing_code) as new_file:

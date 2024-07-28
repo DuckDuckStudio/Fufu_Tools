@@ -4,21 +4,21 @@ import re
 import os
 
 def remove_html_comments(content):
-   # 移除HTML注释
+    # 移除HTML注释
     content = re.sub(r'<!--.*?-->', '', content, flags=re.DOTALL)
     return content
 
 def remove_script_style_comments(content):
-   # 移除<script>和<style>标签内的注释
+    # 移除<script>和<style>标签内的注释
     def replacer(match):
-       # JavaScript或CSS内容
+        # JavaScript或CSS内容
         text = match.group(0)
-       # 移除JavaScript的单行和多行注释
+        # 移除JavaScript的单行和多行注释
         text = re.sub(r'//.*?\n', '\n', text)
         text = re.sub(r'/\*.*?\*/', '', text, flags=re.DOTALL)
         return text
     
-   # 对<script>和<style>标签内的内容应用replacer函数
+    # 对<script>和<style>标签内的内容应用replacer函数
     content = re.sub(r'(<script[\s\S]*?>)([\s\S]*?)(</script>)', replacer, content)
     content = re.sub(r'(<style[\s\S]*?>)([\s\S]*?)(</style>)', replacer, content)
     return content

@@ -24,20 +24,20 @@ result_file_path = os.path.join(os.getcwd(), '查找结果.txt')
 
 def find_files_with_text(folder_path, search_text):
     files_found = []
-   # 文件计数
+    # 文件计数
     total_files = sum(len(files) for _, _, files in os.walk(folder_path))
     files_processed = 0
 
-   # 遍历文件夹中的所有文件
+    # 遍历文件夹中的所有文件
     for root, _, files in os.walk(folder_path):
         for file in files:
             file_path = os.path.join(root, file)
             try:
-               # 读取文件内容
+                # 读取文件内容
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read()
 
-               # 检查文件内容是否包含指定文本
+                # 检查文件内容是否包含指定文本
                 if search_text in content:
                     files_found.append(file_path)
 
