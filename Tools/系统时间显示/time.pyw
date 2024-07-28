@@ -42,7 +42,7 @@ def update_text_size():
 
     # 根据窗口宽度计算新的字体大小
     new_clock_font_size = max(10, int(width / 10))
-    new_date_font_size = max(8, int(width / 40))
+    new_date_font_size = max(8, int(width / 27))
 
     # 设置新的字体大小
     clock_label.config(font=("Arial", new_clock_font_size))
