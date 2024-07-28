@@ -2,7 +2,7 @@ import os
 from tqdm import tqdm
 from colorama import init, Fore
 
-init(autoreset=True)  # 初始化 Colorama，使颜色输出生效
+init(autoreset=True)
 
 def replace_text_in_files(folder_path, old_text, new_text):
     files_processed = 0

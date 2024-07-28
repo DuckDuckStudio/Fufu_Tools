@@ -74,7 +74,7 @@ def log_message(message, log_file):
     # 日志中不应存在颜色
     message = f"{message}"
     log_file.write(message + "\n")
-    log_file.write("-" * 50 + "\n")  # 添加分隔线
+    log_file.write("-" * 50 + "\n") # 添加分隔线
 
 
 def out_put(message, success=True):
@@ -95,7 +95,7 @@ def out_put(message, success=True):
 def package_py(file_path, log_file="None"):
     global fcount
     try:
-        output_dir = os.path.dirname(file_path)  # 设置输出目录为 Python 文件所在目录
+        output_dir = os.path.dirname(file_path) # 设置输出目录为 Python 文件所在目录
         if icon_path == "None":
             command = f"python -m nuitka --output-dir=\"{output_dir}\" --show-progress --onefile --remove-output --{compile} {file_path}"
         else:
@@ -119,7 +119,7 @@ def package_py(file_path, log_file="None"):
 def package_pyw(file_path, log_file="None"):
     global fcount
     try:
-        output_dir = os.path.dirname(file_path)  # 设置输出目录为 Pythonw 文件所在目录
+        output_dir = os.path.dirname(file_path) # 设置输出目录为 Pythonw 文件所在目录
         if icon_path == "None":
             command = f"python -m nuitka --disable-console --plugin-enable=tk-inter --output-dir=\"{output_dir}\" --show-progress --onefile --remove-output --{compile} {file_path}"
         else:
@@ -160,7 +160,7 @@ else:
     with open(f"{log_path}packaging_log.log", "a") as log_file:
         log_message(f"开始打包，需要打包的文件数量：{acount}", log_file)
 
-        failed_files = []  # 存储打包失败的文件名
+        failed_files = [] # 存储打包失败的文件名
 
         # 遍历文件夹中的所有文件
         for root, dirs, files in os.walk(folder_path):
