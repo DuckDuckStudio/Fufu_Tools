@@ -12,7 +12,7 @@ current_dir = current_file_path.parent
 script_file_path = current_dir / "edit_hosts_file.exe"
 print("感谢您使用本工具来修改系统hosts文件")
 print("可选操作有：")
-subprocess.run([script_file_path, "--help"]) # 使用subprocess.run代替os.system
+subprocess.run([script_file_path, "--help"])
 
 while True:
     what = input("请输入你需要执行的操作：")
