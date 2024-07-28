@@ -82,11 +82,11 @@ while True:
 
     check_wlan() # checking connection
 
-    # Wait for next check
+   # Wait for next check
     print("-------------------")
     for i in range(wait, 0, -1):
         print("\r还有{}秒进行下一次测试...".format(i), end="")
         time.sleep(1)
 
-    # Cross-platform method to clear the console
+   # Cross-platform method to clear the console
     os.system('cls' if os.name == 'nt' else 'clear')

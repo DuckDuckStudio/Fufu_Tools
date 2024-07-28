@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-import subprocess  # 导入subprocess模块
+import subprocess # 导入subprocess模块
 
 # 获取当前文件的路径
 current_file_path = Path(__file__)
@@ -12,7 +12,7 @@ current_dir = current_file_path.parent
 script_file_path = current_dir / "edit_hosts_file.py"
 print("感谢您使用本工具来修改系统hosts文件")
 print("可选操作有：")
-subprocess.run(["python", script_file_path, "--help"])  # 使用subprocess.run代替os.system
+subprocess.run(["python", script_file_path, "--help"]) # 使用subprocess.run代替os.system
 
 while True:
     what = input("请输入你需要执行的操作：")

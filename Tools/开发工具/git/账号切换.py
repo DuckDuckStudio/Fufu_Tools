@@ -10,11 +10,11 @@ init(autoreset=True)
 def switch_git_config(alias, fast_switch=False, switch_name=True, switch_email=True):
     accounts_file = os.path.join(script_dir, 'accounts.json')
     
-    # 读取账号信息
+   # 读取账号信息
     with open(accounts_file, 'r', encoding='utf-8') as file:
         accounts = json.load(file)
     
-    # 检查是否存在提供的别名
+   # 检查是否存在提供的别名
     if fast_switch:
         matched_users = [user for user, info in accounts.items() if alias in info.get('aliases', [])]
         if not matched_users:
@@ -35,7 +35,7 @@ def switch_git_config(alias, fast_switch=False, switch_name=True, switch_email=T
     
     user_info = accounts[matched_users[0]]
     
-    # 设置Git配置
+   # 设置Git配置
     if switch_name:
         result = subprocess.run(['git', 'config', 'user.name', user_info['name']])
         if result.returncode == 0:
@@ -55,9 +55,9 @@ def edit_json_file():
     try:
         os.startfile(accounts_file)
     except AttributeError:
-        subprocess.run(['open', accounts_file])  # macOS
+        subprocess.run(['open', accounts_file]) # macOS
     except:
-        subprocess.run(['xdg-open', accounts_file])  # Linux
+        subprocess.run(['xdg-open', accounts_file]) # Linux
 
 def show_git_config():
     result = subprocess.run(['git', 'config', 'user.name'], capture_output=True, text=True)
@@ -88,8 +88,8 @@ if __name__ == "__main__":
     elif args.show:
         show_git_config()
     elif args.alias:
-        switch_name = not args.email  # 如果未提供 --email 参数，切换用户名
-        switch_email = not args.name  # 如果未提供 --name 参数，切换邮箱
+        switch_name = not args.email # 如果未提供 --email 参数，切换用户名
+        switch_email = not args.name # 如果未提供 --name 参数，切换邮箱
         switch_git_config(args.alias, args.fast, switch_name, switch_email)
     else:
         print(f"{Fore.RED}✕{Fore.RESET} 请提供一个别名或者使用 --edit 参数来编辑 accounts.json 文件")

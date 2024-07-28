@@ -3,22 +3,22 @@ import os
 
 def extract_audio(video_path, audio_path):
     try:
-        # 检查视频文件是否存在
+       # 检查视频文件是否存在
         if not os.path.exists(video_path):
             raise FileNotFoundError("视频文件不存在")
         
-        # 检查输出文件夹是否存在
+       # 检查输出文件夹是否存在
         
-        # 打开视频文件
+       # 打开视频文件
         video_clip = VideoFileClip(video_path)
         
-        # 提取音频
+       # 提取音频
         audio_clip = video_clip.audio
         
-        # 保存音频文件
+       # 保存音频文件
         audio_clip.write_audiofile(audio_path)
         
-        # 关闭视频和音频文件
+       # 关闭视频和音频文件
         video_clip.close()
         audio_clip.close()
         

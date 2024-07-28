@@ -1,5 +1,5 @@
 import os
-os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的输出位置
+os.chdir(os.path.dirname(os.path.abspath(__file__))) # 避免意外的输出位置
 
 print("感谢你使用本程序")
 print("(本程序仅查找相同名称的文件，不限格式)")
@@ -25,7 +25,7 @@ def find_files_by_name(folder_path, file_name):
     total_files = sum(len(files) for _, _, files in os.walk(folder_path))
     files_processed = 0
 
-    # 遍历文件夹中的所有文件
+   # 遍历文件夹中的所有文件
     for root, _, files in os.walk(folder_path):
         for file in files:
             if file_name in file:

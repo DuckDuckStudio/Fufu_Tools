@@ -21,7 +21,7 @@ what = 0
 
 # --检查--
 if os.path.exists(shortcut_path):
-    # 存在
+   # 存在
     print("休息一下工具目前已被设为自启动，是否取消设置？")
     while True :
         if you == 1 and do == 1 and what == 1:
@@ -39,7 +39,7 @@ if os.path.exists(shortcut_path):
         elif temp.lower() in ["n", "no", "否", "不"]:
             print("取消操作...")
             break
-            # 退出
+           # 退出
         elif temp.lower() in ["?","啊","？"]:
             print("问你要不要删启动项你啊什么啊？问号什么？")
             you = 0
@@ -60,7 +60,7 @@ if os.path.exists(shortcut_path):
             what = 0
             print("请按说明回答！")
 else:
-    # 不存在
+   # 不存在
     print("休息一下工具目前没有被设为自启动，是否设置自启动？")
     while True :
         if you == 1 and do == 1 and what == 1:
@@ -72,14 +72,14 @@ else:
         temp = input("你的回答是：")
         if temp.lower() in ["y", "yes", "是"]:
             print("创建自启动项中...")
-            # 在启动文件夹中创建快捷方式
+           # 在启动文件夹中创建快捷方式
             shutil.copyfile(source_file, shortcut_path)
             print("创建自启动项完毕！")
             break
         elif temp.lower() in ["n", "no", "否", "不"]:
             print("取消操作...")
             break
-            # 退出
+           # 退出
         elif temp.lower() in ["?","啊","？"]:
             print("问你要不要加启动项你啊什么啊？问号什么？")
             you = 0

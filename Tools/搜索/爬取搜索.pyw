@@ -5,7 +5,7 @@ import webbrowser
 from urllib.parse import quote
 
 def fetch_search_results(query):
-    query = quote(query)  # 对查询关键词进行URL编码
+    query = quote(query) # 对查询关键词进行URL编码
     url = f"https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd={query}&rsv_pq=a43b358b00e3fbf6&rsv_t=3680Nponm%2FFO0m0joY50ameSwJgTz9hY2Vw9fH2SWdvoJmTTXf2egGp%2Bviw&rqlang=cn&rsv_dl=tb&rsv_enter=0&rsv_btype=t"
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
@@ -38,23 +38,23 @@ query_entry.pack()
 
 # 定义搜索函数
 def search():
-    # 获取关键词
+   # 获取关键词
     query = query_entry.get()
 
-    # 爬取搜索结果
+   # 爬取搜索结果
     search_results = fetch_search_results(query)
 
-    # 清空搜索结果框
+   # 清空搜索结果框
     result_text.delete(1.0, tk.END)
 
-    # 显示搜索结果
+   # 显示搜索结果
     result_text.insert(tk.END, f"\n以下是 {query} 来自百度的搜索结果\n可以复制链接到浏览器访问结果\n\n")
     for i, result in enumerate(search_results):
         title = result["title"]
         link = result["link"]
         result_text.insert(tk.END, f"{i+1}. {title}\n{link}\n\n")
 
-    # 清空关键词输入框
+   # 清空关键词输入框
     query_entry.delete(0, tk.END)
 
 # 创建搜索按钮

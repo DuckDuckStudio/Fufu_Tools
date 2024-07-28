@@ -63,7 +63,7 @@ first_time = True
 def toggle_auto_press():
     global auto_pressing
     global first_time
-    # 切换自动按键状态
+   # 切换自动按键状态
     auto_pressing = not auto_pressing
     if first_time:
         print("自动按键 已开始", end="")# 首次按下F8必定是开始自动按键
@@ -79,7 +79,7 @@ def auto_press():
         if auto_pressing:
             pyautogui.press(key)
             time.sleep(click_interval)
-        # 这里稍微延迟一下，减少CPU使用率
+       # 这里稍微延迟一下，减少CPU使用率
         time.sleep(0.01)
 
 # 绑定F8键，用于切换自动按键状态

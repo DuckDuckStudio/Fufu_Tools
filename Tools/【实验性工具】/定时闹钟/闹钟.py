@@ -7,7 +7,7 @@ os.system("cls") #去除pygame的社区输出
 
 def print_progress_bar(percentage):
     """打印进度条"""
-    bar_length = 50  # 进度条的长度
+    bar_length = 50 # 进度条的长度
     block = int(round(bar_length * percentage))
     text = "\r进度: [{0}] {1}%".format("#" * block + "-" * (bar_length - block), round(percentage * 100, 2))
     print(text, end='')
@@ -34,7 +34,7 @@ if len(mp3_files) == 1:
     while True:
         now = datetime.now()
         elapsed_seconds = (now - (target_time - timedelta(seconds=total_seconds))).total_seconds()
-        percentage = min(elapsed_seconds / total_seconds, 1.0)  # 限制百分比为最大值为1.0
+        percentage = min(elapsed_seconds / total_seconds, 1.0) # 限制百分比为最大值为1.0
         print_progress_bar(percentage)
 
         if now >= target_time:
@@ -46,7 +46,7 @@ if len(mp3_files) == 1:
             mixer.music.stop()
             break
 
-        time.sleep(1)  # 每1秒更新一次进度条
+        time.sleep(1) # 每1秒更新一次进度条
 else:
     print("未找到铃声文件或铃声文件不唯一。")
 

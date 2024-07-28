@@ -62,7 +62,7 @@ print(f"{Fore.GREEN}一共找到了{Fore.BLUE}{acount}{Fore.GREEN}个py/pyw文�
 
 # 函数：记录日志并添加分隔线
 def log_message(message, log_file):
-    # 日志中不应存在颜色
+   # 日志中不应存在颜色
     message = f"{message}"
     log_file.write(message + "\n")
     log_file.write("-" * 50 + "\n") # 添加分隔线
@@ -70,7 +70,7 @@ def log_message(message, log_file):
 
 def out_put(message, success=True):
     global fail
-    # 改变控制台输出颜色
+   # 改变控制台输出颜色
     if success:
         print(Fore.GREEN + message)
     else:
@@ -134,11 +134,11 @@ def package_pyw(file_path, log_file="None"):
 if log_path == "None":
     failed_files = [] # 存储打包失败的文件名
 
-    # 遍历文件夹中的所有文件
+   # 遍历文件夹中的所有文件
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             file_path = os.path.join(root, file)
-            # 根据文件后缀选择打包方式
+           # 根据文件后缀选择打包方式
             if file.endswith(".py"):
                 failed_file = package_py(file_path)
                 if failed_file:
@@ -153,11 +153,11 @@ else:
 
         failed_files = [] # 存储打包失败的文件名
 
-        # 遍历文件夹中的所有文件
+       # 遍历文件夹中的所有文件
         for root, dirs, files in os.walk(folder_path):
             for file in files:
                 file_path = os.path.join(root, file)
-                # 根据文件后缀选择打包方式
+               # 根据文件后缀选择打包方式
                 if file.endswith(".py"):
                     failed_file = package_py(file_path, log_file)
                     if failed_file:
@@ -177,7 +177,7 @@ if fail != 0:
         message=f'打包完成，一共炸了{fail}次。',
         timeout=10
     )
-    # 输出打包失败的文件
+   # 输出打包失败的文件
     print("以下文件打包失败：")
     for failed_file in failed_files:
         print(failed_file)

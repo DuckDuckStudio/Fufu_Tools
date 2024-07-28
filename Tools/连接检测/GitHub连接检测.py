@@ -75,7 +75,7 @@ while True:
 
     flag = check_wlan() # checking connection and assign flag
 
-    # Wait for next check
+   # Wait for next check
     print("-------------------")
     if flag:
         print("已连接上GitHub，程序自动结束。") 
@@ -85,7 +85,7 @@ while True:
             print("\r还有{}秒进行下一次测试...".format(i), end="")
             time.sleep(1)
 
-    # Cross-platform method to clear the console
+   # Cross-platform method to clear the console
     os.system('cls' if os.name == 'nt' else 'clear')
     
 # INFO 日志
