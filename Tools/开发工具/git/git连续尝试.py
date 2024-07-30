@@ -69,7 +69,7 @@ def main():
             print(f"{Fore.GREEN}✓{Fore.RESET} 运行成功！！")
             notification.notify(
                 title='芙芙工具箱 | git连续尝试',
-                message=f'运行成功',
+                message=f'仓库 {os.path.basename(working_dir)} 运行成功',
                 timeout=10
             )
             break
@@ -87,7 +87,7 @@ def main():
             print(f"原因: {Fore.RED}{output}{Fore.RESET}")
             notification.notify(
                 title='芙芙工具箱 | git连续尝试',
-                message=f'检测到非网络错误，请注意！',
+                message=f'仓库 {os.path.basename(working_dir)} 检测到非网络错误，请注意！',
                 timeout=10
             )
             t = input("请确认是否继续尝试: ")
