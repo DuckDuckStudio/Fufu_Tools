@@ -1,5 +1,4 @@
 import os
-import sys
 import time
 import subprocess
 import tkinter as tk
@@ -67,7 +66,7 @@ def main():
             print(f"{Fore.GREEN}✓{Fore.RESET} 推送成功！！")
             notification.notify(
                 title='芙芙工具箱 | 连续推送尝试',
-                message=f'推送成功！',
+                message=f'仓库 {os.path.basename(working_dir)} 推送成功！',
                 timeout=10
             )
             break
@@ -85,7 +84,7 @@ def main():
             print(f"原因: {Fore.RED}{push_output}{Fore.RESET}")
             notification.notify(
                 title='芙芙工具箱 | 连续推送尝试',
-                message=f'检测到非网络错误，请注意！',
+                message=f'仓库 {os.path.basename(working_dir)} 检测到非网络错误，请注意！',
                 timeout=10
             )
             t = input("请确认是否继续尝试: ")
