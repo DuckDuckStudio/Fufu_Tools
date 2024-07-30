@@ -1,8 +1,9 @@
 import os
+import sys
 from colorama import init, Fore
 
 init(autoreset=True)
-os.chdir(os.path.dirname(os.path.abspath(__file__))) # 避免意外的输出位置
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
 print("感谢你使用本程序")
 print("(本程序仅查找含有指定文本的文件)")

@@ -1,5 +1,7 @@
 import os
-os.chdir(os.path.dirname(os.path.abspath(__file__))) # 避免意外的输出位置
+import sys
+
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
 print("感谢你使用本程序")
 print("(本程序仅查找相同名称的文件，不限格式)")
