@@ -24,17 +24,21 @@ def open_program(program_path):
         except Exception as e:
             messagebox.showerror("错误", f"无法打开: {e}")
         sys.exit()# 结束后退出
-    else:
-        if program_path == "https://github.com/DuckDuckStudio/Fufu_Tools/issues":
-            messagebox.showinfo("提示", "在反馈问题前请先查阅文档中是否已列出解决办法！")
-        # ---
-        try:
-            os.startfile(program_path)
-        except AttributeError:
-            # os.startfile() 在 Unix 系统上不可用
-            os.system(f'start {program_path}')
-        except Exception as e:
-            messagebox.showerror("错误", f"无法打开: {e}")
+    elif program_path == "CheckINFO":
+        if messagebox.askyesno("芙芙工具箱", "是否在本地保存相关信息?"):
+            program_path = ".\\Check_INFO_save.bat"
+        else:
+            program_path = ".\\Check_INFO.bat"
+    elif program_path == "https://github.com/DuckDuckStudio/Fufu_Tools/issues":
+        messagebox.showinfo("提示", "在反馈问题前请先查阅文档中是否已列出解决办法！")
+    # ---
+    try:
+        os.startfile(program_path)
+    except AttributeError:
+        # os.startfile() 在 Unix 系统上不可用
+        os.system(f'start {program_path}')
+    except Exception as e:
+        messagebox.showerror("错误", f"无法打开: {e}")
 
 # 创建类别内容的函数
 def show_category(container, programs):
@@ -215,14 +219,13 @@ categories = {
     "关于芙芙工具箱": {
         "检查版本": ".\\Show_version.exe",
         "另存配置文件": ".\\temporarily\\config-save.exe",
-        "打开安装文件夹": os.getcwd(),
-        "访问文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
-        "访问官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
-        "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
+        "安装文件夹": os.getcwd(),
+        "程序文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
+        "程序官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
+        "作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
         "检查更新": ".\\【测试】更新信息提示程序（后台）.exe",
-        "查看最新开源许可文件": "https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE",
-        "信息确认": ".\\Check_INFO.bat",
-        "信息确认(导出)": ".\\Check_INFO_save.bat",
+        "最新开源许可文件": "https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE",
+        "信息确认": "CheckINFO",
         "问题反馈": "https://github.com/DuckDuckStudio/Fufu_Tools/issues",
         # ONLY FOR EXE SETUP
         "卸载": ".\\unins000.exe",
