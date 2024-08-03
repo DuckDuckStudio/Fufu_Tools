@@ -41,6 +41,11 @@ def open_program(program_path):
             link = "从开始菜单中移除"
             messagebox.showinfo("提示", "已将芙芙工具箱添加进开始菜单中！")
         return # 不执行接下来的打开代码
+    elif program_path == "CheckINFO":
+        if messagebox.askyesno("芙芙工具箱", "是否在本地保存相关信息?"):
+            program_path = ".\\Check_INFO_save.bat"
+        else:
+            program_path = ".\\Check_INFO.bat"
     # ---
     try:
         os.startfile(program_path)
@@ -231,14 +236,13 @@ categories = {
         "检查版本": ".\\Show_version.py",
         "修改开始菜单图标": "link",
         "另存配置文件": ".\\temporarily\\config-save.py",
-        "打开安装文件夹": os.path.dirname(os.path.abspath(__file__)),
-        "访问文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
-        "访问官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
-        "访问作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
+        "安装文件夹": os.path.dirname(os.path.abspath(__file__)),
+        "程序文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
+        "程序官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
+        "作者网站": "https://duckduckstudio.github.io/yazicbs.github.io/zh_cn/index.html",
         "检查更新": ".\\【测试】更新信息提示程序（后台）.pyw",
-        "查看最新开源许可文件": "https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE",
-        "信息确认": ".\\Check_INFO.bat",
-        "信息确认(导出)": ".\\Check_INFO_save.bat",
+        "最新开源许可文件": "https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE",
+        "信息确认": "CheckINFO",
         "问题反馈": "https://github.com/DuckDuckStudio/Fufu_Tools/issues",
     },
     # 更多类别和程序...
