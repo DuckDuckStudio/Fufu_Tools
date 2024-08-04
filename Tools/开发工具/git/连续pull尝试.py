@@ -72,7 +72,7 @@ def main():
             break
         elif is_network_error(pull_output):
             print(f"{Fore.YELLOW}⚠{Fore.RESET} 第 {Fore.BLUE}{counter}{Fore.RESET} 次拉取尝试失败")
-            print(f"原因: {Fore.RED}{pull_output}{Fore.RESET}")
+            print(f"原因:\n{Fore.RED}{pull_output}{Fore.RESET}")
             temp = time_counter
             for i in range(time_counter, 0, -1):
                 print(f"\r{i}秒后重试...", end="")
@@ -81,7 +81,7 @@ def main():
             time_counter = temp # 还原秒数设置
         else:
             print(f"{Fore.RED}✕{Fore.RESET} 第 {Fore.BLUE}{counter}{Fore.RESET} 次拉取尝试失败，出现了非已知网路问题\n{Fore.BLUE}[提示]{Fore.RESET} 如果你确定这是网络问题，请提交issue或者PR，感谢！")
-            print(f"原因: {Fore.RED}{pull_output}{Fore.RESET}")
+            print(f"原因:\n{Fore.RED}{pull_output}{Fore.RESET}")
             notification.notify(
                 title='芙芙工具箱 | 连续拉取尝试',
                 message=f'仓库 {os.path.basename(working_dir)} 检测到非网络错误，请注意！',
