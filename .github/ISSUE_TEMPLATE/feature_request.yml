@@ -15,6 +15,12 @@ body:
       required: true
   - type: textarea
     attributes:
+      label: 为什么需要实现此功能 (可选)
+      placeholder: 告诉我们为什么需要这个功能？能带来什么好处？ (建议填写此字段，这对实施很有帮助!)
+    validations:
+      required: false
+  - type: textarea
+    attributes:
       label: 对于实施该功能的方法的建议 (可选)
       placeholder: 建议我们如何实现这一点 (建议填写此字段，这对实施很有帮助!)
     validations:
