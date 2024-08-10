@@ -11,7 +11,7 @@ chcp >> "INFO.txt"
 echo --- System version --- >> "INFO.txt"
 ver >> "INFO.txt"
 
-echo --- System Bits --- >> "INFO.txt"
+echo --- System Architecture --- >> "INFO.txt"
 set TheBit=x%PROCESSOR_ARCHITECTURE:~-2%
 echo  %TheBit% >> "INFO.txt"
 
