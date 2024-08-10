@@ -16,4 +16,4 @@ print("-> Code by 鸭鸭「カモ」/ DuckStudio")
 print(f"Version: v{mvn}-{sorn}")
 print("-------------------------------------")
 
-input("按 任意 键继续...")
+input("按 Enter 键继续...")
