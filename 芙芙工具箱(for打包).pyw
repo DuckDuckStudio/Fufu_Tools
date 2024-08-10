@@ -37,7 +37,7 @@ def open_program(program_path):
         else:
             program_path = ".\\Check_INFO.bat"
     elif program_path == "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/online_tools/index.html":
-        messagebox.showinfo("提示", "在线工具需要链接网络才能使用，请确认网络已链接！")
+        messagebox.showinfo("提示", "在线工具需要连接网络才能使用，请确认网络已链接！")
         # 继续 ↓
     # ---
     try:
