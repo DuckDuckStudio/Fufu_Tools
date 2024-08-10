@@ -32,7 +32,7 @@ def open_program(program_path):
     elif program_path == "https://github.com/DuckDuckStudio/Fufu_Tools/issues":
         messagebox.showinfo("提示", "在反馈问题前请先查阅文档中是否已列出解决办法！")
     elif program_path == "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/online_tools/index.html":
-        messagebox.showinfo("提示", "在线工具需要链接网络才能使用，请确认网络已链接！")
+        messagebox.showinfo("提示", "在线工具需要连接网络才能使用，请确认网络已链接！")
         # 继续 ↓
     # ---
     try:
