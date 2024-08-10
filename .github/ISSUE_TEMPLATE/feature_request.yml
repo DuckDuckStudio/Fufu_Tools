@@ -1,0 +1,21 @@
+name: "🚀 新功能请求 / 想法"
+title: "[Feat]: "
+description: 提出新功能或改进建议 (这并不意味着你必须实现它)。
+labels: ["新功能","DEV-需要注意"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您抽出时间与我们讨论新功能的想法！
+  - type: textarea
+    attributes:
+      label: 对新功能/建议的描述
+      placeholder: 告诉我们你想实现什么。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 对于实施该功能的方法的建议 (可选)
+      placeholder: 建议我们如何实现这一点 (建议填写此字段，这对实施很有帮助!)
+    validations:
+      required: false
