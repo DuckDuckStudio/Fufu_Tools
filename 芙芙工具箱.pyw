@@ -46,6 +46,9 @@ def open_program(program_path):
             program_path = ".\\Check_INFO_save.bat"
         else:
             program_path = ".\\Check_INFO.bat"
+    elif program_path == "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/online_tools/index.html":
+        messagebox.showinfo("提示", "在线工具需要链接网络才能使用，请确认网络已链接！")
+        # 继续 ↓
     # ---
     try:
         os.startfile(program_path)
@@ -223,6 +226,7 @@ categories = {
         "水下音效": ".\\Tools\\【实验性工具】\\水下音效\\main.html",
         "[Warn]水下音效": ".\\Tools\\【实验性工具】\\水下音效\\Warn.txt",
         "去除html注释&删除空行": ".\\Tools\去除代码注释\\[实验性]remove_html_comments_noenter.py",
+        "在线工具": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/online_tools/index.html",
     },
     "开发工具": {
         "总调用": ".\\Tools\\开发工具\\总调用.py",
