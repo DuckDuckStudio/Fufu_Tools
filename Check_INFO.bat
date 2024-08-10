@@ -6,7 +6,7 @@ chcp
 echo --- System version ---
 ver
 
-echo --- System Bits ---
+echo --- System Architecture ---
 set TheBit=x%PROCESSOR_ARCHITECTURE:~-2%
 echo  %TheBit%
 

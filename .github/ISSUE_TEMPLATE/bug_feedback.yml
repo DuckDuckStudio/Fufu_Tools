@@ -1,0 +1,100 @@
+name: '🐛 BUG反馈'
+description: 向我们反馈你遇到的错误
+title: "[BUG]: "
+labels: ["bug", "DEV-需要注意", "DEV-未经测试"]
+body:
+  - type: checkboxes
+    attributes:
+      label: 在继续之前，请确认以下内容
+      description: 在发布您的问题之前，请确认以下内容。
+      options:
+        - label: 我已经搜索过已存在的问题，并没有存在相同的正在进行中/重复/已解决的问题
+          required: true
+        - label: 如果该问题在预览版中被解决，我没有被告知
+          required: true
+  - type: dropdown
+    attributes:
+      label: 选择一个问题类别
+      description: 你遇到了什么样的问题?
+      options:
+        - 安装问题
+        - 依赖问题
+        - 使用问题
+        - 在线工具相关问题
+        - winget相关问题
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 描述你遇到的问题
+      placeholder: 请在此简要描述您的问题
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 描述如何重现你遇到的问题
+      placeholder: 如何重现该问题？(填写此字段对问题调查很有帮助!)
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 实际行为
+      placeholder: 你遇到的情况是什么样的
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 预期行为
+      placeholder: 正常情况下应该是什么样的
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 确认相关信息
+      description: 请将你运行 `关于芙芙工具箱` > `信息确认` 和 `ffdev version` 的输出粘贴到这里
+      placeholder: |
+        [信息确认]
+        --- Console used encoding ---
+        Active code page: <code>
+        --- System version ---
+
+        Microsoft Windows [Version <version>]
+        --- System Architecture ---
+        <architecture>
+        --- Fufu Tools version ---
+        --------------芙芙工具箱--------------
+        -> Code by 鸭鸭「カモ」/ DuckStudio
+        Version: <version>
+        -------------------------------------
+        --- Installed library files ---
+        Package                   Version
+        ------------------------- --------
+        <pachage>                 <version>
+        --- Directory where Fufu Tools is located ---
+        <directory>
+        --- Network connection status ---
+        Connection <status>
+        [INFO] Using IPv6.
+        Connection <status>
+        [INFO] Using IPv4.
+        --- Github connection status ---
+        Connection <status>
+        --- limits of authority ---
+        [Non] administrator.
+        --- System environment ---
+        Python <version>
+        pip <version> from <directory> (python <version>)
+
+        [ffdev version]
+        Version: <version>
+
+      render: raw
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 屏幕截图或日志 (可选)
+      description: 请上传你记录的日志/屏幕截图，因为它们将帮助我们找到问题的根本原因。如果有复现视频最好了！
+    validations:
+      required: false
