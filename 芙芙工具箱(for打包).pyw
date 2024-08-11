@@ -223,8 +223,6 @@ categories = {
         "长度单位转换": ".\\Tools\\【实验性工具】\\知一求多\\单位转换\\长度单位转换.exe",
         "圆的参数计算": ".\\Tools\\【实验性工具】\\知一求多\\圆的参数\\圆的参数计算器.exe",
         "搜索引擎索引检测": ".\\Tools\\【实验性工具】\\搜索\\url搜索引擎收录检测.exe",
-        "水下音效": ".\\Tools\\【实验性工具】\\水下音效\\main.html",
-        "[Warn]水下音效": ".\\Tools\\【实验性工具】\\水下音效\\Warn.txt",
         "去除html注释&删除空行": ".\\Tools\去除代码注释\\[实验性]remove_html_comments_noenter.exe",
         "在线工具": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/online_tools/index.html",
     },
