@@ -65,20 +65,6 @@ def log_message(message, log_file):
     log_file.write(message + "\n")
     log_file.write("-" * 50 + "\n")  # 添加分隔线
 
-
-def out_put(message, success=True):
-    # 改变控制台输出颜色
-    if success:
-        print(Fore.GREEN + message)
-    else:
-        fail = fail + 1
-        notification.notify(
-            title='Pyinstaller快速打包程序提醒您',
-            message=f'打包程序炸啦！到现在一共炸了{fail}次。',
-            timeout=10
-        )
-        print(Fore.RED + message)
-
 # 函数：打包 Python 文件
 def package_py(file_path, file_name, log_file="None"):
     try:
@@ -98,14 +84,20 @@ def package_py(file_path, file_name, log_file="None"):
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
-        out_put(f"打包完成：{file_path}")
-        out_put(f"还剩{acount-fcount}个文件待打包。")
+        print(f"{Fore.GREEN}打包完成：{file_path}")
+        print(f"{Fore.GREEN}还剩{acount-fcount}个文件待打包。")
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
         if log_file != "None":
             log_message(error_message, log_file)
-        out_put(error_message, success=False)
-        out_put(f"还剩{acount-fcount}个文件待打包。")
+        fail = fail + 1
+        notification.notify(
+            title='Pyinstaller快速打包程序提醒您',
+            message=f'打包程序炸啦！到现在一共炸了{fail}次。',
+            timeout=10
+        )
+        print(f"{Fore.RED}{error_message}")
+        print(f"{Fore.GREEN}还剩{acount-fcount}个文件待打包。")
         return file_path
 
 # 函数：打包 Pythonw 文件
@@ -127,14 +119,20 @@ def package_pyw(file_path, file_name, log_file="None"):
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
-        out_put(f"打包完成：{file_path}")
-        out_put(f"还剩{acount-fcount}个文件待打包。")
+        print(f"{Fore.GREEN}打包完成：{file_path}")
+        print(f"{Fore.GREEN}还剩{acount-fcount}个文件待打包。")
     except subprocess.CalledProcessError as e:
         error_message = f"打包失败：{file_path}，错误信息：{e}"
         if log_file != "None":
             log_message(error_message, log_file)
-        out_put(error_message, success=False)
-        out_put(f"还剩{acount-fcount}个文件待打包。")
+        fail = fail + 1
+        notification.notify(
+            title='Pyinstaller快速打包程序提醒您',
+            message=f'打包程序炸啦！到现在一共炸了{fail}次。',
+            timeout=10
+        )
+        print(f"{Fore.RED}{error_message}")
+        print(f"{Fore.GREEN}还剩{acount-fcount}个文件待打包。")
         return file_path
 
 # 打开日志文件，准备记录日志
@@ -207,13 +205,13 @@ for root, dirs, files in os.walk(folder_path):
             file_path = os.path.join(root, file)
             countd = countd + 1
             os.remove(file_path)
-            print(f'已删除源文件: {file_path} (还剩{acount-countd}个源文件)')
+            print(f'{Fore.GREEN}已删除源文件: {file_path} (还剩{acount-countd}个源文件)')
 
 notification.notify(
     title='Pyinstaller快速打包程序提醒您',
     message=f'文件删除完成！总共删除了{countd}个原文件',
     timeout=10
 )
-print(f"文件删除完成！总共删除了{countd}个原文件")
+print(f"{Fore.GREEN}文件删除完成！总共删除了{countd}个原文件")
 
 input ("按 ENTER 键继续...")
