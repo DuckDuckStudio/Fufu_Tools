@@ -59,3 +59,8 @@ bld/
 
 # Visual Studio 2019 directories which contain build results, logs, or module files
 .vs/
+
+# node / npm / JavaScript
+package-lock.json
+package.json
+node_modules/
