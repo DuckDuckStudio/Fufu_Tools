@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 import subprocess
 import tkinter as tk
@@ -32,6 +33,8 @@ def is_network_error(stderr): # 判断错误类型
     return False
 
 def main():
+    exit_code = 0
+
     result = subprocess.run(['git', 'rev-parse', '--is-inside-work-tree'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     if result.returncode == 0:
@@ -90,9 +93,10 @@ def main():
             t = input("请确认是否继续尝试: ")
             if t.lower() not in ["y", "yes", "是", "继续", "确认"]:
                 print(f"{Fore.RED}✕{Fore.RESET} 由于检测到非网络错误，已终止程序")
+                exit_code = 1
                 break
     print(f"{Fore.BLUE}[info]{Fore.RESET} 一共执行了 {Fore.BLUE}{counter}{Fore.RESET} 次pull")
+    return exit_code
 
 if __name__ == "__main__":
-    main()
-    input ("按Enter键退出...")
+    sys.exit(main())
