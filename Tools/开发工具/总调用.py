@@ -20,7 +20,7 @@ if not check_directory.endswith('\\'):
 if not os.path.exists(check_directory):
     print("指定的目录路径不存在，请重新运行程序并输入有效的目录路径。")
     input("按 ENTER 键继续...")
-    exit()
+    sys.exit(1)
 # ----------------------
 
 # --------- 构建调用命令函数 -----------

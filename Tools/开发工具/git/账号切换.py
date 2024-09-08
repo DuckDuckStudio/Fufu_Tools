@@ -8,6 +8,7 @@ from colorama import init, Fore
 init(autoreset=True)
 
 def switch_git_config(alias, fast_switch=False, switch_name=True, switch_email=True):
+    script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
     accounts_file = os.path.join(script_dir, 'accounts.json')
     
     # 读取账号信息
@@ -49,7 +50,7 @@ def switch_git_config(alias, fast_switch=False, switch_name=True, switch_email=T
         else:
             print(f'{Fore.RED}✕{Fore.RESET} 切换失败: {Fore.RED}{result.stderr}{Fore.RESET}')
 
-def edit_json_file():
+def edit_json_file(script_dir):
     accounts_file = os.path.join(script_dir, 'accounts.json')
     
     try:
@@ -71,7 +72,7 @@ def show_git_config():
     else:
         print(f'{Fore.RED}✕{Fore.RESET} 查看邮箱配置失败: {Fore.RED}{result.stderr.strip()}{Fore.RESET}')
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description='账号切换')
     parser.add_argument('--fast', action='store_true', help='快速切换模式')
     parser.add_argument('--edit', action='store_true', help='编辑 accounts.json 文件')
@@ -84,7 +85,7 @@ if __name__ == "__main__":
     script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
     
     if args.edit:
-        edit_json_file()
+        edit_json_file(script_dir)
     elif args.show:
         show_git_config()
     elif args.alias:
@@ -93,4 +94,8 @@ if __name__ == "__main__":
         switch_git_config(args.alias, args.fast, switch_name, switch_email)
     else:
         print(f"{Fore.RED}✕{Fore.RESET} 请提供一个别名或者使用 --edit 参数来编辑 accounts.json 文件")
-        sys.exit(1)
+        return 1
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
