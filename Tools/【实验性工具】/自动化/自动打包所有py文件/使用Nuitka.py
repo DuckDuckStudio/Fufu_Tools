@@ -211,7 +211,7 @@ else:
 # 删除指定格式的文件
 for root, dirs, files in os.walk(folder_path):
     for file in files:
-        if file.endswith('.exe') or file.endswith('.exe'):
+        if file.endswith('.py') or file.endswith('.pyw'):
             file_path = os.path.join(root, file)
             countd = countd + 1
             os.remove(file_path)
