@@ -95,6 +95,9 @@ def out_put(message, success=True):
 def package_py(file_path, log_file="None"):
     global fcount
     try:
+        if log_file != "None":
+            log_message(f"\n开始打包：{file_path}", log_file)
+        out_put(f"\n开始打包：{Fore.BLUE}{file_path}{Fore.RESET}")
         output_dir = os.path.dirname(file_path) # 设置输出目录为 Python 文件所在目录
         if icon_path == "None":
             command = f"python -m nuitka --output-dir=\"{output_dir}\" --show-progress --onefile --remove-output --{compile} {file_path}"
@@ -103,22 +106,27 @@ def package_py(file_path, log_file="None"):
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
-        out_put(f"打包完成：{file_path}")
+        out_put(f"打包完成：{Fore.BLUE}{file_path}{Fore.RESET}")
         fcount += 1
-        out_put(f"还剩{acount-fcount}个文件待打包。")
+        out_put(f"还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
     except subprocess.CalledProcessError as e:
-        error_message = f"打包失败：{file_path}，错误信息：{e}"
+        error_message = f"打包 {Fore.BLUE}{file_path}{Fore.RED} 时出错:\n{e}"
         if log_file != "None":
             log_message(error_message, log_file)
         out_put(error_message, success=False)
         fcount += 1
-        out_put(f"还剩{acount-fcount}个文件待打包。")
+        out_put(f"还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
+        if input(f"{Fore.BLUE}?{Fore.RESET} 是否继续打包 [Y/N]:").lower() not in ["y", "yes", "是", "继续"]:
+            sys.exit(1)
         return file_path
 
 # 函数：打包 Pythonw 文件
 def package_pyw(file_path, log_file="None"):
     global fcount
     try:
+        if log_file != "None":
+            log_message(f"\n开始打包：{file_path}", log_file)
+        out_put(f"\n开始打包：{Fore.BLUE}{file_path}{Fore.RESET}")
         output_dir = os.path.dirname(file_path) # 设置输出目录为 Pythonw 文件所在目录
         if icon_path == "None":
             command = f"python -m nuitka --disable-console --plugin-enable=tk-inter --output-dir=\"{output_dir}\" --show-progress --onefile --remove-output --{compile} {file_path}"
@@ -127,16 +135,18 @@ def package_pyw(file_path, log_file="None"):
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
-        out_put(f"打包完成：{file_path}")
+        out_put(f"打包完成：{Fore.BLUE}{file_path}{Fore.RESET}")
         fcount += 1
-        out_put(f"还剩{acount-fcount}个文件待打包。")
+        out_put(f"还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
     except subprocess.CalledProcessError as e:
-        error_message = f"打包失败：{file_path}，错误信息：{e}"
+        error_message = f"打包 {Fore.BLUE}{file_path}{Fore.RED} 时出错:\n{e}"
         if log_file != "None":
             log_message(error_message, log_file)
         out_put(error_message, success=False)
         fcount += 1
-        out_put(f"还剩{acount-fcount}个文件待打包。")
+        out_put(f"还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
+        if input(f"{Fore.BLUE}?{Fore.RESET} 是否继续打包 [Y/N]:").lower() not in ["y", "yes", "是", "继续"]:
+            sys.exit(1)
         return file_path
 
 # 打开日志文件，准备记录日志
