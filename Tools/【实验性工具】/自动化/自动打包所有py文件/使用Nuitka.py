@@ -95,6 +95,9 @@ def out_put(message, success=True):
 def package_py(file_path, log_file="None"):
     global fcount
     try:
+        if log_file != "None":
+            log_message(f"开始打包：{file_path}", log_file)
+        out_put(f"开始打包：{file_path}")
         output_dir = os.path.dirname(file_path) # 设置输出目录为 Python 文件所在目录
         if icon_path == "None":
             command = f"python -m nuitka --output-dir=\"{output_dir}\" --show-progress --onefile --remove-output --{compile} {file_path}"
@@ -102,8 +105,8 @@ def package_py(file_path, log_file="None"):
             command = f"python -m nuitka --output-dir=\"{output_dir}\" --show-progress --windows-icon-from-ico=\"{icon_path}\" --onefile --remove-output --{compile} {file_path}"
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
-            log_message(f"打包完成：{file_path}", log_file)
-        out_put(f"打包完成：{file_path}")
+            log_message(f"打包完成：{file_path}\n", log_file)
+        out_put(f"打包完成：{file_path}\n")
         fcount += 1
         out_put(f"还剩{acount-fcount}个文件待打包。")
     except subprocess.CalledProcessError as e:
@@ -119,6 +122,9 @@ def package_py(file_path, log_file="None"):
 def package_pyw(file_path, log_file="None"):
     global fcount
     try:
+        if log_file != "None":
+            log_message(f"开始打包：{file_path}", log_file)
+        out_put(f"开始打包：{file_path}")
         output_dir = os.path.dirname(file_path) # 设置输出目录为 Pythonw 文件所在目录
         if icon_path == "None":
             command = f"python -m nuitka --disable-console --plugin-enable=tk-inter --output-dir=\"{output_dir}\" --show-progress --onefile --remove-output --{compile} {file_path}"
@@ -126,8 +132,8 @@ def package_pyw(file_path, log_file="None"):
             command = f"python -m nuitka --disable-console --plugin-enable=tk-inter --output-dir=\"{output_dir}\" --show-progress --windows-icon-from-ico=\"{icon_path}\" --onefile --remove-output --{compile} {file_path}"
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
-            log_message(f"打包完成：{file_path}", log_file)
-        out_put(f"打包完成：{file_path}")
+            log_message(f"打包完成：{file_path}\n", log_file)
+        out_put(f"打包完成：{file_path}\n")
         fcount += 1
         out_put(f"还剩{acount-fcount}个文件待打包。")
     except subprocess.CalledProcessError as e:
