@@ -213,6 +213,7 @@ categories = {
         "自动替换指定文本": ".\\Tools\\【实验性工具】\\自动化\\自动替换指定文本\\main.py",
         "Pyinstaller批量打包": ".\\Tools\\【实验性工具】\\自动化\\自动打包所有py文件\\使用Pyinstaller.py",
         "Nuitka批量打包": ".\\Tools\\【实验性工具】\\自动化\\自动打包所有py文件\\使用Nuitka.py",
+        "hosts修改": ".\\Tools\\【实验性工具】\\hosts修改\\调用.py",
         "音频base64编解码": ".\\Tools\\【实验性工具】\\音频处理\\音频base64.py",
         "批量水印添加": ".\\Tools\\【实验性工具】\\图片处理\\批量水印.py",
         "[Warn]批量水印添加": ".\\Tools\\【实验性工具】\\图片处理\\Warn.txt",

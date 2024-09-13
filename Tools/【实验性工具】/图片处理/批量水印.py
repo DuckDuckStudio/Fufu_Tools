@@ -7,11 +7,11 @@ while True:
     image_folder = input("请输入图片文件夹路径：")
     
     if not image_folder:
-        print("[Warn]请输入图片文件夹路径")
+        print("[WARN] 请输入图片文件夹路径")
     elif os.path.exists(image_folder.strip('\"')):
         break
     else:
-        print("[Warn]无效路径")
+        print("[WARN] 无效路径")
 
 #----
 
@@ -29,7 +29,7 @@ while True:
             break
         # 检查文件路径是否存在
         else:
-            print("[Warn]自定义字体文件不存在")
+            print("[WARN] 自定义字体文件不存在")
 
 # 计算水印文字的宽度
 text_width = len(watermark_text) * 25
@@ -83,10 +83,10 @@ def add_watermark(image_path, watermark_text, text_where, move_text):
             watermarked_image.save(save_path)
             # only test on 4032*2268
             if image.width != 4032 or image.height != 2268:
-                print("[Warn] 本工具仅在4032*2268的图片上测试过，其他图片效果可能不理想。\n本张图片大小：",image.width,"*",image.height)
+                print("[WARN] 本工具仅在4032*2268的图片上测试过，其他图片效果可能不理想。\n本张图片大小：",image.width,"*",image.height)
             print(f"[INFO] 水印已成功添加到 {save_path}\n")
         else: # 其他
-            print ("[Warn] 仅支持16:9的图片。错误文件", image_path, "\n")
+            print (f"[WARN] 仅支持16:9的图片。错误文件: {image_path}\n")
 
     except Exception as e:
         print(f"[ERROR] 添加水印时出现错误: {e}")
@@ -97,4 +97,4 @@ for filename in os.listdir(image_folder):
         image_path = os.path.join(image_folder, filename)
         add_watermark(image_path, watermark_text, text_where, move_text)
 
-input("[End]水印添加完毕，按Enter键退出...")
+input("✓ 水印添加完毕，按Enter键退出...")

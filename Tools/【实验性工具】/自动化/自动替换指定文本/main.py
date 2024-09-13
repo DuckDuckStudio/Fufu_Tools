@@ -32,7 +32,7 @@ def replace_text_in_files(folder_path, old_text, new_text):
                 files_modified += 1
 
             except Exception as e:
-                print(Fore.RED + f"\n[ERROR]无法处理文件：{file_path}\n因为： {e}")
+                print(Fore.RED + f"\n[ERROR]无法处理文件: {file_path}\n因为:\n{e}")
                 errors += 1
                 files_processed += 1
 
@@ -48,7 +48,7 @@ if folder_path.endswith('\\'):
     folder_path = folder_path[0:-2]# 去除末尾的\
 
 if not os.path.exists(folder_path):
-    print("指定的目录路径不存在，请重新运行程序并输入有效的目录路径。")
+    print("[ERROR] 指定的目录路径不存在，请重新运行程序并输入有效的目录路径。")
     input("按 ENTER 键继续...")
     exit()
 

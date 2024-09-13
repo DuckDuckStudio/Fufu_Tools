@@ -5,7 +5,7 @@ def extract_audio(video_path, audio_path):
     try:
         # 检查视频文件是否存在
         if not os.path.exists(video_path):
-            raise FileNotFoundError("视频文件不存在")
+            raise FileNotFoundError("[ERROR] 视频文件不存在")
         
         # 检查输出文件夹是否存在
         
@@ -24,8 +24,8 @@ def extract_audio(video_path, audio_path):
         
         print("音频提取完成！")
     
-    except FileNotFoundError as e:
-        print(f"错误：{e}")
+    except Exception as e:
+        print(f"错误: {e}")
 
 # 视频文件路径
 video_path_input = input("视频文件的完整路径是：")

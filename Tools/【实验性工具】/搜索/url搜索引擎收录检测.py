@@ -18,8 +18,8 @@ def check_indexed_in_search_engines(url):
             query = f'site:{url}'
             search_url = f"https://search.yahoo.com/search?p={query}"
         else:
-            print('[ERROR]不支持的搜索引擎(怎么会出现这个错误，不应该啊...)')
-            print('[Warn]啊，被你看到了...如果你看到了这个错误，请在下面这个链接提交Issues：')
+            print('[ERROR] 不支持的搜索引擎(怎么会出现这个错误，不应该啊...)')
+            print('[Warn] 啊，被你看到了...如果你看到了这个错误，请在下面这个链接提交Issues：')
             print('https://github.com/DuckDuckStudio/Fufu_Tools/issues')
             return
 
@@ -47,9 +47,9 @@ def check_indexed_in_search_engines(url):
                 print(f'您的网站 {url} 未在 {search_engine} 中索引')
 
         except requests.RequestException as e:
-            print(f'[ERROR]无法连接到 {search_engine}，请检查您的网络连接。')
+            print(f'[ERROR] 无法连接到 {search_engine}，请检查您的网络连接')
         except Exception as e:
-            print(f'[ERROR]检查 {search_engine} 时发生错误：{e}')
+            print(f'[ERROR] 检查 {search_engine} 时发生错误：{e}')
 
 # 输入要检查的网站 URL
 print("[Warn]由于技术原因，本程序不能保证结果正确。")
