@@ -85,9 +85,9 @@ def package_py(file_path, log_file="None"):
         print(f"\n{Fore.GREEN}开始打包：{Fore.BLUE}{file_path}{Fore.RESET}")
         output_dir = os.path.dirname(file_path) # 设置输出目录为 Python 文件所在目录
         if icon_path == "None":
-            command = f"python -m nuitka --output-dir=\"{output_dir}\" --show-progress --onefile --remove-output --{compile} {file_path}"
+            command = f"python -m nuitka --output-dir=\"{output_dir}\" --show-progress --onefile --remove-output --{compile} \"{file_path}\""
         else:
-            command = f"python -m nuitka --output-dir=\"{output_dir}\" --show-progress --windows-icon-from-ico=\"{icon_path}\" --onefile --remove-output --{compile} {file_path}"
+            command = f"python -m nuitka --output-dir=\"{output_dir}\" --show-progress --windows-icon-from-ico=\"{icon_path}\" --onefile --remove-output --{compile} \"{file_path}\""
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
@@ -119,9 +119,9 @@ def package_pyw(file_path, log_file="None"):
         print(f"\n{Fore.GREEN}开始打包：{Fore.BLUE}{file_path}{Fore.RESET}")
         output_dir = os.path.dirname(file_path) # 设置输出目录为 Pythonw 文件所在目录
         if icon_path == "None":
-            command = f"python -m nuitka --disable-console --plugin-enable=tk-inter --output-dir=\"{output_dir}\" --show-progress --onefile --remove-output --{compile} {file_path}"
+            command = f"python -m nuitka --disable-console --plugin-enable=tk-inter --output-dir=\"{output_dir}\" --show-progress --onefile --remove-output --{compile} \"{file_path}\""
         else:
-            command = f"python -m nuitka --disable-console --plugin-enable=tk-inter --output-dir=\"{output_dir}\" --show-progress --windows-icon-from-ico=\"{icon_path}\" --onefile --remove-output --{compile} {file_path}"
+            command = f"python -m nuitka --disable-console --plugin-enable=tk-inter --output-dir=\"{output_dir}\" --show-progress --windows-icon-from-ico=\"{icon_path}\" --onefile --remove-output --{compile} \"{file_path}\""
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
