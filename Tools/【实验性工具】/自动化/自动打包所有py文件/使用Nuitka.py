@@ -79,6 +79,7 @@ def log_message(message, log_file):
 # 函数：打包 Python 文件
 def package_py(file_path, log_file="None"):
     global fcount
+    global fail
     try:
         if log_file != "None":
             log_message(f"\n开始打包：{file_path}", log_file)
@@ -113,6 +114,7 @@ def package_py(file_path, log_file="None"):
 # 函数：打包 Pythonw 文件
 def package_pyw(file_path, log_file="None"):
     global fcount
+    global fail
     try:
         if log_file != "None":
             log_message(f"\n开始打包：{file_path}", log_file)
