@@ -9,6 +9,7 @@ from configparser import ConfigParser
 shortcut_path = os.path.join(os.path.join(os.getenv('APPDATA'), "Microsoft\\Windows\\Start Menu\\Programs"), "芙芙工具箱.lnk")
 script_path = os.path.dirname(os.path.abspath(sys.argv[0]))
 icon_path = os.path.join(script_path, "ico.ico")
+config_file = os.path.join(script_path, "config.ini")
 
 if os.path.exists(shortcut_path):
     link = "从开始菜单中移除"
@@ -109,7 +110,7 @@ def show_categories():
 
 # ------- 版本更新检查 ------
 config = ConfigParser(comment_prefixes=[])
-config.read("config.ini", encoding='utf-8')
+config.read(config_file, encoding='utf-8')
 aruic = config.get('settings', 'always_run_update_info_check')
 # ARUIC表示always_run_update_info_check = 总是运行更新信息检查
 if aruic == "True":
@@ -123,7 +124,7 @@ if start_count == 0:# 首次启动查看LICENSE文件
 start_count += 1
 start_count = str(start_count)
 config['count']['start_count'] = start_count
-with open("config.ini", 'w') as configfile:
+with open(config_file, 'w') as configfile:
     config.write(configfile)
 # --------------------------
 

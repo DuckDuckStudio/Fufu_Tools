@@ -49,6 +49,9 @@ def open_program(program_path):
     elif program_path == "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/online_tools/index.html":
         messagebox.showinfo("提示", "在线工具需要连接网络才能使用，请确认网络已链接！")
         # 继续 ↓
+    elif program_path == ".\\Tools\\【实验性工具】\\危险区域\\":
+        if not messagebox.askyesno("三思而后行", "如果不是文档或维护者提出使用，请不要使用危险区域的脚本。\n一定要使用?"):
+            return
     # ---
     try:
         os.startfile(program_path)
@@ -226,6 +229,7 @@ categories = {
         "搜索引擎索引检测": ".\\Tools\\【实验性工具】\\搜索\\url搜索引擎收录检测.py",
         "去除html注释&删除空行": ".\\Tools\去除代码注释\\[实验性]remove_html_comments_noenter.py",
         "在线工具": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/online_tools/index.html",
+        "危险区域": ".\\Tools\\【实验性工具】\\危险区域\\",
     },
     "开发工具": {
         "总调用": ".\\Tools\\开发工具\\总调用.py",
