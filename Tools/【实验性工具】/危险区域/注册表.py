@@ -27,6 +27,8 @@ def remove_protocol(protocol_name):
         print(f'[INFO] 协议 "{protocol_name}" 已移除。')
     except FileNotFoundError:
         print(f'[WARN] 找不到协议 "{protocol_name}"。')
+    except PermissionError:
+        print(f'[WARN] 权限不足，请尝试手动移除注册表:\nHKEY_CURRENT_USER\\{key}')
 
 def main():
     sorn = get_version()
@@ -42,9 +44,11 @@ def main():
         'fft': os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[0]))))), app),
     }
 
-    print(f"\n=================\n{protocols}\n=================\n") #debug
-
-    action = input('? 您想注册还是移除协议? [register(r)/remove(d)]: ').strip().lower()
+    while True:
+        action = input('? 您想注册还是移除协议 [register(r)/remove(d)]: ').strip().lower()
+        if action in ['register', 'r', '注册', 'remove', 'd', '移除']:
+            break
+        print('[ERROR] 无效操作。请键入 "注册" 或 "移除"。')
 
     for protocol_name, application_path in protocols.items():
         if action in ['register', 'r', '注册']:
@@ -52,9 +56,6 @@ def main():
         elif action in ['remove', 'd', '移除']:
             # 这里的 d 指 del , 用于与前面的 r 区分
             remove_protocol(protocol_name)
-        else:
-            print('[ERROR] 无效操作。请键入 "注册" 或 "移除"。')
-            return 1
     return 0
 
 if __name__ == '__main__':
