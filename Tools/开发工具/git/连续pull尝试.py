@@ -2,14 +2,11 @@ import os
 import sys
 import time
 import subprocess
-import tkinter as tk
 from plyer import notification
 from tkinter import filedialog
 from colorama import init, Fore
 
-# --- init ---
 init(autoreset=True)
-# ------------
 
 def pull_commits(working_dir): # pull提交
     result = subprocess.run('git pull', shell=True, capture_output=True, text=True, cwd=working_dir)
@@ -41,11 +38,13 @@ def main():
         working_dir = os.getcwd()
         print(f"\r{Fore.GREEN}✓{Fore.RESET} 已自动选择仓库目录: {working_dir}")
     else:
-        root = tk.Tk()
-        root.withdraw()
         print(f"{Fore.BLUE}?{Fore.RESET} 请选择仓库目录", end="")
         working_dir = filedialog.askdirectory()
-        print(f"\r{Fore.GREEN}✓{Fore.RESET} 选择的仓库目录: {working_dir}")
+        if working_dir:
+            print(f"\r{Fore.GREEN}✓{Fore.RESET} 选择的仓库目录: {working_dir}")
+        else:
+            print(f"{Fore.RED}✕{Fore.RESET} 没有指定仓库目录！")
+            return 1 # 直接炸
     
     while True:
         time_counter = input("请输入每次尝试的间隔(秒)：")
@@ -57,7 +56,7 @@ def main():
             else:
                 print(f"{Fore.GREEN}✓{Fore.RESET} 已设置间隔时间: {time_counter}")
                 break
-        except ValueError as e:
+        except ValueError:
             print(f"{Fore.RED}✕{Fore.RESET} 输入的值不合法，必须为一个正整数！")
     
     counter = 0
