@@ -9,10 +9,13 @@ from colorama import init, Fore
 init(autoreset=True)
 
 def run_commits(working_dir, command):
-    result = subprocess.run(command, shell=True, capture_output=True, text=True, cwd=working_dir)
-    if result.returncode == 0:
-        return "successful"
-    else:
+    try:
+        result = subprocess.run(command, shell=True, capture_output=True, text=True, cwd=working_dir)
+        if result.returncode == 0:
+            return "successful"
+        else:
+            return result.stderr
+    except Exception:
         return result.stderr
     
 def is_network_error(stderr): # 判断错误类型

@@ -9,10 +9,13 @@ from colorama import init, Fore
 init(autoreset=True)
 
 def push_commits(working_dir): # push提交
-    result = subprocess.run('git push', shell=True, capture_output=True, text=True, cwd=working_dir)
-    if result.returncode == 0:
-        return "push successful"
-    else:
+    try:
+        result = subprocess.run('git push', shell=True, capture_output=True, text=True, cwd=working_dir)
+        if result.returncode == 0:
+            return "push successful"
+        else:
+            return result.stderr
+    except Exception:
         return result.stderr
 
 def is_network_error(stderr): # 判断错误类型
