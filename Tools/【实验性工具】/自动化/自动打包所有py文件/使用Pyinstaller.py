@@ -67,46 +67,37 @@ def log_message(message, log_file):
     log_file.write(message + "\n")
     log_file.write("-" * 50 + "\n") # 添加分隔线
 
-
-def out_put(message, success=True):
+# 函数：打包 Python 文件
+def package_py(file_path, log_file="None"):
+    global fcount
     global fail
-    # 改变控制台输出颜色
-    if success:
-        print(Fore.GREEN + message)
-    else:
-        fail = fail + 1
+    try:
+        if log_file != "None":
+            log_message(f"\n开始打包：{file_path}", log_file)
+        print(f"\n{Fore.GREEN}开始打包：{Fore.BLUE}{file_path}{Fore.RESET}")
+        output_dir = os.path.dirname(file_path) # 设置输出目录为 Python 文件所在目录
+        if icon_path == "None":
+            command = f"pyinstaller --onefile --distpath=\"{output_dir}\" \"{file_path}\""
+        else:
+            command = f"pyinstaller --onefile -i \"{icon_path}\" --distpath=\"{output_dir}\" \"{file_path}\""
+        subprocess.run(command, shell=True, check=True)
+        if log_file != "None":
+            log_message(f"打包完成: {file_path}", log_file)
+        print(f"{Fore.GREEN}打包完成: {Fore.BLUE}{file_path}{Fore.RESET}")
+        fcount += 1
+        print(f"{Fore.GREEN}还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
+    except subprocess.CalledProcessError as e:
+        if log_file != "None":
+            log_message(f"打包 {file_path} 时出错:\n{e}", log_file)
+        print(f"{Fore.RED}打包 {Fore.BLUE}{file_path}{Fore.RED} 时出错:\n{e}")
+        fail += 1
+        fcount += 1
         notification.notify(
             title='Pyinstaller快速打包程序提醒您',
             message=f'打包程序炸啦！到现在一共炸了{fail}次。',
             timeout=10
         )
-        print(Fore.RED + message)
-
-# 函数：打包 Python 文件
-def package_py(file_path, log_file="None"):
-    global fcount
-    try:
-        if log_file != "None":
-            log_message(f"\n开始打包：{file_path}", log_file)
-        out_put(f"\n开始打包：{Fore.BLUE}{file_path}{Fore.RESET}")
-        output_dir = os.path.dirname(file_path) # 设置输出目录为 Python 文件所在目录
-        if icon_path == "None":
-            command = f"pyinstaller --onefile --distpath={output_dir} {file_path}"
-        else:
-            command = f"pyinstaller --onefile -i \"{icon_path}\" --distpath={output_dir} {file_path}"
-        subprocess.run(command, shell=True, check=True)
-        if log_file != "None":
-            log_message(f"打包完成: {file_path}", log_file)
-        out_put(f"打包完成: {Fore.BLUE}{file_path}{Fore.RESET}")
-        fcount += 1
-        out_put(f"还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
-    except subprocess.CalledProcessError as e:
-        error_message = f"打包 {Fore.BLUE}{file_path}{Fore.RED} 时出错:\n{e}"
-        if log_file != "None":
-            log_message(error_message, log_file)
-        out_put(error_message, success=False)
-        fcount += 1
-        out_put(f"还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
+        print(f"{Fore.GREEN}还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
         if input(f"{Fore.BLUE}?{Fore.RESET} 是否继续打包 [Y/N]:").lower() not in ["y", "yes", "是", "继续"]:
             sys.exit(1)
         return file_path
@@ -114,33 +105,38 @@ def package_py(file_path, log_file="None"):
 # 函数：打包 Pythonw 文件
 def package_pyw(file_path, log_file="None"):
     global fcount
+    global fail
     try:
         if log_file != "None":
             log_message(f"\n开始打包: {file_path}", log_file)
-        out_put(f"\n开始打包: {Fore.BLUE}{file_path}{Fore.RESET}")
+        print(f"\n{Fore.GREEN}开始打包: {Fore.BLUE}{file_path}{Fore.RESET}")
         output_dir = os.path.dirname(file_path) # 设置输出目录为 Pythonw 文件所在目录
         if icon_path == "None":
-            command = f"pyinstaller --noconsole --onefile --distpath={output_dir} {file_path}"
+            command = f"pyinstaller --noconsole --onefile --distpath=\"{output_dir}\" \"{file_path}\""
         else:
-            command = f"pyinstaller --noconsole --onefile -i \"{icon_path}\" --distpath={output_dir} {file_path}"
+            command = f"pyinstaller --noconsole --onefile -i \"{icon_path}\" --distpath=\"{output_dir}\" \"{file_path}\""
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
-        out_put(f"打包完成：{Fore.BLUE}{file_path}{Fore.RESET}")
+        print(f"{Fore.GREEN}打包完成：{Fore.BLUE}{file_path}{Fore.RESET}")
         fcount += 1
-        out_put(f"还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
+        print(f"{Fore.GREEN}还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
     except subprocess.CalledProcessError as e:
-        error_message = f"打包 {Fore.BLUE}{file_path}{Fore.RED} 时出错:\n{e}"
         if log_file != "None":
-            log_message(error_message, log_file)
-        out_put(error_message, success=False)
+            log_message(f"打包 {file_path} 时出错:\n{e}", log_file)
+        print(f"{Fore.RED}打包 {Fore.BLUE}{file_path}{Fore.RED} 时出错:\n{e}")
+        fail += 1
         fcount += 1
-        out_put(f"还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
+        notification.notify(
+            title='Pyinstaller快速打包程序提醒您',
+            message=f'打包程序炸啦！到现在一共炸了{fail}次。',
+            timeout=10
+        )
+        print(f"{Fore.GREEN}还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
         if input(f"{Fore.BLUE}?{Fore.RESET} 是否继续打包 [Y/N]:").lower() not in ["y", "yes", "是", "继续"]:
             sys.exit(1)
         return file_path
 
-# 打开日志文件，准备记录日志
 if log_path == "None":
     failed_files = [] # 存储打包失败的文件名
 
@@ -159,6 +155,7 @@ if log_path == "None":
                     failed_files.append(failed_file)
 else:
     with open(f"{log_path}packaging_log.log", "a") as log_file:
+        # 打开日志文件，准备记录日志
         log_message(f"开始打包，需要打包的文件数量：{acount}", log_file)
 
         failed_files = [] # 存储打包失败的文件名
