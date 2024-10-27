@@ -1,6 +1,6 @@
 ### 检查清单
 - [ ] 有链接Issue吗? -- Resolve  <!--←如有请在这里填写具体链接的议题，例如 #114-->
-- [ ] 你检查过没有其他重复的 [拉取请求](https://github.com/DuckDuckStudio/Fufu_Tools/pulls)吗?
+- [ ] 你检查过没有其他重复的 [拉取请求](https://github.com/DuckDuckStudio/Fufu_Tools/pulls) 吗?
 - [ ] 此拉取请求仅针对一个问题/功能吗?
 - [ ] 你在本地验证过你的修改吗?
 - [ ] 你确定你的描述足以让开发人员理解你的意图以及解决方案?
