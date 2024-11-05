@@ -8,7 +8,7 @@ piexif==1.1.3
 pyautogui==0.9.54
 keyboard==0.13.5
 configparser==7.0.0
-pywin32==306
+pywin32==308
 
 experimental==0.9.7
 pygame==2.6.0
