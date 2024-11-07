@@ -39,7 +39,10 @@ partial class Program
         }
         catch (Exception ex)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"无法读取配置文件：{ex.Message}");
+            Console.ResetColor();
+            Environment.ExitCode = 1;
             return;
         }
 
