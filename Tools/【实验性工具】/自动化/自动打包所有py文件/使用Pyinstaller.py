@@ -154,7 +154,7 @@ if log_path == "None":
                 if failed_file:
                     failed_files.append(failed_file)
 else:
-    with open(f"{log_path}packaging_log.log", "a") as log_file:
+    with open(os.path.join(log_path, "packaging.log"), "a") as log_file:
         # 打开日志文件，准备记录日志
         log_message(f"开始打包，需要打包的文件数量：{acount}", log_file)
 
