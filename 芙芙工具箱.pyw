@@ -4,7 +4,7 @@ import win32com.client
 from tkinter import messagebox
 from configparser import ConfigParser
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))  # 避免意外的输出位置
+os.chdir(os.path.dirname(os.path.abspath(__file__))) # 避免意外的输出位置
 
 # ------ 检测开始菜单图标情况 ----------
 shortcut_path = os.path.join(os.path.join(os.getenv('APPDATA'), "Microsoft\\Windows\\Start Menu\\Programs"), "芙芙工具箱.lnk")

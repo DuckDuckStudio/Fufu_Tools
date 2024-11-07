@@ -35,7 +35,7 @@ for root, dirs, files in os.walk(folder_path):
     for file in files:
         if file.endswith(file_extension):
             file_path = os.path.join(root, file)
-            acount = acount + 1
+            acount += 1
 
 print(f"一共找到 {Fore.BLUE} {acount} {Fore.RESET} 个符合条件的文件。")
 
@@ -44,7 +44,7 @@ for root, dirs, files in os.walk(folder_path):
     for file in files:
         if file.endswith(file_extension):
             file_path = os.path.join(root, file)
-            countd = countd + 1
+            countd += 1
             os.remove(file_path)
             print(f'已删除文件: {file_path} (还剩 {Fore.BLUE} {acount-countd} {Fore.RESET} 个文件)')
 

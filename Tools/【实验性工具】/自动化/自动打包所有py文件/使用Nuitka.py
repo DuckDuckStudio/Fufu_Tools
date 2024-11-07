@@ -59,12 +59,12 @@ for root, dirs, files in os.walk(folder_path):
     for file in files:
         if file.endswith('.py'):
             file_path = os.path.join(root, file)
-            print(Fore.BLUE + f'找到 py 文件: {file_path}')
-            py_acount = py_acount + 1
+            print(f"{Fore.BLUE}找到 py 文件: {file_path}")
+            py_acount += 1
         elif file.endswith('.pyw'):
             file_path = os.path.join(root, file)
-            print(Fore.BLUE + f'找到 pyw 文件: {file_path}')
-            pyw_acount = pyw_acount + 1
+            print(f"{Fore.BLUE}找到 pyw 文件: {file_path}")
+            pyw_acount += 1
         
 acount = py_acount + pyw_acount
 print(f"{Fore.GREEN}一共找到了{Fore.BLUE}{acount}{Fore.GREEN}个py/pyw文件。\n其中有{Fore.BLUE}{py_acount}{Fore.GREEN}个py文件/{Fore.BLUE}{pyw_acount}{Fore.GREEN}个pyw文件。")
@@ -210,7 +210,7 @@ for root, dirs, files in os.walk(folder_path):
     for file in files:
         if file.endswith('.py') or file.endswith('.pyw'):
             file_path = os.path.join(root, file)
-            countd = countd + 1
+            countd += 1
             os.remove(file_path)
             print(f'已删除源文件: {file_path} (还剩{acount-countd}个源文件)')
 
