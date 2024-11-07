@@ -2,7 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-class Program
+partial class Program
 {
     static void Main()
     {
@@ -20,7 +20,7 @@ class Program
             while ((line = sr.ReadLine()) != null)
             {
                 // 使用正则表达式来匹配配置项信息，并且传递 RegexOptions.Compiled 选项
-                Match match = Regex.Match(line, @"^\s*(?<key>\w+)\s*=\s*(?<value>.*)$", RegexOptions.Compiled);
+                Match match = MyRegex().Match(line);
                 if (match.Success)
                 {
                     string key = match.Groups["key"].Value.Trim().ToLower();
@@ -52,4 +52,7 @@ class Program
         Console.WriteLine("按任意键继续...");
         Console.ReadKey();
     }
+
+    [GeneratedRegex(@"^\s*(?<key>\w+)\s*=\s*(?<value>.*)$", RegexOptions.Compiled)]
+    private static partial Regex MyRegex();
 }
