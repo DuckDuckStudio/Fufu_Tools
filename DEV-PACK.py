@@ -229,13 +229,13 @@ for root, dirs, files in os.walk(folder_path):
             file_path = os.path.join(root, file)
             countd += 1
             os.remove(file_path)
-            print(f'{Fore.GREEN}已删除源文件: {file_path} (还剩{acount-countd}个源文件)')
+            print(f'{Fore.GREEN}✓{Fore.RESET} 已删除源文件: {file_path} (还剩 {acount-countd} 个源文件)')
 
 notification.notify(
     title='Pyinstaller快速打包程序提醒您',
     message=f'文件删除完成！总共删除了{countd}个原文件',
     timeout=10
 )
-print(f"{Fore.GREEN}文件删除完成！总共删除了{countd}个原文件")
+print(f"{Fore.GREEN}文件删除完成！总共删除了 {Fore.BLUE}{countd}{Fore.RESET} 个原文件")
 
 input ("按 ENTER 键继续...")
