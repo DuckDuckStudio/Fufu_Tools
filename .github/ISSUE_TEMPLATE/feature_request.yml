@@ -1,6 +1,6 @@
 name: "🚀 新功能请求 / 想法"
 title: "[Feat]: "
-description: 提出新功能或改进建议 (这并不意味着你必须实现它)。
+description: 提出新功能建议 (这并不意味着你必须实现它)。
 labels: ["新功能","DEV-需要注意"]
 body:
   - type: markdown
