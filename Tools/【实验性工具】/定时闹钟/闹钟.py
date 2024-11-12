@@ -1,9 +1,11 @@
 import os
+import sys
 import time
 from datetime import datetime, timedelta
 from pygame import mixer
 
 os.system("cls") #去除pygame的社区输出
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
 def print_progress_bar(percentage):
     """打印进度条"""
@@ -12,8 +14,16 @@ def print_progress_bar(percentage):
     text = "\r进度: [{0}] {1}%".format("#" * block + "-" * (bar_length - block), round(percentage * 100, 2))
     print(text, end='')
 
-user_input = input("请输入提醒时间（例如，15:30或15：30表示今天的15点30分）: ").replace('：', ':')
-hour, minute = map(int, user_input.split(':'))
+while True:
+    user_input = input("请输入提醒时间（例如，15:30或15：30表示今天的15点30分）: ").replace('：', ':')
+    try:
+        hour, minute = map(int, user_input.split(':'))
+        if hour >= 0 and hour <= 23 and minute >= 0 and minute < 60:
+            break
+        else:
+            print("✕ 提醒时间格式不正确")
+    except:
+        print("✕ 提醒时间格式不正确")
 
 now = datetime.now()
 target_time = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
@@ -24,7 +34,14 @@ if target_time < now:
 total_seconds = (target_time - now).total_seconds()
 
 ringtone_dir = './铃声文件'
-files = os.listdir(ringtone_dir)
+
+try:
+    files = os.listdir(ringtone_dir)
+except Exception as e:
+    print("✕ 无法查找铃声文件，请确认铃声文件文件夹是否存在")
+    input("按Enter键继续...")
+    sys.exit(1)
+
 mp3_files = [file for file in files if file.endswith('.mp3')]
 
 if len(mp3_files) == 1:
@@ -48,6 +65,6 @@ if len(mp3_files) == 1:
 
         time.sleep(1) # 每1秒更新一次进度条
 else:
-    print("✕ 未找到铃声文件或铃声文件不唯一。")
+    print("✕ 未找到铃声文件或铃声文件不唯一")
 
 input("按Enter键继续...")
