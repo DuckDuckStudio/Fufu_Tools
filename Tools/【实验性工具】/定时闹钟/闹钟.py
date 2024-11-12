@@ -12,8 +12,16 @@ def print_progress_bar(percentage):
     text = "\r进度: [{0}] {1}%".format("#" * block + "-" * (bar_length - block), round(percentage * 100, 2))
     print(text, end='')
 
-user_input = input("请输入提醒时间（例如，15:30或15：30表示今天的15点30分）: ").replace('：', ':')
-hour, minute = map(int, user_input.split(':'))
+while True:
+    user_input = input("请输入提醒时间（例如，15:30或15：30表示今天的15点30分）: ").replace('：', ':')
+    try:
+        hour, minute = map(int, user_input.split(':'))
+        if hour >= 0 and hour <= 24 and minute >= 0 and minute < 60:
+            break
+        else:
+            print("✕ 提醒时间格式不正确")
+    except:
+        print("✕ 提醒时间格式不正确")
 
 now = datetime.now()
 target_time = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
@@ -48,6 +56,6 @@ if len(mp3_files) == 1:
 
         time.sleep(1) # 每1秒更新一次进度条
 else:
-    print("✕ 未找到铃声文件或铃声文件不唯一。")
+    print("✕ 未找到铃声文件或铃声文件不唯一")
 
 input("按Enter键继续...")
