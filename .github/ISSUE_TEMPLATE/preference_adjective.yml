@@ -1,0 +1,33 @@
+name: "✨ 优化建议"
+title: "[Pref]: "
+description: 提出改进建议 (这并不意味着你必须实现它)。
+labels: ["优化","DEV-需要注意"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您抽出时间与我们讨论关于优化的想法！
+  - type: textarea
+    attributes:
+      label: 是对哪些方面的优化?
+      placeholder: 对某某某工具的优化啊，还是对某某某方面的优化等。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 需要做什么优化?
+      placeholder: 我想让某某工具的效率更高，输出更明显等。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 为什么要这样优化? (可选)
+      placeholder: 告诉我们为什么要这样优化？能带来什么好处？ (建议填写此字段，这对实施很有帮助!)
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: 对于实施该优化的方法的建议 (可选)
+      placeholder: 建议我们如何实现这一点 (建议填写此字段，这对实施很有帮助!)
+    validations:
+      required: false
