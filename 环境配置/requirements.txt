@@ -14,7 +14,7 @@ experimental==0.9.7
 pygame==2.6.1
 pyinstaller==6.11.1
 nuitka==2.5.1
-moviepy==1.0.3
+moviepy==2.0.0
 plyer==2.1.0
 
 chardet==5.2.0
