@@ -13,7 +13,7 @@ pywin32==308
 experimental==0.9.7
 pygame==2.6.1
 pyinstaller==6.11.1
-nuitka==2.5.1
+nuitka==2.5.4
 moviepy==2.1.1
 plyer==2.1.0
 
