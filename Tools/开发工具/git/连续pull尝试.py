@@ -10,7 +10,7 @@ init(autoreset=True)
 
 def pull_commits(working_dir): # pull提交
     try:
-        result = subprocess.run('git pull', shell=True, capture_output=True, text=True, cwd=working_dir)
+        result = subprocess.run(['git', 'pull'], shell=True, capture_output=True, text=True, cwd=working_dir)
         if result.returncode == 0:
             return "pull successful"
         else:
