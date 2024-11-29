@@ -10,7 +10,7 @@ init(autoreset=True)
 
 def push_commits(working_dir): # push提交
     try:
-        result = subprocess.run('git push', shell=True, capture_output=True, text=True, cwd=working_dir)
+        result = subprocess.run(['git', 'push'], shell=True, capture_output=True, text=True, cwd=working_dir)
         if result.returncode == 0:
             return "push successful"
         else:

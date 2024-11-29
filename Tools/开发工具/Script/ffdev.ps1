@@ -5,7 +5,7 @@ param(
 )
 
 $parentDir = Split-Path -Path $PSScriptRoot -Parent
-$version = "2024.10.01.0630"
+$version = "2024.11.27.2000"
 $flag = 0
 
 if ($program -eq "总调用") {
