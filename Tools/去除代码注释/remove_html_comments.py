@@ -19,8 +19,8 @@ def remove_script_style_comments(content):
         return text
     
     # 对<script>和<style>标签内的内容应用replacer函数
-    content = re.sub(r'(<script[\s\S]*?>)([\s\S]*?)(</script>)', replacer, content)
-    content = re.sub(r'(<style[\s\S]*?>)([\s\S]*?)(</style>)', replacer, content)
+    content = re.sub(r'(<script[\s\S]*?>)([\s\S]*?)(</script>)', replacer, content, flags=re.IGNORECASE)
+    content = re.sub(r'(<style[\s\S]*?>)([\s\S]*?)(</style>)', replacer, content, flags=re.IGNORECASE)
     return content
 
 def remove_comments_from_html(file_path):
