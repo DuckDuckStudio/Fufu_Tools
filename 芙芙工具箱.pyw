@@ -193,7 +193,6 @@ categories = {
     },
     "去除代码注释": {
         "Python注释": ".\\Tools\去除代码注释\\remove_python_comments.py",
-        "html注释": ".\\Tools\去除代码注释\\remove_html_comments.py",
         "C风格注释": ".\\Tools\去除代码注释\\remove_c_style_comments.py",
         "批处理(bat)注释": ".\\Tools\去除代码注释\\remove_batch_comments.py",
     },
@@ -227,7 +226,6 @@ categories = {
         "长度单位转换": ".\\Tools\\【实验性工具】\\知一求多\\单位转换\\长度单位转换.pyw",
         "圆的参数计算": ".\\Tools\\【实验性工具】\\知一求多\\圆的参数\\圆的参数计算器.pyw",
         "搜索引擎索引检测": ".\\Tools\\【实验性工具】\\搜索\\url搜索引擎收录检测.py",
-        "去除html注释&删除空行": ".\\Tools\去除代码注释\\[实验性]remove_html_comments_noenter.py",
         "在线工具": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/online_tools/index.html",
         "危险区域": ".\\Tools\\【实验性工具】\\危险区域\\",
     },
