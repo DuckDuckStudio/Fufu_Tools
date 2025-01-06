@@ -16,7 +16,7 @@ jobs:
         run: |
           set -e # 如果出现非零返回码，则退出并失败
           response=$(curl -X POST https://api.github.com/repos/DuckDuckStudio/Fufu_Dev_Tools/dispatches \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Authorization: Bearer ${{ secrets.LICENSE_NOTIFY_TOKEN }}" \
             -d '{"event_type": "license-update"}' \
             -w "%{http_code}" -s -o /dev/null)
           
