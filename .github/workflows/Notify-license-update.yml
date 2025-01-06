@@ -1,0 +1,26 @@
+name: 通知相关仓库更新许可文件
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - LICENSE
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 触发开发工具仓库工作流
+        run: |
+          set -e # 如果出现非零返回码，则退出并失败
+          response=$(curl -X POST https://api.github.com/repos/DuckDuckStudio/Fufu_Dev_Tools/dispatches \
+            -H "Authorization: Bearer ${{ secrets.LICENSE_NOTIFY_TOKEN }}" \
+            -d '{"event_type": "license-update"}' \
+            -w "%{http_code}" -s -o /dev/null)
+          
+          if [ "$response" -ne 200 ] && [ "$response" -ne 204 ]; then
+            echo "工作流运行请求失败，返回: $response"
+            exit 1 # 返回非 200 或 204 时，使工作流失败
+          fi
