@@ -1,0 +1,19 @@
+name: 通知相关仓库更新许可文件
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - LICENSE
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 触发开发工具仓库工作流
+        run: |
+          curl -X POST https://api.github.com/repos/DuckDuckStudio/Fufu_Dev_Tools/dispatches \
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          -d '{"event_type": "license-update"}'
