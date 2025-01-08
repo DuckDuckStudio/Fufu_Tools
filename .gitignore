@@ -19,7 +19,6 @@ src/Tools/开发工具/输出示例.py
 src/Tools/开发工具/Script/本地/
 
 # Test
-src/Tools/【实验性工具】/音频处理/test/
 src/Tools/【实验性工具】/音频处理/__pycache__
 test/
 test.*
