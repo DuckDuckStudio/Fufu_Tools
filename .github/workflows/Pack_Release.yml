@@ -50,19 +50,19 @@ jobs:
           windres src\resource.rc -o src\resource.o
 
           # Tools\创建文件
-          g++ src\Tools\创建文件\创建文件.cxx src\resource.o -o src\Tools\创建文件\创建文件.exe -finput-charset=UTF-8 -fexec-charset=UTF-8
+          clang++ "src\Tools\创建文件\创建文件.cxx" "src\resource.o" -o "src\Tools\创建文件\创建文件.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8
           Remove-Item -Path "src\Tools\创建文件\创建文件.cxx" -Verbose
 
           # Tools\字母大小写互换
-          g++ src\Tools\字母大小写互换\字母大小写互换.cxx src\resource.o -o src\Tools\字母大小写互换\字母大小写互换.exe -finput-charset=UTF-8 -fexec-charset=UTF-8
+          clang++ "src\Tools\字母大小写互换\字母大小写互换.cxx" "src\resource.o" -o "src\Tools\字母大小写互换\字母大小写互换.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8
           Remove-Item -Path "src\Tools\字母大小写互换\字母大小写互换.cxx" -Verbose
 
           # Tools\摩斯密码
           Copy-Item -Path "src\Tools\摩斯密码\源码\编码源码.cxx" -Destination "src\Tools\摩斯密码\编码.cxx" -Verbose
           Copy-Item -Path "src\Tools\摩斯密码\源码\解码源码.cxx" -Destination "src\Tools\摩斯密码\解码.cxx" -Verbose
           Remove-Item -Path "src\Tools\摩斯密码\源码" -Recurse -Verbose
-          g++ src\Tools\摩斯密码\编码.cxx src\resource.o -o src\Tools\摩斯密码\编码.exe -finput-charset=UTF-8 -fexec-charset=UTF-8
-          g++ src\Tools\摩斯密码\解码.cxx src\resource.o -o src\Tools\摩斯密码\解码.exe -finput-charset=UTF-8 -fexec-charset=UTF-8
+          clang++ "src\Tools\摩斯密码\编码.cxx" "src\resource.o" -o "src\Tools\摩斯密码\编码.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8
+          clang++ "src\Tools\摩斯密码\解码.cxx" "src\resource.o" -o "src\Tools\摩斯密码\解码.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8
           Remove-Item -Path "src\Tools\摩斯密码\编码.cxx" -Verbose
           Remove-Item -Path "src\Tools\摩斯密码\解码.cxx" -Verbose
 
