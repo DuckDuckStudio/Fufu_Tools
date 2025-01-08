@@ -3,7 +3,7 @@ import sys
 
 # GitHub Action - Windows 竟然只能输出英文 :(
 
-if len(sys.argv) != 3:
+if not sys.argv[3]: # 如果缺少3个参数中的任意一个参数，使用len(sys.argv)的话会到4
     print("[ERROR] Usage: python xxx.py <New-version> <Type> <Directory>")
     # 例如 python xxx.py v1.0.0 lite 打包时的目录
     sys.exit(1)
