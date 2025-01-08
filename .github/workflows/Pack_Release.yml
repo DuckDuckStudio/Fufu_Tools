@@ -19,13 +19,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.x
-
-      - name: 配置 MSYS2
-        uses: actions/setup-msys2@v2
-        with:
-          msys2-version: 'x86_64'
-          install-packages: 'gcc make'
-
       - name: 安装依赖
         # 环境配置的依赖文件中含有打包所需依赖
         run: |

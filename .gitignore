@@ -25,7 +25,7 @@ test/
 test.*
 
 # C++
-resource.rc
+resource.o
 
 # TEST Output
 src/Tools/【实验性工具】/音频处理/output.txt
