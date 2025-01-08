@@ -19,7 +19,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.x
+
       - name: 安装依赖
+        env:
+          PYTHONIOENCODING: utf-8
         # 环境配置的依赖文件中含有打包所需依赖
         run: |
           pip install -r src\环境配置\requirements.txt
@@ -32,7 +35,7 @@ jobs:
           del "upx-latest.zip"
           tree /a /f
 
-      - name: 复制许可文件移除Git文件
+      - name: 复制许可文件
         run: |
           Copy-Item -Path "LICENSE" -Destination "src\LICENSE" -Verbose
 
@@ -55,8 +58,8 @@ jobs:
           Remove-Item -Path "src\Tools\字母大小写互换\字母大小写互换.cxx" -Verbose
 
           # Tools\摩斯密码
-          Copy-Item -Path "D:\Duckhome\projects\MSVS\Source\Repos\Fufu_Tools\src\Tools\摩斯密码\源码\编码源码.cxx" -Destination "src\Tools\摩斯密码\编码.cxx" -Verbose
-          Copy-Item -Path "D:\Duckhome\projects\MSVS\Source\Repos\Fufu_Tools\src\Tools\摩斯密码\源码\解码源码.cxx" -Destination "src\Tools\摩斯密码\解码.cxx" -Verbose
+          Copy-Item -Path "src\Tools\摩斯密码\源码\编码源码.cxx" -Destination "src\Tools\摩斯密码\编码.cxx" -Verbose
+          Copy-Item -Path "src\Tools\摩斯密码\源码\解码源码.cxx" -Destination "src\Tools\摩斯密码\解码.cxx" -Verbose
           Remove-Item -Path "src\Tools\摩斯密码\源码" -Recurse -Verbose
           g++ src\Tools\摩斯密码\编码.cxx src\resource.o -o src\Tools\摩斯密码\编码.exe -finput-charset=UTF-8 -fexec-charset=UTF-8
           g++ src\Tools\摩斯密码\解码.cxx src\resource.o -o src\Tools\摩斯密码\解码.exe -finput-charset=UTF-8 -fexec-charset=UTF-8
