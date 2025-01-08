@@ -47,22 +47,22 @@ jobs:
 
       - name: 打包 C++ 文件
         run: |
-          windres src/resource.rc -o src/resource.o
+          windres src/resource.rc -o src/resource.o -v
 
           # Tools/创建文件
-          clang++ "src/Tools/创建文件/创建文件.cxx" "src/resource.o" -o "src/Tools/创建文件/创建文件.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8
+          clang++ "src/Tools/创建文件/创建文件.cxx" "src/resource.o" -o "src/Tools/创建文件/创建文件.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8 -v
           Remove-Item -Path "src/Tools/创建文件/创建文件.cxx" -Verbose
 
           # Tools/字母大小写互换
-          clang++ "src/Tools/字母大小写互换/字母大小写互换.cxx" "src/resource.o" -o "src/Tools/字母大小写互换/字母大小写互换.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8
+          clang++ "src/Tools/字母大小写互换/字母大小写互换.cxx" "src/resource.o" -o "src/Tools/字母大小写互换/字母大小写互换.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8 -v
           Remove-Item -Path "src/Tools/字母大小写互换/字母大小写互换.cxx" -Verbose
 
           # Tools/摩斯密码
           Copy-Item -Path "src/Tools/摩斯密码/源码/编码源码.cxx" -Destination "src/Tools/摩斯密码/编码.cxx" -Verbose
           Copy-Item -Path "src/Tools/摩斯密码/源码/解码源码.cxx" -Destination "src/Tools/摩斯密码/解码.cxx" -Verbose
           Remove-Item -Path "src/Tools/摩斯密码/源码" -Recurse -Verbose
-          clang++ "src/Tools/摩斯密码/编码.cxx" "src/resource.o" -o "src/Tools/摩斯密码/编码.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8
-          clang++ "src/Tools/摩斯密码/解码.cxx" "src/resource.o" -o "src/Tools/摩斯密码/解码.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8
+          clang++ "src/Tools/摩斯密码/编码.cxx" "src/resource.o" -o "src/Tools/摩斯密码/编码.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8 -v
+          clang++ "src/Tools/摩斯密码/解码.cxx" "src/resource.o" -o "src/Tools/摩斯密码/解码.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8 -v
           Remove-Item -Path "src/Tools/摩斯密码/编码.cxx" -Verbose
           Remove-Item -Path "src/Tools/摩斯密码/解码.cxx" -Verbose
 
