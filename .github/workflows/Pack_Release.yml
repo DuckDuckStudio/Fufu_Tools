@@ -78,7 +78,7 @@ jobs:
           Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite/Tools/休息一下/自启动设置（For-打包版）.py" -Verbose
 
           # 更新版本号
-          python 自动化脚本/修改版本号.py "${{ github.event.inputs.version }}" "lite" ""Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite"
+          python 自动化脚本/修改版本号.py "${{ github.event.inputs.version }}" "lite" "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite"
 
           # 压缩为 zip
           7z a -tzip "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite.zip" "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite/*"
@@ -101,7 +101,7 @@ jobs:
           Rename-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}/Tools/休息一下/自启动设置（For-打包版）.py" -NewName "自启动设置.py" -Verbose
 
           # 更新版本号
-          python 自动化脚本/修改版本号.py "${{ github.event.inputs.version }}" "pack" ""Release/Fufu_Tools.v${{ github.event.inputs.version }}"
+          python 自动化脚本/修改版本号.py "${{ github.event.inputs.version }}" "pack" "Release/Fufu_Tools.v${{ github.event.inputs.version }}"
 
           python DEV-PACK.py "Release/Fufu_Tools.v${{ github.event.inputs.version }}" "src/ico.ico" "Release/logs/pack" -s
 
@@ -128,7 +128,7 @@ jobs:
           Rename-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe/Tools/休息一下/自启动设置（For-打包版）.py" -NewName "自启动设置.py" -Verbose
 
           # 更新版本号
-          python 自动化脚本/修改版本号.py "${{ github.event.inputs.version }}" "exe" ""Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe"
+          python 自动化脚本/修改版本号.py "${{ github.event.inputs.version }}" "exe" "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe"
 
           python DEV-PACK.py "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe" "src/ico.ico" "Release/logs/exe" -s
 
