@@ -74,6 +74,8 @@ if not log_path:
 elif not log_path.endswith('\\'):
     log_path += '\\'
 
+os.makedirs(log_path, exist_ok=True)
+
 for root, dirs, files in os.walk(folder_path):
     for file in files:
         if file.endswith('.py'):
