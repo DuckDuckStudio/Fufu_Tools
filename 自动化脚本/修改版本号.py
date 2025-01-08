@@ -24,10 +24,10 @@ if not 目录:
     print("[ERROR] 目录不能为空")
     sys.exit(1)
 
-# 如果新版本号以 v 开头，去掉 v
+# 新版本号不应以 v 开头
 if 新版本号.startswith('v'):
-    新版本号 = 新版本号[1:] # 切片
-    print("[WARNING] 新版本号不应以 v 开头，已自动去掉 v")
+    print("[ERROR] 新版本号不应以 v 开头")
+    sys.exit(1)
 
 print(f"[INFO] 新版本号: {新版本号}")
 
