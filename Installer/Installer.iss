@@ -8,7 +8,7 @@ AppPublisherURL=https://duckduckstudio.github.io/yazicbs.github.io/
 AppSupportURL=https://github.com/DuckDuckStudio/Fufu_Tools/issues
 DefaultDirName={autopf}\Fufu_Tools
 DefaultGroupName=芙芙工具箱
-OutputDir=Release
+OutputDir=..\Release
 OutputBaseFilename=Fufu_Tools_Setup.vdevelop.exe
 SetupIconFile=Fufu_Tools_Setup_ico.ico
 LicenseFile=LICENSE
@@ -24,7 +24,7 @@ Name: "japanese"; MessagesFile: "compiler:Languages\Japanese.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "Release\Fufu_Tools.vdevelop-exe\*"; DestDir: "{app}"; Flags: recursesubdirs
+Source: "..\Release\Fufu_Tools.vdevelop-exe\*"; DestDir: "{app}"; Flags: recursesubdirs
 ; 这里的 v 不要去掉，替换版本号时不会替换 v
 
 [Icons]
