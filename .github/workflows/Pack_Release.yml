@@ -122,6 +122,7 @@ jobs:
           Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}" -Recurse -Verbose
 
           # 编译安装程序 - 安装程序版
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/jrsoftware/issrc/main/Files/Languages/Unofficial/ChineseSimplified.isl" -OutFile "C:\Program Files (x86)\Inno Setup 6\Languages\ChineseSimplified.isl"
           iscc "Installer/Installer.iss"
           # 清理工作目录 - 安装程序版
           Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe" -Recurse -Verbose
