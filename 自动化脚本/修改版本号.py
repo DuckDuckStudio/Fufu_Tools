@@ -64,7 +64,7 @@ except Exception as e:
     sys.exit(1)
 
 if 类型 == 'exe':
-    print("[WARNING] 安装程序版还需替换打包安装程序的iss文件中的版本号，接下来将开始处理。")
+    print("[INFO] 安装程序版还需替换打包安装程序的iss文件中的版本号，接下来将开始处理。")
     文件 = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[0]))), "Installer", "Installer.iss")
     try:
         # 读取文件内容
