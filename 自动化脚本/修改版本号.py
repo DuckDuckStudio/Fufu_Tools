@@ -54,7 +54,7 @@ try:
         内容 = f.read()
 
     # 替换文本
-    内容 = 内容.replace('Version: develop-code', f'Version: v{新版本号}-code')
+    内容 = 内容.replace('Version: develop-code', f'Version: v{新版本号}-{类型}')
 
     # 写回文件
     with open(文件, 'w', encoding='utf-8') as f:
