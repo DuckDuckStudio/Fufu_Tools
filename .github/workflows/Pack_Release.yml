@@ -123,6 +123,8 @@ jobs:
 
           # 编译安装程序 - 安装程序版
           iscc "Installer/Installer.iss"
+          # 清理工作目录 - 安装程序版
+          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe" -Recurse -Verbose
 
       - name: 上传构建文件
         uses: actions/upload-artifact@v4
