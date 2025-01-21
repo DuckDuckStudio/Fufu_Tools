@@ -6,7 +6,7 @@
 version: 2
 updates:
   - package-ecosystem: "pip" # See documentation for possible values
-    directory: "/" # Location of package manifests
+    directory: "src/环境配置" # Location of package manifests
     schedule:
       interval: "weekly"
   - package-ecosystem: "github-actions" # See documentation for possible values
