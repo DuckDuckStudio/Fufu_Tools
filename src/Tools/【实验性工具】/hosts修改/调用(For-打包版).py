@@ -1,9 +1,9 @@
 import os
-from pathlib import Path
+import sys
 import subprocess
 
 # 获取当前文件的路径
-current_file_path = Path(__file__)
+current_file_path = os.path.dirname(os.path.abspath(sys.argv[0]))
 
 # 获取当前文件所在的目录
 current_dir = current_file_path.parent

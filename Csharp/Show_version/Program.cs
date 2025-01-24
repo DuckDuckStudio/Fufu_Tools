@@ -7,7 +7,7 @@ partial class Program
     static void Main()
     {
         // 获取当前程序的目录
-        string scriptDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        string? scriptDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException("无法确定脚本所在目录。");
         string configFile = Path.Combine(scriptDir, "config.ini");
 
         // 读取配置文件
@@ -16,8 +16,8 @@ partial class Program
         try
         {
             using StreamReader sr = new(configFile, Encoding.UTF8);
-            string line;
-            while ((line = sr.ReadLine()) != null)
+            string? line;
+            while ((line = sr.ReadLine()) is not null)
             {
                 // 使用正则表达式来匹配配置项信息，并且传递 RegexOptions.Compiled 选项
                 Match match = MyRegex().Match(line);

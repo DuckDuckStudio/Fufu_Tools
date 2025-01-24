@@ -2,7 +2,6 @@ import os
 import sys
 import subprocess
 from colorama import init, Fore
-from plyer import notification
 
 # ------------------------- 警告 -------------------------
 # 本工具仅作为开发人员打包发行版时使用，请勿单独使用！！！！
@@ -11,6 +10,8 @@ from plyer import notification
 # 本工具仅作为开发人员打包发行版时使用，请勿单独使用！！！！
 # 本工具仅作为开发人员打包发行版时使用，请勿单独使用！！！！
 # 本工具仅作为开发人员打包发行版时使用，请勿单独使用！！！！
+
+# Silent 和 参数模式专为 GitHub Action 自动打包流编写，自己用的话请手动输而不是使用参数！
 # -------------------------------------------------------
 
 init(autoreset=True)
@@ -26,9 +27,19 @@ acount = 0 # 总文件个数
 fcount = 0 # 已打包的文件个数
 pyw_acount = 0
 py_acount = 0
+silent = False
 
-# 文件夹路径
-folder_path = input("请输入文件夹路径：")
+if sys.argv[4].lower() in ["-s", "--silent", "silent", "quiet", "-q", "--quiet", "/s", "/q", "/silent", "/quiet"]:
+    silent = True
+    github_action_upx = ["--upx-dir", "D:\\a\\Fufu_Tools\\Fufu_Tools\\upx"] # => --upx-dir D:\a\Fufu_Tools\Fufu_Tools\upx
+else:
+    from plyer import notification
+
+if not sys.argv[1]:
+    # 文件夹路径
+    folder_path = input("请输入文件夹路径：")
+else:
+    folder_path = sys.argv[1]
 
 if folder_path.startswith(("'", '"')) and folder_path.endswith(("'", '"')):
     folder_path = folder_path[1:-1]
@@ -38,11 +49,21 @@ if not folder_path.endswith('\\'):
 
 if not os.path.exists(folder_path):
     print(f"{Fore.RED}✕{Fore.RESET} 指定的目录路径不存在，请重新运行程序并输入有效的目录路径。")
-    input("按 ENTER 键继续...")
+    if not silent:
+        input("按 ENTER 键继续...")
     exit(1)
 
-icon_path = input("请输入图标文件路径：")
-log_path = input("请输入日志文件存放文件夹：")
+if not sys.argv[2]:
+    # 图标文件路径
+    icon_path = input("请输入图标文件路径：")
+else:
+    icon_path = sys.argv[2]
+
+if not sys.argv[3]:
+    # 日志文件存放文件夹
+    log_path = input("请输入日志文件存放文件夹：")
+else:
+    log_path = sys.argv[3]
 
 if not icon_path:
     icon_path = "None"
@@ -55,6 +76,8 @@ if not log_path:
     print(f"{Fore.YELLOW}⚠{Fore.RESET} 将执行无日志打包！")
 elif not log_path.endswith('\\'):
     log_path += '\\'
+
+os.makedirs(log_path, exist_ok=True)
 
 for root, dirs, files in os.walk(folder_path):
     for file in files:
@@ -90,14 +113,20 @@ def package_py(file_path, log_file="None"):
         if os.path.basename(file_path) in ["网络连接检测.py", "GitHub连接检测.py", "使用Pyinstaller.py", "使用Nuitka.py", "连续push尝试.py", "连续pull尝试.py", "git连续尝试.py"]:
             print(f"{Fore.YELLOW}⚠{Fore.RESET} 使用notification！")
             if icon_path == "None":
-                command = f"pyinstaller --hidden-import plyer.platforms.win.notification --onefile --distpath=\"{output_dir}\" \"{file_path}\""
+                command = ["pyinstaller", "--hidden-import", "plyer.platforms.win.notification", "--onefile", "--distpath", output_dir, file_path]
             else:
-                command = f"pyinstaller --hidden-import plyer.platforms.win.notification --onefile -i \"{icon_path}\" --distpath=\"{output_dir}\" \"{file_path}\""
+                if silent:
+                    command = ["pyinstaller", "--hidden-import", "plyer.platforms.win.notification", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path] + github_action_upx
+                else:
+                    command = ["pyinstaller", "--hidden-import", "plyer.platforms.win.notification", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path]
         else:
             if icon_path == "None":
-                command = f"pyinstaller --onefile --distpath=\"{output_dir}\" \"{file_path}\""
+                command = ["pyinstaller", "--onefile", "--distpath", output_dir, file_path]
             else:
-                command = f"pyinstaller --onefile -i \"{icon_path}\" --distpath=\"{output_dir}\" \"{file_path}\""
+                if silent:
+                    command = ["pyinstaller", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path] + github_action_upx
+                else:
+                    command = ["pyinstaller", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path]
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成: {file_path}", log_file)
@@ -110,13 +139,14 @@ def package_py(file_path, log_file="None"):
         print(f"{Fore.RED}打包 {Fore.BLUE}{file_path}{Fore.RED} 时出错:\n{e}")
         fail += 1
         fcount += 1
-        notification.notify(
-            title='Pyinstaller快速打包程序提醒您',
-            message=f'打包程序炸啦！到现在一共炸了{fail}次。',
-            timeout=10
-        )
+        if not silent:
+            notification.notify(
+                title='Pyinstaller快速打包程序提醒您',
+                message=f'打包程序炸啦！到现在一共炸了{fail}次。',
+                timeout=10
+            )
         print(f"{Fore.GREEN}还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
-        if input(f"{Fore.BLUE}?{Fore.RESET} 是否继续打包 [Y/N]:").lower() not in ["y", "yes", "是", "继续"]:
+        if silent or input(f"{Fore.BLUE}?{Fore.RESET} 是否继续打包 [Y/N]:").lower() not in ["y", "yes", "是", "继续"]:
             sys.exit(1)
         return file_path
 
@@ -133,14 +163,20 @@ def package_pyw(file_path, log_file="None"):
         if os.path.basename(file_path) in ["休息一下.pyw", "目录复制.pyw"]:
             print(f"{Fore.YELLOW}⚠{Fore.RESET} 使用notification！")
             if icon_path == "None":
-                command = f"pyinstaller --hidden-import plyer.platforms.win.notification --noconsole --onefile --distpath={output_dir} {file_path}"
+                command = ["pyinstaller", "--hidden-import", "plyer.platforms.win.notification", "--noconsole", "--onefile", "--distpath", output_dir, file_path]
             else:
-                command = f"pyinstaller --hidden-import plyer.platforms.win.notification --noconsole --onefile -i \"{icon_path}\" --distpath={output_dir} {file_path}"
+                if silent:
+                    command = ["pyinstaller", "--hidden-import", "plyer.platforms.win.notification", "--noconsole", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path] + github_action_upx
+                else:
+                    command = ["pyinstaller", "--hidden-import", "plyer.platforms.win.notification", "--noconsole", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path]
         else:
             if icon_path == "None":
-                command = f"pyinstaller --noconsole --onefile --distpath=\"{output_dir}\" \"{file_path}\""
+                command = ["pyinstaller", "--noconsole", "--onefile", "--distpath", output_dir, file_path]
             else:
-                command = f"pyinstaller --noconsole --onefile -i \"{icon_path}\" --distpath=\"{output_dir}\" \"{file_path}\""
+                if silent:
+                    command = ["pyinstaller", "--noconsole", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path] + github_action_upx
+                else:
+                    command = ["pyinstaller", "--noconsole", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path]
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
@@ -153,13 +189,14 @@ def package_pyw(file_path, log_file="None"):
         print(f"{Fore.RED}打包 {Fore.BLUE}{file_path}{Fore.RED} 时出错:\n{e}")
         fail += 1
         fcount += 1
-        notification.notify(
-            title='Pyinstaller快速打包程序提醒您',
-            message=f'打包程序炸啦！到现在一共炸了{fail}次。',
-            timeout=10
-        )
+        if not silent:
+            notification.notify(
+                title='Pyinstaller快速打包程序提醒您',
+                message=f'打包程序炸啦！到现在一共炸了{fail}次。',
+                timeout=10
+            )
         print(f"{Fore.GREEN}还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
-        if input(f"{Fore.BLUE}?{Fore.RESET} 是否继续打包 [Y/N]:").lower() not in ["y", "yes", "是", "继续"]:
+        if silent or input(f"{Fore.BLUE}?{Fore.RESET} 是否继续打包 [Y/N]:").lower() not in ["y", "yes", "是", "继续"]:
             sys.exit(1)
         return file_path
 
@@ -180,7 +217,7 @@ if log_path == "None":
                 if failed_file:
                     failed_files.append(failed_file)
 else:
-    with open(os.path.join(log_path, "packaging.log"), "a") as log_file:
+    with open(os.path.join(log_path, "packaging.log"), "a", encoding="utf-8") as log_file:
         # 打开日志文件，准备记录日志
         log_message(f"开始打包，需要打包的文件数量：{acount}", log_file)
 
@@ -204,23 +241,25 @@ else:
 
 # 提示用户打包完成
 if fail != 0:
-    input(f"打包完成，一共炸了{fail}次。请按 Enter 键继续清除原文件...")
-    notification.notify(
-        title='Pyinstaller快速打包程序提醒您',
-        message=f'打包完成，一共炸了{fail}次。',
-        timeout=10
-    )
+    if not silent:
+        input(f"打包完成，一共炸了{fail}次。请按 Enter 键继续清除原文件...")
+        notification.notify(
+            title='Pyinstaller快速打包程序提醒您',
+            message=f'打包完成，一共炸了{fail}次。',
+            timeout=10
+        )
     # 输出打包失败的文件
     print("以下文件打包失败：")
     for failed_file in failed_files:
         print(failed_file)
 else:
-    notification.notify(
-        title='Pyinstaller快速打包程序提醒您',
-        message=f'打包完成，没炸！',
-        timeout=10
-    )
-    input(f"打包完成，没炸！请按 Enter 键继续清除原文件...")
+    if not silent:
+        notification.notify(
+            title='Pyinstaller快速打包程序提醒您',
+            message=f'打包完成，没炸！',
+            timeout=10
+        )
+        input(f"打包完成，没炸！请按 Enter 键继续清除原文件...")
 
 # 删除指定格式的文件
 for root, dirs, files in os.walk(folder_path):
@@ -231,11 +270,13 @@ for root, dirs, files in os.walk(folder_path):
             os.remove(file_path)
             print(f'{Fore.GREEN}✓{Fore.RESET} 已删除源文件: {file_path} (还剩 {acount-countd} 个源文件)')
 
-notification.notify(
-    title='Pyinstaller快速打包程序提醒您',
-    message=f'文件删除完成！总共删除了{countd}个原文件',
-    timeout=10
-)
+if not silent:
+    notification.notify(
+        title='Pyinstaller快速打包程序提醒您',
+        message=f'文件删除完成！总共删除了{countd}个原文件',
+        timeout=10
+    )
 print(f"{Fore.GREEN}文件删除完成！总共删除了 {Fore.BLUE}{countd}{Fore.RESET} 个原文件")
 
-input ("按 ENTER 键继续...")
+if not silent:
+    input("按 ENTER 键继续...")
