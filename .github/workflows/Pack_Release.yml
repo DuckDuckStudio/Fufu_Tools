@@ -27,12 +27,15 @@ jobs:
         run: |
           pip install -r "src/环境配置/requirements.txt"
           pip list
-          echo =================UPX====================
+          Write-Host "=================UPX===================="
           $upx_url = (Invoke-WebRequest -Uri https://api.github.com/repos/upx/upx/releases/latest).Content | ConvertFrom-Json | Select-Object -ExpandProperty assets | Where-Object { $_.name -like "*win64.zip" } | Select-Object -ExpandProperty browser_download_url
           Write-Host "[INFO] Latest UPX download URL: $upx_url"
           Invoke-WebRequest -Uri $upx_url -OutFile "upx-latest.zip"
-          7z x "upx-latest.zip" -o"."
-          del "upx-latest.zip"
+          7z x "upx-latest.zip" -o"upx"
+          $upx_version = (Get-ChildItem -Path "upx" -Directory | Sort-Object Name -Descending | Select-Object -First 1).Name
+          Move-Item "upx\$upx_version\*" "upx" -Verbose
+          Remove-Item "upx\$upx_version" -Verbose -Recurse
+          Remove-Item "upx-latest.zip" -Verbose
           tree /a /f
 
       - name: 复制许可文件

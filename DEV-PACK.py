@@ -10,6 +10,8 @@ from colorama import init, Fore
 # 本工具仅作为开发人员打包发行版时使用，请勿单独使用！！！！
 # 本工具仅作为开发人员打包发行版时使用，请勿单独使用！！！！
 # 本工具仅作为开发人员打包发行版时使用，请勿单独使用！！！！
+
+# Silent 和 参数模式专为 GitHub Action 自动打包流编写，自己用的话请手动输而不是使用参数！
 # -------------------------------------------------------
 
 init(autoreset=True)
@@ -29,6 +31,7 @@ silent = False
 
 if sys.argv[4].lower() in ["-s", "--silent", "silent", "quiet", "-q", "--quiet", "/s", "/q", "/silent", "/quiet"]:
     silent = True
+    github_action_upx = ["--upx-dir", "D:\\a\\Fufu_Tools\\Fufu_Tools\\upx"] # => --upx-dir D:\a\Fufu_Tools\Fufu_Tools\upx
 else:
     from plyer import notification
 
@@ -110,14 +113,20 @@ def package_py(file_path, log_file="None"):
         if os.path.basename(file_path) in ["网络连接检测.py", "GitHub连接检测.py", "使用Pyinstaller.py", "使用Nuitka.py", "连续push尝试.py", "连续pull尝试.py", "git连续尝试.py"]:
             print(f"{Fore.YELLOW}⚠{Fore.RESET} 使用notification！")
             if icon_path == "None":
-                command = f"pyinstaller --hidden-import plyer.platforms.win.notification --onefile --distpath=\"{output_dir}\" \"{file_path}\""
+                command = ["pyinstaller", "--hidden-import", "plyer.platforms.win.notification", "--onefile", "--distpath", output_dir, file_path]
             else:
-                command = f"pyinstaller --hidden-import plyer.platforms.win.notification --onefile -i \"{icon_path}\" --distpath=\"{output_dir}\" \"{file_path}\""
+                if silent:
+                    command = ["pyinstaller", "--hidden-import", "plyer.platforms.win.notification", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path] + github_action_upx
+                else:
+                    command = ["pyinstaller", "--hidden-import", "plyer.platforms.win.notification", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path]
         else:
             if icon_path == "None":
-                command = f"pyinstaller --onefile --distpath=\"{output_dir}\" \"{file_path}\""
+                command = ["pyinstaller", "--onefile", "--distpath", output_dir, file_path]
             else:
-                command = f"pyinstaller --onefile -i \"{icon_path}\" --distpath=\"{output_dir}\" \"{file_path}\""
+                if silent:
+                    command = ["pyinstaller", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path] + github_action_upx
+                else:
+                    command = ["pyinstaller", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path]
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成: {file_path}", log_file)
@@ -154,14 +163,20 @@ def package_pyw(file_path, log_file="None"):
         if os.path.basename(file_path) in ["休息一下.pyw", "目录复制.pyw"]:
             print(f"{Fore.YELLOW}⚠{Fore.RESET} 使用notification！")
             if icon_path == "None":
-                command = f"pyinstaller --hidden-import plyer.platforms.win.notification --noconsole --onefile --distpath={output_dir} {file_path}"
+                command = ["pyinstaller", "--hidden-import", "plyer.platforms.win.notification", "--noconsole", "--onefile", "--distpath", output_dir, file_path]
             else:
-                command = f"pyinstaller --hidden-import plyer.platforms.win.notification --noconsole --onefile -i \"{icon_path}\" --distpath={output_dir} {file_path}"
+                if silent:
+                    command = ["pyinstaller", "--hidden-import", "plyer.platforms.win.notification", "--noconsole", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path] + github_action_upx
+                else:
+                    command = ["pyinstaller", "--hidden-import", "plyer.platforms.win.notification", "--noconsole", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path]
         else:
             if icon_path == "None":
-                command = f"pyinstaller --noconsole --onefile --distpath=\"{output_dir}\" \"{file_path}\""
+                command = ["pyinstaller", "--noconsole", "--onefile", "--distpath", output_dir, file_path]
             else:
-                command = f"pyinstaller --noconsole --onefile -i \"{icon_path}\" --distpath=\"{output_dir}\" \"{file_path}\""
+                if silent:
+                    command = ["pyinstaller", "--noconsole", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path] + github_action_upx
+                else:
+                    command = ["pyinstaller", "--noconsole", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path]
         subprocess.run(command, shell=True, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
