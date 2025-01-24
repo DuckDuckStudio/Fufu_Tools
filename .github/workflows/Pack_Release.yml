@@ -137,14 +137,14 @@ jobs:
           Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe" -Recurse -Verbose
 
       - name: 上传构建文件
-        if: ${{ github.event_name == 'workflow_run' }}
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: actions/upload-artifact@v4
         with:
           name: Release
           path: Release/**
 
       - name: 发布至发行版
-        if: ${{ github.event_name != 'workflow_run' }}
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         uses: softprops/action-gh-release@v2
         with:
           files: |
@@ -156,7 +156,7 @@ jobs:
             Release/Fufu_Tools.v${{ github.event.inputs.version }}-Extreme_compression.7z
 
       - name: 上传日志文件
-        if: ${{ github.event_name != 'workflow_run' }}
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         uses: actions/upload-artifact@v4
         with:
           name: packaging.log
