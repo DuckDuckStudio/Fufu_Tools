@@ -6,6 +6,8 @@ on:
       version:
         description: 版本号 (不带v)
         required: true
+  release:
+    types: [ released ]
 
 jobs:
   auto-pack-releases:
@@ -135,7 +137,27 @@ jobs:
           Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe" -Recurse -Verbose
 
       - name: 上传构建文件
+        if: ${{ github.event_name == 'workflow_run' }}
         uses: actions/upload-artifact@v4
         with:
           name: Release
           path: Release/**
+
+      - name: 发布至发行版
+        if: ${{ github.event_name != 'workflow_run' }}
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            Release/Fufu_Tools.v${{ github.event.inputs.version }}.zip
+            Release/Fufu_Tools.v${{ github.event.inputs.version }}.7z
+            Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite.zip
+            Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite.7z
+            Release/Fufu_Tools_Setup.v${{ github.event.inputs.version }}.exe
+            Release/Fufu_Tools.v${{ github.event.inputs.version }}-Extreme_compression.7z
+
+      - name: 上传日志文件
+        if: ${{ github.event_name != 'workflow_run' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: packaging.log
+          path: Release/packaging.log
