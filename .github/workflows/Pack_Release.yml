@@ -7,7 +7,7 @@ on:
         description: 版本号 (不带v)
         required: true
   release:
-    types: [ released ]
+    types: [ published ]
 
 jobs:
   auto-pack-releases:
