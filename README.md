@@ -40,7 +40,7 @@ winget install DuckStudio.FufuTools
 支持 _winget_ 安装的版本:  
 
 $$
-1.3.2 \leqslant n \leqslant 1.3.5
+1.3.2 \leqslant n \leqslant 1.3.6
 $$
 
 ### 非官方渠道警告
