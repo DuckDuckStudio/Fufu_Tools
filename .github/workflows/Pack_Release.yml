@@ -9,6 +9,9 @@ on:
   release:
     types: [ published ]
 
+# NOTE
+# 现在遇到的问题是 ${{ github.ref_name }} 为空
+
 jobs:
   auto-pack-releases:
     runs-on: windows-latest
@@ -87,7 +90,11 @@ jobs:
           Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite/Tools/休息一下/自启动设置（For-打包版）.py" -Verbose
 
           # 更新版本号
-          python "自动化脚本/修改版本号.py" "${{ github.event.inputs.version }}" "lite" "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite"
+          if ($env:GITHUB_EVENT_NAME -eq "workflow_dispatch") {
+            python "自动化脚本/修改版本号.py" "${{ github.event.inputs.version }}" "lite" "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite"
+          } else {
+            python "自动化脚本/修改版本号.py" "${{ github.ref_name }}" "lite" "Release/Fufu_Tools.v${{ github.ref_name }}-lite"
+          }
 
           # 压缩为 zip
           7z a -tzip "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite.zip" "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite/*"
@@ -118,8 +125,13 @@ jobs:
           Rename-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe/芙芙工具箱(for安装程序).exe" -NewName "芙芙工具箱.exe" -Verbose
 
           # 更新版本号 - 分离完后再更新版本号，如果后续有修改需要打包的文件的版本号，请在运行 DEV-PACK.py 之前更新版本号
-          python "自动化脚本/修改版本号.py" "${{ github.event.inputs.version }}" "pack" "Release/Fufu_Tools.v${{ github.event.inputs.version }}"
-          python "自动化脚本/修改版本号.py" "${{ github.event.inputs.version }}" "exe" "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe"
+          if ($env:GITHUB_EVENT_NAME -eq "workflow_dispatch") {
+            python "自动化脚本/修改版本号.py" "${{ github.event.inputs.version }}" "pack" "Release/Fufu_Tools.v${{ github.event.inputs.version }}"
+            python "自动化脚本/修改版本号.py" "${{ github.event.inputs.version }}" "exe" "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe"
+          } else {
+            python "自动化脚本/修改版本号.py" "${{ github.ref_name }}" "pack" "Release/Fufu_Tools.v${{ github.ref_name }}"
+            python "自动化脚本/修改版本号.py" "${{ github.ref_name }}" "exe" "Release/Fufu_Tools.v${{ github.ref_name }}-exe"
+          }
 
           # 压缩为 zip - 打包版
           7z a -tzip "Release/Fufu_Tools.v${{ github.event.inputs.version }}.zip" "Release/Fufu_Tools.v${{ github.event.inputs.version }}/*"
@@ -148,12 +160,12 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            Release/Fufu_Tools.v${{ github.event.inputs.version }}.zip
-            Release/Fufu_Tools.v${{ github.event.inputs.version }}.7z
-            Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite.zip
-            Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite.7z
-            Release/Fufu_Tools_Setup.v${{ github.event.inputs.version }}.exe
-            Release/Fufu_Tools.v${{ github.event.inputs.version }}-Extreme_compression.7z
+            Release/Fufu_Tools.v${{ github.ref_name }}.zip
+            Release/Fufu_Tools.v${{ github.ref_name }}.7z
+            Release/Fufu_Tools.v${{ github.ref_name }}-lite.zip
+            Release/Fufu_Tools.v${{ github.ref_name }}-lite.7z
+            Release/Fufu_Tools_Setup.v${{ github.ref_name }}.exe
+            Release/Fufu_Tools.v${{ github.ref_name }}-Extreme_compression.7z
 
       - name: 上传日志文件
         if: ${{ github.event_name != 'workflow_dispatch' }}
