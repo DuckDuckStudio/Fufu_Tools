@@ -9,9 +9,6 @@ on:
   release:
     types: [ published ]
 
-# NOTE
-# 现在遇到的问题是 ${{ github.ref_name }} 为空
-
 jobs:
   auto-pack-releases:
     runs-on: windows-latest
