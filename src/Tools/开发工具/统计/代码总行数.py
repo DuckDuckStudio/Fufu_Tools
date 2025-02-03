@@ -1,4 +1,5 @@
 import os
+import sys
 import argparse
 import configparser
 from colorama import init, Fore
@@ -51,7 +52,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
     config = configparser.ConfigParser()
     config.read('..\\config.ini')
     code_file_extensions = config.get('Statistics', 'CodeFileExtensions')

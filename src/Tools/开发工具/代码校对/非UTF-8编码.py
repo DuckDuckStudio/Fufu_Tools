@@ -2,6 +2,7 @@ import os
 import argparse
 import chardet
 from colorama import init, Fore
+
 init(autoreset=True)
 
 def check_files(directory, file_extensions):

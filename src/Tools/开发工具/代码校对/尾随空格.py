@@ -4,6 +4,8 @@ import argparse
 import chardet
 from colorama import init, Fore
 
+init(autoreset=True)
+
 def check_files(directory, file_extensions=None):
     """
     检查指定目录下的文件是否存在尾随空格。
@@ -43,8 +45,6 @@ def check_files(directory, file_extensions=None):
                 check_files(entry.path)
 
 def main(directory, file_extensions=None):
-    init(autoreset=True)
-
     print(f"{Fore.BLUE}[!]{Fore.RESET} 开始检查{Fore.BLUE}尾随空格{Fore.RESET}。")
 
     # 检查文件

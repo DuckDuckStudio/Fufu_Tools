@@ -16,7 +16,7 @@ def extract_libraries(file_path):
                 warnings.simplefilter("ignore")
                 tree = ast.parse(file.read(), filename=file_path)
                 for warning in w:
-                    if not str(warning.filename).startswith(os.path.abspath(__file__)):
+                    if not str(warning.filename).startswith(os.path.dirname(os.path.abspath(sys.argv[0]))):
                         warnings.warn_explicit(warning.message, warning.category, warning.filename, warning.lineno)
     except SyntaxError as e:
         print(f"{Fore.RED}✕{Fore.RESET} 解析文件 {Fore.BLUE}{file_path}{Fore.RESET} 时出现错误: {Fore.RED}{e}{Fore.RESET}")
