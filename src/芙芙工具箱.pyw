@@ -229,14 +229,6 @@ categories = {
         "在线工具": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/online_tools/index.html",
         "危险区域": ".\\Tools\\【实验性工具】\\危险区域\\",
     },
-    "开发工具": {
-        "总调用": ".\\Tools\\开发工具\\总调用.py",
-        "复制目录": ".\\Tools\\开发工具\\目录复制.pyw",
-        "配置文件": ".\\Tools\\开发工具\\config.ini",
-        "Git连续push尝试": ".\\Tools\\开发工具\\git\\连续push尝试.py",
-        "Git连续pull尝试": ".\\Tools\\开发工具\\git\\连续pull尝试.py",
-        "文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/Dev/",
-    },
     "关于芙芙工具箱": {
         "检查版本": ".\\Show_version.py",
         "修改开始菜单图标": "link",

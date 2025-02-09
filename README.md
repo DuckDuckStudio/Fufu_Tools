@@ -86,7 +86,7 @@ $$
 
 ## 项目公告
 
-*Note:芙芙工具箱目前暂未在win8系统及win server上测试过，如果你使用的是这些系统，我们不能保证其稳定性。*  
+于 1.3.7 起，开发工具独立分发，lite版中将不再带有开发工具，如需获取开发工具，请前往 [芙芙工具箱开发工具仓库](https://github.com/DuckDuckStudio/Fufu_Dev_Tools/releases)。  
 
 ### 开发状况
 [[查看开发规划]](https://github.com/users/DuckDuckStudio/projects/2)  
