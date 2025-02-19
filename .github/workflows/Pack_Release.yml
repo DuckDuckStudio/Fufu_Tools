@@ -6,12 +6,38 @@ on:
       version:
         description: 版本号 (不带v)
         required: true
+  release:
+    types: [ published ]
 
 jobs:
   auto-pack-releases:
     runs-on: windows-latest
 
     steps:
+      - name: 处理版本号
+        shell: pwsh
+        run: |
+          if ($env:GITHUB_EVENT_NAME -eq "workflow_dispatch") {
+            $version = "${{ github.event.inputs.version }}"
+            # 如果版本号以 v 开头，则去掉 v
+            if ($version.StartsWith("v")) {
+              $version = $version.Substring(1)
+            }
+          } else {
+            $version = "${{ github.ref_name }}"
+            # 如果版本号以 refs/tags/ 开头，则去掉 refs/tags/
+            if ($version.StartsWith("refs/tags/")) {
+              $version = $version.Substring(10)
+            }
+            # 如果版本号以 v 开头，则去掉 v
+            if ($version.StartsWith("v")) {
+              $version = $version.Substring(1)
+            }
+          }
+          Write-Host "Version: $version"
+          # 将版本号写入环境变量
+          Write-Output "VERSION=$version" | Out-File $env:GITHUB_ENV -Append
+
       - name: 检出代码
         uses: actions/checkout@v4
 
@@ -45,7 +71,6 @@ jobs:
       - name: 移除Git文件
         run: |
           Remove-Item -Path "src/Tools/【实验性工具】/定时闹钟/铃声文件/.gitkeep" -Verbose
-          Remove-Item -Path "src/Tools/进制转换/进制转换（旧）.cxx" -Verbose
           Remove-Item -Path "src/Tools/WSA小工具（终止更新）" -Recurse -Verbose
 
       - name: 打包 C++ 文件
@@ -68,6 +93,10 @@ jobs:
           clang++ "src/Tools/摩斯密码/解码.cxx" "src/resource.o" -o "src/Tools/摩斯密码/解码.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8 -v
           Remove-Item -Path "src/Tools/摩斯密码/编码.cxx" -Verbose
           Remove-Item -Path "src/Tools/摩斯密码/解码.cxx" -Verbose
+
+          # Tools/进制转换
+          clang++ "src/Tools/进制转换/进制转换.cxx" "src/resource.o" -o "src/Tools/进制转换/进制转换.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8 -v
+          Remove-Item -Path "src/Tools/进制转换/进制转换.cxx" -Verbose
           
           # 移除资源文件
           Remove-Item -Path "src/resource.rc" -Verbose
@@ -78,64 +107,84 @@ jobs:
         env:
           PYTHONIOENCODING: utf-8
         run: |
-          Copy-Item -Path "src" -Destination "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite" -Recurse -Verbose
-          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite/芙芙工具箱(for安装程序).pyw" -Verbose
-          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite/芙芙工具箱(for打包).pyw" -Verbose
-          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite/Tools/【实验性工具】/hosts修改/调用(For-打包版).py" -Verbose
-          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite/Tools/休息一下/自启动设置（For-打包版）.py" -Verbose
+          Copy-Item -Path "src" -Destination "Release/Fufu_Tools.v${{ env.VERSION }}-lite" -Recurse -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}-lite/芙芙工具箱(for安装程序).pyw" -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}-lite/芙芙工具箱(for打包).pyw" -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}-lite/Tools/【实验性工具】/hosts修改/调用(For-打包版).py" -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}-lite/Tools/休息一下/自启动设置（For-打包版）.py" -Verbose
 
           # 更新版本号
-          python "自动化脚本/修改版本号.py" "${{ github.event.inputs.version }}" "lite" "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite"
+          python "自动化脚本/修改版本号.py" "${{ env.VERSION }}" "lite" "Release/Fufu_Tools.v${{ env.VERSION }}-lite"
 
           # 压缩为 zip
-          7z a -tzip "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite.zip" "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite/*"
+          7z a -tzip "Release/Fufu_Tools.v${{ env.VERSION }}-lite.zip" "Release/Fufu_Tools.v${{ env.VERSION }}-lite/*"
           # 压缩为 7z
-          7z a -t7z "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite.7z" "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite/*"
+          7z a -t7z "Release/Fufu_Tools.v${{ env.VERSION }}-lite.7z" "Release/Fufu_Tools.v${{ env.VERSION }}-lite/*"
           # 清理工作目录
-          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-lite" -Recurse -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}-lite" -Recurse -Verbose
 
       - name: 构建打包版与安装程序版
         # 顺便为安装程序版一起打包，打包完复制一份
         env:
           PYTHONIOENCODING: utf-8
         run: |
-          Copy-Item -Path "src" -Destination "Release/Fufu_Tools.v${{ github.event.inputs.version }}" -Recurse -Verbose
-          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}/芙芙工具箱.pyw" -Verbose
-          Rename-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}/芙芙工具箱(for打包).pyw" -NewName "芙芙工具箱.pyw" -Verbose
-          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}/Tools/【实验性工具】/hosts修改/调用.py" -Verbose
-          Rename-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}/Tools/【实验性工具】/hosts修改/调用(For-打包版).py" -NewName "调用.py" -Verbose
-          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}/Tools/休息一下/自启动设置.py" -Verbose
-          Rename-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}/Tools/休息一下/自启动设置（For-打包版）.py" -NewName "自启动设置.py" -Verbose
+          Copy-Item -Path "src" -Destination "Release/Fufu_Tools.v${{ env.VERSION }}" -Recurse -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/芙芙工具箱.pyw" -Verbose
+          Rename-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/芙芙工具箱(for打包).pyw" -NewName "芙芙工具箱.pyw" -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/Tools/【实验性工具】/hosts修改/调用.py" -Verbose
+          Rename-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/Tools/【实验性工具】/hosts修改/调用(For-打包版).py" -NewName "调用.py" -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/Tools/休息一下/自启动设置.py" -Verbose
+          Rename-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/Tools/休息一下/自启动设置（For-打包版）.py" -NewName "自启动设置.py" -Verbose
 
-          python "DEV-PACK.py" "Release/Fufu_Tools.v${{ github.event.inputs.version }}" "src/ico.ico" "Release/logs/pack-exe" -s
+          python "DEV-PACK.py" "Release/Fufu_Tools.v${{ env.VERSION }}" "src/ico.ico" "Release/logs/pack-exe" -s
 
           # 分离安装程序版
-          Copy-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}" -Destination "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe" -Recurse -Verbose
-          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}/芙芙工具箱(for安装程序).exe" -Verbose
-          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe/芙芙工具箱.exe" -Verbose
-          Rename-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe/芙芙工具箱(for安装程序).exe" -NewName "芙芙工具箱.exe" -Verbose
+          Copy-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}" -Destination "Release/Fufu_Tools.v${{ env.VERSION }}-exe" -Recurse -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/芙芙工具箱(for安装程序).exe" -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}-exe/芙芙工具箱.exe" -Verbose
+          Rename-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}-exe/芙芙工具箱(for安装程序).exe" -NewName "芙芙工具箱.exe" -Verbose
 
           # 更新版本号 - 分离完后再更新版本号，如果后续有修改需要打包的文件的版本号，请在运行 DEV-PACK.py 之前更新版本号
-          python "自动化脚本/修改版本号.py" "${{ github.event.inputs.version }}" "pack" "Release/Fufu_Tools.v${{ github.event.inputs.version }}"
-          python "自动化脚本/修改版本号.py" "${{ github.event.inputs.version }}" "exe" "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe"
+          python "自动化脚本/修改版本号.py" "${{ env.VERSION }}" "pack" "Release/Fufu_Tools.v${{ env.VERSION }}"
+          python "自动化脚本/修改版本号.py" "${{ env.VERSION }}" "exe" "Release/Fufu_Tools.v${{ env.VERSION }}-exe"
 
           # 压缩为 zip - 打包版
-          7z a -tzip "Release/Fufu_Tools.v${{ github.event.inputs.version }}.zip" "Release/Fufu_Tools.v${{ github.event.inputs.version }}/*"
+          7z a -tzip "Release/Fufu_Tools.v${{ env.VERSION }}.zip" "Release/Fufu_Tools.v${{ env.VERSION }}/*"
           # 压缩为 7z - 打包版
-          7z a -t7z "Release/Fufu_Tools.v${{ github.event.inputs.version }}.7z" "Release/Fufu_Tools.v${{ github.event.inputs.version }}/*"
+          7z a -t7z "Release/Fufu_Tools.v${{ env.VERSION }}.7z" "Release/Fufu_Tools.v${{ env.VERSION }}/*"
           # 压缩为 7z - 压缩等级 9 - 极限压缩 - 打包版
-          7z a -t7z -mx9 "Release/Fufu_Tools.v${{ github.event.inputs.version }}-Extreme_compression.7z" "Release/Fufu_Tools.v${{ github.event.inputs.version }}/*"
+          7z a -t7z -mx9 "Release/Fufu_Tools.v${{ env.VERSION }}-Extreme_compression.7z" "Release/Fufu_Tools.v${{ env.VERSION }}/*"
           # 清理工作目录 - 打包版
-          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}" -Recurse -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}" -Recurse -Verbose
 
           # 编译安装程序 - 安装程序版
           Invoke-WebRequest -Uri "https://raw.githubusercontent.com/jrsoftware/issrc/main/Files/Languages/Unofficial/ChineseSimplified.isl" -OutFile "C:\Program Files (x86)\Inno Setup 6\Languages\ChineseSimplified.isl"
           iscc "Installer/Installer.iss"
           # 清理工作目录 - 安装程序版
-          Remove-Item -Path "Release/Fufu_Tools.v${{ github.event.inputs.version }}-exe" -Recurse -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}-exe" -Recurse -Verbose
 
       - name: 上传构建文件
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: actions/upload-artifact@v4
         with:
           name: Release
           path: Release/**
+
+      - name: 发布至发行版
+        if: ${{ github.event_name != 'workflow_dispatch' }}
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            Release/Fufu_Tools.v${{ env.VERSION }}.zip
+            Release/Fufu_Tools.v${{ env.VERSION }}.7z
+            Release/Fufu_Tools.v${{ env.VERSION }}-lite.zip
+            Release/Fufu_Tools.v${{ env.VERSION }}-lite.7z
+            Release/Fufu_Tools_Setup.v${{ env.VERSION }}.exe
+            Release/Fufu_Tools.v${{ env.VERSION }}-Extreme_compression.7z
+
+      - name: 上传日志文件
+        if: ${{ github.event_name != 'workflow_dispatch' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: packaging.log
+          path: Release/packaging.log

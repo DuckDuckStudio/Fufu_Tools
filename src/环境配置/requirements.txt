@@ -1,7 +1,7 @@
 requests==2.32.3
 colorama==0.4.6
 translate==3.6.1
-beautifulsoup4==4.12.3
+beautifulsoup4==4.13.3
 ntplib==0.4.0
 tqdm==4.67.1
 piexif==1.1.3
@@ -12,8 +12,8 @@ pywin32==308
 
 experimental==0.9.7
 pygame==2.6.1
-pyinstaller==6.11.1
-nuitka==2.6
+pyinstaller==6.12.0
+nuitka==2.6.6
 moviepy==2.1.2
 plyer==2.1.0
 

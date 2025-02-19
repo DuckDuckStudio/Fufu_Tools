@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import tkinter as tk
-import webbrowser
 from urllib.parse import quote
 
 def fetch_search_results(query):
