@@ -33,7 +33,7 @@ jobs:
       security-events: write
 
       # required to fetch internal or private CodeQL packs
-      packages: read
+      # packages: read
 
       # only required for workflows in private repositories
       # actions: read
@@ -47,6 +47,7 @@ jobs:
           build-mode: manual
         - language: csharp
           build-mode: none
+          # 仅在 Csharp-fft-windows窗体应用 分支上运行
         - language: python
           build-mode: none
         # CodeQL supports the following values keywords for 'language': 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift'
@@ -59,6 +60,7 @@ jobs:
         # your codebase is analyzed, see https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages
     steps:
     - name: Checkout repository
+      if: ${{ (matrix.language == 'csharp' && github.ref == 'refs/heads/Csharp-fft-windows窗体应用') || (matrix.language != 'csharp') }}
       uses: actions/checkout@v4
 
     # Add any setup steps before running the `github/codeql-action/init` action.
@@ -69,6 +71,7 @@ jobs:
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
+      if: ${{ (matrix.language == 'csharp' && github.ref == 'refs/heads/Csharp-fft-windows窗体应用') || (matrix.language != 'csharp') }}
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
@@ -109,6 +112,7 @@ jobs:
         clang++ "src/Tools/进制转换/进制转换.cxx" "src/resource.o" -o "src/Tools/进制转换/进制转换.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8 -v
 
     - name: Perform CodeQL Analysis
+      if: ${{ (matrix.language == 'csharp' && github.ref == 'refs/heads/Csharp-fft-windows窗体应用') || (matrix.language != 'csharp') }}
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"

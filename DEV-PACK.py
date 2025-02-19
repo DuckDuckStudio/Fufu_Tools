@@ -127,7 +127,7 @@ def package_py(file_path, log_file="None"):
                     command = ["pyinstaller", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path] + github_action_upx
                 else:
                     command = ["pyinstaller", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path]
-        subprocess.run(command, shell=True, check=True)
+        subprocess.run(command, check=True)
         if log_file != "None":
             log_message(f"打包完成: {file_path}", log_file)
         print(f"{Fore.GREEN}打包完成: {Fore.BLUE}{file_path}{Fore.RESET}")
@@ -177,7 +177,7 @@ def package_pyw(file_path, log_file="None"):
                     command = ["pyinstaller", "--noconsole", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path] + github_action_upx
                 else:
                     command = ["pyinstaller", "--noconsole", "--onefile", "-i", icon_path, "--distpath", output_dir, file_path]
-        subprocess.run(command, shell=True, check=True)
+        subprocess.run(command, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
         print(f"{Fore.GREEN}打包完成：{Fore.BLUE}{file_path}{Fore.RESET}")

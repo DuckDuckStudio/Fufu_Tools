@@ -10,7 +10,7 @@ on:
     types: [ published ]
 
 jobs:
-  auto-pack-releases:
+  pack-releases:
     runs-on: windows-latest
 
     steps:
@@ -68,7 +68,7 @@ jobs:
         run: |
           Copy-Item -Path "LICENSE" -Destination "src/LICENSE" -Verbose
 
-      - name: 移除Git文件
+      - name: 移除无需文件
         run: |
           Remove-Item -Path "src/Tools/【实验性工具】/定时闹钟/铃声文件/.gitkeep" -Verbose
           Remove-Item -Path "src/Tools/WSA小工具（终止更新）" -Recurse -Verbose

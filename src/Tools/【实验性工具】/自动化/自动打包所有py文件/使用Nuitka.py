@@ -85,11 +85,10 @@ def package_py(file_path, log_file="None"):
             log_message(f"\n开始打包：{file_path}", log_file)
         print(f"\n{Fore.GREEN}开始打包：{Fore.BLUE}{file_path}{Fore.RESET}")
         output_dir = os.path.dirname(file_path) # 设置输出目录为 Python 文件所在目录
-        if icon_path == "None":
-            command = f"python -m nuitka --output-dir=\"{output_dir}\" --show-progress --onefile --remove-output --{compile} \"{file_path}\""
-        else:
-            command = f"python -m nuitka --output-dir=\"{output_dir}\" --show-progress --windows-icon-from-ico=\"{icon_path}\" --onefile --remove-output --{compile} \"{file_path}\""
-        subprocess.run(command, shell=True, check=True)
+        command = ["python", "-m", "nuitka", f"--output-dir={output_dir}", "--show-progress", "--onefile", "--remove-output", f"--{compile}", file_path]
+        if icon_path != "None":
+            command.extend(["--windows-icon-from-ico", icon_path])
+        subprocess.run(command, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
         print(f"{Fore.GREEN}打包完成：{Fore.BLUE}{file_path}{Fore.RESET}")
@@ -120,11 +119,10 @@ def package_pyw(file_path, log_file="None"):
             log_message(f"\n开始打包：{file_path}", log_file)
         print(f"\n{Fore.GREEN}开始打包：{Fore.BLUE}{file_path}{Fore.RESET}")
         output_dir = os.path.dirname(file_path) # 设置输出目录为 Pythonw 文件所在目录
-        if icon_path == "None":
-            command = f"python -m nuitka --disable-console --plugin-enable=tk-inter --output-dir=\"{output_dir}\" --show-progress --onefile --remove-output --{compile} \"{file_path}\""
-        else:
-            command = f"python -m nuitka --disable-console --plugin-enable=tk-inter --output-dir=\"{output_dir}\" --show-progress --windows-icon-from-ico=\"{icon_path}\" --onefile --remove-output --{compile} \"{file_path}\""
-        subprocess.run(command, shell=True, check=True)
+        command = ["python", "-m", "nuitka", "--windows-console-mode=disable", "--plugin-enable=tk-inter", f"--output-dir={output_dir}", "--show-progress", "--onefile", "--remove-output", f"--{compile}", file_path]
+        if icon_path != "None":
+            command.extend(["--windows-icon-from-ico", icon_path])
+        subprocess.run(command, check=True)
         if log_file != "None":
             log_message(f"打包完成：{file_path}", log_file)
         print(f"{Fore.GREEN}打包完成：{Fore.BLUE}{file_path}{Fore.RESET}")
