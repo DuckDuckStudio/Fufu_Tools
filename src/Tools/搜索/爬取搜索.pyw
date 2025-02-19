@@ -68,7 +68,7 @@ result_text.pack()
 result_text.tag_configure("hyperlink", foreground="blue", underline=True)
 
 # 定义回车键搜索事件
-def enter_pressed(event):
+def enter_pressed():
     search()
 
 window.bind("<Return>", enter_pressed)

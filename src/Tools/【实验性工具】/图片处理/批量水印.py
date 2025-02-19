@@ -59,20 +59,20 @@ def add_watermark(image_path, watermark_text, text_where, move_text):
 
         # 创建水印图片
         watermark = Image.new("RGBA", image.size, (0, 0, 0, 0))
-        font = ImageFont.truetype("D:\\Duckhome\\projects\\MSVS\\Source\\Repos\\windows-widgets\\Tools\\[实验性工具]\\图片处理\\O神启动.ttf", 40) # 使用默认字体和大小
+        font = ImageFont.truetype("D:\\...ttf", 40) # 使用默认字体和大小
         draw = ImageDraw.Draw(watermark)
 
         # 计算水印文本的位置
         if image.width > image.height: # 图片宽大于高，16:9
             # where
-            if text_where == "[DR]右下(默认)":
-                text_position = (image.width - text_width - move_text, image.height - 50)
-            elif text_where == "[DL]左下":
+            if text_where == "[DL]左下":
                 text_position = (text_width - move_text, image.height - 50)
             elif text_where == "[UR]右上":
                 text_position = (image.width - text_width - move_text, 50)
             elif text_where == "[UL]左上":
                 text_position = (text_width - move_text, 5)
+            else: # text_where == "[DR]右下(默认)"
+                text_position = (image.width - text_width - move_text, image.height - 50)
             #-----
             draw.text(text_position, watermark_text, font=font, fill=(255, 255, 255, 128))
             # 添加水印

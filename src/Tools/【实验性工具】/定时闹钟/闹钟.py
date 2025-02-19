@@ -18,11 +18,11 @@ while True:
     user_input = input("请输入提醒时间（例如，15:30或15：30表示今天的15点30分）: ").replace('：', ':')
     try:
         hour, minute = map(int, user_input.split(':'))
-        if hour >= 0 and hour <= 23 and minute >= 0 and minute < 60:
+        if 0 <= hour <= 23 and 0 <= minute < 60:
             break
         else:
             print("✕ 提醒时间格式不正确")
-    except:
+    except ValueError:
         print("✕ 提醒时间格式不正确")
 
 now = datetime.now()
@@ -37,8 +37,12 @@ ringtone_dir = './铃声文件'
 
 try:
     files = os.listdir(ringtone_dir)
+except FileNotFoundError:
+    print("✕ 无法查找铃声文件，铃声文件文件夹不存在")
+    input("按Enter键继续...")
+    sys.exit(1)
 except Exception as e:
-    print("✕ 无法查找铃声文件，请确认铃声文件文件夹是否存在")
+    print(f"✕ 无法查找铃声文件: {e}")
     input("按Enter键继续...")
     sys.exit(1)
 

@@ -22,6 +22,8 @@ if always_open:
     print("已设置总是显示详细信息，启动页面中...")
     os.system("msinfo32")
     print("已展示，请查看弹出的窗口")
+else:
+    flag = True
 # 本应在ini文件中的注释：
 '''
 ; always_open_more_info set
@@ -29,19 +31,15 @@ if always_open:
 ; False -> ask (default)
 '''
 
-while flag:
+if flag:
     print("是否查看更详细的信息？")
     print("[Y]是 [N]否 [A]总是")
     temp = input("你的回答是：")
-    
+
     if temp.lower() in ["y", "yes", "是"]:
         print("启动页面中...")
         os.system("msinfo32")
         print("已展示，请查看弹出的窗口")
-        break
-    elif temp.lower() in ["n", "no", "否", "不"]:
-        print("取消操作...")
-        break
     elif temp.lower() in ["a", "always", "总是"]:
         print("设置中...")
         # 修改ini文件配置
@@ -49,12 +47,11 @@ while flag:
         with open(config_file_path, 'w') as configfile:
             config.write(configfile)
         print("设置完成！")
-        
+
         print("启动页面中...")
         os.system("msinfo32")
         print("已展示，请查看弹出的窗口")
-        break
     else:
-        print("请按说明回答！")
+        print("取消操作...")
 
 input("按Enter键继续...")

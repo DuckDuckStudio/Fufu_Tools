@@ -49,7 +49,7 @@ def base64_to_audio ():
             if not output_name:
                 print(f"{Fore.RED}✕{Fore.RESET} 文件名不能为空")
                 return
-            elif re.search(r'[\\/:\*\?"<>\|]', output_name):
+            elif re.search(r'[\\/:*?"<>|]', output_name):
                 print(f"{Fore.RED}✕{Fore.RESET} 文件名不合法")
                 return
             output = os.path.join(output_folder, output_name)

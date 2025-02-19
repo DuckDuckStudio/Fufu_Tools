@@ -9,8 +9,7 @@ import subprocess
 # -------------------------------
 
 # ---------- 初始初始化 -------------
-dir = os.path.dirname(os.path.abspath(__file__))
-os.chdir(dir)
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # 上级目录
 venv_folder_path = os.path.join(parent_dir, '.venv') # 虚拟环境目录
 # -------------------------------
