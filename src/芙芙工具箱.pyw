@@ -89,7 +89,6 @@ def show_category(container, programs):
 def show_categories():
     # 设置每行最多显示的按钮数量
     max_buttons_per_row = 3
-    row, col = 0, 0
 
     # 清空内容容器
     for widget in content_frame.winfo_children():
@@ -221,7 +220,7 @@ categories = {
         "[Warn]批量水印添加": ".\\Tools\\【实验性工具】\\图片处理\\Warn.txt",
         "视频音频提取": ".\\Tools\\【实验性工具】\\音频处理\\视频中提取.py",
         "定时闹钟": ".\\Tools\\【实验性工具】\\定时闹钟\\闹钟.py",
-        "定时闹钟自定义铃声文件夹": ".\\Tools\\【实验性工具】\\定时闹钟\\铃声文件\\",# Wran
+        "定时闹钟自定义铃声文件夹": ".\\Tools\\【实验性工具】\\定时闹钟\\铃声文件\\",# Warn
         "时间单位转换": ".\\Tools\\【实验性工具】\\知一求多\\单位转换\\时间单位转换.pyw",
         "长度单位转换": ".\\Tools\\【实验性工具】\\知一求多\\单位转换\\长度单位转换.pyw",
         "圆的参数计算": ".\\Tools\\【实验性工具】\\知一求多\\圆的参数\\圆的参数计算器.pyw",

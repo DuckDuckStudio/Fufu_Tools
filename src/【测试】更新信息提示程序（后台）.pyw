@@ -89,10 +89,10 @@ def check_for_updates():
     else:
         messagebox.showwarning("警告", "当前版本比最新正式版更新，可能存在一些问题或被修改过。")
 
-def check_for_SORN():# SORN指status_or_revision_number，即状态或修订号
+def check_for_sorn():# sorn指status_or_revision_number，即状态或修订号
     if sorn == "code":
         messagebox.showwarning("警告", "你似乎正在使用编写中的“code”版，该版本可能会出现一些意料之外的问题。")
 
 check_for_updates()
 
-check_for_SORN()
+check_for_sorn()

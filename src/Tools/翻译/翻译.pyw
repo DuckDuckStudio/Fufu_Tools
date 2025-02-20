@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter.scrolledtext import ScrolledText
 from translate import Translator
 
-def on_entry_click(event):
+def on_entry_click():
     if entry.get("1.0", "end-1c") == 'Please enter your text here...':
         entry.delete("1.0", tk.END) # 删除默认文本
         entry.config(fg = 'black') # 修改文字颜色

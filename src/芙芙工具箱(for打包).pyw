@@ -87,7 +87,6 @@ def show_categories():
 
     # 设置每行最多显示的按钮数量
     max_buttons_per_row = 3
-    row, col = 0, 0
 
     # 清空内容容器
     for widget in content_frame.winfo_children():

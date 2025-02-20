@@ -2,14 +2,11 @@ import os
 import sys
 import subprocess
 
-# 获取当前文件的路径
-current_file_path = os.path.dirname(os.path.abspath(sys.argv[0]))
-
-# 获取当前文件所在的目录
-current_dir = current_file_path.parent
+# 获取当前文件所在目录
+current_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 
 # 获取需要调用的脚本文件路径
-script_file_path = current_dir / "edit_hosts_file.exe"
+script_file_path = os.path.join(current_dir, "edit_hosts_file.exe")
 print("感谢您使用本工具来修改系统hosts文件")
 print("可选操作有：")
 subprocess.run([script_file_path, "--help"])

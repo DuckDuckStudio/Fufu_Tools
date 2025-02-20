@@ -38,7 +38,6 @@ def update_clock():
 def update_text_size():
     # 获取当前窗口的宽度和高度
     width = root.winfo_width()
-    height = root.winfo_height()
 
     # 根据窗口宽度计算新的字体大小
     new_clock_font_size = max(10, int(width / 10))

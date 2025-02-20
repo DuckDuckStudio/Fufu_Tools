@@ -1,10 +1,9 @@
-import tkinter as tk
-from tkinter import messagebox
 import os
 import sys
-from configparser import ConfigParser
 import ctypes
-import sys
+import tkinter as tk
+from tkinter import messagebox
+from configparser import ConfigParser
 
 def run_as_admin():
     if ctypes.windll.shell32.IsUserAnAdmin() == 0:
@@ -72,7 +71,6 @@ def show_categories():
 
     # 设置每行最多显示的按钮数量
     max_buttons_per_row = 3
-    row, col = 0, 0
 
     # 清空内容容器
     for widget in content_frame.winfo_children():

@@ -32,6 +32,7 @@ def check_indexed_in_search_engines(url):
             response.raise_for_status()
             
             soup = BeautifulSoup(response.text, 'html.parser')
+            result_stats = None
             if search_engine.lower() == 'baidu':
                 result_stats = soup.find(class_='nums')
             elif search_engine.lower() == 'bing':
@@ -46,7 +47,7 @@ def check_indexed_in_search_engines(url):
             else:
                 print(f'您的网站 {url} 未在 {search_engine} 中索引')
 
-        except requests.RequestException as e:
+        except requests.RequestException:
             print(f'[ERROR] 无法连接到 {search_engine}，请检查您的网络连接')
         except Exception as e:
             print(f'[ERROR] 检查 {search_engine} 时发生错误：{e}')

@@ -92,7 +92,7 @@ def check_for_updates():
     else:
         print("当前版本比最新版本更高，你认真的？")
 
-def check_for_SORN():# SORN指status_or_revision_number，即状态或修订号
+def check_for_sorn():# sorn指status_or_revision_number，即状态或修订号
     if not sorn:
         print("[info]当前正在使用打包版")
     elif sorn == "code":
@@ -106,6 +106,6 @@ def check_for_SORN():# SORN指status_or_revision_number，即状态或修订号
 
 check_for_updates()
 
-check_for_SORN()
+check_for_sorn()
 
 input("按Enter键继续...")
