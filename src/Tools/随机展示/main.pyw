@@ -17,7 +17,7 @@ def load_messages(filename):
 
 def start_random():
     """开始随机过程，并在文本区域展示结果"""
-    script_dir = os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(sys.argv[0]))))
+    script_dir = os.path.dirname(os.path.abspath(os.path.abspath(sys.argv[0])))
     messages = load_messages(os.path.join(script_dir, "messages.txt"))
     if not messages:
         messagebox.showerror("错误: 内容文件为空或未找到。")
@@ -44,7 +44,7 @@ def start_random():
 
 def open_or_import():
     def edit_messages():
-        script_dir = os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(sys.argv[0]))))
+        script_dir = os.path.dirname(os.path.abspath(os.path.abspath(sys.argv[0])))
         messages_path = os.path.join(script_dir, "messages.txt")
         try:
             os.startfile(messages_path) # 尝试打开文件
@@ -54,7 +54,7 @@ def open_or_import():
             messagebox.showerror("错误", f"无法打开文件：{e}")
 
     def import_messages():
-        script_dir = os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(sys.argv[0]))))
+        script_dir = os.path.dirname(os.path.abspath(os.path.abspath(sys.argv[0])))
         filename = filedialog.askopenfilename(title="导入内容文件", filetypes=(("文本文件", "*.txt"), ("所有文件", "*.*")))
         if filename:
             try:

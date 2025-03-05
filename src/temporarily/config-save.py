@@ -37,7 +37,7 @@ def check_folder(destination_folder):
 
 def copy_config_files(destination_folder):
     # 获取当前运行脚本的文件夹路径的上级目录作为源文件夹
-    current_folder = os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(sys.argv[0]))))
+    current_folder = os.path.dirname(os.path.abspath(os.path.abspath(sys.argv[0])))
     source_folder = os.path.dirname(current_folder)
 
     copied_files = []  # 用于存储已经复制的文件路径

@@ -9,7 +9,7 @@ shortcut_name = "Fufu_Tools_休息一下.lnk"
 # 快捷方式文件路径
 shortcut_path = os.path.join(startup_folder, shortcut_name)
 # 程序所在文件夹 script_folder_with_backslash
-script_folder = os.path.dirname(os.path.realpath(os.path.dirname(os.path.abspath(sys.argv[0]))))
+script_folder = os.path.dirname(os.path.realpath(os.path.abspath(sys.argv[0])))
 script_folder_with_backslash = script_folder + os.sep
 # 源文件路径
 source_file = script_folder_with_backslash + "休息一下.exe"
