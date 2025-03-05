@@ -187,4 +187,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: packaging.log
-          path: Release/packaging.log
+          path: Release/logs/pack-exe/packaging.log
