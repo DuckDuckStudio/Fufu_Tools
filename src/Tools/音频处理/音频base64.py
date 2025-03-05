@@ -53,7 +53,7 @@ def base64_to_audio ():
                 print(f"{Fore.RED}✕{Fore.RESET} 文件名不合法")
                 return
             output = os.path.join(output_folder, output_name)
-            output = os.path.normpath(output)# 统一斜杠
+            output = os.path.normpath(output) # 统一斜杠
             with open(output, "wb") as audio_file:
                 audio_file.write(audio_data)
             print(f"{Fore.GREEN}✓{Fore.RESET} 已将结果保存至 {Fore.BLUE}{output}{Fore.RESET}")
