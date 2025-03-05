@@ -18,7 +18,7 @@ def get_latest_version():
         response = requests.get("https://api.github.com/repos/DuckDuckStudio/Fufu_Tools/releases/latest")
         response.raise_for_status()  # 确保请求成功
         latest_version = response.json()["tag_name"]
-        # 移除可能存在的v前缀
+        # 移除可能存在的 v 前缀
         latest_version = latest_version.lstrip('v')
         return latest_version
     except requests.RequestException as e:
@@ -39,10 +39,10 @@ def parse_version(version_string):
 
 def compare_versions(version1, version2):
     """比较两个版本号，返回 1 表示第一个版本号更新，返回 0 表示版本号相同，返回 -1 表示第二个版本号更新"""
-    major1, minor1, patch1, preview1 = parse_version(version1)  # 解析版本号字符串
+    major1, minor1, patch1, preview1 = parse_version(version1)
     major2, minor2, patch2, preview2 = parse_version(version2)
 
-    # 检查预览版本号是否存在，不存在则设置为0
+    # 检查预览版本号是否存在，不存在则设置为 0
     if preview1 is None:
         preview1 = 0
     if preview2 is None:
@@ -70,7 +70,7 @@ def compare_versions(version1, version2):
 def check_for_updates():
     current_version = major_version
 
-    if not current_version:  # 如果无法获取版本号，则输出提示信息
+    if not current_version:
         messagebox.showerror("错误", "无法获取当前版本信息，请检查版本文件内容是否正确。")
         return
 
@@ -89,7 +89,7 @@ def check_for_updates():
     else:
         messagebox.showwarning("警告", "当前版本比最新正式版更新，可能存在一些问题或被修改过。")
 
-def check_for_sorn():# sorn指status_or_revision_number，即状态或修订号
+def check_for_sorn(): # sorn 指 status_or_revision_number，即状态或修订号
     if sorn == "code":
         messagebox.showwarning("警告", "你似乎正在使用编写中的“code”版，该版本可能会出现一些意料之外的问题。")
 

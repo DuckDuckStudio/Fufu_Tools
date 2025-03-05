@@ -6,17 +6,11 @@
 请您在使用过程中谨慎操作，并自行承担风险。（特别是关于文件的小工具，所有操作不可逆）
 
 目前的[实验性小工具]有
-* 定时闹钟
-* 水下音效（依赖浏览器性能，不能导出）
-* 去除代码注释 分类下的 [实验性]remove_html_comments_noenter.py（去除html注释&多余换行）
-* 图片处理
-* 知一求多
-* git
-* 搜索引擎收录检测
-* hosts修改
-* 视频音频提取
-* 音频base64编解码
 * 自动替换指定文本
-* 自动使用 Pyinstaller / Nuitka 打包文件夹中的所有py/pyw文件 (警告：使用Pyinstaller会生成一堆build文件夹与.spec文件，用完记得删掉！)
+* Pyinstaller/Nuitka批量打包
+* hosts修改
+* 批量水印添加
+* 定时闹钟
+* 搜索引擎索引检测
 
-Last update:2024/6/28
+Last update: 2025/3/5
