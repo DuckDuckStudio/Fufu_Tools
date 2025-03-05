@@ -149,7 +149,7 @@ categories = {
         "摩斯密码解码": ".\\Tools\\摩斯密码\\解码.exe",
         "URL编码": ".\\Tools\\URL编解码\\编码.exe",
         "URL解码": ".\\Tools\\URL编解码\\解码.exe",
-        "音频base64编解码": ".\\Tools\\【实验性工具】\\音频处理\\音频base64.exe",
+        "音频base64编解码": ".\\Tools\\音频处理\\音频base64.exe",
     },
     "搜索": {
         "批量搜索": ".\\Tools\\搜索\\批量搜索.exe",
