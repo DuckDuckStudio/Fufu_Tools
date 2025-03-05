@@ -1,8 +1,9 @@
+import os
+import sys
+import time
+import random
 import tkinter as tk
 from tkinter import filedialog, messagebox
-import random
-import time
-import os
 
 def load_messages(filename):
     """从指定的文件中加载消息，忽略空行"""
