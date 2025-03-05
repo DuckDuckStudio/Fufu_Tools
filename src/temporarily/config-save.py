@@ -31,7 +31,7 @@ def check_folder(destination_folder):
     if len(os.listdir(destination_folder)) != 0:
         print(f"\r{Fore.RED}✕ 错误的目标文件夹: {Fore.BLUE}{destination_folder}\n{Fore.YELLOW}  原因：目标文件夹不为空。")
         return False
-    
+
     print(f"{Fore.GREEN}\r✓{Fore.RESET} 已选择保存到的文件夹: {Fore.BLUE}{destination_folder}")# 刷新，避免被顶掉
     return True # 一切正常
 
@@ -54,7 +54,7 @@ def copy_config_files(destination_folder):
                         continue  # 忽略源文件夹中的config.ini
                     destination_path = os.path.join(destination_folder, relative_path)
                     destination_dir = os.path.dirname(destination_path)
-                    
+
                     # 创建目标文件夹中的子文件夹（如果需要）
                     if not os.path.exists(destination_dir):
                         os.makedirs(destination_dir)

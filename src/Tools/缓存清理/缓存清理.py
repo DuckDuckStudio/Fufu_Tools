@@ -38,8 +38,6 @@ if flag:# 有任意值且不为False则为True
                 for file in files:
                     file_paths.append(os.path.join(root, file))
             break
-        elif temp.lower() in ["n", "no", "否", "不"]:
-            break
         elif temp.lower() in ["a", "always", "总是"]:
             print("设置中...")
             # 修改ini文件配置
@@ -49,7 +47,8 @@ if flag:# 有任意值且不为False则为True
             print("设置完成！")
             break
         else:
-            print("请按说明回答！")
+            # elif temp.lower() in ["n", "no", "否", "不"]:
+            break
     if ac_ctr:
         for root, dirs, files in os.walk(ctr):
             for file in files:
@@ -80,7 +79,7 @@ with tqdm(total=total_files, ncols=80) as pbar:
         finally:
             pbar.update(1)
 print("缓存文件删除完成！")
-#  对于TEMP↑  对于Windows.old ↓
+#  对于TEMP ↑  对于Windows.old ↓
 
 windows_old_path = 'C:\\windows.old'
 
