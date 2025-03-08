@@ -38,7 +38,7 @@ def 复制配置文件(目标文件夹):
     当前文件夹 = os.path.dirname(os.path.abspath(sys.argv[0]))
     源文件夹 = os.path.dirname(当前文件夹)
 
-    已复制的文件 = []  # 用于存储已经复制的文件路径
+    已复制的文件 = [] # 用于存储已经复制的文件路径
 
     try:
         # 遍历源文件夹中的所有文件和子文件夹
@@ -58,7 +58,7 @@ def 复制配置文件(目标文件夹):
                     
                     # 复制文件
                     shutil.copyfile(源路径, 目标路径)
-                    已复制的文件.append(目标路径)  # 记录已复制的文件
+                    已复制的文件.append(目标路径) # 记录已复制的文件
 
         # 如果成功完成所有文件复制
         messagebox.showinfo("恭喜", "配置文件备份成功！")
@@ -73,7 +73,7 @@ def 复制配置文件(目标文件夹):
         messagebox.showerror("错误", f"备份过程中出现错误:\n{e}")
 
         for file_path in 已复制的文件:
-            os.remove(file_path)  # 删除已复制的文件
+            os.remove(file_path) # 删除已复制的文件
 
 
 def main():
