@@ -233,7 +233,8 @@ categories = {
     "关于芙芙工具箱": {
         "检查版本": ".\\Show_version.py",
         "修改开始菜单图标": "link",
-        "另存配置文件": ".\\temporarily\\config-save.py",
+        "备份配置": ".\\config\\备份.py",
+        "还原配置": ".\\config\\还原.py",
         "安装文件夹": os.path.dirname(os.path.abspath(__file__)),
         "程序文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
         "程序官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",
