@@ -97,7 +97,7 @@ jobs:
           # Tools/进制转换
           clang++ "src/Tools/进制转换/进制转换.cxx" "src/resource.o" -o "src/Tools/进制转换/进制转换.exe" -finput-charset=UTF-8 -fexec-charset=UTF-8 -v
           Remove-Item -Path "src/Tools/进制转换/进制转换.cxx" -Verbose
-          
+
           # 移除资源文件
           Remove-Item -Path "src/resource.rc" -Verbose
           Remove-Item -Path "src/resource.o" -Verbose
