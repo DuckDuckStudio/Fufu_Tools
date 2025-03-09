@@ -188,3 +188,12 @@ jobs:
         with:
           name: packaging.log
           path: Release/logs/pack-exe/packaging.log
+
+      - name: 清理待发布标签
+        if: ${{ github.event_name != 'workflow_dispatch' }}
+        shell: bash
+        env:
+          PYTHONIOENCODING: utf-8
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python "自动化脚本/清理待发布标签.py" "${{ env.VERSION }}"
