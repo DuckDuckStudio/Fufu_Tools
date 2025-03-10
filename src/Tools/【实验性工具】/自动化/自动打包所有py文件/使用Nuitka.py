@@ -12,7 +12,7 @@ os.chdir(os.path.dirname(os.path.abspath(sys.argv[0]))) # 避免意外的位置
 print(f"{Fore.BLUE}[!]{Fore.RESET} 将使用 {Fore.BLUE}Nuitka{Fore.RESET} 打包。")
 
 # READ config.ini file
-script_dir = os.path.dirname(os.path.realpath(__file__))
+script_dir = os.path.dirname(os.path.realpath(os.path.abspath(sys.argv[0])))
 config_file_path = os.path.join(script_dir, "config.ini")
 config = configparser.ConfigParser()
 config.read(config_file_path)

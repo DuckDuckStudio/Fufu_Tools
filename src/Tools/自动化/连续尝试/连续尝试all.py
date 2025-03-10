@@ -42,7 +42,7 @@ def main():
             else:
                 print(f"{Fore.GREEN}✓{Fore.RESET} 已设置间隔时间: {time_counter}")
                 break
-        except ValueError as e:
+        except ValueError:
             print(f"{Fore.RED}✕{Fore.RESET} 输入的值不合法，必须为一个正整数！")
     
     counter = 0

@@ -16,20 +16,14 @@ while True:
 #----
 
 while True:
-    text_ttf = input("请输入自定义字体文件完整路径(默认Arial.ttf)：")
-
-    # 如果用户没有输入任何内容或者输入了"默认"，则将变量值设为 "Arial.ttf"
-    if not text_ttf or text_ttf == "默认" or text_ttf == "Arial.ttf":
-        text_ttf = "Arial.ttf"
+    text_ttf = input("请输入自定义字体文件完整路径: ")
+    # 自动处理引号
+    text_ttf = text_ttf.strip('\"')
+    if os.path.exists(text_ttf):
         break
+    # 检查文件路径是否存在
     else:
-        # 自动处理引号
-        text_ttf = text_ttf.strip('\"')
-        if os.path.exists(text_ttf):
-            break
-        # 检查文件路径是否存在
-        else:
-            print("[WARN] 自定义字体文件不存在")
+        print("[WARN] 自定义字体文件不存在")
 
 # 计算水印文字的宽度
 text_width = len(watermark_text) * 25
@@ -59,20 +53,20 @@ def add_watermark(image_path, watermark_text, text_where, move_text):
 
         # 创建水印图片
         watermark = Image.new("RGBA", image.size, (0, 0, 0, 0))
-        font = ImageFont.truetype("D:\\Duckhome\\projects\\MSVS\\Source\\Repos\\windows-widgets\\Tools\\[实验性工具]\\图片处理\\O神启动.ttf", 40) # 使用默认字体和大小
+        font = ImageFont.truetype(text_ttf, 40) # 使用默认字体和大小
         draw = ImageDraw.Draw(watermark)
 
         # 计算水印文本的位置
         if image.width > image.height: # 图片宽大于高，16:9
             # where
-            if text_where == "[DR]右下(默认)":
-                text_position = (image.width - text_width - move_text, image.height - 50)
-            elif text_where == "[DL]左下":
+            if text_where == "[DL]左下":
                 text_position = (text_width - move_text, image.height - 50)
             elif text_where == "[UR]右上":
                 text_position = (image.width - text_width - move_text, 50)
             elif text_where == "[UL]左上":
                 text_position = (text_width - move_text, 5)
+            else: # text_where == "[DR]右下(默认)"
+                text_position = (image.width - text_width - move_text, image.height - 50)
             #-----
             draw.text(text_position, watermark_text, font=font, fill=(255, 255, 255, 128))
             # 添加水印
@@ -83,10 +77,10 @@ def add_watermark(image_path, watermark_text, text_where, move_text):
             watermarked_image.save(save_path)
             # only test on 4032*2268
             if image.width != 4032 or image.height != 2268:
-                print("[WARN] 本工具仅在4032*2268的图片上测试过，其他图片效果可能不理想。\n本张图片大小：",image.width,"*",image.height)
+                print("[WARN] 本工具仅在 4032*2268 的图片上测试过，其他图片效果可能不理想。\n本张图片大小：",image.width,"*",image.height)
             print(f"[INFO] 水印已成功添加到 {save_path}\n")
         else: # 其他
-            print (f"[WARN] 仅支持16:9的图片。错误文件: {image_path}\n")
+            print (f"[WARN] 仅支持 16:9 的图片。错误文件: {image_path}\n")
 
     except Exception as e:
         print(f"[ERROR] 添加水印时出现错误: {e}")

@@ -30,7 +30,7 @@ def extract_audio(video_path, audio_path):
 # 视频文件路径
 video_path_input = input("视频文件的完整路径是：")
 if video_path_input.startswith(("'", '"')) and video_path_input.endswith(("'", '"')):
-    video_path_input = video_path_input[1:-1]# 移除引号
+    video_path_input = video_path_input[1:-1] # 移除引号
 
 # 获取视频文件名（不带扩展名）
 video_name = os.path.splitext(os.path.basename(video_path_input))[0]
@@ -38,7 +38,7 @@ video_name = os.path.splitext(os.path.basename(video_path_input))[0]
 # 音频文件路径
 audio_path = input("需要将提取后的音频文件输出到哪里：")
 if audio_path.startswith(("'", '"')) and audio_path.endswith(("'", '"')):
-    audio_path = audio_path[1:-1]# 移除引号
+    audio_path = audio_path[1:-1] # 移除引号
 
 # 如果输出路径是文件夹，则使用视频文件名作为音频文件名
 if os.path.isdir(audio_path):

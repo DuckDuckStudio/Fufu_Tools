@@ -87,7 +87,6 @@ def show_categories():
 
     # 设置每行最多显示的按钮数量
     max_buttons_per_row = 3
-    row, col = 0, 0
 
     # 清空内容容器
     for widget in content_frame.winfo_children():
@@ -160,6 +159,7 @@ categories = {
         "摩斯密码解码": ".\\Tools\\摩斯密码\\解码.exe",
         "URL编码": ".\\Tools\\URL编解码\\编码.exe",
         "URL解码": ".\\Tools\\URL编解码\\解码.exe",
+        "音频base64编解码": ".\\Tools\\音频处理\\音频base64.exe",
     },
     "搜索": {
         "批量搜索": ".\\Tools\\搜索\\批量搜索.exe",
@@ -194,10 +194,16 @@ categories = {
         "C风格注释": ".\\Tools\\去除代码注释\\remove_c_style_comments.exe",
         "批处理(bat)注释": ".\\Tools\\去除代码注释\\remove_batch_comments.exe",
     },
+    "知一求多": {
+        "时间单位转换": ".\\Tools\\知一求多\\单位转换\\时间单位转换.exe",
+        "长度单位转换": ".\\Tools\\知一求多\\单位转换\\长度单位转换.exe",
+        "圆的参数计算": ".\\Tools\\知一求多\\圆的参数\\圆的参数计算器.exe",
+    },
     "其他小工具": {
         "缓存清理": ".\\Tools\\缓存清理\\缓存清理.exe",
         "随机密码生成": ".\\Tools\\随机密码生成\\随机密码生成.exe",
         "随机内容展示": ".\\Tools\\随机展示\\main.exe",
+        "视频音频提取": ".\\Tools\\音频处理\\视频中提取.py",
         "查看电脑配置": ".\\Tools\\查看电脑配置\\查看电脑配置.exe",
         "进制转换": ".\\Tools\\进制转换\\进制转换.exe",
         "颜色代码展示": ".\\Tools\\颜色代码展示\\ColorDisplay.html",
@@ -214,22 +220,18 @@ categories = {
         "Pyinstaller批量打包": ".\\Tools\\【实验性工具】\\自动化\\自动打包所有py文件\\使用Pyinstaller.exe",
         "Nuitka批量打包": ".\\Tools\\【实验性工具】\\自动化\\自动打包所有py文件\\使用Nuitka.exe",
         "hosts修改": ".\\Tools\\【实验性工具】\\hosts修改\\调用.exe",
-        "音频base64编解码": ".\\Tools\\【实验性工具】\\音频处理\\音频base64.exe",
         "批量水印添加": ".\\Tools\\【实验性工具】\\图片处理\\批量水印.exe",
         "[Warn]批量水印添加": ".\\Tools\\【实验性工具】\\图片处理\\Warn.txt",
-        "视频音频提取": ".\\Tools\\【实验性工具】\\音频处理\\视频中提取.py",
         "定时闹钟": ".\\Tools\\【实验性工具】\\定时闹钟\\闹钟.exe",
         "定时闹钟自定义铃声文件夹": ".\\Tools\\【实验性工具】\\定时闹钟\\铃声文件\\",# Wran
-        "时间单位转换": ".\\Tools\\【实验性工具】\\知一求多\\单位转换\\时间单位转换.exe",
-        "长度单位转换": ".\\Tools\\【实验性工具】\\知一求多\\单位转换\\长度单位转换.exe",
-        "圆的参数计算": ".\\Tools\\【实验性工具】\\知一求多\\圆的参数\\圆的参数计算器.exe",
         "搜索引擎索引检测": ".\\Tools\\【实验性工具】\\搜索\\url搜索引擎收录检测.exe",
         "在线工具": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/online_tools/index.html",
     },
     "关于芙芙工具箱": {
         "检查版本": ".\\Show_version.exe",
         "修改开始菜单图标": "link",
-        "另存配置文件": ".\\temporarily\\config-save.exe",
+        "备份配置": ".\\config\\备份.exe",
+        "还原配置": ".\\config\\还原.exe",
         "安装文件夹": os.getcwd(),
         "程序文档": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/",
         "程序官网": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/",

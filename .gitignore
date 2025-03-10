@@ -1,5 +1,10 @@
 # IDE
-配置文件/
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+# Visual Studio Code
+.vscode/
+# Intellij IDEA
+.idea/
 
 # Python
 .venv/
@@ -7,7 +12,7 @@
 build/
 
 # Docs
-发行版编辑.html
+发行版编辑-PRE.md
 发行版编辑.md
 各版本代码来源.md
 版权留存/
@@ -71,8 +76,6 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
-# Visual Studio 2015/2017 cache/options directory
-.vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
@@ -321,7 +324,6 @@ FakesAssemblies/
 
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
-node_modules/
 
 # Visual Studio 6 build log
 *.plg
