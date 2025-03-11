@@ -12,23 +12,24 @@ import subprocess
 
 def shutdown(t):
     # 检测值
-    if not 0<=t:
-        messagebox.showwarning("警告","您设置的时间为负数，请检查后重新输入，或使用命令行！")
+    if t < 0:
+        messagebox.showerror("错误", "你不可以输入一个负数")
         return
-    elif t==0:
-        if not messagebox.askyesno("确认","您输入的时间为 0 分钟，或者没有输入。\n如果您不想立即关机，请点击否"):
-            return
     # 确认是否关闭设备
-    if messagebox.askyesno("确认","您确认要在 {} 分钟后关闭您的设备吗？".format(t)):
+    if t == 0:
+        message = "您要立即关闭您的设备吗？"
+    else:
+        message = f"您确定要在 {t} 分钟后关闭您的设备吗？"
+    if messagebox.askyesno("确认", message):
         # 执行命令
         try:
             subprocess.run(["shutdown","/s","/t",str(t*60)],check=True)
         except subprocess.CalledProcessError as event:
             # 检测是否已设置定时
-            if event.returncode==1190:
-                messagebox.showinfo("信息","您已设置定时，请先取消当前定时再设置！")
+            if event.returncode == 1190:
+                messagebox.showerror("错误","您已设置定时，请先取消当前定时再设置！")
             else:
-                messagebox.showerror("错误","未知的错误，请反馈！")
+                messagebox.showerror("错误",f"未知的错误: {event.returncode}")
 
 # 取消已设置的定时
 def cancelShutdown():
