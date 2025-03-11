@@ -10,9 +10,6 @@ import tkinter as tk
 from tkinter import messagebox
 import subprocess
 
-
-title="Windows定时关机"
-
 def shutdown(t):
     # 检测值
     if not 0<=t:
@@ -47,7 +44,7 @@ def cancelShutdown():
 def main():
     # 设定窗口
     root=tk.Tk()
-    root.title(title)
+    root.title("Windows定时关机")
     root.geometry("320x180+200+200")
     root.resizable(False,False)
     # 设置变量
