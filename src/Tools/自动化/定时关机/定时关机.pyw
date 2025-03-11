@@ -7,31 +7,44 @@ AUTHOR Pfolg
 TIME 2025/3/11 10:19
 """
 import tkinter as tk
-import os
 from tkinter import messagebox
+import subprocess
 
 
 title="Windows定时关机"
 
 def shutdown(t):
     # 检测值
-    if not 0<=t<=1440:
-        messagebox.showwarning(title,"您设置的时间超出了范围 [0,1440]，请检查后重新输入，或使用命令行！")
+    if not 0<=t:
+        messagebox.showwarning("警告","您设置的时间超出了范围 <=0，请检查后重新输入，或使用命令行！")
         return
     # 确认是否关闭设备
-    iscomfirm=messagebox.askyesno(title,"您确认要在 {} 分钟后关闭您的设备吗？\n如果您已设置定时，请点击否！".format(t))
+    iscomfirm=messagebox.askyesno("确认","您确认要在 {} 分钟后关闭您的设备吗？\n如果您已设置定时，请点击否！".format(t))
     if iscomfirm:
         # 执行命令
-        os.system("shutdown /s /t {}".format(t*60))
+        try:
+            subprocess.run(["shutdown","/s","/t",str(t*60)],check=True)
+        except subprocess.CalledProcessError as event:
+            # 检测是否已设置定时
+            if event.returncode==1190:
+                messagebox.showinfo("信息","您已设置定时，请先取消当前定时再设置！")
+            else:
+                messagebox.showerror("错误","未知的错误，请反馈！")
 
-# 取消已设置（不一定）的定时
+# 取消已设置的定时
 def cancelShutdown():
-    iscomfirm=messagebox.askyesno(title,"您确认要取消定时关闭设备吗？不论您是否已设置定时，都将运行解除定时关闭命令！")
+    iscomfirm=messagebox.askyesno("确认","您确认要取消定时关闭设备吗？")
     if iscomfirm:
         # 执行取消
-        os.system("shutdown /a")
+        try:
+            subprocess.run(["shutdown","/a"],check=True)
+        except subprocess.CalledProcessError as event:
+            if event.returncode==1116:
+                messagebox.showinfo("信息","您尚未设置定时，没有可取消的定时！")
+            else:
+                messagebox.showerror("错误", "未知的错误，请反馈！")
 
-def window():
+def main():
     # 设定窗口
     root=tk.Tk()
     root.title(title)
@@ -47,9 +60,7 @@ def window():
     tk.Button(root,text="开始",width=8,command=lambda :shutdown(this_time.get())).place(relx=.2,rely=.6)
     tk.Button(root,text="取消",width=8,command=cancelShutdown).place(relx=.6,rely=.6)
 
-    # 添加提醒
-    tk.Label(root,text="在使用之前请知悉程序的使用方法！",foreground="red").place(relx=.18,rely=.9)
 
     root.mainloop()
 if __name__ == '__main__':
-    window()
+    main()
