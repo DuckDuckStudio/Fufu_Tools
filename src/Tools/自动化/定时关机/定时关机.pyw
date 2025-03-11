@@ -34,7 +34,7 @@ def shutdown(t):
 # 取消已设置的定时
 def cancelShutdown():
     # 确认取消
-    if messagebox.askyesno("确认","您确认要取消定时关闭设备吗？"):
+    if messagebox.askyesno("确认","您确定要取消定时关闭设备吗？"):
         # 执行取消
         try:
             subprocess.run(["shutdown","/a"],check=True)
