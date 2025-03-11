@@ -13,11 +13,13 @@ import subprocess
 def shutdown(t):
     # 检测值
     if not 0<=t:
-        messagebox.showwarning("警告","您设置的时间超出了范围 <=0，请检查后重新输入，或使用命令行！")
+        messagebox.showwarning("警告","您设置的时间为负数，请检查后重新输入，或使用命令行！")
         return
+    elif t==0:
+        if not messagebox.askyesno("确认","您输入的时间为 0 分钟，或者没有输入。\n如果您不想立即关机，请点击否"):
+            return
     # 确认是否关闭设备
-    iscomfirm=messagebox.askyesno("确认","您确认要在 {} 分钟后关闭您的设备吗？\n如果您已设置定时，请点击否！".format(t))
-    if iscomfirm:
+    if messagebox.askyesno("确认","您确认要在 {} 分钟后关闭您的设备吗？".format(t)):
         # 执行命令
         try:
             subprocess.run(["shutdown","/s","/t",str(t*60)],check=True)
@@ -30,8 +32,8 @@ def shutdown(t):
 
 # 取消已设置的定时
 def cancelShutdown():
-    iscomfirm=messagebox.askyesno("确认","您确认要取消定时关闭设备吗？")
-    if iscomfirm:
+    # 确认取消
+    if messagebox.askyesno("确认","您确认要取消定时关闭设备吗？"):
         # 执行取消
         try:
             subprocess.run(["shutdown","/a"],check=True)
@@ -56,7 +58,6 @@ def main():
     # 设置按钮+功能绑定
     tk.Button(root,text="开始",width=8,command=lambda :shutdown(this_time.get())).place(relx=.2,rely=.6)
     tk.Button(root,text="取消",width=8,command=cancelShutdown).place(relx=.6,rely=.6)
-
 
     root.mainloop()
 if __name__ == '__main__':
