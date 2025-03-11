@@ -40,7 +40,7 @@ def cancelShutdown():
             subprocess.run(["shutdown","/a"],check=True)
         except subprocess.CalledProcessError as event:
             if event.returncode==1116:
-                messagebox.showinfo("信息","您尚未设置定时，没有可取消的定时！")
+                messagebox.showinfo("信息","没有可取消的定时！")
             else:
                 messagebox.showerror("错误",f"未知的错误: {event.returncode}")
 
