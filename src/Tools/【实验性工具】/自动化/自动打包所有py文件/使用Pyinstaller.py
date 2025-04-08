@@ -23,8 +23,8 @@ folder_path = input("请输入文件夹路径：")
 if folder_path.startswith(("'", '"')) and folder_path.endswith(("'", '"')):
     folder_path = folder_path[1:-1]
 
-if not folder_path.endswith('\\'):
-    folder_path += '\\'
+if not folder_path.endswith(os.sep):
+    folder_path += os.sep
 
 if not os.path.exists(folder_path):
     print(f"{Fore.RED}✕{Fore.RESET} 指定的目录路径不存在，请重新运行程序并输入有效的目录路径。")
@@ -34,17 +34,19 @@ if not os.path.exists(folder_path):
 icon_path = input("请输入图标文件路径：")
 log_path = input("请输入日志文件存放文件夹：")
 
-if not icon_path:
+if not icon_path or not os.path.exists(icon_path):
+    # 如果图标路径为空或不存在，则设置为 None
     icon_path = "None"
-    print(f"{Fore.YELLOW}⚠{Fore.RESET} 将执行无图标打包！")
+    print(f"{Fore.YELLOW}⚠{Fore.RESET} 指定的图标路径为空或不存在，将执行无图标打包！")
 elif icon_path.startswith(("'", '"')) and icon_path.endswith(("'", '"')):
     icon_path = icon_path[1:-1]
 
-if not log_path:
+if not log_path or not os.path.exists(log_path):
+    # 如果日志路径为空或不存在，则设置为 None
     log_path = "None"
-    print(f"{Fore.YELLOW}⚠{Fore.RESET} 将执行无日志打包！")
-elif not log_path.endswith('\\'):
-    log_path += '\\'
+    print(f"{Fore.YELLOW}⚠{Fore.RESET} 指定的日志路径为空或不存在，将执行无日志打包！")
+elif not log_path.endswith(os.sep):
+    log_path += os.sep
 
 for root, dirs, files in os.walk(folder_path):
     for file in files:
@@ -92,7 +94,7 @@ def package_py(file_path, log_file="None"):
         fail += 1
         fcount += 1
         notification.notify(
-            title='Pyinstaller快速打包程序提醒您',
+            title='Pyinstaller 批量打包程序提醒您',
             message=f'打包程序炸啦！到现在一共炸了{fail}次。',
             timeout=10
         )
@@ -126,7 +128,7 @@ def package_pyw(file_path, log_file="None"):
         fail += 1
         fcount += 1
         notification.notify(
-            title='Pyinstaller快速打包程序提醒您',
+            title='Pyinstaller 批量打包程序提醒您',
             message=f'打包程序炸啦！到现在一共炸了{fail}次。',
             timeout=10
         )
@@ -178,7 +180,7 @@ else:
 if fail != 0:
     input(f"打包完成，一共炸了{fail}次。请按 Enter 键继续清除原文件...")
     notification.notify(
-        title='Pyinstaller快速打包程序提醒您',
+        title='Pyinstaller 批量打包程序提醒您',
         message=f'打包完成，一共炸了{fail}次。',
         timeout=10
     )
@@ -188,7 +190,7 @@ if fail != 0:
         print(failed_file)
 else:
     notification.notify(
-        title='Pyinstaller快速打包程序提醒您',
+        title='Pyinstaller 批量打包程序提醒您',
         message=f'打包完成，没炸！',
         timeout=10
     )
@@ -204,7 +206,7 @@ for root, dirs, files in os.walk(folder_path):
             print(f'{Fore.GREEN}✓{Fore.RESET} 已删除源文件: {file_path} (还剩 {acount-countd} 个源文件)')
 
 notification.notify(
-    title='Pyinstaller快速打包程序提醒您',
+    title='Pyinstaller 批量打包程序提醒您',
     message=f'文件删除完成！总共删除了{countd}个原文件',
     timeout=10
 )
