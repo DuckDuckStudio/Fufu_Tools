@@ -4,7 +4,6 @@ import shutil
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
-from colorama import init, Fore
 
 def 选择目标文件夹():
     while True:
@@ -77,7 +76,6 @@ def 复制配置文件(目标文件夹):
 
 
 def main():
-    init(autoreset=True)
     # 让用户选择目标文件夹
     目标文件夹 = 选择目标文件夹()
     复制配置文件(目标文件夹)

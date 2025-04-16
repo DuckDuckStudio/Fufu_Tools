@@ -1,17 +1,19 @@
 import os
 import sys
+import shutil
 import configparser
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
-from colorama import init, Fore
-import shutil
 
 def 选择备份文件夹():
     root = tk.Tk()
     root.withdraw()
     备份文件夹 = filedialog.askdirectory(title="你之前将配置文件备份到了哪里？")
-    if not os.path.exists(备份文件夹):
+    if not 备份文件夹:
+        messagebox.showerror("错误", "未选择文件夹，操作取消。")
+        sys.exit(3)
+    elif not os.path.exists(备份文件夹):
         messagebox.showerror("错误", "备份文件夹不存在")
     return 备份文件夹
 
@@ -41,7 +43,6 @@ def 比较配置文件键(文件1, 文件2):
     return True, "键完全一致"
 
 def 还原配置文件(备份文件夹, 目标根目录):
-    init(autoreset=True)
     已处理文件 = 0
     跳过文件 = 0
 
@@ -73,10 +74,9 @@ def 还原配置文件(备份文件夹, 目标根目录):
                     messagebox.showerror("错误", f"还原配置文件 {相对路径} 失败:\n{str(e)}")
                     跳过文件 += 1
 
-    messagebox.showinfo("恭喜", f"成功还原配置文件！\n我们一共成功还原了 {已处理文件} 个配置文件，跳过了 {跳过文件} 个配置文件。")
+    messagebox.showinfo("恭喜", f"成功还原配置文件！\n一共成功还原了 {已处理文件} 个配置文件，跳过了 {跳过文件} 个配置文件。")
 
 def main():
-    init(autoreset=True)
     备份文件夹 = 选择备份文件夹()
     
     脚本路径 = os.path.abspath(sys.argv[0])
