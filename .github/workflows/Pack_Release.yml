@@ -131,6 +131,7 @@ jobs:
           Copy-Item -Path "src" -Destination "Release/Fufu_Tools.v${{ env.VERSION }}" -Recurse -Verbose
           Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/芙芙工具箱.pyw" -Verbose
           Rename-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/芙芙工具箱(for打包).pyw" -NewName "芙芙工具箱.pyw" -Verbose
+          Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/环境配置" -Recurse -Verbose
           Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/Tools/【实验性工具】/hosts修改/调用.py" -Verbose
           Rename-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/Tools/【实验性工具】/hosts修改/调用(For-打包版).py" -NewName "调用.py" -Verbose
           Remove-Item -Path "Release/Fufu_Tools.v${{ env.VERSION }}/Tools/休息一下/自启动设置.py" -Verbose
