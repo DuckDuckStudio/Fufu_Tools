@@ -93,7 +93,7 @@ winget install --id DuckStudio.FufuTools -s winget -e
 ~~我可能真的只是个废物，有些BUG是真的不会修...~~  
 
 <a href="https://space.bilibili.com/2054654702">
-    <img src="https://duckduckstudio.github.io/yazicbs.github.io/project_photos/Bilibili-Account.png" alt=My-Bilibili-Account width="30%" height="30%">
+    <img src="https://duckduckstudio.github.io/yazicbs.github.io/pictures/docs/Bilibili-Account.png" alt=My-Bilibili-Account width="30%" height="30%">
 </a><br />
 
 这个工具箱最初是为了**我个人的使用**才制作的，现在也只会添加我会用到且经常用到的东西。我不了解的方面或者不经常使用的方面的工具可能更新很慢 **(如果你们提出来建议或者问题的话会优先解决)** 。  
