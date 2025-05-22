@@ -14,6 +14,9 @@ def extract_audio(video_path, audio_path):
         
         # 提取音频
         audio_clip = video_clip.audio
+
+        if audio_clip is None:
+            raise ValueError("[ERROR] 视频文件不包含音频轨道")
         
         # 保存音频文件
         audio_clip.write_audiofile(audio_path)
@@ -22,10 +25,11 @@ def extract_audio(video_path, audio_path):
         video_clip.close()
         audio_clip.close()
         
-        print("音频提取完成！")
+        input("音频提取完成！按 Enter 键退出...")
     
     except Exception as e:
-        print(f"错误: {e}")
+        print(f"提取过程中出错: {e}")
+        input("按 Enter 键退出...")
 
 # 视频文件路径
 video_path_input = input("视频文件的完整路径是：")
