@@ -8,7 +8,14 @@ import tkinter as tk
 # ----- 以下问题的Issue一律按已完成关闭 -----
 # - 添加控制是否显示日期
 
+update_in_progress = False
+
 def update_clock():
+    global update_in_progress
+    if update_in_progress:
+        return
+    update_in_progress = True
+
     now = datetime.datetime.now()
 
     # 将英文的星期转换为中文
@@ -33,6 +40,7 @@ def update_clock():
     # 更新文本字体大小
     update_text_size()
 
+    update_in_progress = False
     clock_label.after(1000, update_clock)
 
 def update_text_size():
