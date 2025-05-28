@@ -78,6 +78,9 @@ def toggle_tools():
         root.bind("<Button-1>", on_click_outside_tools, add='+')
 
 def on_click_outside_tools(event):
+    # 如果点击的是“工具”按钮本身，则不关闭
+    if event.widget == tools_button:
+        return
     # 判断点击是否在tools_frame内
     # 获取tools_frame的绝对坐标和大小
     x1 = tools_frame.winfo_rootx()
