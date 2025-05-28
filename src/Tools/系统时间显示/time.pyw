@@ -120,9 +120,6 @@ def apply_theme(theme_name):
     tools_frame.config(bg=theme["bg"])
     sticky_button.config(bg=theme["button_bg"], fg=theme["button_fg"])
     exit_button.config(bg=theme["button_bg"], fg=theme["button_fg"])
-    # 主题切换按钮可能还没创建，需判断
-    if "theme_button" in globals():
-        theme_button.config(bg=theme["button_bg"], fg=theme["button_fg"])
 
 def toggle_theme():
     global current_theme
