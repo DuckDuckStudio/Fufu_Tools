@@ -73,7 +73,7 @@ def toggle_tools():
         # 解绑点击事件
         root.unbind("<Button-1>")
     else:
-        tools_frame.pack(side=tk.BOTTOM, fill=tk.X, padx=10, pady=10)
+        tools_frame.pack(side=tk.BOTTOM, fill=tk.X, padx=6, pady=10)
         # 绑定点击事件
         root.bind("<Button-1>", on_click_outside_tools, add='+')
 
