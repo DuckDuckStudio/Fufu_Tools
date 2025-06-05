@@ -1,26 +1,21 @@
 #include <iostream>
+#include <string>
+#include <cctype>
 using namespace std;
 
-char a[114514];
-
 int main () {
-    cout << "请输入需要转换的字符：";
-	cin >> a;
-    //---
-	for (int i=0;a[i];i++) {
-		if (a[i] >= 'a'&&a[i] <= 'z') {
-			a[i] -= 32;
-		} else if (a[i] >= 'A'&&a[i] <= 'Z') {
-			a[i] += 32;
-		} 
-	}
-	//---
-    cout << "转换结果为：";
-	for (int i=0;a[i];i++) {
-		cout << a[i];
-	}
-	
-	cout << endl << endl;
-	system("pause"); 
-	return 0;
+    string a; // 存储用于大小写转换的输入字符串
+    cout << "请输入需要转换的字符: ";
+    getline(cin, a);
+
+    for (int i=0; a[i]; i++) {
+        if (islower(a[i])) {
+            a[i] = toupper(a[i]);
+        } else if (isupper(a[i])) {
+            a[i] = tolower(a[i]);
+        } 
+    }
+    cout << "转换结果为: " << a << endl << endl;
+    system("pause"); 
+    return 0;
 }
