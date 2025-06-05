@@ -7,7 +7,10 @@ from configparser import ConfigParser
 os.chdir(os.path.dirname(os.path.abspath(__file__))) # 避免意外的输出位置
 
 # ------ 检测开始菜单图标情况 ----------
-shortcut_path = os.path.join(os.path.join(os.getenv('APPDATA'), "Microsoft\\Windows\\Start Menu\\Programs"), "芙芙工具箱.lnk")
+appdata = os.getenv('APPDATA')
+if appdata is None:
+    raise EnvironmentError("APPDATA 环境变量未设置")
+shortcut_path = os.path.join(appdata, "Microsoft\\Windows\\Start Menu\\Programs", "芙芙工具箱.lnk")
 script_path = os.path.realpath(__file__)
 icon_path = os.path.join(os.path.dirname(script_path), "ico.ico")
 

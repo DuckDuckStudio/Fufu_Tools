@@ -6,7 +6,10 @@ from tkinter import messagebox
 from configparser import ConfigParser
 
 # ------ 检测开始菜单图标情况 ----------
-shortcut_path = os.path.join(os.path.join(os.getenv('APPDATA'), "Microsoft\\Windows\\Start Menu\\Programs"), "芙芙工具箱.lnk")
+appdata = os.getenv('APPDATA')
+if appdata is None:
+    raise EnvironmentError("APPDATA 环境变量未设置")
+shortcut_path = os.path.join(appdata, "Microsoft\\Windows\\Start Menu\\Programs", "芙芙工具箱.lnk")
 script_path = os.path.dirname(os.path.abspath(sys.argv[0]))
 icon_path = os.path.join(script_path, "ico.ico")
 config_file = os.path.join(script_path, "config.ini")
