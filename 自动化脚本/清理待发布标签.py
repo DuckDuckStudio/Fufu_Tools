@@ -49,7 +49,7 @@ for pullrequest in pullrequests:
     subprocess.run(["gh", "pr", "edit", pullrequest["url"], "--remove-label", "待发布", "--add-label", "DEV-已完成"], check=True)
     print("    成功替换标签: 待发布 -> DEV-已完成")
     subprocess.run(["gh", "pr", "comment", pullrequest["url"], "--body", f"此拉取请求的相关修改已在 [{新版本号}](https://github.com/DuckDuckStudio/Fufu_Tools/releases/tag/v{新版本号}) 中发布。"], check=True)
-    print(f"    成功关闭 Pull Request: {pullrequest['url']}")
+    print(f"    成功评论 Pull Request: {pullrequest['url']}")
     print(f"[INFO] Pull Request {pullrequest['url']} 处理完成🎉")
 
 print("[INFO] 所有 Issue 和 Pull Request 处理完成🎉")
