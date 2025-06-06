@@ -7,6 +7,8 @@ on:
     paths:
       - LICENSE
 
+permissions: {}
+
 jobs:
   notify:
     runs-on: ubuntu-latest

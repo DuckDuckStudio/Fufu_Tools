@@ -9,6 +9,11 @@ on:
   release:
     types: [ published ]
 
+permissions:
+  contents: write # 发布构建结果
+  issues: write # 清理待发布标签
+  pull-requests: write # 清理待发布标签
+
 jobs:
   pack-releases:
     runs-on: windows-latest
