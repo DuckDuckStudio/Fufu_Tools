@@ -1,4 +1,4 @@
-requests==2.32.3
+requests==2.32.4
 colorama==0.4.6
 translate==3.6.1
 beautifulsoup4==4.13.4
