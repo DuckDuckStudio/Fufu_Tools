@@ -4,7 +4,7 @@
 
 [![展示图](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/photos/展示图.png)](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/)  
 
-[![GitHub Release](https://img.shields.io/github/release/DuckDuckStudio/Fufu_Tools?style=flat)](https://github.com/DuckDuckStudio/Fufu_Tools/releases/latest) [![Github All Releases](https://img.shields.io/github/downloads/DuckDuckStudio/Fufu_Tools/total.svg?style=flat)]()  
+[![GitHub Releases 最新版本](https://img.shields.io/github/release/DuckDuckStudio/Fufu_Tools?style=flat)](https://github.com/DuckDuckStudio/Fufu_Tools/releases/latest) ![Github Releases 下载数](https://img.shields.io/github/downloads/DuckDuckStudio/Fufu_Tools/total.svg?style=flat)  
 
 有关当前可用的工具及其介绍，请前往[芙芙工具箱 | 可用工具说明文件](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/%E5%90%84%E4%B8%AA%E5%B7%A5%E5%85%B7%E6%96%87%E6%A1%A3/index.html)页面查看。  
 **如果您对使用方法有任何疑问，请先阅读小工具目录下的使用说明或者[文档](https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/wiki/)**。  
