@@ -22,17 +22,6 @@ from PySide6.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QListV
 "https://github.com/Pfolg/PfolgBlog/blob/master/Passages/%E5%AF%B9%E6%AF%94%E6%96%87%E4%BB%B6%E6%B8%85%E7%90%86/main.md"
 
 
-def resource_path(relative_path):
-    """获取资源的绝对路径（兼容开发环境和打包后环境）"""
-    if hasattr(sys, '_MEIPASS'):
-        return os.path.join(sys._MEIPASS, relative_path)
-    return os.path.join(os.path.abspath("."), relative_path)
-
-
-ui_path = resource_path("main.ui")
-icon_path = resource_path("ico.ico")
-
-
 def get_screen_info() -> tuple:
     """读取屏幕长宽，用于窗口定位"""
     # 获取现有的 QApplication 实例
@@ -48,11 +37,7 @@ def get_screen_info() -> tuple:
 
 def get_out_repeat_element(a: list) -> list:
     """去重"""
-    b = []
-    for i in a:
-        if i not in b:
-            b.append(i)
-    return b
+    return list(set(a))
 
 
 def read_folders_files(data: list):
@@ -166,14 +151,20 @@ class Window(QWidget):
         if self.folders and self.files:
             file_content = []
             green_files = []
+            # 读取文件s内容
             for i in self.files:
                 with open(i, "r", encoding="utf-8") as file:
                     file_content.append(file.read())
+            # 读取被引用文件列表
             all_files: list[Path] = read_folders_files(self.folders)
             for i in all_files:
                 for j in file_content:
+                    # [核心] 比对：存在则保留，不存在则继续比较，直到找到或用尽循环
                     if i.name in j:
+                        # 将文件添加到绿色区
                         green_files.append(i)
+                        # 退出二级循环
+                        break
             for i in all_files:
                 if i not in green_files and Path.exists(i):
                     self.delete_files.append(str(i))
@@ -261,10 +252,9 @@ class Window(QWidget):
         fd.setFileMode(QFileDialog.FileMode.Directory)
         fd.setViewMode(QFileDialog.ViewMode.List)
         if fd.exec():
-            a = fd.selectedFiles()
+            a: list[str] = fd.selectedFiles()
             print(a)
-            for i in a:
-                self.folders.append(i)
+            self.folders += a
             # 去重
             self.folders = get_out_repeat_element(self.folders)
             self.update_listView()
@@ -275,10 +265,9 @@ class Window(QWidget):
         fd.setFileMode(QFileDialog.FileMode.ExistingFiles)  # 获取已存在的文件
         fd.setViewMode(QFileDialog.ViewMode.List)  # 列表视图
         if fd.exec():
-            a = fd.selectedFiles()
+            a: list[str] = fd.selectedFiles()
             print(a)
-            for i in a:
-                self.files.append(i)
+            self.files += a
             self.files = get_out_repeat_element(self.files)
             self.update_listView()
 
@@ -298,6 +287,11 @@ class Window(QWidget):
 
 
 if __name__ == '__main__':
+    # 获取当前路径
+    script_dir = Path(sys.argv[0]).resolve().parent
+    print(script_dir)
+    ui_path = os.path.join(script_dir, "main.ui")
+    icon_path = "ico.ico"
     # 创建应用
     app = QApplication(sys.argv)
     # 设定图标
