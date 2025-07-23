@@ -13,11 +13,17 @@ from pathlib import Path
 from PySide6.QtCore import QTimer
 from PySide6.QtGui import QStandardItemModel, QStandardItem, QIcon
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QListView, QAbstractItemView, QFileDialog, \
-    QMessageBox
+from PySide6.QtWidgets import (
+    QApplication,
+    QWidget,
+    QLabel,
+    QPushButton,
+    QListView,
+    QAbstractItemView,
+    QFileDialog,
+    QMessageBox,
+)
 
-# 打包命令 将依赖文件直接嵌入到exe中
-"""pyinstaller --onefile --windowed --add-data "main.ui;." --add-data "ico.ico;." main.pyw"""
 # 相关链接
 "https://github.com/Pfolg/PfolgBlog/blob/master/Passages/%E5%AF%B9%E6%AF%94%E6%96%87%E4%BB%B6%E6%B8%85%E7%90%86/main.md"
 
@@ -52,8 +58,7 @@ def read_folders_files(data: list):
                 if item.is_file():
                     all_files.append(item)
     print(all_files)
-    # 返回去重的结果，可能没必要
-    return get_out_repeat_element(all_files)
+    return all_files
 
 
 class Window(QWidget):
@@ -81,20 +86,20 @@ class Window(QWidget):
         self.global_label2: QLabel = self.findChild(QLabel, "label_2")
         self.global_label3: QLabel = self.findChild(QLabel, "label_3")
 
-        self.f1_b1: QPushButton = self.findChild(QPushButton, "pushButton")
-        self.f1_b2: QPushButton = self.findChild(QPushButton, "pushButton_2")
-        self.f1_b3: QPushButton = self.findChild(QPushButton, "pushButton_3")
-        self.f2_b1: QPushButton = self.findChild(QPushButton, "pushButton_4")
-        self.f2_b2: QPushButton = self.findChild(QPushButton, "pushButton_5")
-        self.f2_b3: QPushButton = self.findChild(QPushButton, "pushButton_6")
-        self.f3_b1: QPushButton = self.findChild(QPushButton, "pushButton_7")
-        self.f3_b2: QPushButton = self.findChild(QPushButton, "pushButton_8")
-        self.f3_b3: QPushButton = self.findChild(QPushButton, "pushButton_9")
-        self.f3_b4: QPushButton = self.findChild(QPushButton, "pushButton_10")
+        self.func1_btn1: QPushButton = self.findChild(QPushButton, "pushButton")
+        self.func1_btn2: QPushButton = self.findChild(QPushButton, "pushButton_2")
+        self.func1_btn3: QPushButton = self.findChild(QPushButton, "pushButton_3")
+        self.func2_btn1: QPushButton = self.findChild(QPushButton, "pushButton_4")
+        self.func2_btn2: QPushButton = self.findChild(QPushButton, "pushButton_5")
+        self.func2_btn3: QPushButton = self.findChild(QPushButton, "pushButton_6")
+        self.func3_btn1: QPushButton = self.findChild(QPushButton, "pushButton_7")
+        self.func3_btn2: QPushButton = self.findChild(QPushButton, "pushButton_8")
+        self.func3_btn3: QPushButton = self.findChild(QPushButton, "pushButton_9")
+        self.func3_btn4: QPushButton = self.findChild(QPushButton, "pushButton_10")
 
-        self.lv1: QListView = self.findChild(QListView, "listView")
-        self.lv2: QListView = self.findChild(QListView, "listView_2")
-        self.lv3: QListView = self.findChild(QListView, "listView_3")
+        self.listView1: QListView = self.findChild(QListView, "listView")
+        self.listView2: QListView = self.findChild(QListView, "listView_2")
+        self.listView3: QListView = self.findChild(QListView, "listView_3")
 
         self.global_label3.hide()
         self.init()
@@ -103,12 +108,16 @@ class Window(QWidget):
         """删除待删区文件"""
         if self.delete_files:
             # 确认
-            if QMessageBox.question(
-                    self, "Confirm",
+            if (
+                QMessageBox.question(
+                    self,
+                    "Confirm",
                     "确认删除吗？",
                     QMessageBox.StandardButton.Ok,
-                    QMessageBox.StandardButton.Cancel
-            ) == QMessageBox.StandardButton.Ok:  # 同意则删除，不同意则取消
+                    QMessageBox.StandardButton.Cancel,
+                )
+                == QMessageBox.StandardButton.Ok
+            ):  # 同意则删除，不同意则取消
                 for i in self.delete_files:
                     Path.unlink(Path(i))
                 self.delete_files.clear()
@@ -153,7 +162,7 @@ class Window(QWidget):
             self.delete_files.clear()
             # 读取被引用文件列表
             all_files: list[Path] = read_folders_files(self.folders)
-            # -------by DeepSeek
+            # ------- by DeepSeek
             # 存储所有输入文件的内容
             all_content = ""
             for file_path in self.files:
@@ -171,14 +180,12 @@ class Window(QWidget):
                     matched_names.add(name)
 
             # 构建绿色文件列表
-            green_files = {
-                file for file in all_files
-                if file.name in matched_names
-            }
+            green_files = {file for file in all_files if file.name in matched_names}
 
             # 生成待删除文件列表
             self.delete_files = [
-                str(file) for file in all_files
+                str(file)
+                for file in all_files
                 if file not in green_files and file.exists()
             ]
             # ------
@@ -199,8 +206,7 @@ class Window(QWidget):
         """移除所有选中项（支持多选）"""
         # 获取选中项的索引（按行号降序排序）
         selected_indexes = sorted(
-            [index.row() for index in list_view.selectedIndexes()],
-            reverse=True
+            [index.row() for index in list_view.selectedIndexes()], reverse=True
         )
         # 从后向前移除避免索引变化导致错误
         for row in selected_indexes:
@@ -217,7 +223,7 @@ class Window(QWidget):
                 print("欲删除文件：", self.delete_files)
 
     def clear_listView(self, target: int) -> None:
-        """清除新三个表格的数据"""
+        """清除三个表格的数据"""
         if target == 1:
             self.model1.clear()
             self.folders.clear()
@@ -230,18 +236,24 @@ class Window(QWidget):
 
     def bind_functions(self):
         """按钮功能绑定"""
-        self.f1_b1.clicked.connect(self.select_folder)
-        self.f1_b2.clicked.connect(lambda: self.remove_selected(self.lv1, self.model1))
-        self.f1_b3.clicked.connect(lambda: self.clear_listView(1))
+        self.func1_btn1.clicked.connect(self.select_folder)  # 选择文件夹
+        self.func1_btn2.clicked.connect(
+            lambda: self.remove_selected(self.listView1, self.model1)
+        )  # 清除选中
+        self.func1_btn3.clicked.connect(lambda: self.clear_listView(1))  # 清除列表1
 
-        self.f2_b1.clicked.connect(self.select_files)
-        self.f2_b2.clicked.connect(lambda: self.remove_selected(self.lv2, self.model2))
-        self.f2_b3.clicked.connect(lambda: self.clear_listView(2))
+        self.func2_btn1.clicked.connect(self.select_files)  # 选择文件
+        self.func2_btn2.clicked.connect(
+            lambda: self.remove_selected(self.listView2, self.model2)
+        )  # 清除选中
+        self.func2_btn3.clicked.connect(lambda: self.clear_listView(2))  # 清除列表2
 
-        self.f3_b1.clicked.connect(self.start_compare)
-        self.f3_b2.clicked.connect(lambda: self.remove_selected(self.lv3, self.model3))
-        self.f3_b3.clicked.connect(lambda: self.clear_listView(3))
-        self.f3_b4.clicked.connect(self.start_remove)
+        self.func3_btn1.clicked.connect(self.start_compare)  # 比较
+        self.func3_btn2.clicked.connect(
+            lambda: self.remove_selected(self.listView3, self.model3)
+        )  # 清除选中
+        self.func3_btn3.clicked.connect(lambda: self.clear_listView(3))  # 清除列表3
+        self.func3_btn4.clicked.connect(self.start_remove)  # 删除文件
 
     def update_listView(self):
         """更新三个表格中的数据"""
@@ -267,6 +279,7 @@ class Window(QWidget):
         if fd.exec():
             a: list[str] = fd.selectedFiles()
             print(a)
+            # 将数据加载到类变量
             self.folders += a
             # 去重
             self.folders = get_out_repeat_element(self.folders)
@@ -280,6 +293,7 @@ class Window(QWidget):
         if fd.exec():
             a: list[str] = fd.selectedFiles()
             print(a)
+            # 将数据加载到类变量
             self.files += a
             self.files = get_out_repeat_element(self.files)
             self.update_listView()
@@ -290,10 +304,10 @@ class Window(QWidget):
         self.setGeometry(int((w - 800) / 2), int((h - 600) / 2), 800, 600)
         self.setMaximumSize(800, 600)
         self.setWindowTitle("对比清理")
-        self.lv1.setModel(self.model1)
-        self.lv2.setModel(self.model2)
-        self.lv3.setModel(self.model3)
-        for i in [self.lv1, self.lv2, self.lv3]:
+        self.listView1.setModel(self.model1)
+        self.listView2.setModel(self.model2)
+        self.listView3.setModel(self.model3)
+        for i in [self.listView1, self.listView2, self.listView3]:
             i.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
             i.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.bind_functions()
@@ -303,7 +317,9 @@ if __name__ == '__main__':
     # 获取当前路径
     script_dir = Path(sys.argv[0]).resolve().parent
     print(script_dir)
+    # ui文件路径
     ui_path = os.path.join(script_dir, "main.ui")
+    # 图片使用根目录的图标
     icon_path = "ico.ico"
     # 创建应用
     app = QApplication(sys.argv)
