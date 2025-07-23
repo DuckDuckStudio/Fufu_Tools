@@ -149,28 +149,39 @@ class Window(QWidget):
         """[核心] 将文件夹中的文件(a)与文本/代码中的内容(b)比较。如果a存在于b中，则保留，否则添加到待删除区"""
         _msg = ""
         if self.folders and self.files:
-            file_content = []
-            green_files = []
             # 清除上次筛选的文件，避免本次文件的误删
             self.delete_files.clear()
-            # 读取文件s内容
-            for i in self.files:
-                with open(i, "r", encoding="utf-8") as file:
-                    file_content.append(file.read())
             # 读取被引用文件列表
             all_files: list[Path] = read_folders_files(self.folders)
-            for i in all_files:
-                for j in file_content:
-                    # [核心] 比对：存在则保留，不存在则继续比较，直到找到或用尽循环
-                    if i.name in j:
-                        # 将文件添加到绿色区
-                        green_files.append(i)
-                        # 退出二级循环
-                        break
-            for i in all_files:
-                if i not in green_files and Path.exists(i):
-                    self.delete_files.append(str(i))
-            self.delete_files = get_out_repeat_element(self.delete_files)
+            # -------by DeepSeek
+            # 存储所有输入文件的内容
+            all_content = ""
+            for file_path in self.files:
+                if Path(file_path).exists():
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        all_content += f.read()  # 合并所有文件内容
+
+            # 收集所有需要匹配的文件名（使用集合去重）
+            target_names = {file.name for file in all_files}
+
+            # 检查哪些文件名出现在内容中
+            matched_names = set()
+            for name in target_names:
+                if name in all_content:  # 在合并内容中查找
+                    matched_names.add(name)
+
+            # 构建绿色文件列表
+            green_files = {
+                file for file in all_files
+                if file.name in matched_names
+            }
+
+            # 生成待删除文件列表
+            self.delete_files = [
+                str(file) for file in all_files
+                if file not in green_files and file.exists()
+            ]
+            # ------
             print(self.delete_files)
             self.update_listView()
             msg = "筛选完毕！"
