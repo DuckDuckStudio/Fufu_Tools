@@ -151,6 +151,8 @@ class Window(QWidget):
         if self.folders and self.files:
             file_content = []
             green_files = []
+            # 清除上次筛选的文件，避免本次文件的误删
+            self.delete_files.clear()
             # 读取文件s内容
             for i in self.files:
                 with open(i, "r", encoding="utf-8") as file:
