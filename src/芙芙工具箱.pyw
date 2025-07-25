@@ -57,7 +57,13 @@ def open_program(program_path):
             return
     # ---
     try:
-        os.startfile(program_path)
+        last_name = program_path.split(".")[-1]
+        if last_name == "py":
+            os.startfile("python.exe", arguments=program_path)
+        elif last_name == "pyw":
+            os.startfile("pythonw.exe", arguments=program_path)
+        else:
+            os.startfile(program_path)
     except AttributeError:
         # os.startfile() 在 Unix 系统上不可用
         os.system(f'start {program_path}')

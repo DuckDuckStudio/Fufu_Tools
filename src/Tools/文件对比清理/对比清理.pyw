@@ -321,6 +321,10 @@ if __name__ == '__main__':
     ui_path = os.path.join(script_dir, "main.ui")
     # 图片使用根目录的图标
     icon_path = "ico.ico"
+    if not os.path.exists(icon_path):
+        # 退两级目录找到图标
+        icon_path="../../ico.ico"
+    
     # 创建应用
     app = QApplication(sys.argv)
     # 设定图标
