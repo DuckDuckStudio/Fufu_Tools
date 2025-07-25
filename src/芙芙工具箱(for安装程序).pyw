@@ -36,9 +36,6 @@ def open_program(program_path):
     # ---
     try:
         os.startfile(program_path)
-    except AttributeError:
-        # os.startfile() 在 Unix 系统上不可用
-        os.system(f'start {program_path}')
     except Exception as e:
         messagebox.showerror("错误", f"无法打开: {e}")
 
