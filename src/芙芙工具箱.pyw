@@ -57,7 +57,14 @@ def open_program(program_path):
             return
     # ---
     try:
-        os.startfile(program_path)
+        last_name = program_path.split(".")[-1]
+        if last_name == "py":
+            os.startfile("python.exe", arguments=program_path)
+        elif last_name == "pyw":
+            os.startfile("pythonw.exe", arguments=program_path)
+        else:
+            os.startfile(program_path)
+
     except Exception as e:
         messagebox.showerror("错误", f"无法打开: {e}")
 
@@ -177,7 +184,7 @@ categories = {
         "自动左键连点": ".\\Tools\\自动化\\连按\\自动左键连点.py",
         "自动按键连按": ".\\Tools\\自动化\\连按\\自动按键连按.py",
         "连续尝试执行命令": ".\\Tools\\自动化\\连续尝试\\连续尝试all.py",
-        "定时关机":".\\Tools\\自动化\\定时关机\\定时关机.pyw"
+        "定时关机": ".\\Tools\\自动化\\定时关机\\定时关机.pyw",
     },
     "查找": {
         "按文件名查找文件": ".\\Tools\\查找文件\\相同文件名.py",
@@ -191,6 +198,7 @@ categories = {
         "文件分类": ".\\Tools\\文件分类\\文件分类.py",
         "文件下载": ".\\Tools\\文件下载\\文件下载.py",
         "隐藏文件到图片": ".\\Tools\\隐藏文件\\将文件隐藏在图片中.py",
+        "文件对比清理": ".\\Tools\\文件对比清理\\对比清理.pyw",
     },
     "去除代码注释": {
         "Python注释": ".\\Tools\\去除代码注释\\remove_python_comments.py",
@@ -225,7 +233,7 @@ categories = {
         "批量水印添加": ".\\Tools\\【实验性工具】\\图片处理\\批量水印.py",
         "[Warn]批量水印添加": ".\\Tools\\【实验性工具】\\图片处理\\Warn.txt",
         "定时闹钟": ".\\Tools\\【实验性工具】\\定时闹钟\\闹钟.py",
-        "定时闹钟自定义铃声文件夹": ".\\Tools\\【实验性工具】\\定时闹钟\\铃声文件\\",# Warn
+        "定时闹钟自定义铃声文件夹": ".\\Tools\\【实验性工具】\\定时闹钟\\铃声文件\\",  # Warn
         "搜索引擎索引检测": ".\\Tools\\【实验性工具】\\搜索\\url搜索引擎收录检测.py",
         "在线工具": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/online_tools/index.html",
         "危险区域": ".\\Tools\\【实验性工具】\\危险区域\\",
