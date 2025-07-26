@@ -112,7 +112,7 @@ class Window(QWidget):
                 QMessageBox.question(
                     self,
                     "Confirm",
-                    "确认删除吗？",
+                    "⚠️在执行清理之前，请您仔细审核“将清除的文件”。\n❓确认删除吗？",
                     QMessageBox.StandardButton.Ok,
                     QMessageBox.StandardButton.Cancel,
                 )
@@ -126,7 +126,7 @@ class Window(QWidget):
             else:
                 return
         else:
-            msg = "无可清理文件！"
+            msg = "⚠️无可清理文件！"
 
         QMessageBox.information(self, "Tip", msg, QMessageBox.StandardButton.Ok)
 
@@ -182,6 +182,10 @@ class Window(QWidget):
             # 构建绿色文件列表
             green_files = {file for file in all_files if file.name in matched_names}
 
+            # 更新集合 将目标文件加入绿色文件列表 以排除目标文件本身
+            green_files.update({Path(f) for f in self.files})
+            print("green files:",green_files)
+
             # 生成待删除文件列表
             self.delete_files = [
                 str(file)
@@ -189,16 +193,16 @@ class Window(QWidget):
                 if file not in green_files and file.exists()
             ]
             # ------
-            print(self.delete_files)
+            print("delete files:",self.delete_files)
             self.update_listView()
             msg = "筛选完毕！"
             if not self.delete_files:
                 msg = "筛选完毕，无未使用文件！"
             QMessageBox.information(self, "Tip", msg, QMessageBox.StandardButton.Ok)
         elif not self.folders:
-            _msg = "请选择文件夹！"
+            _msg = "⚠️请选择文件夹！"
         else:
-            _msg = "请选择目标文件！"
+            _msg = "⚠️请选择目标文件！"
         if _msg:
             QMessageBox.warning(self, "Warning", _msg)
 

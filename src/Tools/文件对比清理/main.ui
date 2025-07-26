@@ -38,7 +38,7 @@
     <item>
      <spacer name="horizontalSpacer">
       <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+       <enum>Qt::Orientation::Horizontal</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
@@ -66,7 +66,7 @@
     <item>
      <spacer name="horizontalSpacer_2">
       <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+       <enum>Qt::Orientation::Horizontal</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
@@ -125,7 +125,7 @@
        <item>
         <widget class="QPushButton" name="pushButton_3">
          <property name="text">
-          <string>清除</string>
+          <string>清除列表</string>
          </property>
          <property name="autoDefault">
           <bool>false</bool>
@@ -197,7 +197,7 @@
        <item>
         <widget class="QPushButton" name="pushButton_6">
          <property name="text">
-          <string>清除</string>
+          <string>清除列表</string>
          </property>
         </widget>
        </item>
@@ -272,27 +272,6 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget_5">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>540</y>
-     <width>771</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_5">
-    <item>
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>目标文件请选择文本类型文件。
-清理后的文件无法找回。
-文件夹中的文件不包含子目录中的文件。</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
@@ -312,12 +291,34 @@
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>540</y>
+     <width>771</width>
+     <height>59</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(132, 184, 212);
+</string>
+   </property>
+   <property name="text">
+    <string>目标文件请选择文本类型文件。
+所选文件夹中的文件不会包含子目录的文件。
+清理后的文件无法找回，请您在清理之前仔细审核。</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+   </property>
+  </widget>
   <zorder>label_3</zorder>
   <zorder>horizontalLayoutWidget</zorder>
   <zorder>groupBox</zorder>
   <zorder>groupBox_2</zorder>
   <zorder>groupBox_3</zorder>
-  <zorder>horizontalLayoutWidget_5</zorder>
+  <zorder>label_2</zorder>
  </widget>
  <resources/>
  <connections/>
