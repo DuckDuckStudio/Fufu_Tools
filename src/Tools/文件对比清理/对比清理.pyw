@@ -111,8 +111,8 @@ class Window(QWidget):
             if (
                 QMessageBox.question(
                     self,
-                    "Confirm",
-                    "⚠️在执行清理之前，请您仔细审核“将清除的文件”。\n❓确认删除吗？",
+                    "确认",
+                    "在执行清理之前，请您仔细审核“将清除的文件”。\n确认删除吗？",
                     QMessageBox.StandardButton.Ok,
                     QMessageBox.StandardButton.Cancel,
                 )
@@ -126,9 +126,9 @@ class Window(QWidget):
             else:
                 return
         else:
-            msg = "⚠️无可清理文件！"
+            msg = "无可清理文件！"
 
-        QMessageBox.information(self, "Tip", msg, QMessageBox.StandardButton.Ok)
+        QMessageBox.information(self, "提示", msg, QMessageBox.StandardButton.Ok)
 
     def start_remove(self):
         """删除待删区文件"""
@@ -198,13 +198,13 @@ class Window(QWidget):
             msg = "筛选完毕！"
             if not self.delete_files:
                 msg = "筛选完毕，无未使用文件！"
-            QMessageBox.information(self, "Tip", msg, QMessageBox.StandardButton.Ok)
+            QMessageBox.information(self, "提示", msg, QMessageBox.StandardButton.Ok)
         elif not self.folders:
-            _msg = "⚠️请选择文件夹！"
+            _msg = "请选择文件夹！"
         else:
-            _msg = "⚠️请选择目标文件！"
+            _msg = "请选择目标文件！"
         if _msg:
-            QMessageBox.warning(self, "Warning", _msg)
+            QMessageBox.warning(self, "警告", _msg)
 
     def remove_selected(self, list_view: QListView, model: QStandardItemModel) -> None:
         """移除所有选中项（支持多选）"""
@@ -317,7 +317,7 @@ class Window(QWidget):
         self.bind_functions()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # 获取当前路径
     script_dir = Path(sys.argv[0]).resolve().parent
     print(script_dir)
