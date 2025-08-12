@@ -44,7 +44,7 @@ jobs:
           Write-Output "VERSION=$version" | Out-File $env:GITHUB_ENV -Append
 
       - name: 检出代码
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5.0.0
 
       - name: 配置 Python
         uses: actions/setup-python@v5
