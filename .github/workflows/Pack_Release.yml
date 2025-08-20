@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   pack-releases:
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     steps:
       - name: 处理版本号
