@@ -1,8 +1,9 @@
 import os
 import sys
 import subprocess
-from colorama import init, Fore
+from typing import TextIO
 from plyer import notification
+from colorama import init, Fore
 
 init(autoreset=True)
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
@@ -63,18 +64,18 @@ acount = py_acount + pyw_acount
 print(f"{Fore.GREEN}一共找到了{Fore.BLUE}{acount}{Fore.GREEN}个py/pyw文件。\n其中有{Fore.BLUE}{py_acount}{Fore.GREEN}个py文件/{Fore.BLUE}{pyw_acount}{Fore.GREEN}个pyw文件。")
 
 # 函数：记录日志并添加分隔线
-def log_message(message, log_file):
+def log_message(message: str, log_file: TextIO):
     # 日志中不应存在颜色
     message = f"{message}"
     log_file.write(message + "\n")
     log_file.write("-" * 50 + "\n") # 添加分隔线
 
 # 函数：打包 Python 文件
-def package_py(file_path, log_file="None"):
+def package_py(file_path: str, log_file: TextIO | None = None):
     global fcount
     global fail
     try:
-        if log_file != "None":
+        if log_file:
             log_message(f"\n开始打包：{file_path}", log_file)
         print(f"\n{Fore.GREEN}开始打包：{Fore.BLUE}{file_path}{Fore.RESET}")
         output_dir = os.path.dirname(file_path) # 设置输出目录为 Python 文件所在目录
@@ -82,13 +83,13 @@ def package_py(file_path, log_file="None"):
         if icon_path != "None":
             command.extend(["--icon", icon_path])
         subprocess.run(command, check=True)
-        if log_file != "None":
+        if log_file:
             log_message(f"打包完成: {file_path}", log_file)
         print(f"{Fore.GREEN}打包完成: {Fore.BLUE}{file_path}{Fore.RESET}")
         fcount += 1
         print(f"{Fore.GREEN}还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
     except subprocess.CalledProcessError as e:
-        if log_file != "None":
+        if log_file:
             log_message(f"打包 {file_path} 时出错:\n{e}", log_file)
         print(f"{Fore.RED}打包 {Fore.BLUE}{file_path}{Fore.RED} 时出错:\n{e}")
         fail += 1
@@ -104,11 +105,11 @@ def package_py(file_path, log_file="None"):
         return file_path
 
 # 函数：打包 Pythonw 文件
-def package_pyw(file_path, log_file="None"):
+def package_pyw(file_path: str, log_file: TextIO | None = None):
     global fcount
     global fail
     try:
-        if log_file != "None":
+        if log_file:
             log_message(f"\n开始打包: {file_path}", log_file)
         print(f"\n{Fore.GREEN}开始打包: {Fore.BLUE}{file_path}{Fore.RESET}")
         output_dir = os.path.dirname(file_path) # 设置输出目录为 Pythonw 文件所在目录
@@ -116,13 +117,13 @@ def package_pyw(file_path, log_file="None"):
         if icon_path != "None":
             command.extend(["--icon", icon_path])
         subprocess.run(command, check=True)
-        if log_file != "None":
+        if log_file:
             log_message(f"打包完成：{file_path}", log_file)
         print(f"{Fore.GREEN}打包完成：{Fore.BLUE}{file_path}{Fore.RESET}")
         fcount += 1
         print(f"{Fore.GREEN}还剩 {Fore.BLUE}{acount-fcount}{Fore.GREEN} 个文件待打包。")
     except subprocess.CalledProcessError as e:
-        if log_file != "None":
+        if log_file:
             log_message(f"打包 {file_path} 时出错:\n{e}", log_file)
         print(f"{Fore.RED}打包 {Fore.BLUE}{file_path}{Fore.RED} 时出错:\n{e}")
         fail += 1
@@ -138,7 +139,7 @@ def package_pyw(file_path, log_file="None"):
         return file_path
 
 if log_path == "None":
-    failed_files = [] # 存储打包失败的文件名
+    failed_files: list[str] = [] # 存储打包失败的文件名
 
     # 遍历文件夹中的所有文件
     for root, dirs, files in os.walk(folder_path):
