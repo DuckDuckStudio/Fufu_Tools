@@ -12,7 +12,7 @@ config.read(config_file_path)
 print("写入中...")
 # 修改ini文件配置
 config["settings"]["always_open_more_info"] = "False"
-with open(config_file_path, 'w') as configfile:
+with open(config_file_path, "w") as configfile:
     config.write(configfile)
 
 print("设置完成！")

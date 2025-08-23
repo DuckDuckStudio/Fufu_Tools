@@ -2,7 +2,7 @@ import os
 import sys
 import ctypes
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, Frame
 from configparser import ConfigParser
 
 def run_as_admin():
@@ -12,14 +12,14 @@ def run_as_admin():
         sys.exit(1)
 
 # 打开程序的函数
-def open_program(program_path):
+def open_program(program_path: str):
     if program_path == ".\\unins000.exe":
         messagebox.showinfo("提示", "即将启动卸载程序，主程序即将退出。")
         try:
             os.startfile(program_path)
         except AttributeError:
             # os.startfile() 在 Unix 系统上不可用
-            os.system(f'start {program_path}')
+            os.system(f"start {program_path}")
         except Exception as e:
             messagebox.showerror("错误", f"无法打开: {e}")
         sys.exit()# 结束后退出
@@ -40,7 +40,7 @@ def open_program(program_path):
         messagebox.showerror("错误", f"无法打开: {e}")
 
 # 创建类别内容的函数
-def show_category(container, programs):
+def show_category(container: Frame, programs: dict[str, str]):
     # 清空容器内的内容
     for widget in container.winfo_children():
         widget.destroy()
@@ -61,7 +61,7 @@ def show_category(container, programs):
             col = 0
 
     # 显示返回按钮
-    back_button.pack(side='left', padx=10, pady=5)
+    back_button.pack(side="left", padx=10, pady=5)
 
 # 返回类别选择界面
 def show_categories():
@@ -89,12 +89,13 @@ def show_categories():
     back_button.pack_forget()
 
 # ------- 版本更新检查 ------
+aruic = "False"
 try:
     config = ConfigParser(comment_prefixes=[])
     script_path = os.path.dirname(os.path.abspath(sys.argv[0]))
     config_path = os.path.join(script_path, "config.ini")
-    config.read(config_path, encoding='utf-8')
-    aruic = config.get('settings', 'always_run_update_info_check')
+    config.read(config_path, encoding="utf-8")
+    aruic = config.get("settings", "always_run_update_info_check")
 except PermissionError:
     run_as_admin()
 # ARUIC表示always_run_update_info_check = 总是运行更新信息检查
@@ -102,12 +103,12 @@ if aruic == "True":
     os.startfile(".\\【测试】更新信息提示程序（后台）.exe")
 # ------- 可       选 -------
 # ------- 启动计数 ----------
-start_count = config.getint('count', 'start_count')
+start_count = config.getint("count", "start_count")
 start_count += 1
 start_count = str(start_count)
-config['count']['start_count'] = start_count
+config["count"]["start_count"] = start_count
 try:
-    with open(config_path, 'w') as configfile:
+    with open(config_path, "w") as configfile:
         config.write(configfile)
 except PermissionError:
     run_as_admin()
@@ -118,18 +119,18 @@ root = tk.Tk()
 root.title("芙芙工具箱")
 
 # 设置图标
-icon_path = '.\\ico.ico'
-root.iconbitmap(icon_path)
+icon_path = ".\\ico.ico"
+root.iconbitmap(icon_path) # pyright: ignore[reportUnknownMemberType]
 
 # 创建顶部蓝色框
-header = tk.Frame(root, bg='#91cbea', pady=10)
-header.pack(fill='x')
-header_label = tk.Label(header, text="芙芙工具箱", fg='#ffffff', bg='#91cbea', font=("Arial", 24))
-header_label.pack(side='left', padx=20)
+header = tk.Frame(root, bg="#91cbea", pady=10)
+header.pack(fill="x")
+header_label = tk.Label(header, text="芙芙工具箱", fg="#ffffff", bg="#91cbea", font=("Arial", 24))
+header_label.pack(side="left", padx=20)
 
 # 创建内容容器
 content_frame = tk.Frame(root, pady=20)
-content_frame.pack(fill='both', expand=True)
+content_frame.pack(fill="both", expand=True)
 
 # 创建返回按钮，初始时不显示
 back_button = tk.Button(root, text="返回", command=show_categories)
@@ -233,7 +234,7 @@ categories = {
 show_categories()
 
 # 设置窗口透明度
-root.wm_attributes('-alpha', 0.9)
+root.wm_attributes("-alpha", 0.9) # pyright: ignore[reportUnknownMemberType]
 
 # 运行主循环
 root.mainloop()

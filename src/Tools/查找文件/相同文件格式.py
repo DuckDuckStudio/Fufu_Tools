@@ -25,8 +25,8 @@ if file_extension.startswith('.'):
 
 result_file_path = os.path.join(os.getcwd(), '查找结果.txt')
 
-def find_files_by_extension(folder_path, file_extension):
-    files_found = []
+def find_files_by_extension(folder_path: str, file_extension: str):
+    files_found: list[str] = []
     total_files = sum(len(files) for _, _, files in os.walk(folder_path))
     files_processed = 0
 

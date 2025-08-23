@@ -1,8 +1,7 @@
-from tkinter import *
-from tkinter import messagebox
+from tkinter import Tk, Label, Entry, Button, StringVar, END, messagebox
 
-# 不对year与month支持原因：
-# year与month具体天数不定。
+# 不对 year 与 month 支持原因：
+# year 与 month 具体天数不定。
 
 # 定义计算函数
 def calculate():
@@ -31,10 +30,10 @@ def calculate():
                 hr = min / 60
                 day = hr / 24
 
-            result_day.set(day)
-            result_hr.set(hr)
-            result_min.set(min)
-            result_sec.set(sec)
+            result_day.set(str(day))
+            result_hr.set(str(hr))
+            result_min.set(str(min))
+            result_sec.set(str(sec))
 
             for entry in input_fields:
                 entry.delete(0, END)

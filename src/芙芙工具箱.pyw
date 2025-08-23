@@ -1,13 +1,13 @@
 import os
 import tkinter as tk
 import win32com.client
-from tkinter import messagebox
+from tkinter import messagebox, Frame
 from configparser import ConfigParser
 
 os.chdir(os.path.dirname(os.path.abspath(__file__))) # 避免意外的输出位置
 
 # ------ 检测开始菜单图标情况 ----------
-appdata = os.getenv('APPDATA')
+appdata = os.getenv("APPDATA")
 if appdata is None:
     raise EnvironmentError("APPDATA 环境变量未设置")
 shortcut_path = os.path.join(appdata, "Microsoft\\Windows\\Start Menu\\Programs", "芙芙工具箱.lnk")
@@ -21,7 +21,7 @@ else:
 # ---------------------------------
 
 # 创建快捷方式
-def create_shortcut(shortcut_path, target_path, icon_path=None):
+def create_shortcut(shortcut_path: str, target_path: str, icon_path: str | None=None):
     shell = win32com.client.Dispatch("WScript.Shell")
     shortcut = shell.CreateShortcut(shortcut_path)
     shortcut.TargetPath = target_path
@@ -30,7 +30,7 @@ def create_shortcut(shortcut_path, target_path, icon_path=None):
     shortcut.Save()
 
 # 打开程序的函数
-def open_program(program_path):
+def open_program(program_path: str):
     if program_path == "https://github.com/DuckDuckStudio/Fufu_Tools/issues":
         messagebox.showinfo("提示", "在反馈问题前请先查阅文档中是否已列出解决办法！")
     elif program_path == "link":
@@ -69,7 +69,7 @@ def open_program(program_path):
         messagebox.showerror("错误", f"无法打开: {e}")
 
 # 创建类别内容的函数
-def show_category(container, programs):
+def show_category(container: Frame, programs: dict[str, str]):
     # 清空容器内的内容
     for widget in container.winfo_children():
         widget.destroy()
@@ -90,7 +90,7 @@ def show_category(container, programs):
             col = 0
 
     # 显示返回按钮
-    back_button.pack(side='left', padx=10, pady=5)
+    back_button.pack(side="left", padx=10, pady=5)
 
 # 返回类别选择界面
 def show_categories():
@@ -118,21 +118,21 @@ def show_categories():
 
 # ------- 版本更新检查 ------
 config = ConfigParser(comment_prefixes=[])
-config.read("config.ini", encoding='utf-8')
-aruic = config.get('settings', 'always_run_update_info_check')
+config.read("config.ini", encoding="utf-8")
+aruic = config.get("settings", "always_run_update_info_check")
 # ARUIC表示always_run_update_info_check = 总是运行更新信息检查
 if aruic == "True":
     os.startfile(".\\【测试】更新信息提示程序（后台）.pyw")
 # ------- 可       选 -------
 # ------- 启动计数 ----------
-start_count = config.getint('count', 'start_count')
+start_count = config.getint("count", "start_count")
 if start_count == 0:# 首次启动查看LICENSE文件
     os.startfile("https://github.com/DuckDuckStudio/Fufu_Tools/blob/main/LICENSE")
     messagebox.showinfo("提示", "检测到您为首次运行本工具，请先阅读许可文件，使用本工具即表示您同意许可文件中的内容。")
 start_count += 1
 start_count = str(start_count)
-config['count']['start_count'] = start_count
-with open("config.ini", 'w') as configfile:
+config["count"]["start_count"] = start_count
+with open("config.ini", "w") as configfile:
     config.write(configfile)
 # --------------------------
 
@@ -141,17 +141,17 @@ root = tk.Tk()
 root.title("芙芙工具箱")
 
 # 设置图标
-root.iconbitmap(icon_path)
+root.iconbitmap(icon_path) # pyright: ignore[reportUnknownMemberType]
 
 # 创建顶部蓝色框
-header = tk.Frame(root, bg='#91cbea', pady=10)
-header.pack(fill='x')
-header_label = tk.Label(header, text="芙芙工具箱", fg='#ffffff', bg='#91cbea', font=("Arial", 24))
-header_label.pack(side='left', padx=20)
+header = tk.Frame(root, bg="#91cbea", pady=10)
+header.pack(fill="x")
+header_label = tk.Label(header, text="芙芙工具箱", fg="#ffffff", bg="#91cbea", font=("Arial", 24))
+header_label.pack(side="left", padx=20)
 
 # 创建内容容器
 content_frame = tk.Frame(root, pady=20)
-content_frame.pack(fill='both', expand=True)
+content_frame.pack(fill="both", expand=True)
 
 # 创建返回按钮，初始时不显示
 back_button = tk.Button(root, text="返回", command=show_categories)
@@ -255,7 +255,7 @@ categories = {
 show_categories()
 
 # 设置窗口透明度
-root.wm_attributes('-alpha', 0.9)
+root.wm_attributes("-alpha", 0.9) # pyright: ignore[reportUnknownMemberType]
 
 # 运行主循环
 root.mainloop()

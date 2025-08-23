@@ -13,7 +13,7 @@ output_file_path = os.path.join(script_folder, "output.txt")
 # ----------------
 
 # ----- 函数 -----
-def input_file ():# 解为audio使用
+def input_file(): # 解为audio使用
     try:
         with open(input_file_path, "w") as file:
             file.write("请在此处输入所需信息并覆盖掉本条提示，请确保没有其他信息。")
@@ -26,7 +26,7 @@ def input_file ():# 解为audio使用
         print(f"{Fore.RED}✕{Fore.RESET} 文件处理出错:\n{Fore.RED}{e}{Fore.RESET}")
         return "ERROR"
 
-def output_file (base64_data):# 编为base64使用
+def output_file(base64_data: bytes): # 编为base64使用
     try:
         with open(output_file_path, "wb") as output:
             output.write(base64_data)
@@ -35,7 +35,7 @@ def output_file (base64_data):# 编为base64使用
     except Exception as e:
         print(f"{Fore.RED}✕{Fore.RESET} 文件处理出错:\n{Fore.RED}{e}{Fore.RESET}")
 
-def base64_to_audio ():
+def base64_to_audio():
     base64_data = input_file()
     if base64_data != "ERROR":
         try:
@@ -60,7 +60,7 @@ def base64_to_audio ():
         except Exception as e:
             print(f"{Fore.RED}✕{Fore.RESET} 处理时出错:\n{Fore.RED}{e}{Fore.RESET}")
 
-def audio_to_base64 (audio_file):
+def audio_to_base64(audio_file: str):
     try:
         with open(audio_file, "rb") as audio:
             audio_data = audio.read()
@@ -71,7 +71,7 @@ def audio_to_base64 (audio_file):
 # --------------
 
 # ----- main -----
-def main ():
+def main():
     root = tk.Tk()
     root.withdraw()
     print("[音频base64处理程序]")

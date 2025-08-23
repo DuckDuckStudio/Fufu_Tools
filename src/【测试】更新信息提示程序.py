@@ -24,7 +24,7 @@ def get_latest_version():
         print(f"获取最新版本失败: {e}")
         return None
 
-def parse_version(version_string):
+def parse_version(version_string: str):
     """解析版本号字符串，返回一个元组 (major, minor, patch, preview)"""
     match = re.match(r"(\d+)\.(\d+)\.(\d+)(?:-(\d+))?", version_string)
     if match:
@@ -36,7 +36,7 @@ def parse_version(version_string):
         major, minor, patch, preview = -1, -1, -1, None
     return major, minor, patch, preview
 
-def compare_versions(version1, version2):
+def compare_versions(version1: str, version2: str):
     """比较两个版本号，返回 1 表示第一个版本号更新，返回 0 表示版本号相同，返回 -1 表示第二个版本号更新"""
     major1, minor1, patch1, preview1 = parse_version(version1)  # 解析版本号字符串
     major2, minor2, patch2, preview2 = parse_version(version2)

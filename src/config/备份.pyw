@@ -15,7 +15,7 @@ def 选择目标文件夹():
         if 检查文件夹(目标文件夹):
             return 目标文件夹
 
-def 检查文件夹(目标文件夹):
+def 检查文件夹(目标文件夹: str):
     # 检测是否选择了文件夹
     if not 目标文件夹:
         # 当用户点击选择文件窗口的“取消”按钮时
@@ -32,16 +32,16 @@ def 检查文件夹(目标文件夹):
         return False
     return True # 一切正常
 
-def 复制配置文件(目标文件夹):
+def 复制配置文件(目标文件夹: str):
     # 获取当前运行脚本的文件夹路径的上级目录作为源文件夹
     当前文件夹 = os.path.dirname(os.path.abspath(sys.argv[0]))
     源文件夹 = os.path.dirname(当前文件夹)
 
-    已复制的文件 = [] # 用于存储已经复制的文件路径
+    已复制的文件: list[str] = [] # 用于存储已经复制的文件路径
 
     try:
         # 遍历源文件夹中的所有文件和子文件夹
-        for root, dirs, files in os.walk(源文件夹):
+        for root, _, files in os.walk(源文件夹):
             for file in files:
                 if file == 'config.ini':
                     源路径 = os.path.join(root, file)

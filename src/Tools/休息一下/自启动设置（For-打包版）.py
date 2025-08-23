@@ -4,7 +4,11 @@ import shutil
 
 # --必要条件--
 # 目标文件夹路径
-startup_folder = os.path.join(os.getenv('APPDATA'), "Microsoft\\Windows\\Start Menu\\Programs\\Startup")
+APPDATA = os.getenv("APPDATA")
+if not APPDATA:
+    print("未能获取到 APPDATA 目录")
+    exit(1)
+startup_folder = os.path.join(APPDATA, "Microsoft\\Windows\\Start Menu\\Programs\\Startup")
 # 要删除的快捷方式文件名
 shortcut_name = "Fufu_Tools_休息一下.lnk"
 # 快捷方式文件路径

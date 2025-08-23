@@ -1,11 +1,11 @@
 import urllib.parse
 
-def encode_url_params(url):
+def encode_url_params(url: str):
     parsed_url = urllib.parse.urlparse(url)
     params = urllib.parse.parse_qs(parsed_url.query)
 
     # 对参数部分进行编码
-    encoded_params = {}
+    encoded_params: dict[str, list[str]] = {}
     for key, value in params.items():
         encoded_params[key] = [urllib.parse.quote(val) for val in value]
 

@@ -3,14 +3,14 @@ from tkinter import filedialog
 import re
 import os
 
-def remove_comments(file_path):
+def remove_comments(file_path: str):
     # 正则表达式匹配单行注释
     single_line_comment_pattern = re.compile(r"#.*")
     
     with open(file_path, 'r', encoding='utf-8') as file:
         content_lines = file.readlines()
         
-    new_content_lines = []
+    new_content_lines: list[str] = []
     for line in content_lines:
         # 移除单行注释
         new_line = re.sub(single_line_comment_pattern, '', line)
@@ -20,7 +20,7 @@ def remove_comments(file_path):
         
     return ''.join(new_content_lines)
 
-def save_new_file(original_file_path, new_content):
+def save_new_file(original_file_path: str, new_content: str):
     # 构造新文件名
     base_name = os.path.basename(original_file_path)
     new_file_name = f"{os.path.splitext(base_name)[0]}-去除注释{os.path.splitext(base_name)[1]}"

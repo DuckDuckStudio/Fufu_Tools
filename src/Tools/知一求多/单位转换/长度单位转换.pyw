@@ -1,5 +1,4 @@
-from tkinter import *
-from tkinter import messagebox
+from tkinter import Tk, Label, Entry, Button, StringVar, END, messagebox
 
 # 定义计算函数
 def calculate():
@@ -145,17 +144,17 @@ def calculate():
                 yard = nautical_mile * 2025.37
                 mile = nautical_mile * 1.151
 
-            result_nanometer.set(nanometer)
-            result_micrometer.set(micrometer)
-            result_millimeter.set(millimeter)
-            result_centimeter.set(centimeter)
-            result_meter.set(meter)
-            result_kilometer.set(kilometer)
-            result_inch.set(inch)
-            result_foot.set(foot)
-            result_yard.set(yard)
-            result_mile.set(mile)
-            result_nautical_mile.set(nautical_mile)
+            result_nanometer.set(str(nanometer))
+            result_micrometer.set(str(micrometer))
+            result_millimeter.set(str(millimeter))
+            result_centimeter.set(str(centimeter))
+            result_meter.set(str(meter))
+            result_kilometer.set(str(kilometer))
+            result_inch.set(str(inch))
+            result_foot.set(str(foot))
+            result_yard.set(str(yard))
+            result_mile.set(str(mile))
+            result_nautical_mile.set(str(nautical_mile))
 
             for entry in input_fields:
                 entry.delete(0, END)

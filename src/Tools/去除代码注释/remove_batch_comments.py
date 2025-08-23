@@ -19,7 +19,7 @@ else:
 
 
 
-def remove_comments(file_path):
+def remove_comments(file_path: str):
     # 正则表达式匹配注释
     single_line_comment_pattern = re.compile(r'REM.*')
     single_line_2_comment_pattern = re.compile(r'::.*')
@@ -33,7 +33,7 @@ def remove_comments(file_path):
 
     return content
 
-def save_new_file(original_file_path, new_content):
+def save_new_file(original_file_path: str, new_content: str):
     # 构造新文件名
     base_name = os.path.basename(original_file_path)
     new_file_name = f"{os.path.splitext(base_name)[0]}-无注释{os.path.splitext(base_name)[1]}"
@@ -52,7 +52,7 @@ def main():
     root.withdraw() # 不显示主窗口
 
     file_path = filedialog.askopenfilename(filetypes=[
-        ("批处理文件", "*.bat", "*.cmd"),
+        ("批处理文件", ("*.bat", "*.cmd")),
         ("所有文件", "*.*")
     ])
     if not file_path:

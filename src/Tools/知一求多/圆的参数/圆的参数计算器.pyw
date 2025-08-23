@@ -1,5 +1,4 @@
-from tkinter import *
-from tkinter import messagebox
+from tkinter import Tk, Label, Entry, Button, StringVar, END, messagebox
 
 # 定义计算函数
 def calculate():
@@ -29,10 +28,10 @@ def calculate():
                 d = 2 * r
                 c = 2 * pi_value * r
 
-            result_r.set(r)
-            result_d.set(d)
-            result_c.set(c)
-            result_s.set(s)
+            result_r.set(str(r))
+            result_d.set(str(d))
+            result_c.set(str(c))
+            result_s.set(str(s))
 
             for entry in input_fields:
                 entry.delete(0, END)

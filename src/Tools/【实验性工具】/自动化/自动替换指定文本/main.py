@@ -4,7 +4,7 @@ from colorama import init, Fore
 
 init(autoreset=True)
 
-def replace_text_in_files(folder_path, old_text, new_text):
+def replace_text_in_files(folder_path: str, old_text: str, new_text: str):
     files_processed = 0
     files_modified = 0
     matching_occurrences = 0
