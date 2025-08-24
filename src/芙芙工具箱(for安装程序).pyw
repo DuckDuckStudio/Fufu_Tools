@@ -17,12 +17,9 @@ def open_program(program_path: str):
         messagebox.showinfo("提示", "即将启动卸载程序，主程序即将退出。")
         try:
             os.startfile(program_path)
-        except AttributeError:
-            # os.startfile() 在 Unix 系统上不可用
-            os.system(f"start {program_path}")
         except Exception as e:
             messagebox.showerror("错误", f"无法打开: {e}")
-        sys.exit()# 结束后退出
+        sys.exit() # 结束后退出
     elif program_path == "CheckINFO":
         if messagebox.askyesno("芙芙工具箱", "是否在本地保存相关信息?"):
             program_path = ".\\Check_INFO_save.bat"

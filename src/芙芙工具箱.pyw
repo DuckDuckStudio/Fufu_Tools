@@ -21,7 +21,7 @@ else:
 # ---------------------------------
 
 # 创建快捷方式
-def create_shortcut(shortcut_path: str, target_path: str, icon_path: str | None=None):
+def create_shortcut(shortcut_path: str, target_path: str, icon_path: str | None = None):
     shell = win32com.client.Dispatch("WScript.Shell")
     shortcut = shell.CreateShortcut(shortcut_path)
     shortcut.TargetPath = target_path

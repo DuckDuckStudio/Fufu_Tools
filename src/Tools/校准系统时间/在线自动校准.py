@@ -5,7 +5,7 @@ import datetime
 def sync_time():
     try:
         client = ntplib.NTPClient()
-        response = client.request("time.windows.com") # 使用 Windows time 服务器
+        response = client.request("time.windows.com") # pyright: ignore[reportUnknownMemberType] # 使用 Windows time 服务器
         local_time = ctime(response.tx_time)
         print("校准前本地时间：", ctime())
         print("开始校准时间...")
