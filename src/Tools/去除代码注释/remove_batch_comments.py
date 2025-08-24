@@ -3,28 +3,12 @@ from tkinter import filedialog
 import re
 import os
 
-print("[Warn]: 对于bat文件使用GBK编码。")
-print("[Warn]: 如需使用utf-8编码请使用chcp 65001.")
-print("是否是使用utf-8编码？")
-print("[Y]是 [N]否")
-temp = input("你的回答是：")
-if temp.lower() in ["y", "yes", "是"]:
-    editing_code = "utf-8"
-    print("[INFO]: 使用utf-8编码")
-elif temp.lower() in ["n", "no", "否", "不"]:
-    editing_code = "gbk"
-    print("[INFO]: 使用gbk编码")
-else:
-    print("[ERROR]: 请勿输入其他内容")
-
-
-
-def remove_comments(file_path):
+def remove_comments(file_path: str):
     # 正则表达式匹配注释
     single_line_comment_pattern = re.compile(r'REM.*')
     single_line_2_comment_pattern = re.compile(r'::.*')
 
-    with open(file_path, 'r', encoding=editing_code) as file:
+    with open(file_path, 'r', encoding="utf-8") as file:
         content = file.read()
 
         # 移除注释
@@ -33,7 +17,7 @@ def remove_comments(file_path):
 
     return content
 
-def save_new_file(original_file_path, new_content):
+def save_new_file(original_file_path: str, new_content: str):
     # 构造新文件名
     base_name = os.path.basename(original_file_path)
     new_file_name = f"{os.path.splitext(base_name)[0]}-无注释{os.path.splitext(base_name)[1]}"
@@ -42,7 +26,7 @@ def save_new_file(original_file_path, new_content):
     # 规范化文件路径以确保斜杠方向的一致性
     new_file_path = os.path.normpath(new_file_path)
 
-    with open(new_file_path, 'w', encoding=editing_code) as new_file:
+    with open(new_file_path, 'w', encoding="utf-8") as new_file:
         new_file.write(new_content)
 
     print(f"处理后的文件已保存为：{new_file_path}")
@@ -52,7 +36,7 @@ def main():
     root.withdraw() # 不显示主窗口
 
     file_path = filedialog.askopenfilename(filetypes=[
-        ("批处理文件", "*.bat", "*.cmd"),
+        ("批处理文件", ("*.bat", "*.cmd")),
         ("所有文件", "*.*")
     ])
     if not file_path:

@@ -17,7 +17,7 @@ def 选择备份文件夹():
         messagebox.showerror("错误", "备份文件夹不存在")
     return 备份文件夹
 
-def 比较配置文件键(文件1, 文件2):
+def 比较配置文件键(文件1: str, 文件2: str):
     config1 = configparser.ConfigParser()
     config2 = configparser.ConfigParser()
     
@@ -42,11 +42,11 @@ def 比较配置文件键(文件1, 文件2):
 
     return True, "键完全一致"
 
-def 还原配置文件(备份文件夹, 目标根目录):
+def 还原配置文件(备份文件夹: str, 目标根目录: str):
     已处理文件 = 0
     跳过文件 = 0
 
-    for root, dirs, files in os.walk(备份文件夹):
+    for root, _, files in os.walk(备份文件夹):
         for file in files:
             if file == 'config.ini':
                 备份路径 = os.path.join(root, file)

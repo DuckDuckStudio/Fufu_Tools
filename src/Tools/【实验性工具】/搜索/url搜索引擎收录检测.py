@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def check_indexed_in_search_engines(url):
+def check_indexed_in_search_engines(url: str):
     search_engines = ['baidu', 'bing', 'google', 'yahoo']
     
     for search_engine in search_engines:

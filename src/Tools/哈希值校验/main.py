@@ -1,7 +1,7 @@
-import hashlib
 import os
+import hashlib
 
-def calculate_hash(file_path, algorithms):
+def calculate_hash(file_path: str, algorithms: list[str]):
     if not os.path.exists(file_path):
         print("[ERROR]文件不存在。")
         return
@@ -9,7 +9,7 @@ def calculate_hash(file_path, algorithms):
     try:
         with open(file_path, "rb") as file:
             data = file.read()
-            hash_values = {}
+            hash_values: dict[str, str] = {}
             for algorithm in algorithms:
                 if algorithm == "md5":
                     hash_values["MD5"] = hashlib.md5(data).hexdigest()

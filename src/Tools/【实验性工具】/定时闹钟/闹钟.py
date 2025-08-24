@@ -4,10 +4,10 @@ import time
 from datetime import datetime, timedelta
 from pygame import mixer
 
-os.system("cls") #去除pygame的社区输出
+os.system("cls") # 去除 pygame 的社区输出
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
-def print_progress_bar(percentage):
+def print_progress_bar(percentage: float):
     """打印进度条"""
     bar_length = 50 # 进度条的长度
     block = int(round(bar_length * percentage))

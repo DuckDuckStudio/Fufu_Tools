@@ -6,6 +6,7 @@ NAME main
 AUTHOR Pfolg
 TIME 2025/6/14 16:57
 """
+
 import os
 import sys
 from pathlib import Path
@@ -25,7 +26,7 @@ from PySide6.QtWidgets import (
 )
 
 # 相关链接
-"https://github.com/Pfolg/PfolgBlog/blob/master/Passages/%E5%AF%B9%E6%AF%94%E6%96%87%E4%BB%B6%E6%B8%85%E7%90%86/main.md"
+# https://github.com/Pfolg/PfolgBlog/blob/master/Passages/%E5%AF%B9%E6%AF%94%E6%96%87%E4%BB%B6%E6%B8%85%E7%90%86/main.md
 
 
 def get_screen_info() -> tuple:

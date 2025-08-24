@@ -22,8 +22,8 @@ file_name = input("请输入你要查找文件的名称: ")
 
 result_file_path = os.path.join(os.getcwd(), '查找结果.txt')
 
-def find_files_by_name(folder_path, file_name):
-    files_found = []
+def find_files_by_name(folder_path: str, file_name: str):
+    files_found: list[str] = []
     total_files = sum(len(files) for _, _, files in os.walk(folder_path))
     files_processed = 0
 

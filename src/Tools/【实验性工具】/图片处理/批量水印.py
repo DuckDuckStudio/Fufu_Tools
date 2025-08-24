@@ -1,5 +1,6 @@
-from PIL import Image, ImageDraw, ImageFont
 import os
+from typing import Literal
+from PIL import Image, ImageDraw, ImageFont
 
 # 获取用户输入的水印文字和图片文件夹路径
 watermark_text = input("请输入水印文字：")
@@ -8,7 +9,7 @@ while True:
     
     if not image_folder:
         print("[WARN] 请输入图片文件夹路径")
-    elif os.path.exists(image_folder.strip('\"')):
+    elif os.path.exists(image_folder.strip("\"")):
         break
     else:
         print("[WARN] 无效路径")
@@ -18,7 +19,7 @@ while True:
 while True:
     text_ttf = input("请输入自定义字体文件完整路径: ")
     # 自动处理引号
-    text_ttf = text_ttf.strip('\"')
+    text_ttf = text_ttf.strip("\"")
     if os.path.exists(text_ttf):
         break
     # 检查文件路径是否存在
@@ -47,7 +48,7 @@ print("[INFO]水印配置：\n----------\n水印文字：",watermark_text,"\n图
 
 
 # 定义添加水印的函数
-def add_watermark(image_path, watermark_text, text_where, move_text):
+def add_watermark(image_path: str, watermark_text: str, text_where: Literal["[UL]左上"] | Literal["[UR]右上"] | Literal["[DL]左下"] | Literal["[DR]右下(默认)"], move_text: int):
     try:
         image = Image.open(image_path).convert("RGBA")
 

@@ -3,7 +3,7 @@ from tkinter import filedialog
 import re
 import os
 
-def remove_comments(file_path):
+def remove_comments(file_path: str):
     # 正则表达式匹配多行注释和单行注释
     multi_line_comment_pattern = re.compile(r'/\*[\s\S]*?\*/')
     single_line_comment_pattern = re.compile(r'//.*')
@@ -18,7 +18,7 @@ def remove_comments(file_path):
 
     return content
 
-def save_new_file(original_file_path, new_content):
+def save_new_file(original_file_path: str, new_content: str):
     # 构造新文件名
     base_name = os.path.basename(original_file_path)
     new_file_name = f"{os.path.splitext(base_name)[0]}-无注释{os.path.splitext(base_name)[1]}"

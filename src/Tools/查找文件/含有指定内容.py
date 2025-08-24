@@ -23,8 +23,8 @@ if not os.path.exists(folder_path):
 
 result_file_path = os.path.join(os.getcwd(), '查找结果.txt')
 
-def find_files_with_text(folder_path, search_text):
-    files_found = []
+def find_files_with_text(folder_path: str, search_text: str):
+    files_found: list[str] = []
     # 文件计数
     total_files = sum(len(files) for _, _, files in os.walk(folder_path))
     files_processed = 0

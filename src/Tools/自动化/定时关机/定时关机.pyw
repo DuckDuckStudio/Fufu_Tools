@@ -10,7 +10,7 @@ import tkinter as tk
 from tkinter import messagebox
 import subprocess
 
-def shutdown(t):
+def shutdown(t: int):
     # 检测值
     if t < 0:
         messagebox.showerror("错误", "你不可以输入一个负数")

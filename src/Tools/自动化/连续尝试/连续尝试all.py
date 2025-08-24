@@ -8,7 +8,7 @@ from colorama import init, Fore
 init(autoreset=True)
 # ------------
 
-def run_command(command): # 执行命令
+def run_command(command: str): # 执行命令
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     if result.returncode == 0:
         return "Successful"

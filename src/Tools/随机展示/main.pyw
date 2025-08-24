@@ -12,7 +12,7 @@ is_random_running = False
 # 获取脚本所在目录
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 
-def load_messages(filename):
+def load_messages(filename: str) -> list[str]:
     """从指定的文件中加载消息，忽略空行"""
     try:
         with open(filename, 'r', encoding='utf-8') as file:

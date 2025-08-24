@@ -8,7 +8,7 @@ config_file_path = os.path.join(script_dir, "config.ini")
 FRDC_file_path = os.path.join(script_dir, "fast_return_default_config.py")
 config = configparser.ConfigParser()
 config.read(config_file_path)
-always_open = config.getboolean('settings', 'always_open_more_info')
+always_open = config.getboolean("settings", "always_open_more_info")
 
 print("您的设备信息如下：")
 # 执行 systeminfo 命令并输出结果
@@ -25,11 +25,9 @@ if always_open:
 else:
     flag = True
 # 本应在ini文件中的注释：
-'''
-; always_open_more_info set
-; True -> always
-; False -> ask (default)
-'''
+# ; always_open_more_info set
+# ; True -> always
+# ; False -> ask (default)
 
 if flag:
     print("是否查看更详细的信息？")
@@ -44,7 +42,7 @@ if flag:
         print("设置中...")
         # 修改ini文件配置
         config["settings"]["always_open_more_info"] = "True"
-        with open(config_file_path, 'w') as configfile:
+        with open(config_file_path, "w") as configfile:
             config.write(configfile)
         print("设置完成！")
 

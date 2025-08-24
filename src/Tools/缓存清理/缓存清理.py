@@ -20,7 +20,7 @@ local_temp_path = f"C:\\Documents and Settings\\{username}\\Local Settings\\temp
 tmp_path = os.environ["TMP"]
 
 # 获取所有缓存文件路径
-file_paths = []
+file_paths: list[str] = []
 
 # -- Check --
 if ctr == "False":

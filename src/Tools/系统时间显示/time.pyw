@@ -77,7 +77,7 @@ def toggle_tools():
         # 绑定点击事件
         root.bind("<Button-1>", on_click_outside_tools, add='+')
 
-def on_click_outside_tools(event):
+def on_click_outside_tools(event: tk.Event):
     # 如果点击的是“工具”按钮本身，则不关闭
     if event.widget == tools_button:
         return
@@ -112,7 +112,7 @@ themes = {
 }
 current_theme = "light"
 
-def apply_theme(theme_name):
+def apply_theme(theme_name: str):
     theme = themes[theme_name]
     root.config(bg=theme["bg"])
     main_frame.config(bg=theme["bg"])

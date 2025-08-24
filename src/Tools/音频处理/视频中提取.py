@@ -1,7 +1,7 @@
 from moviepy import VideoFileClip
 import os
 
-def extract_audio(video_path, audio_path):
+def extract_audio(video_path: str, audio_path: str):
     try:
         # 检查视频文件是否存在
         if not os.path.exists(video_path):

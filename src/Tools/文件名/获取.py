@@ -9,14 +9,14 @@ init(autoreset=True)
 output_file = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), '获取结果.txt')
 config_file = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), 'config.ini')
 
-def get_relative_path(file, base_folder):
+def get_relative_path(file: str, base_folder: str):
     # 获取文件相对于基础文件夹的相对路径
     return os.path.relpath(file, base_folder)
 
-def list_files(directory, ignored_formats, specified_formats, ignored_folders):
+def list_files(directory: str, ignored_formats: list[str], specified_formats: list[str], ignored_folders: list[str]):
     # 列出指定目录下的所有文件，并忽略指定格式的文件和文件夹
-    file_list = []
-    ignored_folders_list = []
+    file_list: list[str] = []
+    ignored_folders_list: list[str] = []
     for root, dirs, files in os.walk(directory):
         # 过滤忽略的文件夹
         for ignored_folder in ignored_folders:
@@ -46,7 +46,7 @@ def list_files(directory, ignored_formats, specified_formats, ignored_folders):
         print(Fore.BLUE + f"[INFO] 文件夹 {get_relative_path(ignored_folder, directory)} 被配置文件忽略。")
     return file_list
 
-def write_to_txt(file_list, output_file, base_folder):
+def write_to_txt(file_list: list[str], output_file: str, base_folder: str):
     # 将文件列表写入到指定的txt文件中
     with open(output_file, 'w') as f:
         for file in file_list:
