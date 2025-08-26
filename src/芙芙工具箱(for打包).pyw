@@ -220,8 +220,7 @@ categories = {
         "批量水印添加": ".\\Tools\\【实验性工具】\\图片处理\\批量水印.exe",
         "[Warn]批量水印添加": ".\\Tools\\【实验性工具】\\图片处理\\Warn.txt",
         "定时闹钟": ".\\Tools\\【实验性工具】\\定时闹钟\\闹钟.exe",
-        "定时闹钟自定义铃声文件夹": ".\\Tools\\【实验性工具】\\定时闹钟\\铃声文件\\",  # Wran
-        "搜索引擎索引检测": ".\\Tools\\【实验性工具】\\搜索\\url搜索引擎收录检测.exe",
+        "定时闹钟自定义铃声文件夹": ".\\Tools\\【实验性工具】\\定时闹钟\\铃声文件\\", # Wran
         "在线工具": "https://duckduckstudio.github.io/yazicbs.github.io/Tools/Fufu_Tools/online_tools/index.html",
     },
     "关于芙芙工具箱": {
