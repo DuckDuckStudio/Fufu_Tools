@@ -13,7 +13,7 @@ def main():
     else:
         print("输入有误，程序已退出。")
 
+    input("按Enter键继续...")
+
 if __name__ == "__main__":
     main()
-
-input("按Enter键继续...")
