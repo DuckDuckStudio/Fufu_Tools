@@ -29,27 +29,22 @@ from PySide6.QtWidgets import (
 # https://github.com/Pfolg/PfolgBlog/blob/master/Passages/%E5%AF%B9%E6%AF%94%E6%96%87%E4%BB%B6%E6%B8%85%E7%90%86/main.md
 
 
-def get_screen_info() -> tuple:
+def get_screen_info() -> tuple[int, int]:
     """读取屏幕长宽，用于窗口定位"""
     # 获取现有的 QApplication 实例
     _app = QApplication.instance()
     if _app is not None:
         # 获取显示器数据
-        screen = _app.primaryScreen().geometry()
+        geometry = QApplication.primaryScreen().geometry()
         # 返回长宽
-        return screen.width(), screen.height()
+        return geometry.width(), geometry.height()
     else:
         return 800, 600
 
 
-def get_out_repeat_element(a: list) -> list:
-    """去重"""
-    return list(set(a))
-
-
-def read_folders_files(data: list):
+def read_folders_files(data: list[str]):
     """读取文件夹内的所有文件，不包含子目录中的文件"""
-    all_files = []
+    all_files: list[Path] = []
     for i in data:
         current_dir = Path(i)
         if Path.exists(current_dir):
@@ -70,11 +65,11 @@ class Window(QWidget):
         # 加载UI到类
         QUiLoader().load(ui_path, self)
         # 缓存文件夹
-        self.folders = []
+        self.folders: list[str] = []
         # 缓存文本/代码文件
-        self.files = []
+        self.files: list[str] = []
         # 缓存将删除的文件
-        self.delete_files = []
+        self.delete_files: list[str] = []
         # 子线程
         self.timer = QTimer()
 
@@ -175,7 +170,7 @@ class Window(QWidget):
             target_names = {file.name for file in all_files}
 
             # 检查哪些文件名出现在内容中
-            matched_names = set()
+            matched_names: set[str] = set()
             for name in target_names:
                 if name in all_content:  # 在合并内容中查找
                     matched_names.add(name)
@@ -287,7 +282,7 @@ class Window(QWidget):
             # 将数据加载到类变量
             self.folders += a
             # 去重
-            self.folders = get_out_repeat_element(self.folders)
+            self.folders = list(set(self.folders))
             self.update_listView()
 
     def select_files(self):
@@ -300,7 +295,7 @@ class Window(QWidget):
             print(a)
             # 将数据加载到类变量
             self.files += a
-            self.files = get_out_repeat_element(self.files)
+            self.files = list(set(self.files))
             self.update_listView()
 
     def init(self):
