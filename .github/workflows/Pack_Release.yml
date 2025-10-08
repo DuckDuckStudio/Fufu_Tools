@@ -218,7 +218,7 @@ jobs:
 
       - name: 发布至发行版
         if: ${{ github.event_name == 'release' }}
-        uses: softprops/action-gh-release@v2.3.4
+        uses: softprops/action-gh-release@v2.4.0
         with:
           files: |-
             Release/Fufu_Tools.v${{ env.VERSION }}.zip
