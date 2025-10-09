@@ -163,8 +163,12 @@ class Window(QWidget):
             all_content = ""
             for file_path in self.files:
                 if Path(file_path).exists():
-                    with open(file_path, "r", encoding="utf-8") as f:
-                        all_content += f.read()  # 合并所有文件内容
+                    try:
+                        with open(file_path, "r", encoding="utf-8") as f:
+                            all_content += f.read()  # 合并所有文件内容
+                    except UnicodeDecodeError:
+                        QMessageBox.critical(self, "错误", f"无法读取文件: {file_path}\n请确保该文件是文本文件且使用 UTF-8 编码。")
+                        return
 
             # 收集所有需要匹配的文件名（使用集合去重）
             target_names = {file.name for file in all_files}
