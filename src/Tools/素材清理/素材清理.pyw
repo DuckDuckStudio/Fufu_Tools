@@ -1,11 +1,9 @@
-# -*- coding: UTF-8 -*-
-"""
-PROJECT_NAME Python_projects
-PRODUCT_NAME PyCharm
-NAME main
-AUTHOR Pfolg
-TIME 2025/6/14 16:57
-"""
+# PROJECT_NAME Python_projects
+# PRODUCT_NAME PyCharm
+# NAME main
+# AUTHOR Pfolg
+# TIME 2025/6/14 16:57
+# 重命名自 文件对比清理
 
 import os
 import sys
@@ -27,7 +25,8 @@ from PySide6.QtWidgets import (
 
 # 相关链接
 # https://github.com/Pfolg/PfolgBlog/blob/master/Passages/%E5%AF%B9%E6%AF%94%E6%96%87%E4%BB%B6%E6%B8%85%E7%90%86/main.md
-
+# 注: 该 GitHub 账户似乎已被删除，不清楚为什么。
+# 这个工具的作者的哔哩哔哩主页: https://space.bilibili.com/515553532
 
 def get_screen_info() -> tuple[int, int]:
     """读取屏幕长宽，用于窗口定位"""
@@ -158,7 +157,6 @@ class Window(QWidget):
             self.delete_files.clear()
             # 读取被引用文件列表
             all_files: list[Path] = read_folders_files(self.folders)
-            # ------- by DeepSeek
             # 存储所有输入文件的内容
             all_content = ""
             for file_path in self.files:
@@ -307,7 +305,7 @@ class Window(QWidget):
         w, h = get_screen_info()
         self.setGeometry(int((w - 800) / 2), int((h - 600) / 2), 800, 600)
         self.setMaximumSize(800, 600)
-        self.setWindowTitle("对比清理")
+        self.setWindowTitle("素材清理")
         self.listView1.setModel(self.model1)
         self.listView2.setModel(self.model2)
         self.listView3.setModel(self.model3)
