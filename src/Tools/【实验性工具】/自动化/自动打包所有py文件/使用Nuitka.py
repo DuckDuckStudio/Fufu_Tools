@@ -7,7 +7,6 @@ from plyer import notification
 from colorama import init, Fore
 
 init(autoreset=True)
-os.chdir(os.path.dirname(os.path.abspath(sys.argv[0]))) # 避免意外的位置
 
 # Using python -m nuitka to run Nuitka
 print(f"{Fore.BLUE}[!]{Fore.RESET} 将使用 {Fore.BLUE}Nuitka{Fore.RESET} 打包。")
@@ -18,6 +17,8 @@ config_file_path = os.path.join(script_dir, "config.ini")
 config = configparser.ConfigParser()
 config.read(config_file_path)
 compile = config.get('Compile', 'Compile_C')
+
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0]))) # 避免意外的位置
 
 # 计数
 fail = 0 # 失败的文件个数
