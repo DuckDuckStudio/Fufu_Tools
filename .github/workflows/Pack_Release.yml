@@ -170,7 +170,7 @@ jobs:
 
       - name: 上传构建文件 - 打包版 zip 归档
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Fufu_Tools.v${{ env.VERSION }}.zip
           path: Release/Fufu_Tools.v${{ env.VERSION }}.zip
@@ -178,7 +178,7 @@ jobs:
 
       - name: 上传构建文件 - 打包版 7z 归档
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Fufu_Tools.v${{ env.VERSION }}.7z
           path: Release/Fufu_Tools.v${{ env.VERSION }}.7z
@@ -186,7 +186,7 @@ jobs:
 
       - name: 上传构建文件 - 源码 zip 归档
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Fufu_Tools.v${{ env.VERSION }}-lite.zip
           path: Release/Fufu_Tools.v${{ env.VERSION }}-lite.zip
@@ -194,7 +194,7 @@ jobs:
 
       - name: 上传构建文件 - 源码 7z 归档
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Fufu_Tools.v${{ env.VERSION }}-lite.7z
           path: Release/Fufu_Tools.v${{ env.VERSION }}-lite.7z
@@ -202,7 +202,7 @@ jobs:
 
       - name: 上传构建文件 - 安装程序
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Fufu_Tools_Setup.v${{ env.VERSION }}.exe
           path: Release/Fufu_Tools_Setup.v${{ env.VERSION }}.exe
@@ -210,7 +210,7 @@ jobs:
 
       - name: 上传构建文件 - 打包版 7z 极限压缩归档
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Fufu_Tools.v${{ env.VERSION }}-Extreme_compression.7z
           path: Release/Fufu_Tools.v${{ env.VERSION }}-Extreme_compression.7z
@@ -229,7 +229,7 @@ jobs:
             Release/Fufu_Tools.v${{ env.VERSION }}-Extreme_compression.7z
 
       - name: 上传日志文件
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: packaging.log
           path: Release/logs/pack-exe/packaging.log
